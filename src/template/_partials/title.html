@@ -1,0 +1,18 @@
+<header>
+
+  ${ tacs.fn.nav.breadcrumb( data.link ) }
+
+  <h1>${ data.title }</h1>
+
+  ${ data.author && `<p class="author">By ${ data.author }</p>` }
+
+  ${ data.date && `<p class="pubdate"><time datetime="${ tacs.fn.format.dateISO( data.date ) }">${ tacs.fn.format.dateHuman( data.date ) }</time></p>` }
+
+  ${ data?.wordCount >= tacs.config.wordCountShow ?
+    `<p class="wordcount">${ tacs.fn.format.numberRound( data.wordCount ) } words, ${ tacs.fn.format.numberRound( Math.ceil( data.wordCount / 200 ) ) }-minute read</p>` :
+    ''
+  }
+
+  ${ include('_partials/pagetags.html') }
+
+</header>

@@ -1,0 +1,37 @@
+table {
+	font-size: 1em;
+	font-variant-numeric: tabular-nums;
+	table-layout: auto;
+	border-spacing: 0;
+	border-collapse: collapse;
+	empty-cells: show;
+  margin-block: 1em 1.5em;
+}
+
+th, td {
+  text-align: left;
+	vertical-align: top;
+  padding-block: 0.4em;
+  padding-inline: 0.6em;
+  margin: 0;
+  border: 0 none;
+
+  a:only-child {
+    display: block;
+  }
+
+  &.center { text-align: center; }
+  &.right { text-align: right; }
+}
+
+thead {
+  background-color: var(--color-back3);
+}
+
+th {
+  font-weight: var(--font-weight-bold);
+}
+
+tbody > :nth-child(even) {
+  background-color: var(--color-dark);
+}

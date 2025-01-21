@@ -1,0 +1,10 @@
+${ data.menu === 'Recipes' ? `
+  <nav class="pagelist">
+    ${
+      tacs.dir.get('docs')
+        .filter(p => p.slug.includes('/recipe/') && p.menu !== 'Recipes')
+        .map(p => tacs.fn.format.articleLink(p, 'h2') )
+        .join('')
+    }
+  </nav>
+` : ''}

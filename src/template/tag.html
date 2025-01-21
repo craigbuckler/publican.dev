@@ -1,0 +1,18 @@
+${ include('_partials/htmlhead.html') }
+${ include('_partials/header.html') }
+
+<main>
+
+  ${ data?.pagination &&
+    `<h1>${ tacs.fn.format.number( data.childPageTotal ) } "${ data.title }" post${ data.childPageTotal === 1 ? '' : 's' }${ data.pagination.pageTotal > 1 ? `, page ${ tacs.fn.format.number( data.pagination.pageCurrent1 ) } of ${ tacs.fn.format.number( data.pagination.pageTotal ) }` : ''}</h1>`
+  }
+
+  ${ include('_partials/list.html') }
+
+  <h2>All post tags</h2>
+
+  ${ tacs.fn.nav.tagList() }
+
+</main>
+
+${ include('_partials/htmlfoot.html') }

@@ -1,0 +1,99 @@
+/* main header menu */
+.menu {
+
+  position: relative;
+
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  ul, li {
+    list-style-type: none;
+  }
+
+  li {
+    margin-inline: min(1em, 1vw);
+    white-space: nowrap;
+  }
+
+  > ul {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+  }
+
+  details ul {
+    position: absolute;
+    top: 99%;
+    background-color: var(--color-back2);
+    border-block-end: 4px solid var(--color-back2);
+    box-shadow: 0 3px 3px var(--color-shadow);
+
+    li {
+      margin: 0;
+    }
+
+    summary, a, strong {
+      line-height: 2;
+      padding-inline-end: 1.5rem;
+    }
+
+    & > li > :is(a, strong) {
+      padding-inline-start: 1.5rem;
+    }
+
+    summary {
+      display: block;
+
+      &, & > a {
+        padding-inline-start: 0;
+      }
+    }
+  }
+
+  details ul ul {
+    position: relative;
+    top: auto;
+    box-shadow: none;
+
+    summary, a, strong {
+      line-height: 1.2;
+      padding-inline: 3rem 1.2rem;
+    }
+  }
+
+  details[name]::details-content {
+    transition: none;
+  }
+
+  summary::marker {
+    content: '';
+  }
+
+  summary::before {
+    display: inline-block;
+    width: 1.8rem;
+    font-size: 0.7em;
+    text-align: center;
+    line-height: 1;
+    vertical-align: 0.2em;
+    content: '\25b6';
+    transform: rotate(0deg);
+    transition: transform 0.2s ease-out;
+  }
+
+  details[open] > summary::before {
+    transform: rotate(90deg);
+  }
+
+  summary, a, strong {
+    display: inline-block;
+    line-height: var(--header-height);
+  }
+
+  strong {
+    color: var(--color-fore2);
+  }
+
+}

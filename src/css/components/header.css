@@ -1,0 +1,93 @@
+body > header {
+
+  position: relative;
+  width: 100%;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding-block: 0;
+  padding-inline: var(--layout-margin);
+  background-color: var(--color-back2);
+  z-index: 10;
+
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  a:link, a:visited {
+    text-decoration: none;
+    color: var(--color-fore2);
+  }
+
+  a:hover, a:active, a:focus {
+    color: var(--color-hint1);
+  }
+
+  .iconlinks {
+    display: none;
+
+    @media (width > 600px) {
+      display: flex;
+    }
+  }
+
+}
+
+#logo {
+
+  width: 1.5em;
+  align-content: center;
+
+  svg {
+    width: 100%;
+    height: auto;
+    fill: var(--color-fore3);
+  }
+
+}
+
+#logop { display: block; }
+#logof { display: none; }
+
+@media (width > 500px) {
+  #logo { width: clamp(5em, 14vw, 10em); }
+  #logop { display: none; }
+  #logof { display: block; }
+}
+
+#themeswitcher {
+  height: auto;
+  align-self: center;
+  padding-inline: 1.2em 0.3em;
+  border: 0 none;
+  color: var(--color-fore1);
+  background: 0 70% no-repeat url(../../media/icons/monitor.svg) var(--color-back2);
+  background-size: 1em;
+
+  &:has(option[value="light"]:checked) {
+    background-image: url(../../media/icons/sun.svg);
+  }
+
+  &:has(option[value="dark"]:checked) {
+    background-image: url(../../media/icons/moon.svg);
+  }
+}
+
+@media (height > 600px) {
+
+  body > header {
+    position: fixed;
+    top: 0;
+  }
+
+  main {
+    padding-top: var(--header-fix-height);
+  }
+
+  h1, h2, h3 {
+    scroll-margin-top: var(--header-fix-height);
+  }
+
+}

@@ -1,0 +1,75 @@
+/* <nav-heading> web component */
+.pagecontents {
+
+  display: block;
+  margin-block: 1em;
+
+  summary {
+
+    font-weight: var(--font-weight-bold);
+    line-height: 1.5;
+    color: var(--color-fore2);
+
+    &::marker {
+      content: '';
+    }
+
+    &::before {
+      display: inline-block;
+      font-size: 0.8em;
+      text-align: center;
+      vertical-align: baseline;
+      content: '\25bc';
+      width: 1.5rem;
+      color: var(--color-hint1);
+      transform: rotate(0deg);
+      transition: transform 0.3s ease-out;
+    }
+
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+    padding-block: 0.2em;
+  }
+
+  details[open] summary::before {
+    transform: rotate(-540deg);
+  }
+
+  @media (width > 1500px) and (height > 600px) {
+
+    position: fixed;
+    top: var(--header-height);
+    bottom: 0;
+    left: calc((100% - var(--main-width)) / 2 + var(--main-width) + var(--layout-margin));
+    right: var(--layout-margin);
+    width: auto;
+    margin-block: 0;
+    overflow: scroll;
+    border-left: 1px solid var(--color-back2);
+
+    & > details {
+      margin-block: var(--layout-margin);
+      margin-inline: var(--layout-margin);
+    }
+
+  }
+
+}
+
+.contents {
+  font-size: var(--fsize--1);
+
+  ol, li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  ol {
+    margin-inline-start: 1.5rem;
+  }
+
+}

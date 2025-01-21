@@ -1,0 +1,28 @@
+${ include('_partials/htmlhead.html') }
+${ include('_partials/header.html') }
+
+<main>
+
+  ${ include('_partials/title.html') }
+
+  ${ data.directory === 'docs' ? `<nav class="menudir">${ tacs.fn.nav.menuDir( data.link, 'docs' ) }</nav>` : '' }
+
+  <nav-heading title="Contents" class="pagecontents"></nav-heading>
+
+  ${ include('_partials/hero.html') }
+
+  ${ data.content }
+
+  ${ include('_partials/schema.html') }
+
+  ${ include('_partials/recipes.html') }
+
+</main>
+
+${ include('_partials/share.html') }
+
+${ include('_partials/backnext.html') }
+
+${ include('_partials/related.html') }
+
+${ include('_partials/htmlfoot.html') }

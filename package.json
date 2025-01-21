@@ -1,0 +1,32 @@
+{
+  "name": "publican.dev",
+  "version": "0.0.1",
+  "description": "Publican website and documentation",
+  "keywords": [
+    "publican",
+    "static",
+    "site",
+    "generator",
+    "ssg"
+  ],
+  "homepage": "https://github.com/craigbuckler/publican.dev#readme",
+  "bugs": {
+    "url": "https://github.com/craigbuckler/publican.dev/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/craigbuckler/publican.dev.git"
+  },
+  "license": "MIT",
+  "author": "Craig Buckler",
+  "type": "module",
+  "main": "publican.config.js",
+  "scripts": {
+    "build": "node --no-warnings --env-file=.env.dev --env-file=.env.prod ./publican.config.js",
+    "start": "node --no-warnings --env-file=.env.dev ./publican.config.js"
+  },
+  "dependencies": {
+    "esbuild": "^0.24.2",
+    "publican": "^0.4.0"
+  }
+}

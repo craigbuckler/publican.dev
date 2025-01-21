@@ -1,0 +1,19 @@
+${ include('_partials/htmlhead.html') }
+${ include('_partials/header.html') }
+
+<main>
+
+  <header>
+    ${ tacs.fn.nav.breadcrumb( data.link ) }
+    <h1>${ data.title }</h1>
+  </header>
+
+  ${ data.content }
+
+  ${ include('_partials/schema.html') }
+
+</main>
+
+${ include('_partials/backnext.html') }
+
+${ include('_partials/htmlfoot.html') }

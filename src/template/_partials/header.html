@@ -1,0 +1,26 @@
+<header>
+
+  <p id="logo"><a href="${ tacs.root }" title="Publican Static Site Generator">
+    <svg id="logop" width="116" height="143"><use xlink:href="#svg-logop"></use></svg>
+    <svg id="logof" width="786" height="151"><use xlink:href="#svg-logo"></use></svg>
+  </a></p>
+
+  <nav class="menu">
+  ${ tacs.fn.nav.menuMain( data.link ) }
+  </nav>
+
+  <ul class="iconlinks">
+    <li><a href="https://www.npmjs.com/package/publican"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 512 512"><path d="M256 270h-28 28-28v-57h28v57Zm256-114v171-171 171H256v29H142v-29H0V156h512Zm-370 29H28h114H28v114h57v-86h29v86h28V185Zm142 0H171h113-113v142h57v-28h56V185Zm200 0H313h171-171v114h57v-86h28v86h29v-86h28v86h29V185Z"/></svg></a></li>
+
+    <li><a href="https://github.com/craigbuckler/publican"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M256 32A227 227 0 0032 262c0 101 64 187 153 218a18 18 0 004 0c8 0 12-6 12-11l-1-39a102 102 0 01-22 2c-44 0-53-33-53-33-11-27-25-34-25-34-20-14 0-14 1-14 23 2 35 24 35 24 11 19 26 25 39 25a63 63 0 0026-6c2-15 8-25 14-31-50-6-102-25-102-113 0-25 9-46 23-62-2-6-10-29 2-61a19 19 0 015 0c8 0 27 3 57 24a208 208 0 01112 0c30-21 48-24 57-24a19 19 0 015 0c12 32 4 55 2 61 14 16 23 37 23 62 0 88-53 107-103 113 8 7 16 21 16 43l-1 63c0 5 3 11 12 11a19 19 0 004 0c89-31 153-117 153-218 0-127-100-230-224-230z"></path></svg></a></li>
+
+    <li><a href="${ tacs.root }feed.xml"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M14.92 18H18C18 9.32 10.82 2.25 2 2.25v3.02c7.12 0 12.92 5.71 12.92 12.73zm-5.44 0h3.08A10.5 10.5 0 0 0 2 7.6v3.02c2 0 3.87.77 5.29 2.16A7.3 7.3 0 0 1 9.48 18zm-5.35-.02c1.17 0 2.13-.93 2.13-2.09 0-1.15-.96-2.09-2.13-2.09-1.18 0-2.13.94-2.13 2.09a2.1 2.1 0 0 0 2.13 2.09z"/></svg></a></li>
+  </ul>
+
+  <select id="themeswitcher">
+    <option value="">auto</option>
+    <option value="light">light</option>
+    <option value="dark">dark</option>
+  </select>
+
+</header>

@@ -1,0 +1,53 @@
+/* lists of pages */
+nav.pagelist {
+
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat( auto-fit, minmax(var(--layout-list-width), 1fr));
+  gap: var(--layout-margin);
+  margin-block: var(--layout-margin);
+
+  a:link, a:visited {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    padding: calc(var(--layout-margin) /  2);
+    color: var(--color-fore1);
+    background-color: var(--color-back1);
+    border: 1px solid var(--color-back2);
+    border-radius: var(--border-radius1);
+    box-shadow: 0 1px 3px var(--color-shadow);
+  }
+
+  a:hover, a:active, a:focus {
+    background-color: var(--color-back3);
+    border-color: var(--color-hint1);
+  }
+
+  h2, h3, h4, h5, h6 {
+    font-size: var(--fsize-1);
+    margin: 0;
+  }
+
+  p {
+    font-size: var(--fsize--1);
+    padding-block-end: 1em;
+    margin-block: 0.5em 1em;
+    border-bottom: 1px dotted var(--color-back2);
+  }
+
+  p.pubdate, p.wordcount {
+    font-size: var(--fsize--2);
+    text-align: right;
+    padding: 0;
+    margin: 0;
+    border: 0 none;
+  }
+
+}
+
+@media (width > 900px) {
+  nav.pagelist:has(> :nth-child(4)) a {
+    min-height: 12em;
+  }
+}

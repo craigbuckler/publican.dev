@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="${ tacs.config.language }">
+<head>
+<meta charset="UTF-8">
+<title>${ data.title || tacs.config.title }</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,interactive-widget=overlays-content">
+
+<!-- assets -->
+<link rel="stylesheet" href="${ tacs.root }css/main.css">
+<script type="module" src="${ tacs.root }js/main.js"></script>
+<script>document.documentElement.dataset.theme=localStorage.getItem('theme')||''</script>
+
+<!-- meta -->
+<meta name=description content="${ data.description || tacs.config.description }">
+<meta name="author" content="${ data.author || tacs.config.author }">
+
+<!-- feeds -->
+<meta name="robots" content="${ tacs.config.isDev ? 'noindex,nofollow' : 'index,follow' }">
+<link rel="sitemap" type="application/xml" href="${ tacs.config.domain }${ tacs.root }sitemap.xml">
+<link rel="alternate" type="application/rss+xml" title="${ tacs.config.title }" href="${ tacs.config.domain }${ tacs.root }feed.xml">
+<link rel="alternate" type="application/atom+xml" title="${ tacs.config.title }" href="${ tacs.config.domain }${ tacs.root }feed.xml">
+
+<!-- application -->
+<meta name="application-name" content="${ tacs.config.title }">
+<meta name="theme-color" content="${ tacs.config.themeColor }">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-title" content="${ tacs.config.title }">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+<!-- theme -->
+<link rel="apple-touch-icon" sizes="180x180" href="${ tacs.root }favicon180.png">
+<link rel="icon" type="image/svg+xml" href="${ tacs.root }favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="${ tacs.root }favicon032.png">
+<link rel="icon" type="image/png" sizes="16x16" href="${ tacs.root }favicon016.png">
+<link rel="manifest" href="${ tacs.root }site.webmanifest">
+
+<!-- CSP -->
+<meta http-equiv="Content-Security-Policy" content="
+default-src 'none';
+img-src 'self' data:;
+font-src 'none';
+style-src 'self';
+script-src 'self' 'sha256-ZOX448l7rXKv9iyuV8zV2PRNOWPsjZ7tkddjiBxmzqw=';
+connect-src 'self';
+manifest-src 'none';
+frame-src 'none';
+">
+
+<!-- social media -->
+<meta property="og:site_name" content="${ data.title || tacs.config.title }">
+<meta property="og:url" content="${ tacs.config.domain }${ data.link }">
+<meta property="og:title" content="${ data.title || tacs.config.title }">
+<meta property="og:description" content="${ data.description || tacs.config.description }">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="${ tacs.config.language }">
+<meta property="og:image" content="">
+
+<meta property="twitter:card" content="summary">
+<meta property="twitter:site" content="@craigbuckler">
+<meta property="twitter:creator" content="@craigbuckler">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="${ data.title || tacs.config.title }">
+<meta property="twitter:description" content="${ data.description || tacs.config.description }">
+<meta property="twitter:image" content="">
+
+</head>
+<body>

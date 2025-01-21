@@ -1,0 +1,27 @@
+---
+title: Publican licence and terms
+menu: Licence
+description: Licence for using and distributing this code and other assets.
+date: 2024-12-10
+priority: 0.5
+tags: SSG
+---
+
+The Publican code and associated templates can be used, adapted, and distributed as you wish without restriction.
+
+I only ask you consider:
+
+1. Acknowledging and promoting your use of [Publican](https://www.npmjs.com/package/publican).
+1. Contributing your own ideas, assets, code, fixes, etc. [to the Publican community](https://github.com/craigbuckler/publican).
+1. [Funding the project](https://github.com/sponsors/craigbuckler) if you use Publican in a professional or commercial capacity.
+
+
+## MIT License
+
+Copyright --COPYRIGHT-- ${ tacs.config.title }
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

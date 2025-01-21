@@ -1,0 +1,14 @@
+<aside class="pinned">
+
+  <h2>Latest news</h2>
+
+  <nav class="pagelist">
+    ${
+      tacs.dir.get('news')
+        .filter(p => p.pinned)
+        .sort((a, b) => b.pinned - a.pinned)
+        .map(p => tacs.fn.format.articleLink(p, 'h3') )
+    }
+    </nav>
+
+</aside>
