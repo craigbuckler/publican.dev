@@ -19,7 +19,6 @@
   --header-height: 4rem;
   --layout-width: 55rem;
   --layout-margin: min(3vw, 3rem);
-  --layout-sidebar: 12em;
   --layout-list: 3;
   --layout-list-width: calc( (var(--layout-width) - var(--layout-margin) * var(--layout-list)) / var(--layout-list) );
   --main-width: min(var(--layout-width), 100% - (2 * var(--layout-margin)));

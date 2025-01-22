@@ -1,7 +1,9 @@
 @import url('./core/reset.css') layer(reset);
 @import url('./core/variables.css');
 @import url('./core/elements.css');
+@import url('./core/details.css');
 @import url('./core/tables.css');
+@import url('./core/utility.css');
 
 @import url('./components/header.css');
 @import url('./components/iconlinks.css');

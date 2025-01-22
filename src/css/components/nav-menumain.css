@@ -3,97 +3,62 @@
 
   position: relative;
 
-  * {
-    padding: 0;
-    margin: 0;
-  }
-
-  ul, li {
-    list-style-type: none;
-  }
-
   li {
-    margin-inline: min(1em, 1vw);
-    white-space: nowrap;
+    text-wrap: nowrap;
   }
 
   > ul {
+    block-size: 100%;
     display: flex;
-    justify-content: flex-end;
-    align-content: center;
+
+    > li {
+      block-size: 100%;
+      align-content: center;
+      margin-inline-end: 0.5rem;
+    }
   }
 
   details ul {
     position: absolute;
+    max-block-size: calc(100vh - var(--header-height) - var(--layout-margin));
     inset-block-start: 99%;
+    padding-block-end: 0.5rem;
     background-color: var(--color-back2);
     border-block-end: 4px solid var(--color-back2);
     box-shadow: 0 3px 3px var(--color-shadow);
-
-    li {
-      margin: 0;
-    }
-
-    summary, a, strong {
-      line-height: 2;
-      padding-inline-end: 1.5rem;
-    }
-
-    & > li > :is(a, strong) {
-      padding-inline-start: 1.5rem;
-    }
-
-    summary {
-      display: block;
-
-      &, & > a {
-        padding-inline-start: 0;
-      }
-    }
+    overflow-y: auto;
+    overscroll-behavior: none;
   }
 
   details ul ul {
     position: relative;
+    max-block-size: auto;
     inset-block-start: auto;
     box-shadow: none;
-
-    summary, a, strong {
-      line-height: 1.2;
-      padding-inline: 3rem 1.2rem;
-    }
   }
 
   details[name]::details-content {
     transition: none;
   }
 
-  summary::marker {
-    content: '';
-  }
-
-  summary::before {
-    display: inline-block;
-    inline-size: 1.8rem;
-    font-size: 0.7em;
-    text-align: center;
-    line-height: 1;
-    vertical-align: 0.2em;
-    content: '\25b6';
-    transform: rotate(0deg);
-    transition: transform 0.2s ease-out;
+  details:not([open]) > summary::before {
+    transform: rotate(-90deg);
   }
 
   details[open] > summary::before {
-    transform: rotate(90deg);
+    transform: rotate(0deg);
   }
 
-  summary, a, strong {
-    display: inline-block;
-    line-height: var(--header-height);
+  a, strong {
+    padding-inline-end: 1.5rem;
   }
 
   strong {
-    color: var(--color-fore2);
+    color: var(--color-hint1);
+  }
+
+  li > a {
+    display: block;
   }
 
 }

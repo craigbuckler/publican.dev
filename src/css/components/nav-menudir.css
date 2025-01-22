@@ -2,66 +2,10 @@
 .menudir {
 
   display: none;
+  font-size: var(--fsize--1);
 
   details {
-    margin-block-end: 1em;
-  }
-
-  ul {
-    list-style-type: none;
-    margin: 0;
-    margin-inline-start: 1.5rem;
-  }
-
-  li {
-    padding: 0;
-    margin: 0;
-  }
-
-  a, strong {
-    display: block;
-    font-size: var(--fsize--1);
-    text-decoration: none;
-  }
-
-  summary {
-
-    font-weight: var(--font-weight-bold);
-    line-height: 1.5;
-    color: var(--color-fore2);
-
-    ul ul & {
-      margin-block-start: 1em;
-    }
-
-    &::marker {
-      content: '';
-    }
-
-    &::before {
-      display: inline-block;
-      font-size: 0.8em;
-      text-align: center;
-      vertical-align: baseline;
-      content: '\25bc';
-      inline-size: 1.5rem;
-      color: var(--color-hint1);
-      transition: transform 0.3s ease-out;
-    }
-
-    & > a, & > strong {
-      display: inline-block;
-      font-size: var(--fsize-0);
-    }
-
-  }
-
-  details:not([open]) > summary::before {
-    transform: rotate(0deg);
-  }
-
-  details[open] > summary::before {
-    transform: rotate(-540deg);
+    margin-block-end: 0.5em;
   }
 
   @media (width > 1500px) and (height > 600px) {
@@ -77,8 +21,8 @@
     border-block-start: 1px solid var(--color-back1);
 
     & > ul {
-      float: right;
-      inline-size: min(var(--layout-sidebar), 100%);
+      float: inline-end;
+      inline-size: min(20rem, 100%);
       margin-block: var(--layout-margin);
     }
 

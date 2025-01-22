@@ -3,13 +3,83 @@ ${ include('_partials/header.html') }
 
 <main>
 
+  <p><svg class="logolarge" width="786" height="151" alt="Publican"><use xlink:href="#svg-logo"></use></svg></p>
+  <p class="sub center m0">a simpler HTML first static site generator for Node.js</p>
+
+  <p><a href="--ROOT--docs/quickstart/concepts/" class="button">Get started</a></p>
+
   ${ data.content }
+
+  <nav class="pagelist">
+
+    <article>
+      <a href="--ROOT--docs/quickstart/concepts/">
+        <h2>Server rendered</h2>
+        <p>HTML first &ndash; Publican creates fast, secure static sites with no JavaScript unless you want it.</p>
+      </a>
+    </article>
+
+    <article>
+      <a href="--ROOT--docs/quickstart/configure/">
+        <h2>Easy to start</h2>
+        <p>ECMAScript all the way &ndash; create a static site with a three-line configuration file.</p>
+      </a>
+    </article>
+
+    <article>
+      <a href="--ROOT--docs/setup/jstacs/">
+        <h2>Simple templates</h2>
+        <p>No special syntax to learn &ndash; Publican uses JavaScript template literal <code>$&#123; expressions &#125;</code>.</p>
+      </a>
+    </article>
+
+    <article>
+      <a href="--ROOT--docs/setup/jstacs/#runtime-expressions">
+        <h2>Runtime render</h2>
+        <p>Use <code>!&#123; expressions &#125;</code> to create islands of dynamic values to be rendered at runtime.</p>
+      </a>
+    </article>
+
+    <article>
+      <a href="--ROOT--docs/setup/navigation/">
+        <h2>Navigation</h2>
+        <p>Use built-in navigation objects to create menus, sidebars, breadcrumbs, and more.</p>
+      </a>
+    </article>
+
+    <article>
+      <a href="--ROOT--docs/setup/directory-indexes/">
+        <h2>Pagination</h2>
+        <p>Use built-in pagination objects to create directory and tag index pages.</p>
+      </a>
+    </article>
+
+    <article>
+      <a href="--ROOT--docs/setup/content/#virtual-content-files">
+        <h2>Virtual content</h2>
+        <p>Pass content and template strings from your <abbr title="Content Management System">CMS</abbr> to Publican instead of using files.</p>
+      </a>
+    </article>
+
+    <article>
+      <a href="--ROOT--docs/reference/template-globals/#defining-global-properties">
+        <h2>Extendible</h2>
+        <p>Create your own reusable values, functions, replacers, and event hooks to configure your Publican build.</p>
+      </a>
+    </article>
+
+    <article>
+      <a href="--ROOT--docs/quickstart/build/">
+        <h2>Fast</h2>
+        <p>Build a 100-page static site in less than half a second. File watch updates are even faster!</p>
+      </a>
+    </article>
+
+  </nav>
 
   ${ include('_partials/schema.html') }
 
 </main>
-
-${ include('_partials/backnext.html') }
 
 ${ include('_partials/pinned.html') }
 

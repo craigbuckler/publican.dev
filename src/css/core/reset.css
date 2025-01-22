@@ -75,10 +75,6 @@ nav, summary {
   user-select: none;
 }
 
-summary {
-  cursor: pointer;
-}
-
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';

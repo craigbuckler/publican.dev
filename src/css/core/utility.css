@@ -1,0 +1,43 @@
+/* utility classes */
+.logolarge {
+  width: 100%;
+  height: auto;
+  fill: var(--color-fore3);
+}
+
+.m0 {
+  margin-block-start: 0;
+}
+
+.wb {
+  font-weight: var(--font-weight-bold);
+}
+
+.wh {
+  font-weight: var(--font-weight-head);
+}
+
+.sub {
+  font-size: var(--fsize-3);
+}
+
+.center {
+  text-align: center;
+}
+
+button, a.button {
+  display: block;
+  width: fit-content;
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  padding-block: 0.5em;
+  padding-inline: 2em;
+  margin-inline: auto;
+  color: var(--color-back2);
+  background-color: var(--color-hint1);
+  border-radius: var(--border-radius1);
+
+  &:hover, &:active, &:focus {
+    background-color: var(--color-fore2);
+  }
+}

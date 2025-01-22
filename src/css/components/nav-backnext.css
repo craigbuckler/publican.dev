@@ -18,7 +18,7 @@
     margin: 0;
   }
 
-  a, span, strong {
+  a:link, a:visited, a:hover, a:active, a:focus, span, strong {
     display: block;
     text-decoration: none;
   }
