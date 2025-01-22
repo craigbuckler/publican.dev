@@ -44,7 +44,7 @@
       text-align: center;
       vertical-align: baseline;
       content: '\25bc';
-      width: 1.5rem;
+      inline-size: 1.5rem;
       color: var(--color-hint1);
       transition: transform 0.3s ease-out;
     }
@@ -68,17 +68,17 @@
 
     display: block;
     position: fixed;
-    top: var(--header-height);
-    bottom: 0;
-    left: 0;
-    width: calc((100% - var(--main-width)) / 2 - var(--layout-margin));
-    overflow: scroll;
+    inset-block-start: var(--header-height);
+    inset-block-end: 0;
+    inset-inline-start: 0;
+    inline-size: calc((100% - var(--main-width)) / 2 - var(--layout-margin));
+    overflow-y: auto;
     background-color: var(--color-back2);
-    border-top: 1px solid var(--color-back1);
+    border-block-start: 1px solid var(--color-back1);
 
     & > ul {
       float: right;
-      width: min(var(--layout-sidebar), 100%);
+      inline-size: min(var(--layout-sidebar), 100%);
       margin-block: var(--layout-margin);
     }
 

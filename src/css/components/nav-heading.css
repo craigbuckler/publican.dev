@@ -20,7 +20,7 @@
       text-align: center;
       vertical-align: baseline;
       content: '\25bc';
-      width: 1.5rem;
+      inline-size: 1.5rem;
       color: var(--color-hint1);
       transform: rotate(0deg);
       transition: transform 0.3s ease-out;
@@ -41,14 +41,14 @@
   @media (width > 1500px) and (height > 600px) {
 
     position: fixed;
-    top: var(--header-height);
-    bottom: 0;
-    left: calc((100% - var(--main-width)) / 2 + var(--main-width) + var(--layout-margin));
-    right: var(--layout-margin);
-    width: auto;
+    inset-block-start: var(--header-height);
+    inset-block-end: 0;
+    inset-inline-start: calc((100% - var(--main-width)) / 2 + var(--main-width) + var(--layout-margin));
+    inset-inline-end: var(--layout-margin);
+    inline-size: auto;
     margin-block: 0;
-    overflow: scroll;
-    border-left: 1px solid var(--color-back2);
+    overflow-y: auto;
+    border-inline-start: 1px solid var(--color-back2);
 
     & > details {
       margin-block: var(--layout-margin);

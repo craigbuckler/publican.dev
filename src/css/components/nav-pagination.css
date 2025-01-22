@@ -13,14 +13,14 @@
   }
 
   li {
-    width: 2.6em;
+    inline-size: 2.6em;
     text-align: center;
     padding: 0;
     margin: 0;
   }
 
   .gap {
-    width: auto;
+    inline-size: auto;
     padding: 0.3em 0;
   }
 
@@ -44,10 +44,10 @@
     background-color: var(--color-hint1);
   }
 
-  @media (min-width: 34em) {
+  @media (min-inline-size: 34em) {
 
     .back, .next {
-      width: 4em;
+      inline-size: 4em;
     }
 
   }

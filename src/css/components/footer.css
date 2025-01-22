@@ -1,6 +1,6 @@
 body > footer {
 
-  width: 100%;
+  inline-size: 100%;
   padding-block: 2em;
   padding-inline: var(--layout-margin);
   background-color: var(--color-back2);

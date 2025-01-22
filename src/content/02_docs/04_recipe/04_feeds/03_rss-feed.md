@@ -17,7 +17,7 @@ This site provides an [RSS feed at feed.xml](--ROOT--feed.xml). It's formatted u
 
 ## Define a domain
 
-Like sitemaps, you must [define a domain as a global `tacs` property](docs/recipe/feeds/txt-sitemap/#define-a-domain) in your `publican.config.js` configuration file.
+Like sitemaps, you must [define a domain as a global `tacs` property](--ROOT--docs/recipe/feeds/txt-sitemap/#define-a-domain) in your `publican.config.js` configuration file.
 
 
 ## Create a `dateUTC()` function

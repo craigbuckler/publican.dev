@@ -1,8 +1,8 @@
 body > header {
 
   position: relative;
-  width: 100%;
-  height: var(--header-height);
+  inline-size: 100%;
+  block-size: var(--header-height);
   display: flex;
   justify-content: space-between;
   align-content: center;
@@ -37,12 +37,12 @@ body > header {
 
 #logo {
 
-  width: 1.5em;
+  inline-size: 1.5em;
   align-content: center;
 
   svg {
-    width: 100%;
-    height: auto;
+    inline-size: 100%;
+    block-size: auto;
     fill: var(--color-fore3);
   }
 
@@ -52,13 +52,13 @@ body > header {
 #logof { display: none; }
 
 @media (width > 500px) {
-  #logo { width: clamp(5em, 14vw, 10em); }
+  #logo { inline-size: clamp(5em, 14vw, 10em); }
   #logop { display: none; }
   #logof { display: block; }
 }
 
 #themeswitcher {
-  height: auto;
+  block-size: auto;
   align-self: center;
   padding-inline: 1.2em 0.3em;
   border: 0 none;
@@ -79,11 +79,11 @@ body > header {
 
   body > header {
     position: fixed;
-    top: 0;
+    inset-block-start: 0;
   }
 
   main {
-    padding-top: var(--header-fix-height);
+    padding-block-start: var(--header-fix-height);
   }
 
   h1, h2, h3 {

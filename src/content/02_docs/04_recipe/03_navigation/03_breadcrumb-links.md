@@ -14,7 +14,7 @@ It is difficult to manage `tacs.nav` using `${ expressions }` alone since you mu
 
 ## Create a function library
 
-[As before](docs/recipe/navigation/main-menu/#create-a-function-library), edit the `lib/nav.js` file and add a new `breadcrumb()`{language=js} function:
+[As before](--ROOT--docs/recipe/navigation/main-menu/#create-a-function-library), edit the `lib/nav.js` file and add a new `breadcrumb()`{language=js} function:
 
 * It's passed the current page link.
 * It recurses `tacs.nav` and creates an `<ol>`{language=html} list of parent page links.
@@ -55,7 +55,7 @@ export function breadcrumb( currentPage ) {
 }
 ```
 
-The [library has already been imported](--ROOT-docs/recipe/navigation/main-menu/#import-the-library) into the `publican.config.js` configuration file and appended to the `tacs.fn.nav` object so no additional code is required.
+The [library has already been imported](--ROOT--docs/recipe/navigation/main-menu/#import-the-library) into the `publican.config.js` configuration file and appended to the `tacs.fn.nav` object so no additional code is required.
 
 
 ## Use in templates
@@ -67,7 +67,7 @@ ${ tacs.fn.nav.breadcrumb( data.link ) }
 <h1>${ data.title }</h1>
 ```
 
-Assuming the [content structure on the main menu page](docs/recipe/navigation/main-menu/#tacsnav), the resulting menu HTML when you're visiting the `Article one` page is:
+Assuming the [content structure on the main menu page](--ROOT--docs/recipe/navigation/main-menu/#tacsnav), the resulting menu HTML when you're visiting the `Article one` page is:
 
 ```html
 <nav class="breadcrumb">

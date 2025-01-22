@@ -41,9 +41,9 @@
   sup {
     display: inline-block;
     font-size: 0.6em;
-    min-width: 1.3em;
-    width: fit-content;
-    height: auto;
+    min-inline-size: 1.3em;
+    inline-size: fit-content;
+    block-size: auto;
     aspect-ratio: 1;
     text-align: center;
     align-content: center;

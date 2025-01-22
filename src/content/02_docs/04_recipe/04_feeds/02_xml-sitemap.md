@@ -41,7 +41,7 @@ You can help search engines indexing your site by creating a sitemap. An XML sit
 
 ## Define a domain
 
-Like text sitemaps, you must [define a domain as a global `tacs` property](docs/recipe/feeds/txt-sitemap/#define-a-domain) in your `publican.config.js` configuration file.
+Like text sitemaps, you must [define a domain as a global `tacs` property](--ROOT--docs/recipe/feeds/txt-sitemap/#define-a-domain) in your `publican.config.js` configuration file.
 
 
 ## Create a `dateISO()` function

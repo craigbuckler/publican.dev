@@ -64,7 +64,7 @@ Content such as RSS feeds needs to access the fully-rendered content of pages. P
 
 The [`Date()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date) of the post, or `null` if not defined.
 
-In general, you will not want to output raw dates, but use a [formatting function to output human-friendly dates](--ROOT--docs/recipe/templates/formatting_dates/) for a specific locale.
+In general, you will not want to output raw dates, but use a [formatting function to output human-friendly dates](--ROOT--docs/recipe/templates/format_dates/) for a specific locale.
 
 
 ### `data.publish`{language=js}
@@ -232,7 +232,7 @@ This may be useful if you need to modify XML content.
 
 ### `data.debug`{language=js}
 
-A [value passed by front matter](docs/reference/front-matter/#debug) which can be used to enable debugging output in functions or elsewhere.
+A [value passed by front matter](--ROOT--docs/reference/front-matter/#debug) which can be used to enable debugging output in functions or elsewhere.
 
 
 ## Custom page properties

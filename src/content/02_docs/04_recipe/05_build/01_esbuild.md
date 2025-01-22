@@ -133,7 +133,7 @@ This is used for [live reloading](#live-reloading).
 
 ## Watch mode
 
-esbuild launches a development server, watches for file changes, and re-bundles when Publican's [watch mode](--ROOT--docs/configuration/options/#watch-mode) is enabled:
+esbuild launches a development server, watches for file changes, and re-bundles when Publican's [watch mode](--ROOT--docs/reference/publican-options/#watch-mode) is enabled:
 
 {{ `publican.config.js` excerpt }}
 ```js

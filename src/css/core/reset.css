@@ -3,6 +3,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
 }
 
 :root {
@@ -16,8 +18,8 @@
 }
 
 html {
+  writing-mode: horizontal-tb;
   scroll-behavior: smooth;
-  /* scrollbar-gutter: stable; */
 }
 
 html:has(::backdrop) {
@@ -32,13 +34,13 @@ body {
 img, figure, picture, video, canvas {
   display: block;
   max-inline-size: 100%;
-  height: auto;
+  block-size: auto;
 }
 
 svg {
   display: inline-block;
-  width: 1em;
-  height: 1em;
+  inline-size: 1em;
+  block-size: 1em;
   vertical-align: -0.125em;
 }
 
@@ -90,7 +92,7 @@ table, th, td, input, button, textarea, select {
 }
 
 textarea:not([rows]) {
-  min-height: 8em;
+  min-block-size: 8em;
 }
 
 table {

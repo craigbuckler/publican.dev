@@ -14,7 +14,7 @@ It is difficult to manage `tacs.nav` using `${ expressions }` alone since you mu
 
 ## Create a function library
 
-[As before](docs/recipe/navigation/main-menu/#create-a-function-library), edit the `lib/nav.js` file and add a new `menuDir()`{language=js} function:
+[As before](--ROOT--docs/recipe/navigation/main-menu/#create-a-function-library), edit the `lib/nav.js` file and add a new `menuDir()`{language=js} function:
 
 * It's passed the current page link and the root directory name.
 * It recurses `tacs.nav` and creates a nested set `<detail>`{language=html} and `<summary>`{language=html} elements for that directory containing a `<ul>`{language=html} list of child links (and possibly additional `<detail>`{language=html} sub-menus).
@@ -63,7 +63,7 @@ export function menuDir( currentPage, rootDir ) {
 }
 ```
 
-The [library has already been imported](--ROOT-docs/recipe/navigation/main-menu/#import-the-library) into the `publican.config.js` configuration file and appended to the `tacs.fn.nav` object so no additional code is required.
+The [library has already been imported](--ROOT--docs/recipe/navigation/main-menu/#import-the-library) into the `publican.config.js` configuration file and appended to the `tacs.fn.nav` object so no additional code is required.
 
 
 ## Use in templates
@@ -79,7 +79,7 @@ ${ data.directory === 'news' ?
 }
 ```
 
-Assuming the [content structure on the main menu page](docs/recipe/navigation/main-menu/#tacsnav), the resulting menu HTML when you're visiting the `Article one` page is:
+Assuming the [content structure on the main menu page](--ROOT--docs/recipe/navigation/main-menu/#tacsnav), the resulting menu HTML when you're visiting the `Article one` page is:
 
 ```html
 <nav class="menudir">
