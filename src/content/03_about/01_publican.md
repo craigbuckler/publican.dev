@@ -1,10 +1,10 @@
 ---
 title: About Publican
 menu: Publican
-description: What is Publican and it can improve website resilience, security, and performance.
+description: Information about Publican and how it improves website resilience, security, and performance.
 date: 2025-01-23
 priority: 0.5
-tags: SSG, WordPress, PHP, jsTACS
+tags: SSG, jsTACS, WordPress, PHP
 ---
 
 Publican is a Static Site Generator (SSG). It takes content -- typically in markdown files -- and puts it into HTML templates to build a site. The resulting web pages are static HTML which can usually be hosted anywhere.

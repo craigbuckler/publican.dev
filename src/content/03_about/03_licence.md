@@ -1,7 +1,7 @@
 ---
 title: Publican licence and terms
 menu: Licence
-description: Licence for using and distributing this code and other assets.
+description: Licence for using and distributing Publican code and other assets.
 date: 2025-01-23
 priority: 0.5
 tags: SSG
