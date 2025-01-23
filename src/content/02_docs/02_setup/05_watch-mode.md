@@ -2,7 +2,7 @@
 title: Automatically rebuild a site when files change
 menu: Watch mode
 description: How to configure Publican watch files and automatically rebuild when changes occur.
-date: 2025-01-17
+date: 2025-01-23
 priority: 0.9
 tags: configure, development build, watch mode
 ---

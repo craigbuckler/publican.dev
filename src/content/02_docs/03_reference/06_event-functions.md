@@ -2,7 +2,7 @@
 title: Custom event hook functions
 menu: Event functions
 description: How to create custom functions to add, alter, or remove data when specific build events occur.
-date: 2025-01-07
+date: 2025-01-23
 priority: 0.9
 tags: configure, event hooks, plugins
 ---

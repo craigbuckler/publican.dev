@@ -2,7 +2,7 @@
 title: Create breadcrumb links
 menu: Breadcrumb links
 description: How show a list of links to all parent pages of the current page.
-date: 2025-01-21
+date: 2025-01-23
 priority: 0.9
 tags: navigation
 ---

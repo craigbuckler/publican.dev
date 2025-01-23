@@ -2,7 +2,7 @@
 title: Create Publican templates
 menu: Create templates
 description: How to add templates to your Publican site.
-date: 2025-01-15
+date: 2025-01-23
 priority: 0.9
 tags: templates, template literals
 ---

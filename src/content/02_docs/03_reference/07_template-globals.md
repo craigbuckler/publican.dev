@@ -2,7 +2,7 @@
 title: Custom jsTACS global properties and functions
 menu: Template globals
 description: How to use Custom configuration options
-date: 2025-01-07
+date: 2025-01-23
 priority: 0.9
 tags: configure, jsTACS
 ---

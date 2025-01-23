@@ -2,7 +2,7 @@
 title: Configure the Publican build process
 menu: Configure Publican
 description: How to configure Publican for your first static site build.
-date: 2025-01-16
+date: 2025-01-23
 priority: 0.9
 tags: configure
 ---

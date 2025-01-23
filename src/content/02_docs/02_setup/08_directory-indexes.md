@@ -2,7 +2,7 @@
 title: Publican directory indexes
 menu: Directory indexes
 description: How to use automated pagination for posts in specific directories.
-date: 2025-01-17
+date: 2025-01-23
 priority: 0.9
 tags: directory index, navigation, string replacement
 ---

@@ -2,7 +2,7 @@
 title: Integrate esbuild into your Publican build process
 menu: esbuild
 description: How to use esbuild to bundle CSS and JavaScript files, launch a development server, and live reload when styles change.
-date: 2025-01-21
+date: 2025-01-23
 priority: 0.9
 tags: esbuild, development build, production build, watch mode
 ---

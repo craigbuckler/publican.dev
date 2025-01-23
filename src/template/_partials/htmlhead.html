@@ -17,6 +17,7 @@
 <!-- feeds -->
 <meta name="robots" content="${ tacs.config.isDev ? 'noindex,nofollow' : 'index,follow' }">
 <link rel="sitemap" type="application/xml" href="${ tacs.config.domain }${ tacs.root }sitemap.xml">
+<link rel="sitemap" type="text/plain" href="${ tacs.config.domain }${ tacs.root }sitemap.txt">
 <link rel="alternate" type="application/rss+xml" title="${ tacs.config.title }" href="${ tacs.config.domain }${ tacs.root }feed.xml">
 <link rel="alternate" type="application/atom+xml" title="${ tacs.config.title }" href="${ tacs.config.domain }${ tacs.root }feed.xml">
 
@@ -49,21 +50,17 @@ frame-src 'none';
 ">
 
 <!-- social media -->
-<meta property="og:site_name" content="${ data.title || tacs.config.title }">
+<meta property="og:site_name" content="Publican.dev">
 <meta property="og:url" content="${ tacs.config.domain }${ data.link }">
 <meta property="og:title" content="${ data.title || tacs.config.title }">
 <meta property="og:description" content="${ data.description || tacs.config.description }">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="${ tacs.config.language }">
-<meta property="og:image" content="">
-
-<meta property="twitter:card" content="summary">
-<meta property="twitter:site" content="@craigbuckler">
-<meta property="twitter:creator" content="@craigbuckler">
+${ data.hero ? `
+<meta property="og:image" content="${ tacs.config.domain }${ tacs.root }${ data.hero }">
 <meta name="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="${ data.title || tacs.config.title }">
-<meta property="twitter:description" content="${ data.description || tacs.config.description }">
-<meta property="twitter:image" content="">
+` : '' }
+<meta name="twitter:site" content="@craigbuckler">
 
 </head>
 <body>

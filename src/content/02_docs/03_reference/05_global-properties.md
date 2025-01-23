@@ -2,7 +2,7 @@
 title: Global properties
 menu: Global properties
 description: The global jsTACS properties provided on all pages by Publican.
-date: 2024-12-17
+date: 2025-01-23
 priority: 0.9
 tags: content, front matter, templates, template literals
 ---

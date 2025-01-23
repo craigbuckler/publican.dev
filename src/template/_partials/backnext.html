@@ -1,6 +1,6 @@
 ${ (data?.postnext || data?.postback) && '<nav class="backnext"><ul>' }
 
-${ data.directory === 'post' ?
+${ data.directory === 'news' ?
   `
     ${ data?.postback?.title ? `<li class="next"><a href="${ data.postback.link }"><span>next &rarr;</span> <strong>${ data.postback.title }</strong></a></li>` : '' }
 

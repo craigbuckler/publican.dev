@@ -2,7 +2,7 @@
 title: Publican navigation options
 menu: Navigation
 description: Publican provides various objects to help with site navigation.
-date: 2025-01-17
+date: 2025-01-23
 priority: 0.9
 tags: navigation
 ---

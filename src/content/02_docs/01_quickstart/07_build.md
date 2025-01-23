@@ -2,7 +2,7 @@
 title: Build your first static site with Publican
 menu: Build static site
 description: How to run Publican in production and development modes.
-date: 2025-01-16
+date: 2025-01-23
 priority: 0.9
 tags: development build, production build
 ---

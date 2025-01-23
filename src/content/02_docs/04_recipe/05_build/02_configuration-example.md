@@ -2,7 +2,7 @@
 title: Example configuration
 menu: Example configuration
 description: An example configuration with .env configuration, development mode, production mode, and esbuild integration.
-date: 2025-01-21
+date: 2025-01-23
 priority: 0.9
 tags: configure, esbuild
 ---

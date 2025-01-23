@@ -2,7 +2,7 @@
 title: The Publican configuration file
 menu: Configuration file
 description: How to create and launch a Publican configuration file using options for development and production.
-date: 2025-01-17
+date: 2025-01-23
 priority: 0.9
 tags: configure, production build, development build, npm, root path
 ---

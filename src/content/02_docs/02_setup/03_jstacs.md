@@ -2,7 +2,7 @@
 title: The jsTACS template engine
 menu: jsTACS
 description: More information about the jsTACS rendering engine used in Publican templates.
-date: 2025-01-16
+date: 2025-01-23
 priority: 0.9
 tags: jsTACS, templates, template literals, markdown, HTML
 ---

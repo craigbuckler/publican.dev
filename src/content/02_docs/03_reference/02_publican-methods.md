@@ -2,7 +2,7 @@
 title: Publican public methods
 menu: Publican methods
 description: The public methods available in Publican configurations.
-date: 2025-01-08
+date: 2025-01-23
 priority: 0.9
 tags: configure
 ---

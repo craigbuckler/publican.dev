@@ -2,7 +2,7 @@
 title: Publican tag indexes
 menu: Tag indexes
 description: How to use automated pagination for posts with specific tags.
-date: 2025-01-17
+date: 2025-01-23
 priority: 0.9
 tags: tag index, navigation
 ---

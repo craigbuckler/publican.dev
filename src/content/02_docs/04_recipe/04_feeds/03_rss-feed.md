@@ -2,7 +2,7 @@
 title: Create an RSS feed
 menu: RSS feed
 description: How create an RSS feed of your latest posts.
-date: 2025-01-21
+date: 2025-01-23
 priority: 0.9
 tags: content, RSS
 ---

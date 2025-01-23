@@ -2,7 +2,7 @@
 title: Publican configuration options
 menu: Publican configuration
 description: A list of Publican's configuration file options.
-date: 2025-01-17
+date: 2025-01-23
 priority: 0.9
 tags: configure, root path, string replacement
 ---

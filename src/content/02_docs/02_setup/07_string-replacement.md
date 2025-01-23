@@ -2,7 +2,7 @@
 title: Custom string replacement
 menu: String replacement
 description: How to modify built files using custom string replacement and event hooks.
-date: 2024-12-24
+date: 2025-01-23
 priority: 0.9
 tags: configure, string replacement, event hooks
 ---

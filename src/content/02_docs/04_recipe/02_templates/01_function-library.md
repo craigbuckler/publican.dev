@@ -2,7 +2,7 @@
 title: Create a template function library
 menu: Function library
 description: Rather than putting functions in your Publican configuration file, you can import a library from another file.
-date: 2025-01-21
+date: 2025-01-23
 priority: 0.9
 tags: templates
 ---

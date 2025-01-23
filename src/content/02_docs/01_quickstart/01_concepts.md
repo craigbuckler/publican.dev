@@ -2,7 +2,7 @@
 title: Publican core concepts
 menu: Core concepts
 description: An overview of Publican's core concepts and how it's used to build a static site. Please read this first!
-date: 2025-01-16
+date: 2025-01-23
 priority: 0.9
 tags: content, front matter, templates, jsTACS, template literals, directory index, tag index, pass through, configure
 ---
@@ -30,7 +30,7 @@ Any content file can have [front matter](--ROOT--docs/setup/content/#front-matte
 ---
 title: My first post
 description: The first post I wrote in my Publican site.
-date: 2025-02-28
+date: 2025-01-23
 tags: HTML, CSS, JavaScript
 ---
 

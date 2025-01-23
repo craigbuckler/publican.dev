@@ -2,7 +2,7 @@
 title: Publican installation
 menu: Install Publican
 description: How to start a new Publican project.
-date: 2025-01-15
+date: 2025-01-23
 priority: 0.9
 tags: Node.js, npm
 ---

@@ -1,17 +1,18 @@
+
 <script type="application/ld+json">{
-  "@context": "http://schema.org/",
-  "@type": "TechArticle",
-  "proficiencyLevel": "beginner",
-  "headline": "${ data.title }",
-  "description": "${ data.description }",
-  "datePublished": "${ tacs.fn.format.dateISO( data.date ) }",
-  "dateModified": "${ tacs.fn.format.dateISO( data.modified || data.date ) }",
-  "mainEntityOfPage": { "@type": "WebPage", "@id": "${ tacs.config.domain }${ data.link }"},
-  "author": { "@type": "Person", "name": "${ data.author || tacs.config.author }" },
-  "inLanguage": "${ tacs.config.language }",
-  "contentLocation": "online",
-  "accessMode": ["textual"],
-  "accessModeSufficient": "textual",
-  "isFamilyFriendly": true,
-  "wordCount": "${ data.wordCount }"
+"@context": "http://schema.org/",
+"@type": "TechArticle",
+"proficiencyLevel": "beginner",
+"headline": "${ data.title }",
+"description": "${ data.description }",
+"datePublished": "${ tacs.fn.format.dateISO( data.date ) }",
+"dateModified": "${ tacs.fn.format.dateISO( data.modified || data.date ) }",
+"mainEntityOfPage": { "@type": "WebPage", "@id": "${ tacs.config.domain }${ data.link }"},
+"author": { "@type": "Person", "name": "${ data.author || tacs.config.author }" },
+"inLanguage": "${ tacs.config.language }",
+"contentLocation": "online",
+"accessMode": ["textual"],
+"accessModeSufficient": "textual",
+"isFamilyFriendly": true,
+"wordCount": "${ data.wordCount }"
 }</script>

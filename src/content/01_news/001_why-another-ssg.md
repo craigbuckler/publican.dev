@@ -6,7 +6,7 @@ description: Why does Publican exist when there are so many great SSGs for all s
 author: Craig Buckler
 tags: SSG
 priority: 1.0
-date: 2025-01-13
+date: 2025-01-22
 hero: images/code.avif
 heroWidth: 1200
 heroHeight: 600

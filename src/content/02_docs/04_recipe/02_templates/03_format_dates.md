@@ -2,7 +2,7 @@
 title: Format dates
 menu: Format dates
 description: How to show dates in a friendly human-readable format.
-date: 2025-01-20
+date: 2025-01-23
 priority: 0.9
 tags: content, format
 ---

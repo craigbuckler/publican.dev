@@ -2,7 +2,7 @@
 title: Publican templates
 menu: Templates
 description: How templates are defined in a Publican static site.
-date: 2025-01-16
+date: 2025-01-23
 priority: 0.9
 tags: templates, jsTACS, template literals, HTML
 ---

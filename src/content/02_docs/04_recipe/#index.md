@@ -2,7 +2,7 @@
 title: Publican recipes
 menu: Recipes
 description: Various ideas and code snippets for your Publican static site.
-date: 2025-01-21
+date: 2025-01-23
 priority: 0.9
 ---
 

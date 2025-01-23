@@ -2,7 +2,7 @@
 title: Create a section menu
 menu: Section menu
 description: How show a list of links to all pages in a specific core directory.
-date: 2025-01-21
+date: 2025-01-23
 priority: 0.9
 tags: navigation
 ---

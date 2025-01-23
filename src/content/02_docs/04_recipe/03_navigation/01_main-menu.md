@@ -2,7 +2,7 @@
 title: Create a main menu
 menu: Main menu
 description: How to create navigation links to all pages on your static site.
-date: 2025-01-21
+date: 2025-01-23
 priority: 0.9
 tags: navigation
 ---

@@ -2,7 +2,7 @@
 title: Publican content
 menu: Content
 description: How to define content for your Publican static site.
-date: 2025-01-16
+date: 2025-01-23
 priority: 0.9
 tags: content, markdown, front matter, template literals, string replacement
 ---
@@ -27,7 +27,7 @@ title: My first Publican site
 menu: Home
 description: The home page of my static site.
 author: Craig Buckler
-date: 2025-02-28
+date: 2025-01-23
 priority: 1
 tags: Publican, SSG
 ---
@@ -139,7 +139,7 @@ The [front matter `slug`](--ROOT--docs/reference/front-matter/#slug) value overr
 ---
 title: A new post
 menu: New post
-date: 2025-02-28
+date: 2025-01-23
 slug: post/2025/my-post.html
 ---
 

@@ -2,7 +2,7 @@
 title: Format numbers
 menu: Format numbers
 description: How to show numbers, currencies, and other numeric values in a friendly human-readable format.
-date: 2025-01-20
+date: 2025-01-23
 priority: 0.9
 tags: content, format
 ---

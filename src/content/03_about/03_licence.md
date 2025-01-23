@@ -2,7 +2,7 @@
 title: Publican licence and terms
 menu: Licence
 description: Licence for using and distributing this code and other assets.
-date: 2024-12-10
+date: 2025-01-23
 priority: 0.5
 tags: SSG
 ---
@@ -11,9 +11,11 @@ The Publican code and associated templates can be used, adapted, and distributed
 
 I only ask you consider:
 
-1. Acknowledging and promoting your use of [Publican](https://www.npmjs.com/package/publican).
+1. My time. I cannot offer unlimited or unpaid support, updates, fixes, meetings, consultancy, etc.
+1. My liability. I am not accountable for any problems you discover while using Publican.
+1. You acknowledge and promote your use of [Publican](https://www.npmjs.com/package/publican).
 1. Contributing your own ideas, assets, code, fixes, etc. [to the Publican community](https://github.com/craigbuckler/publican).
-1. [Funding the project](https://github.com/sponsors/craigbuckler) if you use Publican in a professional or commercial capacity.
+1. [Funding the project](https://github.com/sponsors/craigbuckler) especially if you use Publican in a professional or commercial capacity.
 
 
 ## MIT License

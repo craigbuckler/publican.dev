@@ -32,6 +32,10 @@
     a, strong {
       padding-inline-end: 1.5rem;
     }
+
+    strong {
+      color: var(--color-hint1);
+    }
   }
 
   details ul ul {
@@ -51,10 +55,6 @@
 
   details[open] > summary::before {
     transform: rotate(0deg);
-  }
-
-  strong {
-    color: var(--color-hint1);
   }
 
   li > a {

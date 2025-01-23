@@ -2,7 +2,7 @@
 title: Front matter
 menu: Front matter
 description: How to define front matter in Publican content files.
-date: 2024-12-13
+date: 2025-01-23
 priority: 0.9
 tags: content, front matter
 ---
@@ -62,7 +62,7 @@ priority: 0.7
 The post date in any JavaScript [`Date()` format](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date), e.g. `2025-12-25` or `2025-07-15T11:00:00`.
 
 ```js
-date: 2025-01-30
+date: 2025-01-23
 ```
 
 Posts with future dates are rendered in development mode but do not appear on production sites.
@@ -131,7 +131,7 @@ description: An overview of what Static Site Generators.
 author: Craig Buckler
 tags: SSG, HTML, overview
 priority: 1.0
-date: 2024-12-05
+date: 2025-01-23
 hero: images/hero.jpg
 ---
 ```
@@ -153,7 +153,7 @@ You can even use front matter values within other front matter values!
 title: My title
 menu: ${ data.title }
 description: "${ data.title }" was written on ${ data.date } by ${ data.author }
-date: 2025-02-01
+date: 2025-01-23
 author: Craig Buckler
 ---
 ```

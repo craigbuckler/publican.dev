@@ -2,7 +2,7 @@
 title: Pass through files
 menu: Pass through files
 description: How to copy static files that do not require processing to the build directory.
-date: 2025-01-17
+date: 2025-01-23
 priority: 0.9
 tags: configure, pass through
 ---

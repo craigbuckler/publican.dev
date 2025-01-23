@@ -2,7 +2,7 @@
 title: Publican project links
 menu: Links
 description: A list of useful links to Publican resources.
-date: 2024-12-10
+date: 2025-01-23
 priority: 0.5
 tags: SSG, jsTACS
 ---

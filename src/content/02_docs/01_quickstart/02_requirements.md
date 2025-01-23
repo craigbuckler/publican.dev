@@ -2,7 +2,7 @@
 title: Publican system requirements
 menu: Requirements
 description: The requirements for building a static site using Publican.
-date: 2025-01-15
+date: 2025-01-23
 priority: 0.9
 tags: OS, Node.js
 ---

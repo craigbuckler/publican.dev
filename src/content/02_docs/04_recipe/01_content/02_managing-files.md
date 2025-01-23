@@ -2,7 +2,7 @@
 title: Managing content files
 menu: Managing content
 description: How to organize content files for easier management.
-date: 2025-01-19
+date: 2025-01-23
 priority: 0.9
 tags: content
 ---

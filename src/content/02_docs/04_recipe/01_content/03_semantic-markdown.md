@@ -2,7 +2,7 @@
 title: Semantic markdown blocks
 menu: Semantic markdown
 description: How to use semantic HTML tags such as aside, section, and article in markdown blocks.
-date: 2025-01-18
+date: 2025-01-23
 priority: 0.9
 tags: HTML, markdown
 ---

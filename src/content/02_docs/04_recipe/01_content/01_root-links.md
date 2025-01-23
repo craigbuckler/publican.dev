@@ -2,7 +2,7 @@
 title: Root links
 menu: Root links
 description: How to manage your server root path in templates and markdown.
-date: 2025-01-20
+date: 2025-01-23
 priority: 0.9
 tags: root path, string replacement
 ---

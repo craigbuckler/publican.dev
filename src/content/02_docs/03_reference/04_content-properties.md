@@ -2,7 +2,7 @@
 title: Content properties
 menu: Content properties
 description: The content properties provided to each page rendered by Publican.
-date: 2024-12-17
+date: 2025-01-23
 priority: 0.9
 tags: content, front matter, templates, template literals
 ---
@@ -245,7 +245,7 @@ Page `data` properties be added, modified, or removed from `data` objects using 
     ```md
     ---
     title: My Post
-    date: 2025-01-01
+    date: 2025-01-23
     author: Craig Buckler
     ---
     ```
