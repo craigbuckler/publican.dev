@@ -35,10 +35,10 @@ Publican includes the JavaScript Templating and Caching system. It can also be u
   [www.npmjs.com/package/jstacs](https://www.npmjs.com/package/jstacs)
 
 
-## Publican starter template
+## Publican.dev website
 
-The starter template provides a way to create a site quickly using a pre-defined set of files.
+The code for this website is available at:
 
 * **Github repository**
 
-  [github.com/craigbuckler/publican-starter](https://github.com/craigbuckler/publican-starter)
+  [github.com/craigbuckler/publican.dev](https://github.com/craigbuckler/publican.dev)

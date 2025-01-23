@@ -14,7 +14,7 @@
     > li {
       block-size: 100%;
       align-content: center;
-      margin-inline-end: 0.5rem;
+      margin-inline-end: min(1.5vw, 1em);
     }
   }
 
@@ -28,6 +28,10 @@
     box-shadow: 0 3px 3px var(--color-shadow);
     overflow-y: auto;
     overscroll-behavior: none;
+
+    a, strong {
+      padding-inline-end: 1.5rem;
+    }
   }
 
   details ul ul {
@@ -47,10 +51,6 @@
 
   details[open] > summary::before {
     transform: rotate(0deg);
-  }
-
-  a, strong {
-    padding-inline-end: 1.5rem;
   }
 
   strong {

@@ -27,11 +27,12 @@
 
 button, a.button {
   display: block;
-  width: fit-content;
+  width: max-content;
+  min-width: 8em;
   font-weight: var(--font-weight-bold);
+  text-align: center;
   text-decoration: none;
   padding-block: 0.5em;
-  padding-inline: 2em;
   margin-inline: auto;
   color: var(--color-back2);
   background-color: var(--color-hint1);
@@ -40,4 +41,22 @@ button, a.button {
   &:hover, &:active, &:focus {
     background-color: var(--color-fore2);
   }
+}
+
+.flexcenter {
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+  padding: 0;
+  margin-block: var(--layout-margin);
+
+  & > * {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
 }

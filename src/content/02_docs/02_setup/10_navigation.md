@@ -87,12 +87,72 @@ ${ data?.postnext?.link &&
 ```
 
 
-## `tacs.nav`{language=js}
+## `tacs.nav`{language=js} site menus
 
-`tacs.nav` is a global nested array of post objects ordered for navigation menus, breadcrumb trails, etc. Each element in the array has [post `data`](--ROOT--docs/reference/content-properties/) as well as a `.children` property holding an array containing child `data` items. Each child page has it's own `data` and `children` array where appropriate.
+`tacs.nav` is a global nested array of post objects ordered for navigation menus, breadcrumb trails, etc.
 
-It is generally necessary to recurse the `tacs.nav` object, so this is easier in a [global function](--ROOT--docs/reference/template-globals/#defining-global-functions) rather than template. The following recipes provide code for:
+`tacs.nav` returns an array. Each element of that array has two values:
 
-* [a main menu](--ROOT--docs/recipe/navigation/main-menu/)
-* [a section menu](--ROOT--docs/recipe/navigation/section-menu/)
-* [breadcrumb links](--ROOT--docs/recipe/navigation/breadcrumb-links/)
+1. a `data` property containing the [page `data` object](--ROOT--docs/reference/content-properties/) at the site's top level, i.e. they have no parent pages. The pages are sorted by whatever has been defined for [directory indexing](--ROOT--docs/setup/directory-indexes/#directory-index-configuration).
+
+1. a `children` property containing an array of immediate child page objects. Each of these elements has its own `data` and `children` properties. Those `children` properties will have further `children` properties until no more exist.
+
+If your `src/content/` directory contained the following files:
+
+```bash
+#index.md
+
+news/
+  #index.md
+  one.md
+  two.md
+```
+
+an abbreviated `tacs.nav` object would have a structure similar to this:
+
+```json
+[
+
+  {
+    data: {
+      title: "Home page",
+      slug: "index.html"
+    }
+    children: []
+  },
+
+
+  {
+    data: {
+      title: "News",
+      slug: "news/index.html"
+    }
+    children: [
+
+      {
+        data: {
+          title: "Article one",
+          slug: "news/one/index.html"
+        }
+        children: []
+      },
+
+      {
+        data: {
+          title: "Article two",
+          slug: "news/two/index.html"
+        }
+        children: []
+      },
+
+    ]
+  }
+
+]
+```
+
+It is usually necessary to recurse the `tacs.nav` object, so this is easier in a [global function](--ROOT--docs/reference/template-globals/#defining-global-functions) rather than template `${ expressions }`{language=js}. The following recipes provide code for:
+
+* [a site-wide main menu](--ROOT--docs/recipe/navigation/main-menu/)
+* [a section menu for a specific directory](--ROOT--docs/recipe/navigation/section-menu/)
+* [breadcrumb links to all parent pages](--ROOT--docs/recipe/navigation/breadcrumb-links/)

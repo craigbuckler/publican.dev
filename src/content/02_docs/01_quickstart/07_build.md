@@ -90,4 +90,4 @@ Other server options include:
 
 1. **Add [esbuild](https://esbuild.github.io/) to your configuration**
 
-   [This site](https://github.com/craigbuckler/publican.dev) and [starter templates](https://github.com/craigbuckler/publican-starter) use Publican to create web pages and [esbuild to bundle CSS and JavaScript](--ROOT--docs/recipe/build/esbuild/). esbuild includes a local server that can live reload when CSS files are modified.
+   [This site](https://github.com/craigbuckler/publican.dev) uses Publican to create web pages and [esbuild to bundle CSS and JavaScript](--ROOT--docs/recipe/build/esbuild/). esbuild includes a local server that can live reload when CSS files are modified.

@@ -16,6 +16,6 @@ index: false
   "background_color"	: "${ tacs.config.themeColor }",
   "icons": [
     { "src": "${ tacs.root }favicon192.png", "type": "image/png", "sizes": "192x192" },
-    { "src": "${ tacs.root }favicon512.png", "type": "image/png", "sizes": "512x512" },
+    { "src": "${ tacs.root }favicon512.png", "type": "image/png", "sizes": "512x512" }
   ]
 }

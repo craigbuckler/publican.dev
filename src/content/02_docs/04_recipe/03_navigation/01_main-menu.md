@@ -72,7 +72,7 @@ an abbreviated `tacs.nav` object would have a structure similar to this:
 ]
 ```
 
-It is difficult to manage `tacs.nav` using `${ expressions }` alone since you must recurse the object. The following sections describe how to create a navigation function library you can reuse in templates.
+It is difficult to manage `tacs.nav` using `${ expressions }`{language=js} alone since you must recurse the object. The following sections describe how to create a navigation function library you can reuse in templates.
 
 
 ## Create a function library
