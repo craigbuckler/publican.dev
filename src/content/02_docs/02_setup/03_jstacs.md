@@ -221,7 +221,7 @@ It uses the default template:
 </html>
 ```
 
-Publican builds the following static file. Note that the title and content have rendered, but `!{ data.today }`{language=js} has become `${ data.today }`{language=js}:
+Publican builds the following static HTML page. The title and content have rendered, but `!{ data.today }`{language=js} has become `${ data.today }`{language=js}:
 
 {{ `build/index.html` }}
 ```html
@@ -246,7 +246,7 @@ Publican builds the following static file. Note that the title and content have 
 </html>
 ```
 
-The built file can be used in a framework such as [Express.js](https://expressjs.com/) with jsTACS as its rendering engine. It can dynamically set the `data.today` property on every page visit:
+This partially-rendered template can be used in a framework such as [Express.js](https://expressjs.com/) with [jsTACS](https://www.npmjs.com/package/jstacs) as its rendering engine. It can dynamically set the `data.today` property on every page visit:
 
 ```js
 import express from 'express';
@@ -271,3 +271,11 @@ app.listen(port, () => {
   console.log(`Express started on port ${port}`);
 });
 ```
+
+{aside}
+### Development dependency
+
+You could build partially-rendered templates on your development system so Publican is only required as an `npm` [devDependency](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file). It would not need to be present on the production server -- that only requires [jsTACS](https://www.npmjs.com/package/jstacs).
+
+This has some disk space and security benefits, but may make deployment more complicated.
+{/aside}

@@ -13,7 +13,7 @@ document.addEventListener('click', e => {
 });
 
 // open main menu
-menu.addEventListener('pointerover', e => {
+menu.addEventListener('mouseover', e => {
 
   const t = e.target.closest('details[name]:not([open])');
   if (t) t.setAttribute('open', '');

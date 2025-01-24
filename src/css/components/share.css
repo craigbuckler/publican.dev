@@ -26,9 +26,9 @@
   a {
     position: relative;
     display: block;
-    inline-size: 2.5em;
-    block-size: 2.5em;
-    padding: 0.5em;
+    inline-size: 2.3em;
+    block-size: 2.3em;
+    padding: 0.3em;
     text-decoration: none;
 
     svg, strong {
