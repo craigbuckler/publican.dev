@@ -1,0 +1,8 @@
+---
+slug: _headers
+index: false
+comment: set HTTP headers in CloudFlare pages
+---
+${ tacs.root }*
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
