@@ -96,6 +96,10 @@ table {
   border-spacing: 0;
 }
 
+label {
+  user-select: none;
+}
+
 /* disable animations */
 @media (prefers-reduced-motion: reduce) {
 

@@ -53,25 +53,32 @@ body > header {
   #logof { display: block; }
 }
 
-#themeswitcher {
-  appearance: initial;
-  block-size: auto;
-  align-self: center;
-  line-height: 1.5;
-  padding-inline: 1.2em 0.3em;
-  border: 0 none;
-  color: var(--color-fore1);
-  background: 0 70% no-repeat url(../../media/icons/monitor.svg) var(--color-back2);
-  background-size: 1em;
-  border-radius: var(--border-radius1);
+.themeswitcher {
+  align-content: center;
+}
 
-  &:has(option[value="light"]:checked) {
+label[for="themeswitcher"] {
+  display: inline-block;
+  text-indent: -9999px;
+  padding-inline-start: 1em;
+  background: 0 100% no-repeat url(../../media/icons/monitor.svg);
+  background-size: 1em;
+
+  header:has(option[value="light"]:checked) & {
     background-image: url(../../media/icons/sun.svg);
   }
 
-  &:has(option[value="dark"]:checked) {
+  header:has(option[value="dark"]:checked) & {
     background-image: url(../../media/icons/moon.svg);
   }
+}
+
+#themeswitcher {
+  display: inline-block;
+  border: 0 none;
+  color: var(--color-fore1);
+  background-color: var(--color-back2);
+  border-radius: var(--border-radius1);
 }
 
 @media (height > 600px) {

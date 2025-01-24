@@ -5,6 +5,18 @@
 <title>${ data.title || tacs.config.title }</title>
 <meta name="viewport" content="width=device-width,initial-scale=1,interactive-widget=overlays-content">
 
+<!-- Content Security Policy -->
+<meta http-equiv="Content-Security-Policy" content="
+default-src 'none';
+img-src 'self' data:;
+font-src 'none';
+style-src 'self';
+script-src 'self' 'sha256-ZOX448l7rXKv9iyuV8zV2PRNOWPsjZ7tkddjiBxmzqw=' 'sha256-OM0hjhCFzKhe37rKuW7480xLoDyRIzyLMKCvzoH6tGU=';
+connect-src 'self';
+manifest-src 'self';
+frame-src 'none';
+">
+
 <!-- assets -->
 <link rel="stylesheet" href="${ tacs.root }css/main.css">
 <script type="module" src="${ tacs.root }js/main.js"></script>
@@ -36,18 +48,6 @@
 <link rel="icon" type="image/png" sizes="32x32" href="${ tacs.root }favicon032.png">
 <link rel="icon" type="image/png" sizes="16x16" href="${ tacs.root }favicon016.png">
 <link rel="manifest" href="${ tacs.root }site.webmanifest">
-
-<!-- CSP -->
-<meta http-equiv="Content-Security-Policy" content="
-default-src 'none';
-img-src 'self' data:;
-font-src 'none';
-style-src 'self';
-script-src 'self' 'sha256-ZOX448l7rXKv9iyuV8zV2PRNOWPsjZ7tkddjiBxmzqw=';
-connect-src 'self';
-manifest-src 'self';
-frame-src 'none';
-">
 
 <!-- social media -->
 <meta property="og:site_name" content="Publican.dev">
