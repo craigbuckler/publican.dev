@@ -10,7 +10,7 @@
     margin-block: 0.1em;
   }
 
-  a.active {
+  a.active, a.active code {
     color: var(--color-fore2);
   }
 

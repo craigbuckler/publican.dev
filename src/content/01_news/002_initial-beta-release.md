@@ -1,5 +1,5 @@
 ---
-title: Publican beta release v0.4.0
+title: Publican v0.4.0 beta release
 menu: false
 pinned: 0.8
 description: The first beta release of the Publican static site generator is now available for you to try.
@@ -7,6 +7,7 @@ author: Craig Buckler
 tags: SSG
 priority: 1.0
 date: 2025-01-23
+modified: 2025-01-28
 hero: images/newspapers.avif
 heroWidth: 1200
 heroHeight: 600
@@ -22,18 +23,9 @@ Publican is a new HTML first static site generator for Node.js. The first usable
 There are plenty of great static site generators, but few provided all the features I wanted. So, yeah, [I created my own](--ROOT--news/why-another-ssg/).
 
 
-## Why did you name it Publican?
-
-I didn't think about it too long, but:
-
-* it's a play on the words *publish* and *publication*
-* the `publican.dev` domain was available, and
-* it reminds me of beer. Nice.
-
-
 ## Use at your own risk!
 
-I've been working on Publican since late 2024 and it's stable. This site is built using it, but I'm the only developer and it's unlikely to be as robust as I hope.
+I've been working on Publican since late 2024 and it's small but stable. This site is built using it, but I'm the only developer and it's unlikely to be as robust as I hope.
 
 You can [use Publican without restriction](--ROOT--about/licence/) at your own risk.
 

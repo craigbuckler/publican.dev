@@ -12,13 +12,11 @@ nav.featurelist {
     display: block;
     block-size: 100%;
     text-decoration: none;
-    padding-block: calc(var(--layout-margin) /  3);
-    padding-inline: calc(var(--layout-margin) /  2);
+    padding-block: calc(var(--layout-margin) / 5) calc(var(--layout-margin) / 3);
+    padding-inline: calc(var(--layout-margin) / 2);
     color: var(--color-fore1);
-    background-color: var(--color-back1);
-    border: 1px solid var(--color-back2);
+    border: 1px solid transparent;
     border-radius: var(--border-radius1);
-    box-shadow: 0 1px 3px var(--color-shadow);
   }
 
   a:hover, a:active, a:focus {
@@ -26,15 +24,15 @@ nav.featurelist {
     border-color: var(--color-hint1);
   }
 
-  p {
-    font-size: var(--fsize--1);
-    margin: 0;
-  }
-
-  p.title {
+  h2 {
     font-size: var(--fsize-1);
     font-weight: var(--font-weight-head);
     color: var(--color-hint1);
+    margin-block-start: 0;
+  }
+
+  p {
+    font-size: var(--fsize--1);
   }
 
 }

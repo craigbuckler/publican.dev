@@ -1,0 +1,138 @@
+---
+title: Publican v0.5.0 update
+menu: false
+pinned: 0.9
+description: Publican v0.5.0 allows you to omit links from inside headings and in-page menus.
+author: Craig Buckler
+tags: SSG, content, update, headings
+priority: 1.0
+date: 2025-01-28
+modified: 2025-01-28
+hero: images/books.avif
+heroWidth: 1200
+heroHeight: 600
+heroAlt: books
+heroCaption: Image courtesy of <a href="https://unsplash.com/@anniespratt">Annie Spratt</a>
+---
+
+
+[Publican v0.5.0](https://www.npmjs.com/package/publican) was released on <time datetime="${{ tacs.fn.format.dateISO( '2025-01-28' ) }}">${{ tacs.fn.format.dateHuman( '2025-01-28' ) }}</time>.
+
+There are no breaking changes, but additional configuration options have been added for [heading links](--ROOT--docs/setup/navigation/) and [in-page navigation menus](--ROOT--docs/setup/navigation/#inpage-navigation).
+
+
+## Omit heading links
+
+By default, Publican makes your content headings *linkable* so:
+
+```html
+<h2>My heading</h2>
+```
+
+is transformed to *(carriage returns added for clarity)*:
+
+```html
+<h2 id="my-heading" tabindex="-1">
+  My heading
+  <a href="#my-heading" class="headlink">#</a>
+</h2>
+```
+
+`#my-heading` is then available as a link target.
+
+This works well most of the time &hellip; *unless a title is already inside a link!* It results in invalid link nesting, e.g.
+
+```html
+<a href="/page/">
+  <h2 id="my-heading" tabindex="-1">
+    My heading
+    <a href="#my-heading" class="headlink">#</a>
+  </h2>
+</a>
+```
+
+A new Publican option allows you to omit the `#` link when a heading tag contains a specific string (the default is `nolink`):
+
+{{ `publican.config.js` excerpt }}
+```js
+// omit link from heading
+publican.config.headingAnchor.nolink = 'nolink';
+```
+
+Therefore:
+
+```html
+<h2 class="nolink">My heading</h2>
+<!-- OR -->
+<h2 data-nolink>My heading</h2>
+```
+
+is transformed to HTML without a link:
+
+```html
+<h2 id="my-heading" tabindex="-1" class="nolink">My heading</h2>
+```
+
+
+## Heading IDs are retained
+
+Publican no longer rewrites heading IDs. Therefore:
+
+```html
+<h2 id="myh2">My heading</h2>
+```
+
+keeps its ID:
+
+```html
+<h2 id="myh2" tabindex="-1">
+  My heading
+  <a href="#myh2" class="headlink">#</a>
+</h2>
+```
+
+
+## Omit from in-page menus
+
+The code `<nav-heading></nav-heading>` can be placed in any content or template file to show a nested menu of content heading links. A new Publican option allows you to omit a heading from this menu when its tag contains a specific string (the default is `nomenu`):
+
+{{ `publican.config.js` excerpt }}
+```js
+// omit heading from menu
+publican.config.headingAnchor.nomenu = 'nomenu';
+```
+
+For example, the following headings:
+
+```html
+<h2 class="nomenu">Heading 1</h2>
+<h2 class="nolink">Heading 2</h2>
+<h2 data-nolink-nomenu>Heading 3</h2>
+```
+
+are transformed to:
+
+```html
+<h2 id="heading1" tabindex="-1" class="nomenu">Heading 1 <a href="#heading1" class="headlink">#</a></h2>
+<h2 id="heading2" tabindex="-1" class="nolink">Heading 2</h2>
+<h2 data-nolink-nomenu>Heading 3</h2>
+```
+
+and the `<nav-heading>`{language=html} block only shows **Heading 2**:
+
+```html
+<nav-heading>
+  <nav class="contents">
+    <ol>
+      <li><a href="#heading2" class="head-h2">Heading 2</a><li>
+    </ol>
+  </nav>
+</nav-heading>
+```
+
+
+## Get started with Publican
+
+The [Publican documentation](--ROOT--docs/) provides a [quick start guide](--ROOT--docs/quickstart/concepts/), a [detailed set-up guide](--ROOT--docs/setup/content/), [API references](--ROOT--docs/reference/publican-options/), and [common recipes](--ROOT--docs/recipe/) you can use and adapt for your own projects.
+
+<p><a href="--ROOT--docs/quickstart/concepts/" class="button">Get started</a></p>

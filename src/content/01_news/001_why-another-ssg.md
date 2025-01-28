@@ -1,12 +1,13 @@
 ---
 title: Why create another static site generator?
 menu: false
-pinned: 0.9
+pinned: 1.0
 description: Why does Publican exist when there are so many great SSGs for all systems and languages?
 author: Craig Buckler
 tags: SSG
 priority: 1.0
 date: 2025-01-22
+modified: 2025-01-28
 hero: images/code.avif
 heroWidth: 1200
 heroHeight: 600
@@ -80,3 +81,13 @@ Publican is primarily aimed at documentation and technical blogs so syntax highl
 ## Fast enough
 
 Publican is written in JavaScript. It won't be as fast as Rust or Go SSGs, but it's fast enough to be practical.
+
+
+## Why name it Publican?
+
+I didn't think about it too long, but:
+
+* it's a play on the words *publish* and *publication*
+* it's short and memorable
+* the `publican.dev` domain was available, and
+* it reminds me of beer. Nice.

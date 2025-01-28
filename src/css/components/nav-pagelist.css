@@ -13,7 +13,6 @@ nav.pagelist {
     text-decoration: none;
     padding: calc(var(--layout-margin) /  2);
     color: var(--color-fore1);
-    background-color: var(--color-back1);
     border: 1px solid var(--color-back2);
     border-radius: var(--border-radius1);
     box-shadow: 0 1px 3px var(--color-shadow);

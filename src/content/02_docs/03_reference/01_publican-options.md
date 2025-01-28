@@ -4,7 +4,7 @@ menu: Publican configuration
 description: A list of Publican's configuration file options.
 date: 2025-01-23
 priority: 0.9
-tags: configure, root path, string replacement
+tags: configure, root path, string replacement, headings
 ---
 
 The following options can be set your `publican.config.js` [configuration file](--ROOT--docs/setup/configuration/) to control how the static site is generated. The examples below presume you have defined a Publican object named `publican` at the top of the file:
@@ -170,10 +170,13 @@ publican.config.markdownOptions = {
 
 ## Heading links
 
-All content sub-headings (`<h2>`{language=html} to `<h6>`{language=html}) are made *linkable*. The `publican.config.headingAnchor`{language=js} object controls how headings are rendered. You can set it to `false` (or any falsy value) to disable heading links or define your own values. The defaults are:
+Content sub-headings (`<h2>`{language=html} to `<h6>`{language=html}) are automatically given `id` attributes so they are available as link targets and can be shown in an [in-page menu](#inpage-navigation). The `publican.config.headingAnchor`{language=js} object controls how headings are rendered. You can set it to `false` (or any falsy value) to disable heading links or define your own values. The defaults are:
 
 {{ `publican.config.js` excerpt }}
 ```js
+// omit link from heading
+publican.config.headingAnchor.nolink = 'nolink';
+
 // text in heading link
 publican.config.headingAnchor.linkContent = '#';
 
@@ -181,28 +184,55 @@ publican.config.headingAnchor.linkContent = '#';
 publican.config.headingAnchor.linkClass = 'headlink';
 ```
 
-A heading such as:
+**Example 1.** A basic heading such as:
 
 ```html
 <h2>My heading</h2>
 ```
 
-has a link appended:
+is transformed to *(carriage returns added for clarity)*:
 
 ```html
-<h2>My heading <a href="#my-heading" class="headlink">#</a></h2>
+<h2 id="my-heading" tabindex="-1">
+  My heading
+  <a href="#my-heading" class="headlink">#</a>
+</h2>
 ```
 
-{aside}
-Ensure your heading are nested correctly. For example, following an `<h2>`{language=html}, you could have another `<h2>`{language=html} or an `<h3>`{language=html}, but not an `<h4>`{language=html}.
-{/aside}
+**Example 2.** Headings retain their IDs when transformed so:
+
+```html
+<h2 id="myh2">My heading</h2>
+```
+
+is transformed to:
+
+```html
+<h2 id="myh2" tabindex="-1">
+  My heading
+  <a href="#myh2" class="headlink">#</a>
+</h2>
+```
+
+**Example 3.** Headings with `nolink` somewhere in the tag do not have a `#` link added. This is useful when a heading is inside a link:
+
+```html
+<h2 class="nolink">My heading</h2>
+<!-- OR -->
+<h2 data-nolink>My heading</h2>
+```
+
+is transformed to:
+
+```html
+<h2 id="my-heading" tabindex="-1" class="nolink">My heading</h2>
+```
 
 
 ## In-page navigation
 
-The code `<nav-heading></nav-heading>` can be placed in any content or template file. Each page's nested content headings (`<h2>`{language=html} to `<h6>`{language=html}) are rendered into the block:
+The code `<nav-heading></nav-heading>` can be placed in any content or template file. The page's nested [headings links](#heading-links) (`<h2>`{language=html} to `<h6>`{language=html}) are rendered into the block, e.g.
 
-{{ example in-page navigation }}
 ```html
 <nav-heading>
   <nav class="contents">
@@ -224,12 +254,47 @@ Additional `publican.config.headingAnchor`{language=js} properties control the o
 
 {{ `publican.config.js` excerpt }}
 ```js
+// omit heading from menu
+publican.config.headingAnchor.nomenu = 'nomenu';
+
 // the tag name: <nav-heading></nav-heading>
 publican.config.headingAnchor.tag = 'nav-heading';
 
 // the class assigned to the parent <nav>
 publican.config.headingAnchor.navClass = 'contents';
 ```
+
+Headings with `nomenu` somewhere in the tag are omitted from the menu. For example, the following headings:
+
+```html
+<h2 class="nomenu">Heading 1</h2>
+<h2 class="nolink">Heading 2</h2>
+<h2 data-nolink-nomenu>Heading 3</h2>
+```
+
+are transformed to:
+
+```html
+<h2 id="heading1" tabindex="-1" class="nomenu">Heading 1 <a href="#heading1" class="headlink">#</a></h2>
+<h2 id="heading2" tabindex="-1" class="nolink">Heading 2</h2>
+<h2 data-nolink-nomenu>Heading 3</h2>
+```
+
+and the `<nav-heading>`{language=html} block only shows **Heading 2**:
+
+```html
+<nav-heading>
+  <nav class="contents">
+    <ol>
+      <li><a href="#heading2" class="head-h2">Heading 2</a><li>
+    </ol>
+  </nav>
+</nav-heading>
+```
+
+{aside}
+Ensure your heading hierarchy is correct. For example, following an `<h2>`{language=html}, you could have another `<h2>`{language=html} or an `<h3>`{language=html}, but not an `<h4>`{language=html}. Publican does not report hierarchy errors, but the menu may look unusual.
+{/aside}
 
 
 ## String replacement

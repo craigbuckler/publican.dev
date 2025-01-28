@@ -9,6 +9,10 @@
   margin-block-start: 0;
 }
 
+.wn {
+  font-weight: var(--font-weight-normal);
+}
+
 .wb {
   font-weight: var(--font-weight-bold);
 }
@@ -19,6 +23,7 @@
 
 .sub {
   font-size: var(--fsize-3);
+
 }
 
 .center {
@@ -51,7 +56,7 @@ button, a.button {
   justify-content: center;
   gap: 1em;
   padding: 0;
-  margin-block: var(--layout-margin);
+  margin-block: calc(var(--layout-margin) * 2);
 
   & > * {
     list-style-type: none;
