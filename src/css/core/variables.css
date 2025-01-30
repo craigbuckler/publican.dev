@@ -41,7 +41,7 @@
   --color-code-back: light-dark(#f2f4f6, #1d1f21);
   --color-code-border: light-dark(#ddd, #393d41);
   --color-code-line: light-dark(#999, #555);
-  --color-code-comment: light-dark(#008000, #7c7c7c);
+  --color-code-comment: light-dark(#008000, #8c8c8c);
   --color-code-punc: light-dark(#88f, #c5c8c6);
   --color-code-keyword: light-dark(#9a050f, #96cbfe);
   --color-code-class: light-dark(#00f, #ffffb6);

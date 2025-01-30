@@ -23,6 +23,7 @@ body, h2, h3 {
 
 .filename {
 
+	white-space: nowrap;
 	margin-block-end: -1px;
 
 	dfn {

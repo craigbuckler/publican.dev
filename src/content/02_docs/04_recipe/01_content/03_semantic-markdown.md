@@ -4,7 +4,7 @@ menu: Semantic markdown
 description: How to use semantic HTML tags such as aside, section, and article in markdown blocks.
 date: 2025-01-23
 priority: 0.9
-tags: HTML, markdown
+tags: HTML, markdown, SEO
 ---
 
 Elements such as `<aside>`, `<section>`, and `<article>` cannot be expressed in markdown unless you create a block of HTML content. Unfortunately, this means child markdown is not converted to HTML. For example:

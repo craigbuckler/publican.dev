@@ -41,6 +41,7 @@ publican.config.tagPages.size = 12;
 // pass-through files
 publican.config.passThrough.add({ from: './src/media/favicons', to: './' });
 publican.config.passThrough.add({ from: './src/media/images', to: './images/' });
+publican.config.passThrough.add({ from: './src/media/videos', to: './videos/' });
 
 // processContent hook: custom {{ filename }} code tabs
 publican.config.processContent.add( fnHooks.contentFilename );

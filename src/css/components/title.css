@@ -67,7 +67,7 @@ main header {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    gap: 0.5em;
+    gap: 1em 0.5em;
   }
 
   a:link, a:visited {

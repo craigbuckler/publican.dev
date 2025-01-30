@@ -1,5 +1,5 @@
 ${ data.hero && `
-<figure>
+<figure class="hero">
   <img src="${ tacs.root }${ data.hero }" width="${ data.heroWidth || 1000 }" height="${ data.heroWidth || 500 }" alt="${ data.heroAlt || 'decorative' }" loading="eager" />
   ${ data.heroCaption && `<figcaption>${ data.heroCaption }</figcaption>` }
 </figure>

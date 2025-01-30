@@ -1,7 +1,6 @@
 ---
 title: Publican v0.5.0 update
 menu: false
-pinned: 0.9
 description: Publican v0.5.0 allows you to omit links from inside headings and in-page menus.
 author: Craig Buckler
 tags: SSG, content, update, headings

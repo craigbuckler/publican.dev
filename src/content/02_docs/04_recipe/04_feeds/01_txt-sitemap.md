@@ -4,7 +4,7 @@ menu: Text sitemap
 description: How to create a txt file which outputs a list of all page links for search engines.
 date: 2025-01-23
 priority: 0.9
-tags: content, sitemap
+tags: content, sitemap, SEO
 ---
 
 You can help search engines indexing your site by creating a sitemap. The simplest is a text file containing all page links:

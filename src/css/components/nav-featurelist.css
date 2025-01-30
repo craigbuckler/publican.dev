@@ -5,7 +5,7 @@ nav.featurelist {
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: repeat( auto-fit, minmax(var(--layout-list-width), 1fr));
-  gap: calc(var(--layout-margin) / 2);
+  gap: max(1em, var(--layout-margin) / 2);
   margin-block: var(--layout-margin);
 
   a:link, a:visited {

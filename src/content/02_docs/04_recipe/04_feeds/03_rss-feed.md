@@ -4,7 +4,7 @@ menu: RSS feed
 description: How create an RSS feed of your latest posts.
 date: 2025-01-23
 priority: 0.9
-tags: content, RSS
+tags: content, RSS, SEO
 ---
 
 A [Really Simple Syndication (RSS) feed](https://en.wikipedia.org/wiki/RSS) is a list of recent articles defined in an XML file. RSS readers or news aggregators allow users to subscribe to an RSS feed so they can be alerted when new content appears. Depending on the feed, they can either navigate to your site or read the post in the application.

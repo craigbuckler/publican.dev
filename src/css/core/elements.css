@@ -78,7 +78,7 @@ figure + * {
   margin-block-start: 2em;
 }
 
-figure, img {
+figure, img, video {
   margin-block-start: 1em;
 }
 
@@ -105,6 +105,10 @@ kbd {
   border-radius: 5px;
 }
 
+sup, sub {
+  font-size: var(--fsize--2);
+}
+
 a:link, a:visited {
   text-decoration: underline;
   text-underline-offset: 0.2em;
@@ -117,6 +121,7 @@ a:hover, a:active, a:focus {
 
 a.headlink {
   visibility: hidden;
+  font-size: 0.85em;
   vertical-align: text-top;
   text-decoration: none;
 
@@ -124,6 +129,10 @@ a.headlink {
     visibility: visible;
   }
 
+}
+
+main {
+  overflow-x: hidden;
 }
 
 main, .share, .backnext, .related, .pinned {
