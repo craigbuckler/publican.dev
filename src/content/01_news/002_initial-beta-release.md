@@ -1,7 +1,6 @@
 ---
 title: Publican v0.4.0 beta release
 menu: false
-pinned: 0.8
 description: The first beta release of the Publican static site generator is now available for you to try.
 author: Craig Buckler
 tags: SSG

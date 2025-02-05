@@ -7,7 +7,7 @@ author: Craig Buckler
 tags: SSG
 priority: 1.0
 date: 2025-01-22
-modified: 2025-01-28
+modified: 2025-02-05
 hero: images/code.avif
 heroWidth: 1200
 heroHeight: 600
@@ -91,3 +91,10 @@ I didn't think about it too long, but:
 * it's short and memorable
 * the `publican.dev` domain was available, and
 * it reminds me of beer. Nice.
+
+
+## Get started
+
+The [Publican documentation](--ROOT--docs/) provides a [quick start guide](--ROOT--docs/quickstart/concepts/), a [detailed set-up guide](--ROOT--docs/setup/content/), [API references](--ROOT--docs/reference/publican-options/), and [common recipes](--ROOT--docs/recipe/) you can use and adapt for your own projects.
+
+<p><a href="--ROOT--docs/quickstart/concepts/" class="button">Get started</a></p>

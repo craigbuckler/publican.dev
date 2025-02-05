@@ -6,7 +6,7 @@ author: Craig Buckler
 tags: SSG, content, update, headings
 priority: 1.0
 date: 2025-01-28
-modified: 2025-01-28
+modified: 2025-02-05
 hero: images/books.avif
 heroWidth: 1200
 heroHeight: 600

@@ -7,7 +7,7 @@ author: Craig Buckler
 tags: SSG, performance, HTML, PHP, SEO
 priority: 1.0
 date: 2025-01-30
-modified: 2025-01-30
+modified: 2025-02-05
 hero: images/fast.avif
 heroWidth: 1200
 heroHeight: 600
@@ -24,14 +24,14 @@ This site -- [Publican.dev](--ROOT--) -- is built using Publican. It implements 
 
 In previous years, there was a move toward Single Page Applications (SPAs). An HTML page -- *typically with no content* -- loaded JavaScript which took over responsibility for routing and content updates. This can have benefits for complex applications, but it often goes too far:
 
-* A small JavaScript or connectivity error results in a blank screen.
+* A JavaScript or connectivity error can result in a blank screen.
 * Developers must re-implement standard browser features that SPAs break -- such as URLs, the back button, refresh, etc. They rarely worked as expected.
 * SPAs can be slower than server-rendered and streamed HTML content, especially on the first page visit.
 * Search engines find it more difficult to index the content.
 
-Few sites need to be an SPA given most provide content. Even complex apps can benefit from a simpler multi-page approach when users navigate to different sections.
+Few content sites need to be an SPA. Some complex apps can benefit from a simpler multi-page approach when users navigate to different sections.
 
-I have always preferred a progressive enhancement approach to web development:
+I prefer a progressive enhancement approach to web development:
 
 1. Use semantic HTML to build a base experience.
 1. Add a layer of CSS to enhance that where possible.
@@ -49,14 +49,16 @@ Web performance is generally woeful. The average page:
 * [uses 600Kb of JavaScript](https://httparchive.org/reports/page-weight?start=2024_12_01&end=latest&view=list#bytesJs), and
 * [takes up to 6 seconds to appear](https://httparchive.org/reports/loading-speed?start=2024_12_01&end=latest&view=list#speedIndex).
 
-JavaScript is usually the main culprit for poor page performance. It may need to be downloaded, parsed, and executed before content appears. Developers attempt to solve it by adding *more* JavaScript which compounds the problem.
+JavaScript is usually the main culprit for poor page performance. It may need to be downloaded, parsed, and executed before con tent appears. Developers often attempt to solve it by adding *more* JavaScript which compounds the problem.
 
 It need not be that way. A typical page on Publican.dev:
 
 * appears in one third of a second on an average connection
 * downloads less than 50Kb of compressed assets (typically less than 150Kb when decompressed)
 * requires less than 10KB of CSS and 2KB of JavaScript
-* uses [speculation rules](https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API) to make the next page load even faster.
+* uses available OS fonts rather than downloading web fonts
+* has very few images -- most are SVGs and highly compressed AVIF files.
+* implements [speculation rules](https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API) to make the next page load even faster.
 
 Chrome's Lighthouse tool and [PageSpeed Insights](https://pagespeed.web.dev/) give [Publican.dev a 100% score](https://pagespeed.web.dev/analysis/https-publican-dev/2tklfc6ggs) for performance, accessibility, best practices, and search engine optimization on most pages.
 
@@ -127,3 +129,10 @@ You can still use a <abbr title="Content Management System">CMS</abbr> and datab
 Web technologies have radically improved over the past decade. Sites need less code and fewer images than ever, but web page weight continued to increase. I don't believe the average website has become more sophisticated -- *we're just adding more unnecessary bloat*.
 
 We're finally seeing a backlash against poor website performance. Static site generators such as Publican are key tools that could help.
+
+
+### Get started
+
+The [Publican documentation](--ROOT--docs/) provides a [quick start guide](--ROOT--docs/quickstart/concepts/), a [detailed set-up guide](--ROOT--docs/setup/content/), [API references](--ROOT--docs/reference/publican-options/), and [common recipes](--ROOT--docs/recipe/) you can use and adapt for your own projects.
+
+<p><a href="--ROOT--docs/quickstart/concepts/" class="button">Get started</a></p>

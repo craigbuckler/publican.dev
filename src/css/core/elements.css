@@ -131,10 +131,6 @@ a.headlink {
 
 }
 
-main {
-  overflow-x: hidden;
-}
-
 main, .share, .backnext, .related, .pinned {
 
   & > * {
