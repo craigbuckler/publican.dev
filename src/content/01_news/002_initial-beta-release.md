@@ -6,7 +6,7 @@ author: Craig Buckler
 tags: SSG
 priority: 1.0
 date: 2025-01-23
-modified: 2025-01-28
+modified: 2025-02-11
 hero: images/newspapers.avif
 heroWidth: 1200
 heroHeight: 600
@@ -29,11 +29,14 @@ I've been working on Publican since late 2024 and it's small but stable. This si
 You can [use Publican without restriction](--ROOT--about/licence/) at your own risk.
 
 
-## Get started with Publican
+## Get started
 
 The [Publican documentation](--ROOT--docs/) provides a [quick start guide](--ROOT--docs/quickstart/concepts/), a [detailed set-up guide](--ROOT--docs/setup/content/), [API references](--ROOT--docs/reference/publican-options/), and [common recipes](--ROOT--docs/recipe/) you can use and adapt for your own projects.
 
-<p><a href="--ROOT--docs/quickstart/concepts/" class="button">Get started</a></p>
+<ul class="flexcenter">
+  <li><a href="--ROOT--docs/quickstart/concepts/" class="button">Get started</a></li>
+  ${{ tacs.config.donate && `<li><a href="${ tacs.config.donate }" class="button">Donate</a></li>` }}
+</ul>
 
 
 ## Coming soon...

@@ -69,4 +69,9 @@ Publican uses [jsTACS](--ROOT--docs/setup/jstacs/) as its templating engine:
 
 ## I want to know more!
 
-Refer to the [documentation pages](--ROOT--docs/) to get started.
+Refer to the [core concepts](--ROOT--docs/quickstart/concepts/) and [documentation pages](--ROOT--docs/) to get started.
+
+<ul class="flexcenter">
+  <li><a href="--ROOT--docs/quickstart/concepts/" class="button">Get started</a></li>
+  ${{ tacs.config.donate && `<li><a href="${ tacs.config.donate }" class="button">Donate</a></li>` }}
+</ul>

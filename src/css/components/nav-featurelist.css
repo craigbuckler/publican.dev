@@ -12,8 +12,8 @@ nav.featurelist {
     display: block;
     block-size: 100%;
     text-decoration: none;
-    padding-block: calc(var(--layout-margin) / 5) calc(var(--layout-margin) / 3);
-    padding-inline: calc(var(--layout-margin) / 2);
+    padding-block: 0.5em 0.8em;
+    padding-inline: 1em;
     color: var(--color-fore1);
     border: 1px solid transparent;
     border-radius: var(--border-radius1);

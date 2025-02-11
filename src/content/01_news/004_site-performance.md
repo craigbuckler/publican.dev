@@ -1,13 +1,13 @@
 ---
 title: Does Publican make your site fast?
 menu: false
-pinned: 0.9
 description: How Publican.dev implements performance and security features you can use on your website.
 author: Craig Buckler
 tags: SSG, performance, HTML, PHP, SEO
 priority: 1.0
+pinned: 0.8
 date: 2025-01-30
-modified: 2025-02-05
+modified: 2025-02-11
 hero: images/fast.avif
 heroWidth: 1200
 heroHeight: 600
@@ -131,8 +131,11 @@ Web technologies have radically improved over the past decade. Sites need less c
 We're finally seeing a backlash against poor website performance. Static site generators such as Publican are key tools that could help.
 
 
-### Get started
+## Get started
 
 The [Publican documentation](--ROOT--docs/) provides a [quick start guide](--ROOT--docs/quickstart/concepts/), a [detailed set-up guide](--ROOT--docs/setup/content/), [API references](--ROOT--docs/reference/publican-options/), and [common recipes](--ROOT--docs/recipe/) you can use and adapt for your own projects.
 
-<p><a href="--ROOT--docs/quickstart/concepts/" class="button">Get started</a></p>
+<ul class="flexcenter">
+  <li><a href="--ROOT--docs/quickstart/concepts/" class="button">Get started</a></li>
+  ${{ tacs.config.donate && `<li><a href="${ tacs.config.donate }" class="button">Donate</a></li>` }}
+</ul>

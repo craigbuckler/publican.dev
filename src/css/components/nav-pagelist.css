@@ -11,7 +11,8 @@ nav.pagelist {
     display: block;
     block-size: 100%;
     text-decoration: none;
-    padding: calc(var(--layout-margin) /  2);
+    padding-block: 0.6em;
+    padding-inline: 1em;
     color: var(--color-fore1);
     border: 1px solid var(--color-back2);
     border-radius: var(--border-radius1);
@@ -30,8 +31,8 @@ nav.pagelist {
 
   p {
     font-size: var(--fsize--1);
-    padding-block-end: 1em;
-    margin-block: 0.5em 1em;
+    padding-block-end: 0.5em;
+    margin-block: 0.5em;
     border-block-end: 1px dotted var(--color-back2);
   }
 
@@ -41,6 +42,7 @@ nav.pagelist {
     padding: 0;
     margin: 0;
     border: 0 none;
+    color: var(--color-fore3);
   }
 
 }

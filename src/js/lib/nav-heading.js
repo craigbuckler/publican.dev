@@ -33,7 +33,7 @@ class NavHeading extends HTMLElement {
     if (title && nav) {
 
       const details = this.appendChild( document.createElement('details') );
-      if ( (window.matchMedia('(width > 1500px) and (height > 600px)')).matches ) details.setAttribute('open', '');
+      if ( (window.matchMedia('(width > 1365px) and (height > 600px)')).matches ) details.setAttribute('open', '');
       details.appendChild( document.createElement('summary') ).textContent = title;
       details.appendChild(nav);
 
