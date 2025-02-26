@@ -3,6 +3,7 @@ title: Create related page links
 menu: Related pages
 description: How show a list of links to pages with related content.
 date: 2025-01-23
+modified: 2025-02-26
 priority: 0.9
 tags: navigation
 ---
@@ -141,7 +142,7 @@ await publican.build();
 
 You can now examine the `data.related` array in any template. The following example shows up to three posts with the highest relevancy scores.
 
-```html
+```js
 ${ data?.related?.length ? `
   <aside class="related">
     <h2>Related posts</h2>

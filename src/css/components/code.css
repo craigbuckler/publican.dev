@@ -57,6 +57,14 @@ body, h2, h3 {
 		}
 	}
 
+	&.language-xml dfn {
+		border-color: #494;
+
+		&::before {
+			background-image: url(../../media/icons/xml.svg);
+		}
+	}
+
 	&.language-css dfn {
 		border-color: #639;
 

@@ -5,7 +5,6 @@ description: Can static site tools such as Publican help your site achieve bette
 author: Craig Buckler
 tags: SSG, SEO
 priority: 1.0
-pinned: 0.9
 date: 2025-02-11
 modified: 2025-02-11
 hero: images/binoculars.avif

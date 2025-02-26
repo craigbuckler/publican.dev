@@ -62,7 +62,7 @@ It need not be that way. A typical page on Publican.dev:
 
 Chrome's Lighthouse tool and [PageSpeed Insights](https://pagespeed.web.dev/) give [Publican.dev a 100% score](https://pagespeed.web.dev/analysis/https-publican-dev/2tklfc6ggs) for performance, accessibility, best practices, and search engine optimization on most pages.
 
-<video autoplay muted loop width="487" height="141" preload="auto">
+<video autoplay muted playsinline loop width="487" height="141" preload="auto">
   <source src="--ROOT--videos/lighthouse.webm" type="video/webm" />
 </video>
 

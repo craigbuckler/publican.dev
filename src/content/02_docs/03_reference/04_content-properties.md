@@ -3,6 +3,7 @@ title: Content properties
 menu: Content properties
 description: The content properties provided to each page rendered by Publican.
 date: 2025-01-23
+modified: 2025-02-26
 priority: 0.9
 tags: content, front matter, templates, template literals
 ---
@@ -121,7 +122,7 @@ Example:
 
 Code to output the page's tags with links to their index pages:
 
-```html
+```js
 ${ data?.tags?.map(
   t => `<p><a href="${ t.link }">${ t.tag }</a></p>`
 ) }
@@ -137,7 +138,7 @@ The number of words in the content as an integer.
 
 The `data` object of the next post (according to the content order). Usage example:
 
-```html
+```js
 ${
   data?.postnext?.title &&
   `<p class="next"><a href="${ data.postnext.link }">
@@ -151,7 +152,7 @@ ${
 
 The `data` object of the previous post (according to the content order). Usage example:
 
-```html
+```js
 ${
   data?.postback?.title &&
   `<p class="next"><a href="${ data.postback.link }">

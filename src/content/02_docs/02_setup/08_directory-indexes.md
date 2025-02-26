@@ -3,6 +3,7 @@ title: Publican directory indexes
 menu: Directory indexes
 description: How to use automated pagination for posts in specific directories.
 date: 2025-01-23
+modified: 2025-02-26
 priority: 0.9
 tags: directory index, navigation, string replacement
 ---
@@ -118,7 +119,7 @@ Publican provides all index pages with a `data.pagination` object that has the f
 
 The following template code example lists all pages when the `data.pagination` object is available (it can therefore be added to any template):
 
-```html
+```js
 ${ data?.pagination?.page?.length && `
   <nav class="pagelist">
     ${ data.pagination.page.map(p => `
@@ -136,7 +137,7 @@ ${ data?.pagination?.page?.length && `
 
 The following template code example shows index back and next buttons when the `data.pagination` object is available:
 
-```html
+```js
 ${ data?.pagination?.hrefBack && `
     <a href="${ data.pagination.hrefBack }">back</a>
 `}
@@ -148,7 +149,7 @@ ${ data?.pagination?.hrefNext && `
 
 The following template code example shows a list of links to all index pages (the currently active page is not a link):
 
-```html
+```js
 ${ pagination?.href.forEach((page, idx) => {
   return idx == data.pagination.pageCurrent ?
     `<strong>${ idx + 1 }</strong>` :

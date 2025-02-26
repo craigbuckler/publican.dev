@@ -1,0 +1,92 @@
+---
+title: Publican v0.6.0 update
+menu: false
+description: Publican v0.6.0 fixes issues when using complex template literal expressions in markdown content.
+author: Craig Buckler
+tags: SSG, content, update, markdown
+priority: 1.0
+pinned: 0.9
+date: 2025-02-26
+modified: 2025-02-26
+hero: images/arrows.avif
+heroWidth: 1200
+heroHeight: 600
+heroAlt: books
+heroCaption: Image courtesy of <a href="https://unsplash.com/@charlotablunarova">Charlota Blunarova</a>
+---
+
+[Publican v0.6.0](https://www.npmjs.com/package/publican) was released on <time datetime="${{ tacs.fn.format.dateISO( '2025-02-26' ) }}">${{ tacs.fn.format.dateHuman( '2025-02-26' ) }}</time>.
+
+There are no breaking changes, but you should encounter fewer issues when using [complex template literal expressions in markdown content](--ROOT--docs/setup/jstacs/#template-literals-in-markdown).
+
+
+## Markdown conversion complexities
+
+Publican uses the excellent [markdown-it](https://www.npmjs.com/package/markdown-it) parser to convert markdown to HTML. This is done once shortly after the content is loaded.
+
+Markdown parsers usually leave simpler template literal expressions as-is:
+
+```md
+<!-- this should work -->
+## ${ data.title }
+```
+
+but more complex code can have characters replaced and it breaks literal parsing:
+
+```html
+<!-- this fails -->
+${ toArray( tacs.all ).map(i => i.title && '<li>' + i.title + '</li>') }
+
+<!-- because it's converted to -->
+${ toArray( tacs.all ).map(i =&gt; i.title &amp;&amp; ‘<li>’ + i.title + ‘</li>’) }
+```
+
+Expressions inside or between code blocks may also fail to execute.
+
+Publican v0.5.0 and below provided some workarounds such as using double-bracket <code>$&#123;&#123; expressions &#125;&#125;</code> to denote real expressions, adopting HTML snippets in markdown, simplifying expressions using [custom jsTACS functions](--ROOT--docs/reference/template-globals/#defining-global-functions), or switching to HTML files.
+
+
+## Publican v0.6.0 improvements
+
+Publican v0.6.0 comments out template literal expressions before markdown is converted to HTML. Comments are then removed before the expressions are parsed. The code above will render as expected.
+
+Previous versions could also add additional HTML where you may not have wanted it. For example, the single line:
+
+```js
+${ '<h1>' + data.title + '</h1>' }
+```
+
+rendered as:
+
+```html
+<p><h1>A title</h1></p>
+```
+
+In version 0.6.0, it's rendered as:
+
+```html
+<h1>A title</h1>
+```
+
+
+### Double-bracket <code>$&#123;&#123; expressions &#125;&#125;</code>
+
+Double-bracket <code>$&#123;&#123; expressions &#125;&#125;</code> may still be necessary in situations where you have nested expressions:
+
+<pre class="language-js"><code class="language-js">&#36;{{ toArray( tacs.all ).map(i =&gt; i.title && &#96;&lt;li&gt;&#36;{ i.title }&lt;/li&gt;&#96;) }}</code></pre>
+
+or you want to execute an expression inside a code block:
+
+<pre class="language-js"><code class="language-js">&#96;&#96;&#96;js
+console.log( '&#36;{{ data.title }}' );
+&#96;&#96;&#96;</code></pre>
+
+
+## Get started
+
+The [Publican documentation](--ROOT--docs/) provides a [quick start guide](--ROOT--docs/quickstart/concepts/), a [detailed set-up guide](--ROOT--docs/setup/content/), [API references](--ROOT--docs/reference/publican-options/), and [common recipes](--ROOT--docs/recipe/) you can use and adapt for your own projects.
+
+<ul class="flexcenter">
+  <li><a href="--ROOT--docs/quickstart/concepts/" class="button">Get started</a></li>
+  ${{ tacs.config.donate && `<li><a href="${ tacs.config.donate }" class="button">Donate</a></li>` }}
+</ul>

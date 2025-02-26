@@ -3,6 +3,7 @@ title: Publican navigation options
 menu: Navigation
 description: Publican provides various objects to help with site navigation.
 date: 2025-01-23
+modified: 2025-02-26
 priority: 0.9
 tags: navigation, headings
 ---
@@ -143,7 +144,7 @@ Ensure your heading hierarchy is correct. For example, following an `<h2>`{langu
 
 The post's `data.postback` and `data.postnext` hold the `data` object of the previous and next post according to the directory or tag ordering. You can link to the previous and next page using template code such as:
 
-```html
+```js
 ${ data?.postback?.link &&
   `<p><a href="${ data.postback.link }">back: ${ data.postback.title }</a></p>` }
 

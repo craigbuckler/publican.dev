@@ -3,6 +3,7 @@ title: The jsTACS template engine
 menu: jsTACS
 description: More information about the jsTACS rendering engine used in Publican templates.
 date: 2025-01-23
+modified: 2025-02-26
 priority: 0.9
 tags: jsTACS, templates, template literals, markdown, HTML
 ---
@@ -100,8 +101,8 @@ ${ toArray( data.something ).map(m => `Value ${ m }`).join(', ') }
 
 Templates can include other template files with:
 
-```html
-${ include(<filename>) }
+```js
+${ include('<filename>') }
 ```
 
 where `<filename>` is relative to the [template directory](--ROOT--docs/setup/templates/#template-file-location). The example `default.html` below includes `_partials/header.html`:
@@ -150,23 +151,27 @@ jsTACS will not permit more than 50 iterations when parsing templates. This prev
 
 ## Template literals in markdown
 
-You can use template literals in markdown content but some care may be necessary to avoid problems with the HTML conversion. Simple expressions will often work as expected:
+You can use template literals in markdown content but some care may be necessary to avoid problems with HTML conversion. Simpler expressions will work as expected:
 
 ```md
-<!-- this should work -->
+<!-- page title -->
 ## ${ data.title }
+
+<!-- list all page titles -->
+${ toArray( tacs.all ).map(i => i.title && '<p>' + i.title + '</p>') }
 ```
 
-However, expressions inside or between code blocks may not execute and more complex expressions break the markdown to HTML parser.
+However, you may need to use a double-bracket <code>$&#123;&#123; expression &#125;&#125;</code> in some situations. This denotes a *real* expression irrespective of where it resides in the markdown *(they are stripped from the content before HTML conversion)*. They may be necessary when you have nested expressions, e.g.
 
-```html
-<!-- this will fail -->
-${ data.all.map(i => i.title) }
-```
+<pre class="language-js"><code class="language-js">&#36;{{ toArray( tacs.all ).map(i =&gt; i.title && &#96;&lt;li&gt;&#36;{ i.title }&lt;/li&gt;&#96;) }}</code></pre>
 
-You can work around these issues in a number of ways:
+or want to execute an expression inside a code block:
 
-1. Use a double-bracket <code>$&#123;&#123; expression &#125;&#125;</code>. This denotes a *real* expression irrespective of where it resides in the markdown *(they are stripped from the content before HTML conversion)*.<p>
+<pre class="language-js"><code class="language-js">&#96;&#96;&#96;js
+console.log( '&#36;{{ data.title }}' );
+&#96;&#96;&#96;</code></pre>
+
+If this does not solve your problem, you can:
 
 1. Use HTML snippets in your markdown file, e.g.
 

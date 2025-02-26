@@ -3,6 +3,7 @@ title: Front matter
 menu: Front matter
 description: How to define front matter in Publican content files.
 date: 2025-01-23
+modified: 2025-02-26
 priority: 0.9
 tags: content, front matter
 ---
@@ -140,7 +141,7 @@ The front matter `name` can be anything that's a valid JavaScript variable name.
 
 The front matter values can be used in content and templates with [template literals](--ROOT--docs/setup/jstacs/), e.g.
 
-```html
+```js
 <p>${ data.description || "Nothing to see here." }</p>
 
 ${ data?.author && `<p class="author">By ${ data.author }</p>` }

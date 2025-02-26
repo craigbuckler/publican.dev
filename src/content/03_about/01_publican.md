@@ -3,6 +3,7 @@ title: About Publican
 menu: Publican
 description: Information about Publican and how it improves website resilience, security, and performance.
 date: 2025-01-23
+modified: 2025-02-26
 priority: 0.5
 tags: SSG, jsTACS, WordPress, PHP
 ---
@@ -63,7 +64,7 @@ Publican can output PHP or any other file containing code. This allows you to ge
 Publican uses [jsTACS](--ROOT--docs/setup/jstacs/) as its templating engine:
 
 * It parses standard JavaScript template literal `${ expressions }`{language=js} at build time.
-* It converts `!{ expression }`{language=js} blocks to `${ expressions }` at the end of the build. You can therefore [use partially-built jsTACS templates](--ROOT--docs/setup/jstacs/#runtime-expressions) in [Express.js](https://expressjs.com/) or other Node.js frameworks at runtime.
+* It converts `!{ expression }`{language=js} blocks to `${ expressions }`{language=js} at the end of the build. You can therefore [use partially-built jsTACS templates](--ROOT--docs/setup/jstacs/#runtime-expressions) in [Express.js](https://expressjs.com/) or other Node.js frameworks at runtime.
 {/aside}
 
 
