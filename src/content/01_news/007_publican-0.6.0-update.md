@@ -5,15 +5,18 @@ description: Publican v0.6.0 fixes issues when using complex template literal ex
 author: Craig Buckler
 tags: SSG, content, update, markdown
 priority: 1.0
-pinned: 0.9
 date: 2025-02-26
-modified: 2025-02-26
+modified: 2025-03-19
 hero: images/arrows.avif
 heroWidth: 1200
 heroHeight: 600
 heroAlt: books
 heroCaption: Image courtesy of <a href="https://unsplash.com/@charlotablunarova">Charlota Blunarova</a>
 ---
+
+{ aside }
+This post has been superseded by the [release of Publican 0.6.1](--ROOT--news/publican-0.6.1-update/).
+{ /aside }
 
 [Publican v0.6.0](https://www.npmjs.com/package/publican) was released on <time datetime="${{ tacs.fn.format.dateISO( '2025-02-26' ) }}">${{ tacs.fn.format.dateHuman( '2025-02-26' ) }}</time>.
 
@@ -46,7 +49,7 @@ Expressions inside or between code blocks may also fail to execute.
 Publican v0.5.0 and below provided some workarounds such as using double-bracket <code>$&#123;&#123; expressions &#125;&#125;</code> to denote real expressions, adopting HTML snippets in markdown, simplifying expressions using [custom jsTACS functions](--ROOT--docs/reference/template-globals/#defining-global-functions), or switching to HTML files.
 
 
-## Publican v0.6.0 improvements
+### Publican v0.6.0 improvements
 
 Publican v0.6.0 comments out template literal expressions before markdown is converted to HTML. Comments are then removed before the expressions are parsed. The code above will render as expected.
 

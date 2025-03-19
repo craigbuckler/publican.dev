@@ -2,6 +2,8 @@
 title: Create an XML sitemap
 menu: XML sitemap
 description: How to create an XML file which outputs a list of all page links for search engines.
+date: 2025-01-23
+modified: 2025-03-19
 priority: 0.9
 tags: content, sitemap, SEO
 ---
@@ -81,15 +83,12 @@ index: false
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${ ( toArray(tacs.all) ).filter(p => p.index !== false).map(p => `
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${ ( toArray(tacs.all) ).filter(p => p.index !== false).map(p => `
-  <url>
-    <loc>${ tacs.config.domain }${ p.link }</loc>
-    <lastmod>${ tacs.fn.format.dateISO( p.modified || p.date ) }</lastmod>
-    <changefreq>${ p.index || 'monthly' }</changefreq>
-    <priority>${ p.priority }</priority>
-  </url>
+<url>
+  <loc>${ tacs.config.domain }${ p.link }</loc>
+  <lastmod>${ tacs.fn.format.dateISO( p.modified || p.date ) }</lastmod>
+  <changefreq>${ p.index || 'monthly' }</changefreq>
+  <priority>${ p.priority }</priority>
+</url>
 `)
 }
 </urlset>

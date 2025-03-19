@@ -1,0 +1,96 @@
+---
+title: Publican v0.6.1 update
+menu: false
+description: Publican v0.6.1 fixes rendering issues when using template literal expressions in markdown content.
+author: Craig Buckler
+tags: SSG, content, update, markdown, performance
+priority: 1.0
+pinned: 0.9
+date: 2025-03-19
+modified: 2025-03-19
+hero: images/update.avif
+heroWidth: 1200
+heroHeight: 600
+heroAlt: books
+heroCaption: Image courtesy of <a href="https://unsplash.com/@markuswinkler">Markus Winkler</a>
+---
+
+[Publican v0.6.1](https://www.npmjs.com/package/publican) was released on <time datetime="${{ tacs.fn.format.dateISO( '2025-03-19' ) }}">${{ tacs.fn.format.dateHuman( '2025-03-19' ) }}</time>. Please see the [breaking changes](#breaking-changes).
+
+
+## Markdown conversion improvements
+
+Markdown containing `${ expressions }`{language=js} can cause [problems when converting to HTML](--ROOT--news/publican-0.6.0-update/#markdown-conversion-complexities). Version 0.6.0 attempted to comment out expressions, but this was not reliable and could prevent [markdown-it](https://www.npmjs.com/package/markdown-it) adding surrounding tags.
+
+The markdown conversion has been rewritten. Publican v0.6.1 extracts all expressions **before** the HTML is generated. Expressions are then reinserted. Those inside `<code>`{language=html} blocks are HTML-encoded *unless* you've used a <code>$&#123;&#123; double bracket &#125;&#125;</code>.
+
+The benefits:
+
+* expression rendering and syntax coloring has improved
+* the quantity of HTML code has reduced in some cases, and
+* performance is better. A full site build is up to 15% faster than v0.6.0.
+
+Refer to [jsTACS Template literals in markdown](--ROOT--docs/setup/jstacs/#template-literals-in-markdown) for more information.
+
+
+## Front matter `debug` value
+
+In v0.6.0 and below, setting a [`debug` value in front matter](--ROOT--docs/reference/front-matter/#debug) presumed debugging was enabled no matter what value you used.
+
+From v0.6.1, setting:
+
+```js
+debug: false
+```
+
+disables debugging. Any other value -- *even an empty string* -- enables debugging.
+
+
+## Breaking changes
+
+In v0.6.0 only, an expression on a single line such as:
+
+{{ markdown source }}
+```md
+${ data.title }
+```
+
+is rendered without surrounding tags:
+
+{{ HTML output }}
+```html
+This Page's Title
+```
+
+v0.6.1 renders the expression inside HTML paragraph tag:
+
+{{ HTML output }}
+```html
+<p>This Page's Title</p>
+```
+
+If you need a different tag, you can use an HTML snippet in the markdown, e.g.
+
+{{ markdown source }}
+```md
+<div>${ data.title }</div>
+```
+
+Or you can use HTML comments when no tags are required. These are ignored by the browser and removed during [minification](--ROOT--docs/reference/publican-options/#html-minification).
+
+{{ markdown source }}
+```md
+<!-- -->${ data.title }<!-- -->
+```
+
+Note that malformed or invalid expressions are more likely to break Publican's build process.
+
+
+## Get started
+
+The [Publican documentation](--ROOT--docs/) provides a [quick start guide](--ROOT--docs/quickstart/concepts/), a [detailed set-up guide](--ROOT--docs/setup/content/), [API references](--ROOT--docs/reference/publican-options/), and [common recipes](--ROOT--docs/recipe/) you can use and adapt for your own projects.
+
+<ul class="flexcenter">
+  <li><a href="--ROOT--docs/quickstart/concepts/" class="button">Get started</a></li>
+  ${{ tacs.config.donate && `<li><a href="${ tacs.config.donate }" class="button">Donate</a></li>` }}
+</ul>

@@ -3,6 +3,7 @@ title: Create a text sitemap
 menu: Text sitemap
 description: How to create a txt file which outputs a list of all page links for search engines.
 date: 2025-01-23
+modified: 2025-01-23
 priority: 0.9
 tags: content, sitemap, SEO
 ---

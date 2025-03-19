@@ -3,7 +3,7 @@ title: Front matter
 menu: Front matter
 description: How to define front matter in Publican content files.
 date: 2025-01-23
-modified: 2025-02-26
+modified: 2025-03-19
 priority: 0.9
 tags: content, front matter
 ---
@@ -117,6 +117,14 @@ Outputs the posts properties to the console when the file is loaded and parsed.
 
 ```js
 debug: true
+```
+
+Setting any value other than `false` enables debugging.
+
+You can use the value in expressions, e.g.
+
+```md
+Debugging is ${ data.debug ? 'enabled' : 'disabled' }.
 ```
 
 

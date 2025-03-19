@@ -25,6 +25,7 @@ body, h2, h3 {
 
 	white-space: nowrap;
 	margin-block-end: -1px;
+	overflow: hidden;
 
 	dfn {
 		display: inline-block;

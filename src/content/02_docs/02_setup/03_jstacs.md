@@ -3,7 +3,7 @@ title: The jsTACS template engine
 menu: jsTACS
 description: More information about the jsTACS rendering engine used in Publican templates.
 date: 2025-01-23
-modified: 2025-02-26
+modified: 2025-03-19
 priority: 0.9
 tags: jsTACS, templates, template literals, markdown, HTML
 ---
@@ -151,27 +151,74 @@ jsTACS will not permit more than 50 iterations when parsing templates. This prev
 
 ## Template literals in markdown
 
-You can use template literals in markdown content but some care may be necessary to avoid problems with HTML conversion. Simpler expressions will work as expected:
+You can use template literals in markdown content but some care may be necessary to avoid problems with HTML conversion.
 
-```md
-<!-- page title -->
-## ${ data.title }
 
-<!-- list all page titles -->
-${ toArray( tacs.all ).map(i => i.title && '<p>' + i.title + '</p>') }
-```
+### Double bracket <code>$&#123;&#123; expressions &#125;&#125;</code>
 
-However, you may need to use a double-bracket <code>$&#123;&#123; expression &#125;&#125;</code> in some situations. This denotes a *real* expression irrespective of where it resides in the markdown *(they are stripped from the content before HTML conversion)*. They may be necessary when you have nested expressions, e.g.
+Simpler expressions will work as expected, but you can use double-bracket <code>$&#123;&#123; expressions &#125;&#125;</code> and <code>!&#123;&#123; expressions &#125;&#125;</code> when necessary. These denote *real* expressions irrespective of where they reside in the markdown.
 
-<pre class="language-js"><code class="language-js">&#36;{{ toArray( tacs.all ).map(i =&gt; i.title && &#96;&lt;li&gt;&#36;{ i.title }&lt;/li&gt;&#96;) }}</code></pre>
+Use double brackets in code blocks when an expression must be parsed rather than rendered as syntax:
 
-or want to execute an expression inside a code block:
+{{ markdown code block }}
+<pre class="language-md"><code class="language-md"><span class="token comment">&#96;&#96;&#96;js
+// render expression as code:</span>
+<span class="token comment">// console.log( '&#36;{ data<span class="token punctuation">.</span>title }' );</span>
 
-<pre class="language-js"><code class="language-js">&#96;&#96;&#96;js
-console.log( '&#36;{{ data.title }}' );
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> <span class="token string">'&#36;{ data<span class="token punctuation">.</span>title }'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// parse expression:</span>
+<span class="token comment">// console.log( 'This Page Heading' );</span>
+
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> <span class="token string">'&#36;{{ data<span class="token punctuation">.</span>title }}'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
 &#96;&#96;&#96;</code></pre>
 
-If this does not solve your problem, you can:
+
+### Single line expressions
+
+An expression on a single line such as:
+
+{{ markdown source }}
+```md
+${ data.title }
+```
+
+is rendered inside an HTML paragraph tag:
+
+{{ HTML output }}
+```html
+<p>This Page's Title</p>
+```
+
+If you need a different tag, you can use an HTML snippet, e.g.
+
+{{ markdown source }}
+```md
+<div>${ data.title }</div>
+```
+
+Or you can use HTML comments when no tags are required. These are ignored by the browser and removed during [minification](--ROOT--docs/reference/publican-options/#html-minification).
+
+{{ markdown source }}
+```md
+<!-- -->${ data.title }<!-- -->
+```
+
+
+### HTML entities
+
+You can use HTML entities to avoid expression parsing:
+
+* for <code>&#33;{</code>, use `&#33;{`{language=html}
+* for <code>&#36;{</code>, use `&#36;{`{language=html}
+* for <code>&#96;</code> backticks, use `&#96;`{language=html}
+* for `{` and `}` brackets, use `&#123;`{language=html} and `&#125;`{language=html}
+
+
+### Further options
+
+If you still encounter problems, you can:
 
 1. Use HTML snippets in your markdown file, e.g.
 
@@ -188,7 +235,7 @@ If this does not solve your problem, you can:
 
 ## Runtime expressions
 
-`!{ expression }`{language=js} identifies expressions that are ignored during the build but converted to `${ expression }` at the end and remain in the rendered file. Publican can therefore create sites that are *mostly* static, with islands of dynamic values rendered at runtime.
+`!{ expression }`{language=js} identifies an expression that is ignored during the build but converted to `${ expression }` at the end and remain in the rendered file. Publican can therefore create sites that are *mostly* static, with islands of dynamic values rendered at runtime (also using [jsTACS](https://www.npmjs.com/package/jstacs)).
 
 Consider the following content:
 
@@ -201,7 +248,7 @@ title: Home page
 My home page.
 ```
 
-It uses the default template:
+It uses a default template:
 
 {{ `src/template/default.html` }}
 ```html
