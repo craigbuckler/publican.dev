@@ -69,9 +69,9 @@ Few *good* developers appear to work in the SEO industry. I've heard all sorts o
 
 There's nothing wrong with [Google Ads](https://ads.google.com/). If you have deep pockets, you can guarantee a position at the top of results for specific search terms.
 
-{aside}
+::: aside
 In my experience, organic results have a higher click rate, but Google Ads offers a quick solution for new or poor performing sites.
-{/aside}
+::: /aside
 
 Unfortunately, some SEO companies just take your money and spend a small proportion on ads.
 

@@ -82,9 +82,9 @@ publican.config.dirPages.sortBy = 'fileame';
 publican.config.dirPages.sortOrder = 1;
 ```
 
-{aside}
+::: aside
 Filename sorting is useful if you have posts with filenames starting `01_`, `02_`, `03_` etc. You can use [slug string replacement](--ROOT--docs/setup/content/#slug-string-replacement) to remove the digits but the order will remain.
-{/aside}
+::: /aside
 
 
 The sorting values apply to all directories, but you can define exceptions. The following example sorts `post/` content by `date` with the newest first irrespective of the default sort order:

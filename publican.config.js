@@ -46,8 +46,8 @@ publican.config.passThrough.add({ from: './src/media/videos', to: './videos/' })
 // processContent hook: custom {{ filename }} code tabs
 publican.config.processContent.add( fnHooks.contentFilename );
 
-// processContent hook: replace { aside|section|article } tags
-publican.config.processContent.add( fnHooks.contentSections );
+// processContent hook: replace ::: tags
+publican.config.processContent.add( fnHooks.htmlBlocks );
 
 // processRenderStart hook: create tacs.tagScore Map
 publican.config.processRenderStart.add( fnHooks.renderstartTagScore );

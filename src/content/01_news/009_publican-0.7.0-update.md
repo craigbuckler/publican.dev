@@ -1,0 +1,74 @@
+---
+title: Publican v0.7.0 update
+menu: false
+description: Publican v0.7.0 supports markdown-it plugins so you can configure markdown to HTML conversion.
+author: Craig Buckler
+tags: SSG, content, update, configure, markdown, HTML
+priority: 1.0
+pinned: 0.9
+date: 2025-04-10
+modified: 2025-04-10
+hero: images/plugin.avif
+heroWidth: 1200
+heroHeight: 600
+heroAlt: plugin
+heroCaption: Image courtesy of <a href="https://unsplash.com/@alexkixa">Alexandre Debiève</a>
+---
+
+[Publican v0.7.0](https://www.npmjs.com/package/publican) was released on <time datetime="${{ tacs.fn.format.dateISO( '2025-04-10' ) }}">${{ tacs.fn.format.dateHuman( '2025-03-19' ) }}</time>.
+
+There are no breaking changes, but you can now [use markdown-it plugins](#markdown-it-plugin-support) to provide greater control over HTML conversion.
+
+
+## markdown-it plugin support
+
+Publican offers [custom event hooks](--ROOT--docs/reference/event-functions/) such as [`processContent`](--ROOT--docs/reference/event-functions/#processcontent) to alter the rendered HTML. This can involve complex regular expression functions such as adding [semantic markdown blocks](--ROOT--docs/recipe/content/semantic-markdown/).
+
+Publican uses [markdown-it](https://www.npmjs.com/package/markdown-it) for markdown to HTML conversion. The module offers [hundreds of plugins](https://www.npmjs.org/browse/keyword/markdown-it-plugin) which you can now [use in Publican v0.7.0](--ROOT--docs/reference/publican-options/#use-markdownit-plugins).
+
+For example, the [markdown-it-attrs](https://www.npmjs.com/package/markdown-it-attrs) plugin allows you to add HTML attributes, e.g.
+
+{{ markdown input }}
+```md
+# Heading {#my-heading .custom-style}
+Some text. {style="color:red;"}
+```
+
+results in:
+
+{{ HTML output }}
+```html
+<h1 id="my-heading" class="custom-style">Heading</h1>
+<p style="color:red;">Some text.</p>
+```
+
+To use it, install the plugin in your project:
+
+{{ terminal }}
+```bash
+npm install markdown-it-attrs
+```
+
+then `.add()` an array to the `publican.config.markdownOptions.use`{language=js} [Set](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Set) which defines the module and any required parameters:
+
+{{ `publican.config.js` excerpt }}
+```js
+import markdownItAttrs from 'markdown-it-attrs';
+
+// add markdown-it-attrs plugin
+publican.config.markdownOptions.use.add(
+  [ markdownItAttrs, { leftDelimiter: '{', rightDelimiter: '}' } ]
+);
+```
+
+You can `.add()` any number of markdown-it plugins using similar code.
+
+
+## Get started
+
+The [Publican documentation](--ROOT--docs/) provides a [quick start guide](--ROOT--docs/quickstart/concepts/), a [detailed set-up guide](--ROOT--docs/setup/content/), [API references](--ROOT--docs/reference/publican-options/), and [common recipes](--ROOT--docs/recipe/) you can use and adapt for your own projects.
+
+<ul class="flexcenter">
+  <li><a href="--ROOT--docs/quickstart/concepts/" class="button">Get started</a></li>
+  ${{ tacs.config.donate && `<li><a href="${ tacs.config.donate }" class="button">Donate</a></li>` }}
+</ul>

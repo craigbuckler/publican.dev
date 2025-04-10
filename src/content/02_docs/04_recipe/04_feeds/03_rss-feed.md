@@ -146,11 +146,11 @@ ${ tacs.dir.get('news')
 
 This creates a feed which is compatible with both RSS and Atom formats.
 
-{aside}
+::: aside
 ### `.contentRendered`{language=js}
 
 This property provides the fully-rendered page content. Templates using it -- such as feeds -- are rendered last to ensure the final content is available.
-{/aside}
+::: /aside
 
 
 ## Feed links

@@ -9,11 +9,11 @@ tags: content, markdown, front matter, template literals, string replacement
 
 Publican content files define the main content of a page. They would **not** normally define content such as page headers, footers, and navigation blocks which typically reside in [templates](--ROOT--docs/setup/templates/).
 
-{aside}
+::: aside
 ## Content rules
 
 Publican does not enforce strict content/template rules. You can combine files as you like.
-{/aside}
+::: /aside
 
 
 ## Example content
@@ -190,6 +190,6 @@ This is a virtual post!
 `);
 ```
 
-{aside}
+::: aside
 A backtick-delimited string has been used here for readability. This would parse any `${ expressions }`{language=js} before Publican and could lead to unexpected consequences.
-{/aside}
+::: /aside

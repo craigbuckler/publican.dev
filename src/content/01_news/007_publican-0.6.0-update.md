@@ -14,9 +14,9 @@ heroAlt: books
 heroCaption: Image courtesy of <a href="https://unsplash.com/@charlotablunarova">Charlota Blunarova</a>
 ---
 
-{ aside }
+::: aside
 This post has been superseded by the [release of Publican 0.6.1](--ROOT--news/publican-0.6.1-update/).
-{ /aside }
+::: /aside
 
 [Publican v0.6.0](https://www.npmjs.com/package/publican) was released on <time datetime="${{ tacs.fn.format.dateISO( '2025-02-26' ) }}">${{ tacs.fn.format.dateHuman( '2025-02-26' ) }}</time>.
 

@@ -144,9 +144,9 @@ where `<filename>` is relative to the [template directory](--ROOT--docs/setup/te
 <nav><a href="${ tacs.root }">Home</a><nav>
 ```
 
-{aside}
+::: aside
 jsTACS will not permit more than 50 iterations when parsing templates. This prevents circular `include()` expressions or code recursively generating further expressions.
-{/aside}
+::: /aside
 
 
 ## Template literals in markdown
@@ -324,10 +324,10 @@ app.listen(port, () => {
 });
 ```
 
-{aside}
+::: aside
 ### Development dependency
 
 You could build partially-rendered templates on your development system so Publican is only required as an `npm` [devDependency](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file). It would not need to be present on the production server -- that only requires [jsTACS](https://www.npmjs.com/package/jstacs).
 
 This has some disk space and security benefits, but may make deployment more complicated.
-{/aside}
+::: /aside

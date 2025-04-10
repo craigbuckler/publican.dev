@@ -9,11 +9,11 @@ tags: templates, jsTACS, template literals, HTML
 
 Publican templates define how [content](--ROOT--docs/setup/content/) is slotted into HTML to create static web pages. Templates typically define page headers, footers, navigation, and content locations.
 
-{aside}
+::: aside
 ## Template formats
 
 Publican builds static web pages so most templates are likely to be HTML files. However, you can create templates for XML, TXT, SVG or any other text type.
-{/aside}
+::: /aside
 
 
 ## Example template

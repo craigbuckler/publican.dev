@@ -35,8 +35,8 @@ publican.config.passThrough.add({ from: './src/css', to: './css/' });
 publican.config.passThrough.add({ from: './src/js', to: './js/' });
 ```
 
-{aside}
+::: aside
 ## Watch mode
 
 Publican copies pass-though files on the first build and does not monitor them in [watch mode](--ROOT--docs/setup/watch-mode/). You must stop and restart Publican to copy new or updated files.
-{/aside}
+::: /aside

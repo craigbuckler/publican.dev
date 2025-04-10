@@ -5,13 +5,12 @@ description: Publican v0.6.1 fixes rendering issues when using template literal 
 author: Craig Buckler
 tags: SSG, content, update, markdown, performance
 priority: 1.0
-pinned: 0.9
 date: 2025-03-19
 modified: 2025-03-19
 hero: images/update.avif
 heroWidth: 1200
 heroHeight: 600
-heroAlt: books
+heroAlt: update
 heroCaption: Image courtesy of <a href="https://unsplash.com/@markuswinkler">Markus Winkler</a>
 ---
 

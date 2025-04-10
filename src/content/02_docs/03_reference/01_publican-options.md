@@ -3,6 +3,7 @@ title: Publican configuration options
 menu: Publican configuration
 description: A list of Publican's configuration file options.
 date: 2025-01-23
+modified: 2025-04-10
 priority: 0.9
 tags: configure, root path, string replacement, headings
 ---
@@ -145,8 +146,9 @@ Publican converts markdown to HTML using [markdown-it](https://www.npmjs.com/pac
 
 By default, `publican.config.markdownOptions`{language=js} defines an object with the child objects:
 
-* `core` for [markdown-it configuration](https://markdown-it.github.io/markdown-it/#MarkdownIt.new), and
-* `prism` for [markdown-it-prism options](https://www.npmjs.com/package/markdown-it-prism#options)
+* `core` for [markdown-it configuration](https://markdown-it.github.io/markdown-it/#MarkdownIt.new)
+* `prism` for [markdown-it-prism options](https://www.npmjs.com/package/markdown-it-prism#options) including plugins. Set a falsy value to disable syntax highlighting
+* a `use` [Set](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Set) to enable [additional markdown-it plugins](#use-markdownit-plugins).
 
 You can change the defaults from:
 
@@ -163,9 +165,52 @@ publican.config.markdownOptions = {
   prism: {
     defaultLanguage: 'js',      // default syntax
     highlightInlineCode: true   // highlight inline code
-  }
+  },
+  use: new Set()
 };
 ```
+
+
+### Use markdown-it plugins
+
+[Hundreds of plugins](https://www.npmjs.org/browse/keyword/markdown-it-plugin) are available for markdown-it. You can use these as well as -- *or instead of* -- [Publican event functions](--ROOT--docs/reference/event-functions/) to configure markdown to HTML conversion.
+
+For example, the [markdown-it-attrs](https://www.npmjs.com/package/markdown-it-attrs) plugin allows you to add HTML attributes, e.g.
+
+{{ markdown input }}
+```md
+# Heading {#my-heading .custom-style}
+Some text. {style="color:red;"}
+```
+
+results in:
+
+{{ HTML output }}
+```html
+<h1 id="my-heading" class="custom-style">Heading</h1>
+<p style="color:red;">Some text.</p>
+```
+
+To use it, install the plugin in your project:
+
+{{ terminal }}
+```bash
+npm install markdown-it-attrs
+```
+
+then `.add()` an array to the `publican.config.markdownOptions.use`{language=js} Set which defines the module and any required parameters:
+
+{{ `publican.config.js` excerpt }}
+```js
+import markdownItAttrs from 'markdown-it-attrs';
+
+// add markdown-it-attrs plugin
+publican.config.markdownOptions.use.add(
+  [ markdownItAttrs, { leftDelimiter: '{', rightDelimiter: '}' } ]
+);
+```
+
+You can `.add()` any number of markdown-it plugins using similar code.
 
 
 ## Heading links
@@ -292,9 +337,9 @@ and the `<nav-heading>`{language=html} block only shows **Heading 2**:
 </nav-heading>
 ```
 
-{aside}
+::: aside
 Ensure your heading hierarchy is correct. For example, following an `<h2>`{language=html}, you could have another `<h2>`{language=html} or an `<h3>`{language=html}, but not an `<h4>`{language=html}. Publican does not report hierarchy errors, but the menu may look unusual.
-{/aside}
+::: /aside
 
 
 ## String replacement
@@ -496,9 +541,9 @@ A shorter `watchDebounce` can negatively affect performance because multiple reb
 
 Press <kbd>Ctrl</kbd> | <kbd>Cmd</kbd> + <kbd>C</kbd> to stop Publican running.
 
-{aside}
+::: aside
 Publican only monitors content and template files. Changing the [configuration file](--ROOT--docs/setup/configuration/) or its imported modules will not trigger a rebuild -- you must manually stop and restart Publican.
-{/aside}
+::: /aside
 
 
 ## Logging verbosity

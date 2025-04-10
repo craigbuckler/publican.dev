@@ -28,11 +28,11 @@ publican.config.watchDebounce = 1000;
 
 Shorter `watchDebounce` can negatively affect performance because multiple rebuilds are triggered when changing two or more files in a short period of time.
 
-{aside}
+::: aside
 ## Monitored files
 
 Publican only monitors content and template files. Changing the [configuration file](--ROOT--docs/setup/configuration/), imported modules, or [pass-through files](--ROOT--docs/setup/pass-through-files/) will not trigger a rebuild. In that situation, you must manually stop and restart Publican.
-{/aside}
+::: /aside
 
 
 ## Stop watch mode
