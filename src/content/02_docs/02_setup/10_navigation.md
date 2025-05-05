@@ -155,9 +155,9 @@ ${ data?.postnext?.link &&
 
 ## `tacs.nav`{language=js} site menus
 
-`tacs.nav` is a global nested array of post objects ordered for navigation menus, breadcrumb trails, etc.
+`tacs.nav` is a global nested array of HTML page post objects ordered for navigation menus, breadcrumb trails, etc.
 
-`tacs.nav` returns an array. Each element of that array has two values:
+Each element of the `tacs.nav` array has two values:
 
 1. a `data` property containing the [page `data` object](--ROOT--docs/reference/content-properties/) at the site's top level, i.e. they have no parent pages. The pages are sorted by whatever has been defined for [directory indexing](--ROOT--docs/setup/directory-indexes/#directory-index-configuration).
 

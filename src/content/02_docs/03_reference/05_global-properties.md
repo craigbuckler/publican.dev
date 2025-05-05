@@ -105,7 +105,7 @@ You should only require `tacs.tagList` on a [root tag page that lists all tags](
 
 ### `tacs.nav`{language=js}
 
-`tacs.nav` is a global nested array of post objects ordered for navigation menus, breadcrumb trails, etc. Each element in the array has [post `data`](--ROOT--docs/reference/content-properties/) as well as a `.children` property holding an array containing child `data` items. Each child page has it's own `data` and `children` array where appropriate.
+`tacs.nav` is a global nested array of HTML page post objects ordered for navigation menus, breadcrumb trails, etc. Each element in the array has [post `data`](--ROOT--docs/reference/content-properties/) as well as a `.children` property holding an array containing child `data` items. Each child page has it's own `data` and `children` array where appropriate.
 
 It is generally necessary to recurse the `tacs.nav` object, so this is easier in a [global function](--ROOT--docs/reference/template-globals/#defining-global-functions) rather than template. The following recipes provide code for:
 

@@ -34,7 +34,7 @@ publican.config.dir.template = './templates/';
 publican.config.dir.build = './mysite/';
 ```
 
-Avoid setting the `content` directory as a sub-directory of `template` or vice versa.
+Avoid setting the `content` directory as a sub-directory of `template` or vice versa since it could affect [watch mode](#watch-mode).
 
 
 ## Ignored content files
@@ -81,6 +81,29 @@ By default, Publican identifies front matter between `---` delimiters, but you c
 // locate front matter using this delimiter
 publican.config.frontmatterDelimit = '~~~';
 ```
+
+
+## Index page filename
+
+By default, Publican uses content slugs ending in `index.html` to create friendlier [directory-based URLs](--ROOT--docs/setup/content/#directory-structure). Therefore, content at `blog/index.md` is rendered to the slug `blog/index.html`.
+
+::: aside
+Most web servers return the contents of the file at `a/b/c/index.html` when they receive a request for a directory-like path at `somedomain.com/a/b/c/`.
+::: /aside
+
+You can change the index filename if necessary:
+
+{{ `publican.config.js` excerpt }}
+```js
+// index filename
+publican.config.indexFilename = 'default.htm';
+```
+
+This changes how slugs are created: content at `blog/index.md` is now rendered to `blog/index/default.htm`. You would need to rename the content file to `blog/default.md` to render it to `blog/default.htm`.
+
+::: aside
+You can set any file type, e.g. `index.php`. Unless an explicit [template is set in the front matter](--ROOT--docs/reference/front-matter/#template), index files are rendered inside the [default template](#default-template) since they are presumed to hold some sort of HTML content.
+::: /aside
 
 
 ## Root server path
@@ -132,7 +155,7 @@ You can solve this using a [root link search and replace](--ROOT--docs/recipe/co
 
 An `index` value can be set in front matter to a value used by search engine sitemaps: `always`, `hourly`, `daily`, `weekly`, `monthly` (the default), `yearly`, and `never`. You can also set `false` to omit the page from sitemaps.
 
-Set `publican.config.indexFrequency`{language=js} to a default value which applies to every page where `index` is not explicitly set.
+Set `publican.config.indexFrequency`{language=js} to a default value which applies to every HTML and [index page](#index-page-filename) where `index` is not explicitly set.
 
 
 ## Default template

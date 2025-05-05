@@ -5,7 +5,6 @@ description: Publican v0.7.0 supports markdown-it plugins so you can configure m
 author: Craig Buckler
 tags: SSG, content, update, configure, markdown, HTML
 priority: 1.0
-pinned: 0.9
 date: 2025-04-10
 modified: 2025-04-10
 hero: images/plugin.avif
@@ -17,7 +16,7 @@ heroCaption: Image courtesy of <a href="https://unsplash.com/@alexkixa">Alexandr
 
 [Publican v0.7.0](https://www.npmjs.com/package/publican) was released on <time datetime="${{ tacs.fn.format.dateISO( '2025-04-10' ) }}">${{ tacs.fn.format.dateHuman( '2025-03-19' ) }}</time>.
 
-There are no breaking changes, but you can now [use markdown-it plugins](#markdown-it-plugin-support) to provide greater control over HTML conversion.
+There are no breaking changes, but you can now [use markdown-it plugins](#markdownit-plugin-support) to provide greater control over HTML conversion.
 
 
 ## markdown-it plugin support

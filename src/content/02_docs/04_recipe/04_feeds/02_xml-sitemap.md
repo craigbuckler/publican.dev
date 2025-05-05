@@ -77,9 +77,6 @@ A `src/content/sitemap.xml` file can now be defined. It does not require a templ
 
 {{ `src/content/sitemap.xml` }}
 ```xml
----
-index: false
----
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${ ( toArray(tacs.all) ).filter(p => p.index !== false).map(p => `

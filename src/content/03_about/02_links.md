@@ -35,6 +35,32 @@ Publican includes the JavaScript Templating and Caching system. It can also be u
   [www.npmjs.com/package/jstacs](https://www.npmjs.com/package/jstacs)
 
 
+## Basic Publican theme
+
+A basic theme you can download and adapt for your own site. The theme is fast, standards based, and uses best practise techniques. It features pages, blog posts, tag indexes, a light/dark switcher, RSS feed, sitemaps, security, and a 100% Lighthouse score.
+
+* **Demonstration site**
+
+  [https://publican-theme-basic.pages.dev/](https://publican-theme-basic.pages.dev/)
+
+* **Github repository**
+
+  [github.com/craigbuckler/publican.theme.basic](https://github.com/craigbuckler/publican.theme.basic)
+
+
+## LiveLocalhost
+
+LiveLocalhost is a lightweight development server used by the [basic theme](#basic-publican-theme). It automatically reloads HTML pages and CSS stylesheets when files are changed.
+
+* **LiveLocalhost Github repository**
+
+  [github.com/craigbuckler/livelocalhost](https://github.com/craigbuckler/livelocalhost)
+
+* **LiveLocalhost npm project**
+
+  [www.npmjs.com/package/livelocalhost](https://www.npmjs.com/package/livelocalhost)
+
+
 ## Publican.dev website
 
 The code for this website is available at:

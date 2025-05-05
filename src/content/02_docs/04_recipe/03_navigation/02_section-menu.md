@@ -36,9 +36,9 @@ export function menuDir( currentPage, rootDir ) {
       // format title
       const data = n.data;
 
-      if (data.menu === false || (!dirFound && data.directory !== rootDir)) return '';
+      if (!data.menu || (!dirFound && data.directory !== rootDir)) return '';
 
-      let ret = data.menu || data.title;
+      let ret = data.menu;
       if (!data.link) {
         ret = ret.slice(0, 1).toUpperCase() + ret.slice(1).toLowerCase();
       }

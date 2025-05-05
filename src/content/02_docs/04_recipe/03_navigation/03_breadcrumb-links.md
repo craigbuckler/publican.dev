@@ -28,7 +28,7 @@ export function breadcrumb( currentPage ) {
   recurseNav( tacs.nav );
 
   const ret = crumb
-    .map(n => `<li>${ n.link && n.index ? `<a href="${ n.link }">` : ''}${ n.menu || n.title }${ n.link && n.index ? '</a>' : ''}</li>`)
+    .map(n => `<li>${ n.link && n.index ? `<a href="${ n.link }">` : ''}${ n.menu }${ n.link && n.index ? '</a>' : ''}</li>`)
     .join('\n');
 
   return ret ? `<nav class="breadcrumb">\n<ol>\n${ ret }</ol>\n</nav>` : '';

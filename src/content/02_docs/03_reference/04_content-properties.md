@@ -36,8 +36,11 @@ The following properties are provided for page content by Publican irrespective 
 |`.link`|full link to page|[*more*](#datalink)|
 |`.directory`|name of root directory|[*more*](#datadirectory)|
 |`.isMD`|content is markdown|[*more*](#dataismd)|
+|`.isIndexPage`|content is an index page|[*more*](#dataisindexpage)|
 |`.isHTML`|built file is HTML|[*more*](#dataishtml)|
 |`.isXML`|built file is XML|[*more*](#dataisxml)|
+|`.isCSS`|built file is CSS|[*more*](#dataiscss)|
+|`.isJS`|built file is JavaScript|[*more*](#dataisjs)|
 |`.debug`|enable debugging|[*more*](#datadebug)|
 
 
@@ -82,7 +85,7 @@ The value is not normally useful since it will always be `true`!
 
 Either `false` or a string denoting the sitemap indexing frequency (`daily`, `weekly`, `monthly`, `yearly`).
 
-The value can be used to remove pages from index pages and navigation menus. You could also check it when generating sitemaps.
+The value can be used to remove pages from index pages and sitemaps.
 
 
 ### `data.priority`{language=js}
@@ -216,19 +219,29 @@ A Boolean value which is `true` when the content is provided in [markdown format
 
 This value is used internally my Publican but may be useful if you want to modify markdown-generated content in some way.
 
+### `data.isIndexPage`{language=js}
+
+A Boolean value which is `true` when the rendered file is a directory index page (typically `index.html` [unless overridden](--ROOT--docs/reference/publican-options/#index-page-filename)).
+
 
 ### `data.isHTML`{language=js}
 
-A Boolean value which is `true` when the rendered file is HTML
-
-This may be useful if you need to modify HTML content.
+A Boolean value which is `true` when the rendered file is HTML.
 
 
 ### `data.isXML`{language=js}
 
-A Boolean value which is `true` when the rendered file is XML
+A Boolean value which is `true` when the rendered file is XML.
 
-This may be useful if you need to modify XML content.
+
+### `data.isCSS`{language=js}
+
+A Boolean value which is `true` when the rendered file is CSS.
+
+
+### `data.isJS`{language=js}
+
+A Boolean value which is `true` when the rendered file is JavaScript.
 
 
 ### `data.debug`{language=js}

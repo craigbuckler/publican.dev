@@ -43,9 +43,6 @@ A `src/content/sitemap.txt` file can now be defined. It does not require a templ
 
 {{ `sitemap.txt` }}
 ```js
----
-index: false
----
 ${
   (toArray( tacs.all ))
     .map(p => p.index !== false ?
@@ -63,9 +60,6 @@ You can inform search engines that sitemaps are available by creating a `src/con
 
 {{ robots.txt }}
 ```js
----
-index: false
----
 User-agent: *
 Sitemap: ${ tacs.config.domain }${ tacs.root }sitemap.xml
 Sitemap: ${ tacs.config.domain }${ tacs.root }sitemap.txt

@@ -147,3 +147,26 @@ publican.config.processPostRender.add(
   }
 );
 ```
+
+
+## `processRenderEnd`
+
+A function hook called once after all rendering and file writes are complete.
+
+Function parameters:
+
+1. `changed` (array): an array of `{ slug, content }` objects for changed files
+1. `tacs` (object): the [global `tacs` object](--ROOT--docs/reference/global-properties/).
+
+The function can examine data but no changes can be made because rendering has finished. Return values are ignored.
+
+```js
+// example processRenderEnd hook
+// logs changed files
+publican.config.processRenderStart.add(
+  changed => {
+    console.log('changed files:');
+    console.log(changed.map(f => f.slug).join('\n'));
+  }
+);
+```

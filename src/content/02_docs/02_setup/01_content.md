@@ -120,7 +120,7 @@ The default slug definition rules:
 
 * All letters are converted to lower case.
 
-* `.md` and `.html` files are web page content -- they will always result in a slug ending `index.html` in a specific directory. This creates friendlier URLs such as `mysite.com/post/my-post/` rather than `mysite.com/post/my-post.html`.
+* `.md` and `.html` files are web page content -- they will always result in a slug ending `index.html` ([configurable](--ROOT--docs/reference/publican-options/#index-page-filename)) in a specific directory. This creates friendlier URLs such as `mysite.com/post/my-post/` rather than `mysite.com/post/my-post.html`.
 
 Publican shows an error and aborts when slugs clash.
 

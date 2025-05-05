@@ -14,7 +14,7 @@ The global `tacs.nav` value is a nested array of data that can use used to build
 
 `tacs.nav` returns an array. Each element of that array has two values:
 
-1. a `data` property containing the [page `data` object](--ROOT--docs/reference/content-properties/) at the site's top level, i.e. they have no parent pages. The pages are sorted by whatever has been defined for [directory indexes](--ROOT--docs/setup/directory-indexes/#directory-index-configuration).
+1. a `data` property containing the [HTML page `data` object](--ROOT--docs/reference/content-properties/) at the site's top level, i.e. they have no parent pages. The pages are sorted by whatever has been defined for [directory indexes](--ROOT--docs/setup/directory-indexes/#directory-index-configuration).
 
 1. a `children` property containing an array of immediate child page objects. Each of these elements has its own `data` and `children` properties.
 
@@ -103,9 +103,9 @@ export function menuMain( currentPage, omit = [] ) {
       // format title
       const data = n.data;
 
-      if (data.menu === false) return '';
+      if (!data.menu) return '';
 
-      let ret = data.menu || data.title;
+      let ret = data.menu;
       if (!data.link) {
         ret = ret.slice(0, 1).toUpperCase() + ret.slice(1).toLowerCase();
       }

@@ -30,10 +30,15 @@ title: How to contact us
 The page title used in menus. This is usually shorter than the title, for example:
 
 ```js
+title: How to contact us
 menu: Contact
 ```
 
-Set `menu: false` to remove the page from menus.
+When `menu` is not set in front matter:
+
+* rendered files that are HTML or [index pages](--ROOT--docs/reference/publican-options/#index-page-filename), have `menu` set to a valid string -- either the full `title` or the `directory` name.
+
+* rendered files that are **not** HTML or index pages have `menu` set `false`. You can check for `!data.menu` to omit pages from [menus](--ROOT--docs/recipe/navigation/main-menu/) or [breadcrumb trails](--ROOT--docs/recipe/navigation/breadcrumb-links/) when writing functions that use the [`tacs.nav` global property](--ROOT--docs/reference/global-properties/#tacsnav).
 
 
 ### `slug`{language=js}
@@ -104,11 +109,15 @@ template: post-template.html
 
 ### `index`{language=js}
 
-The search engine indexing frequency, as used in sitemaps and feeds. Typical values are `daily`, `weekly`, `monthly`, or `yearly`. Set it `false` if you want to omit a page from sitemaps.
+The search engine indexing frequency, as used in sitemaps and feeds. Typical values are `daily`, `weekly`, `monthly`, or `yearly`.
 
 ```js
 index: weekly
 ```
+
+Setting `index: false` omits a page from the global [`tacs.dir`{language=js} property](--ROOT--/docs/reference/global-properties/#tacsdir) typically used to create page indexes and sitemaps.
+
+Rendered files that are not HTML or [index pages](--ROOT--docs/reference/publican-options/#index-page-filename) are `false` by default unless explicitly overridden. It is not necessary to set `index: false` in the front matter for files such as XML, SVG, CSS, JavaScript, etc.
 
 
 ### `debug`{language=js}

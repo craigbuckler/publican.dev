@@ -233,6 +233,51 @@ If you still encounter problems, you can:
 1. Only use complex expressions in HTML content or template files. These are not processed by the markdown parser.
 
 
+## Template literals in JavaScript
+
+Publican can process JavaScript files like any other text file, e.g.
+
+{{ `example.js` }}
+```js
+---
+alert: Hello world!
+---
+console.log('${ data.alert }');
+```
+
+results in:
+
+```js
+console.log('Hello World!');
+```
+
+Simpler expressions will work as expected, but you can **not** use expressions with internal backtick (<code>`</code>) characters. This will cause an error:
+
+{{ `example.js` fails }}
+```js
+---
+alert: Hello world!
+---
+// conditional comment
+${ data.alert ? `// ${ data.alert }` : ''}
+```
+
+Template literals intended for runtime processing must use `!{ expressions }`{language=js} to ensure errors are not triggered during the build, e.g.
+
+```js
+const name = 'Craig';
+console.log(`Hello !{ name }`);
+```
+
+These can use backticks without restrictions and the built code will have standard `${ expressions }`{language=js}.
+
+:::aside
+### JavaScript bundlers
+
+While Publican can be used to process or [copy simpler JavaScript files](--ROOT--docs/setup/pass-through-files/), a dedicated JavaScript bundler such as [esbuild](--ROOT--docs/recipe/build/esbuild/) offers features such as linting, tree shaking, bundling, and minification.
+:::/aside
+
+
 ## Runtime expressions
 
 `!{ expression }`{language=js} identifies an expression that is ignored during the build but converted to `${ expression }` at the end and remain in the rendered file. Publican can therefore create sites that are *mostly* static, with islands of dynamic values rendered at runtime (also using [jsTACS](https://www.npmjs.com/package/jstacs)).
