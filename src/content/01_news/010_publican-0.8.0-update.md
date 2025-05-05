@@ -6,7 +6,7 @@ author: Craig Buckler
 tags: SSG, update, front matter, configure, template literals, navigation, event hooks
 priority: 1.0
 pinned: 0.9
-date: 2025-05-02
+date: 2025-05-05
 hero: images/root.avif
 heroWidth: 1200
 heroHeight: 600
