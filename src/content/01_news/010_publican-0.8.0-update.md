@@ -11,7 +11,7 @@ hero: images/root.avif
 heroWidth: 1200
 heroHeight: 600
 heroAlt: root
-heroCaption: Image courtesy of <a href="https://unsplash.com/@eilisgarvey"Eilis Garvey</a>
+heroCaption: Image courtesy of <a href="https://unsplash.com/@eilisgarvey">Eilis Garvey</a>
 ---
 
 [Publican v0.8.0](https://www.npmjs.com/package/publican) was released on <time datetime="${{ tacs.fn.format.dateISO( '2025-05-02' ) }}">${{ tacs.fn.format.dateHuman( '2025-05-05' ) }}</time>.
