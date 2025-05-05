@@ -3,7 +3,7 @@ title: Publican v0.8.0 update
 menu: false
 description: Publican v0.8.0 allows alternative index filenames, sets better default properties, and has a new event hook. An example theme is available.
 author: Craig Buckler
-tags: SSG, content, update
+tags: SSG, update, front matter, configure, template literals, navigation, event hooks
 priority: 1.0
 pinned: 0.9
 date: 2025-05-02
