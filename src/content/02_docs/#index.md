@@ -1,7 +1,7 @@
 ---
 title: Documentation
 menu: Docs
-description: How to use Publican to create your own static websites.
+description: Articles explaining how to use Publican to create your own static websites.
 priority: 1.0
 ---
 

@@ -13,11 +13,13 @@ Elements such as `<aside>`, `<section>`, `<article>`, and `<nav>` cannot be expr
 {{ markdown input }}
 ```md
 <aside class="a1">
+
 See also:
 
 * [link one](#one)
 * [link two](#two)
 * [link three](#three)
+
 </aside>
 ```
 
@@ -68,11 +70,13 @@ The following markdown:
 {{ markdown input }}
 ```md
 ::: aside class="a1"
+
 See also:
 
 * [link one](#one)
 * [link two](#two)
 * [link three](#three)
+
 ::: /aside
 ```
 
@@ -81,6 +85,7 @@ now renders:
 {{ HTML output }}
 ```html
 <aside class="a1">
+
   <p>See also:</p>
 
   <ul>
@@ -88,11 +93,22 @@ now renders:
     <li><a href="#two">link two</a></li>
     <li><a href="#three">link three</a></li>
   <ul>
+
 </aside>
 ```
 
-:::aside
+::: aside
+
+## Use whitespace around blocks
+
+Add empty carriage returns either side of a `::: tag`{language=md} to ensure the markdown parser does not consider it as part of the text.
+
+::: /aside
+
+::: aside
+
 ## Unsafe HTML
 
 The code above renders tag code as-is. Scripts or other unsafe code could be injected, e.g. `::: div onclick="alert('unsafe!')"`{language=md}. If you do not have full control over your content sources, you should ensure the `tag` string is sanitized, perhaps with a whitelist of approved HTML elements and attributes.
-:::/aside
+
+::: /aside

@@ -5,7 +5,6 @@ description: Can static site tools such as Publican help your site achieve bette
 author: Craig Buckler
 tags: SSG, SEO
 priority: 1.0
-date: 2025-02-11
 modified: 2025-02-11
 hero: images/binoculars.avif
 heroWidth: 1200
@@ -23,7 +22,7 @@ Search Engine Optimization (SEO) is a set of techniques to help your site appear
 
 1. Write content your audience wants to read.
 1. Use appropriate keywords, but write for users -- *not search engines*.
-1. Use [best practice techniques](--ROOT--news/site-performance/) to ensure documents use semantic HTML, are fast, and accessible to all users -- *including indexing bots*.
+1. Use [best practice techniques](--ROOT--news/site-performance) to ensure documents use semantic HTML, are fast, and accessible to all users -- *including indexing bots*.
 1. Don't use sneaky technical tricks. You won't fool search engines for long, and they may block you.
 
 A post may go viral, but there's no magic formula. It's dumb luck. Sometimes, you hit on a topic which resonates with others and it's shared exponentially. It can happen months or years after you publish.
@@ -70,7 +69,9 @@ Few *good* developers appear to work in the SEO industry. I've heard all sorts o
 There's nothing wrong with [Google Ads](https://ads.google.com/). If you have deep pockets, you can guarantee a position at the top of results for specific search terms.
 
 ::: aside
+
 In my experience, organic results have a higher click rate, but Google Ads offers a quick solution for new or poor performing sites.
+
 ::: /aside
 
 Unfortunately, some SEO companies just take your money and spend a small proportion on ads.
@@ -133,9 +134,9 @@ Publican can help your technical SEO efforts because it allows you to craft your
 
 ## Get started
 
-The [Publican documentation](--ROOT--docs/) provides a [quick start guide](--ROOT--docs/quickstart/concepts/), a [detailed set-up guide](--ROOT--docs/setup/content/), [API references](--ROOT--docs/reference/publican-options/), and [common recipes](--ROOT--docs/recipe/) you can use and adapt for your own projects.
+The [Publican documentation](--ROOT--docs) provides a [quick start guide](--ROOT--docs/quickstart/concepts), a [detailed set-up guide](--ROOT--docs/setup/content), [API references](--ROOT--docs/reference/publican-options), and [common recipes](--ROOT--docs/recipe) you can use and adapt for your own projects.
 
 <ul class="flexcenter">
-  <li><a href="--ROOT--docs/quickstart/concepts/" class="button">Get started</a></li>
+  <li><a href="--ROOT--docs/quickstart/concepts" class="button">Get started</a></li>
   ${{ tacs.config.donate && `<li><a href="${ tacs.config.donate }" class="button">Donate</a></li>` }}
 </ul>

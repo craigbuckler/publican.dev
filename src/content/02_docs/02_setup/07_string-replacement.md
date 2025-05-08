@@ -35,9 +35,11 @@ where:
 You can set as many search and replace options as you like.
 
 ::: aside
+
 ### Replacement exceptions
 
 This page uses an alternative Unicode characters that looks like a `-` minus to ensure explicit names like `−−ROOT−−` are not replaced by Publican!
+
 ::: /aside
 
 

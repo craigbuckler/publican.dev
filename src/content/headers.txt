@@ -1,6 +1,5 @@
 ---
 slug: _headers
-index: false
 comment: set HTTP headers in CloudFlare pages
 ---
 ${ tacs.root }*

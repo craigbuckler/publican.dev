@@ -1,6 +1,3 @@
----
-index: false
----
 {
   "lang"              : "${ tacs.config.language }",
   "dir"               : "ltr",

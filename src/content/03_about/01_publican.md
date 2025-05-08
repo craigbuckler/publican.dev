@@ -57,6 +57,7 @@ No. A *static* page means it's been pre-rendered once rather than on every page 
 The main difference is you may not have server-side functionality. Features such as user login, form submissions, search, shopping carts, and user comments may require a different approach than a typical WordPress site.
 
 ::: aside
+
 ### Server-side processing
 
 Publican can output PHP or any other file containing code. This allows you to generate mostly static pages intermingled with islands of server-side functionality in `<?php ... ?>`{language=php} tags.
@@ -65,6 +66,7 @@ Publican uses [jsTACS](--ROOT--docs/setup/jstacs/) as its templating engine:
 
 * It parses standard JavaScript template literal `${ expressions }`{language=js} at build time.
 * It converts `!{ expression }`{language=js} blocks to `${ expressions }`{language=js} at the end of the build. You can therefore [use partially-built jsTACS templates](--ROOT--docs/setup/jstacs/#runtime-expressions) in [Express.js](https://expressjs.com/) or other Node.js frameworks at runtime.
+
 ::: /aside
 
 

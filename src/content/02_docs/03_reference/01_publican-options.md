@@ -88,7 +88,9 @@ publican.config.frontmatterDelimit = '~~~';
 By default, Publican uses content slugs ending in `index.html` to create friendlier [directory-based URLs](--ROOT--docs/setup/content/#directory-structure). Therefore, content at `blog/index.md` is rendered to the slug `blog/index.html`.
 
 ::: aside
+
 Most web servers return the contents of the file at `a/b/c/index.html` when they receive a request for a directory-like path at `somedomain.com/a/b/c/`.
+
 ::: /aside
 
 You can change the index filename if necessary:
@@ -102,7 +104,9 @@ publican.config.indexFilename = 'default.htm';
 This changes how slugs are created: content at `blog/index.md` is now rendered to `blog/index/default.htm`. You would need to rename the content file to `blog/default.md` to render it to `blog/default.htm`.
 
 ::: aside
+
 You can set any file type, e.g. `index.php`. Unless an explicit [template is set in the front matter](--ROOT--docs/reference/front-matter/#template), index files are rendered inside the [default template](#default-template) since they are presumed to hold some sort of HTML content.
+
 ::: /aside
 
 
@@ -361,7 +365,9 @@ and the `<nav-heading>`{language=html} block only shows **Heading 2**:
 ```
 
 ::: aside
+
 Ensure your heading hierarchy is correct. For example, following an `<h2>`{language=html}, you could have another `<h2>`{language=html} or an `<h3>`{language=html}, but not an `<h4>`{language=html}. Publican does not report hierarchy errors, but the menu may look unusual.
+
 ::: /aside
 
 
@@ -410,6 +416,7 @@ publican.config.dirPages = {
   sortBy: 'priority',         // sort by priority order
   sortOrder: -1,              // from highest to lowest
   template: 'default.html',   // using this template
+  index: 'monthly',           // index pages monthly
   dir: {}                     // with no exceptions
 };
 ```
@@ -565,7 +572,9 @@ A shorter `watchDebounce` can negatively affect performance because multiple reb
 Press <kbd>Ctrl</kbd> | <kbd>Cmd</kbd> + <kbd>C</kbd> to stop Publican running.
 
 ::: aside
+
 Publican only monitors content and template files. Changing the [configuration file](--ROOT--docs/setup/configuration/) or its imported modules will not trigger a rebuild -- you must manually stop and restart Publican.
+
 ::: /aside
 
 

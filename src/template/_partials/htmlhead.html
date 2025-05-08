@@ -2,7 +2,7 @@
 <html lang="${ tacs.config.language }" dir="ltr">
 <head>
 <meta charset="UTF-8">
-<title>${ data.title || tacs.config.title }</title>
+<title>${ data.title || tacs.config.title }${ data?.pagination?.pageTotal > 1 ? ` (page ${ tacs.fn.format.number( data.pagination.pageCurrent1 ) } of ${ tacs.fn.format.number( data.pagination.pageTotal ) })` : ''}</title>
 <meta name="viewport" content="width=device-width,initial-scale=1,interactive-widget=overlays-content">
 
 <!-- Content Security Policy -->
@@ -30,10 +30,15 @@ manifest-src 'self';
 <meta name="author" content="${ data.author || tacs.config.author }">
 <link rel="canonical" href="${ tacs.config.domain }${ data.link }">
 
-<!-- feeds -->
-<meta name="robots" content="${ tacs.config.isDev ? 'noindex,nofollow' : 'index,follow' }">
+<!-- search -->
+<meta name="robots" content="${ data.index ? 'index,follow' : 'noindex,follow' }">
+<meta name="staticsearch" content="${ data.isDirIndex || data.isTagIndex || !data.index ? 'noindex' : 'index' }">
+
+<!-- sitemap -->
 <link rel="sitemap" type="application/xml" href="${ tacs.config.domain }${ tacs.root }sitemap.xml">
 <link rel="sitemap" type="text/plain" href="${ tacs.config.domain }${ tacs.root }sitemap.txt">
+
+<!-- feeds -->
 <link rel="alternate" type="application/rss+xml" title="${ tacs.config.title }" href="${ tacs.config.domain }${ tacs.root }feed.xml">
 <link rel="alternate" type="application/atom+xml" title="${ tacs.config.title }" href="${ tacs.config.domain }${ tacs.root }feed.xml">
 

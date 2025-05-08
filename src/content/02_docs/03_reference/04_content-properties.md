@@ -37,6 +37,8 @@ The following properties are provided for page content by Publican irrespective 
 |`.directory`|name of root directory|[*more*](#datadirectory)|
 |`.isMD`|content is markdown|[*more*](#dataismd)|
 |`.isIndexPage`|content is an index page|[*more*](#dataisindexpage)|
+|`.isDirIndex`|the directory title (paginated lists pages)|[*more*](#dataisdirindex)|
+|`.isTagIndex`|the tag name (paginated list pages)|[*more*](#dataistagindex)|
 |`.isHTML`|built file is HTML|[*more*](#dataishtml)|
 |`.isXML`|built file is XML|[*more*](#dataisxml)|
 |`.isCSS`|built file is CSS|[*more*](#dataiscss)|
@@ -221,7 +223,17 @@ This value is used internally my Publican but may be useful if you want to modif
 
 ### `data.isIndexPage`{language=js}
 
-A Boolean value which is `true` when the rendered file is a directory index page (typically `index.html` [unless overridden](--ROOT--docs/reference/publican-options/#index-page-filename)).
+A Boolean value which is `true` when the rendered file is the index page served when the URL ends with a `/` (typically `index.html` [unless overridden](--ROOT--docs/reference/publican-options/#index-page-filename)).
+
+
+### `data.isDirIndex`{language=js}
+
+When the page is one of the indexes listing pages in a directory, `data.isDirIndex`{language=js} is set to the directory's root page title. The directory name is used when that is not set.
+
+
+### `data.isTagIndex`{language=js}
+
+When the page is one of the indexes listing pages with a specific tag, `data.isTagIndex`{language=js} is set to the tag name.
 
 
 ### `data.isHTML`{language=js}

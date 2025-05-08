@@ -36,7 +36,9 @@ This is a virtual post!
 ```
 
 ::: aside
+
 A backtick-delimited string has been used here for readability. This would parse any `${ expressions }`{language=js} before Publican and could lead to unexpected consequences.
+
 ::: /aside
 
 

@@ -136,7 +136,9 @@ and the `<nav-heading>`{language=html} block only shows **Heading 2**:
 ```
 
 ::: aside
+
 Ensure your heading hierarchy is correct. For example, following an `<h2>`{language=html}, you could have another `<h2>`{language=html} or an `<h3>`{language=html}, but not an `<h4>`{language=html}. Publican does not report hierarchy errors, but the menu may look unusual.
+
 ::: /aside
 
 

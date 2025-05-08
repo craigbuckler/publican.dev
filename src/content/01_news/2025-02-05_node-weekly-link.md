@@ -4,8 +4,7 @@ menu: false
 description: Publican.dev has been featured on the popular Node.js email newsletter.
 author: Craig Buckler
 tags: SSG
-priority: 1.0
-date: 2025-02-05
+priority: 0.7
 modified: 2025-02-11
 hero: images/print-press.avif
 heroWidth: 1200
@@ -33,9 +32,9 @@ If you'd like more information for an article or tutorial, please email <a href=
 
 ## Get started
 
-The [Publican documentation](--ROOT--docs/) provides a [quick start guide](--ROOT--docs/quickstart/concepts/), a [detailed set-up guide](--ROOT--docs/setup/content/), [API references](--ROOT--docs/reference/publican-options/), and [common recipes](--ROOT--docs/recipe/) you can use and adapt for your own projects.
+The [Publican documentation](--ROOT--docs) provides a [quick start guide](--ROOT--docs/quickstart/concepts), a [detailed set-up guide](--ROOT--docs/setup/content), [API references](--ROOT--docs/reference/publican-options), and [common recipes](--ROOT--docs/recipe) you can use and adapt for your own projects.
 
 <ul class="flexcenter">
-  <li><a href="--ROOT--docs/quickstart/concepts/" class="button">Get started</a></li>
+  <li><a href="--ROOT--docs/quickstart/concepts" class="button">Get started</a></li>
   ${{ tacs.config.donate && `<li><a href="${ tacs.config.donate }" class="button">Donate</a></li>` }}
 </ul>
