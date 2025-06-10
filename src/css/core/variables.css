@@ -57,9 +57,26 @@
   --color-code-important: light-dark(#e90, #fd971f);
 
   --border-radius1: 5px;
+
+  /* static-search styles */
+  --staticsearch-fontsize: var(--fsize-0);
+
+  --staticsearch-color-back: color-mix(in srgb, var(--color-back2), transparent 40%);
+  --staticsearch-color-border: var(--color-back2);
+
+  --staticsearch-color-fore: var(--color-fore1);
+  --staticsearch-color-dim: var(--color-fore3);
+
+  --staticsearch-color-link: var(--color-hint1);
+  --staticsearch-color-visited: color-mix(in srgb, var(--color-fore3), var(--color-fore2) 20%);
+
+  --staticsearch-color-shadow: var(--color-shadow);
+  --staticsearch-color-backdrop: color-mix(in srgb, var(--color-back1), transparent 10%);
+  --staticsearch-backdrop-blur: 0;
+
 }
 
-html, html[data-theme="light"], html:has(option[value="light"]:checked) {
+html, html[data-theme="light"], html:has(input[name="themeswitcher"][value="light"]:checked) {
 	color-scheme: light;
 
   @media (width < 600px) or (height < 600px) {
@@ -73,6 +90,6 @@ html, html[data-theme="light"], html:has(option[value="light"]:checked) {
 	}
 }
 
-html[data-theme="dark"], html:has(option[value="dark"]:checked) {
+html[data-theme="dark"], html:has(input[name="themeswitcher"][value="dark"]:checked) {
 	color-scheme: dark;
 }

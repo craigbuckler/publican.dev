@@ -1,8 +1,9 @@
 ---
 title: Integrate esbuild into your Publican build process
 menu: esbuild
-description: How to use esbuild to bundle CSS and JavaScript files, launch a development server, and live reload when styles change.
+description: How to use esbuild to bundle CSS and JavaScript files, launch a development server, and hot reload when styles change.
 date: 2025-01-23
+modified: 2025-06-10
 priority: 0.9
 tags: esbuild, development build, production build, watch mode
 ---
@@ -128,7 +129,7 @@ if (__ISDEV__) {
 }
 ```
 
-This is used for [live reloading](#live-reloading).
+This is used for [hot reloading](#hot-reloading).
 
 
 ## Watch mode
@@ -153,13 +154,13 @@ if (publican.config.watch) {
 ```
 
 
-### Live reloading
+### Hot reloading
 
-esbuild can live reload changed styles but you must add this functionality yourself to your `main.js` entry script:
+esbuild can hot reload changed styles without a full page refresh. You must add this functionality yourself to your `main.js` entry script:
 
 {{ `src/js/main.js` excerpt }}
 ```js
-// development live CSS reload
+// development hot CSS reload
 import './dev/css-reload.js';
 ```
 
@@ -167,7 +168,7 @@ The `src/js/dev/css-reload.js` file listens for server-sent events from esbuild 
 
 {{ `src/js/dev/css-reload.js` }}
 ```js
-// live reload CSS in development mode
+// hot reload CSS in development mode
 if (__ISDEV__) {
 
   // esbuild server-sent event

@@ -22,7 +22,7 @@ Search Engine Optimization (SEO) is a set of techniques to help your site appear
 
 1. Write content your audience wants to read.
 1. Use appropriate keywords, but write for users -- *not search engines*.
-1. Use [best practice techniques](--ROOT--news/site-performance) to ensure documents use semantic HTML, are fast, and accessible to all users -- *including indexing bots*.
+1. Use [best practice techniques](--ROOT--news/site-performance/) to ensure documents use semantic HTML, are fast, and accessible to all users -- *including indexing bots*.
 1. Don't use sneaky technical tricks. You won't fool search engines for long, and they may block you.
 
 A post may go viral, but there's no magic formula. It's dumb luck. Sometimes, you hit on a topic which resonates with others and it's shared exponentially. It can happen months or years after you publish.
@@ -134,9 +134,9 @@ Publican can help your technical SEO efforts because it allows you to craft your
 
 ## Get started
 
-The [Publican documentation](--ROOT--docs) provides a [quick start guide](--ROOT--docs/quickstart/concepts), a [detailed set-up guide](--ROOT--docs/setup/content), [API references](--ROOT--docs/reference/publican-options), and [common recipes](--ROOT--docs/recipe) you can use and adapt for your own projects.
+The [Publican documentation](--ROOT--docs/) provides a [quick start guide](--ROOT--docs/quickstart/concepts/), a [detailed set-up guide](--ROOT--docs/setup/content/), [API references](--ROOT--docs/reference/publican-options/), and [common recipes](--ROOT--docs/recipe/) you can use and adapt for your own projects.
 
 <ul class="flexcenter">
-  <li><a href="--ROOT--docs/quickstart/concepts" class="button">Get started</a></li>
+  <li><a href="--ROOT--docs/quickstart/concepts/" class="button">Get started</a></li>
   ${{ tacs.config.donate && `<li><a href="${ tacs.config.donate }" class="button">Donate</a></li>` }}
 </ul>

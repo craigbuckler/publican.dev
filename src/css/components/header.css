@@ -4,7 +4,8 @@ body > header {
   inline-size: 100%;
   block-size: var(--header-height);
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 1rem;
   align-content: center;
   padding-block: 0;
   padding-inline: var(--layout-margin);
@@ -20,19 +21,11 @@ body > header {
     color: var(--color-hint1);
   }
 
-  .iconlinks {
-    display: none;
-
-    @media (width > 600px) {
-      display: flex;
-    }
-  }
-
 }
 
 #logo {
 
-  inline-size: 1.5em;
+  inline-size: 10em;
   align-content: center;
   margin: 0;
 
@@ -44,41 +37,74 @@ body > header {
 
 }
 
-#logop { display: block; }
-#logof { display: none; }
+static-search {
 
-@media (width > 500px) {
-  #logo { inline-size: clamp(5em, 14vw, 10em); }
-  #logop { display: none; }
-  #logof { display: block; }
+  align-content: center;
+  margin-inline-start: auto;
+
+  &::part(startsearch) {
+    color: var(--color-fore2);
+  }
+
+  &::part(startsearch):hover, &::part(startsearch):focus, &::part(startsearch):active {
+    color: var(--color-hint1);
+  }
+
+  &::part(startsearchicon) {
+    inline-size: 1.5em;
+    block-size: auto;
+  }
+
+  &::part(dialog) {
+    backdrop-filter: blur(5px);
+  }
+
+  &::part(searchinput) {
+    background-color: transparent;
+  }
+
 }
 
 .themeswitcher {
+
+  position: relative;
+  inline-size: 1.3em;
   align-content: center;
-}
 
-label[for="themeswitcher"] {
-  display: inline-block;
-  text-indent: -9999px;
-  padding-inline-start: 1em;
-  background: 0 100% no-repeat url(../../media/icons/monitor.svg);
-  background-size: 1em;
-
-  header:has(option[value="light"]:checked) & {
-    background-image: url(../../media/icons/sun.svg);
+  input, span {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
   }
 
-  header:has(option[value="dark"]:checked) & {
-    background-image: url(../../media/icons/moon.svg);
+  label {
+    position: absolute;
+    inset-block-start: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    cursor: pointer;
+    pointer-events: none;
+    transition: opacity 0.3s linear;
   }
-}
 
-#themeswitcher {
-  display: inline-block;
-  border: 0 none;
-  color: var(--color-fore1);
-  background-color: var(--color-back2);
-  border-radius: var(--border-radius1);
+  input:checked + label {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  svg:hover, svg:focus, svg:active {
+    stroke: var(--color-hint1);
+  }
+
+  &:focus-within:has(:focus-visible) label {
+    outline-color: color-mix(in srgb, var(--color-hint1) 50%, transparent);
+    outline-style: solid;
+    outline-offset: 0.2em;
+    outline-width: 0.2rem;
+  }
+
 }
 
 @media (height > 600px) {

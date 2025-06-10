@@ -2,18 +2,23 @@
 
   display: flex;
   flex-wrap: nowrap;
-  gap: 1rem;
+  justify-content: center;
+  gap: 0.8em;
+  margin-block-start: 1em;
 
-  &, li {
-    block-size: 100%;
-    align-content: center;
-    list-style-type: none;
+  li, a, svg {
     padding: 0;
     margin: 0;
   }
 
+  li {
+    inline-size: 1.5em;
+    align-content: center;
+    list-style-type: none;
+  }
+
   svg {
-    inline-size: 1.3em;
+    inline-size: 100%;
     block-size: auto;
   }
 

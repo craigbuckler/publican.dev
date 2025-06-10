@@ -35,7 +35,7 @@ For future-proofing and compatibility, Publican uses ES modules throughout rathe
 
 ## Product stability
 
-How often have you returned to a Node.js project after a few months to find it won't install or build? Publican has very few dependencies -- primarily the [jsTACS templating system](--ROOT--docs/setup/jstacs), a markdown converter, and an HTML minifier. There's less code to break. *In theory*.
+How often have you returned to a Node.js project after a few months to find it won't install or build? Publican has very few dependencies -- primarily the [jsTACS templating system](--ROOT--docs/setup/jstacs/), a markdown converter, and an HTML minifier. There's less code to break. *In theory*.
 
 
 ## Virtual content and templates
@@ -51,7 +51,7 @@ Templating systems can be complicated:
 * Few templating systems are compatible with others.
 * Implementing advanced functionality can be tricky.
 
-Publican uses [jsTACS](--ROOT--docs/setup/jstacs) which parses native JavaScript template literal `${ expressions }`{language=js}. Those expressions can include your own functions. *You're just using JavaScript*: there's nothing new to learn and it's faster than template systems with custom syntaxes.
+Publican uses [jsTACS](--ROOT--docs/setup/jstacs/) which parses native JavaScript template literal `${ expressions }`{language=js}. Those expressions can include your own functions. *You're just using JavaScript*: there's nothing new to learn and it's faster than template systems with custom syntaxes.
 
 
 ## Partial template rendering
@@ -59,7 +59,7 @@ Publican uses [jsTACS](--ROOT--docs/setup/jstacs) which parses native JavaScript
 Publican can partially build templates for [Express.js](https://expressjs.com/) or similar server frameworks. You can render most of the page at build time but retain islands of runtime functionality.
 
 * `${ expression }`{language=js} statically renders content once at build time.
-* `!{ expression }`{language=js} identifies expressions to dynamically render at runtime -- they are converted to `${ expression }`{language=js} at the end of the build. These can be processed using [jsTACS as an Express.js rendering engine](--ROOT--docs/setup/jstacs#runtime-expressions).
+* `!{ expression }`{language=js} identifies expressions to dynamically render at runtime -- they are converted to `${ expression }`{language=js} at the end of the build. These can be processed using [jsTACS as an Express.js rendering engine](--ROOT--docs/setup/jstacs/#runtime-expressions).
 
 
 ## Built-in menus, tags, and feeds
@@ -94,9 +94,9 @@ I didn't think about it too long, but:
 
 ## Get started
 
-The [Publican documentation](--ROOT--docs) provides a [quick start guide](--ROOT--docs/quickstart/concepts), a [detailed set-up guide](--ROOT--docs/setup/content), [API references](--ROOT--docs/reference/publican-options), and [common recipes](--ROOT--docs/recipe) you can use and adapt for your own projects.
+The [Publican documentation](--ROOT--docs/) provides a [quick start guide](--ROOT--docs/quickstart/concepts/), a [detailed set-up guide](--ROOT--docs/setup/content/), [API references](--ROOT--docs/reference/publican-options/), and [common recipes](--ROOT--docs/recipe/) you can use and adapt for your own projects.
 
 <ul class="flexcenter">
-  <li><a href="--ROOT--docs/quickstart/concepts" class="button">Get started</a></li>
+  <li><a href="--ROOT--docs/quickstart/concepts/" class="button">Get started</a></li>
   ${{ tacs.config.donate && `<li><a href="${ tacs.config.donate }" class="button">Donate</a></li>` }}
 </ul>

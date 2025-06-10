@@ -2,47 +2,41 @@
 .menu {
 
   position: relative;
+  align-content: center;
 
-  li {
-    text-wrap: nowrap;
-  }
+  .menuicon {
 
-  > ul {
-    block-size: 100%;
-    display: flex;
-
-    > li {
-      block-size: 100%;
-      align-content: center;
-      margin-inline-end: min(1.5vw, 1em);
+    &::before {
+      display: none;
     }
+
+    &:hover, &:focus, &:active {
+      color: var(--color-hint1);
+    }
+
+    svg {
+      inline-size: 1.5em;
+      block-size: auto;
+    }
+
   }
 
-  details ul {
+  .menucontent {
     position: absolute;
+    inline-size: 16em;
     max-block-size: calc(100vh - var(--header-height) - var(--layout-margin));
     inset-block-start: 99%;
-    padding-block-end: 0.5rem;
+    inset-inline-end: 0;
+    padding-block: 1rem;
     background-color: var(--color-back2);
     border-block-end: 4px solid var(--color-back2);
-    box-shadow: 0 3px 3px var(--color-shadow);
+    box-shadow: 0 3px 2px var(--color-shadow);
     overflow-y: auto;
     overscroll-behavior: none;
 
-    a, strong {
-      padding-inline-end: 1.5rem;
+    a {
+      padding-block: 0.2em;
     }
-
-    strong {
-      color: var(--color-hint1);
-    }
-  }
-
-  details ul ul {
-    position: relative;
-    max-block-size: auto;
-    inset-block-start: auto;
-    box-shadow: none;
   }
 
   details[name]::details-content {
@@ -55,10 +49,6 @@
 
   details[open] > summary::before {
     transform: rotate(0deg);
-  }
-
-  li > a {
-    display: block;
   }
 
 }

@@ -47,12 +47,12 @@
 
   .back {
     grid-column: 1 / 2;
-    text-align: left;
+    text-align: start;
   }
 
   .next {
     grid-column: 2 / 3;
-    text-align: right;
+    text-align: end;
   }
 
 }

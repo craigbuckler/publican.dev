@@ -32,9 +32,9 @@ If you'd like more information for an article or tutorial, please email <a href=
 
 ## Get started
 
-The [Publican documentation](--ROOT--docs) provides a [quick start guide](--ROOT--docs/quickstart/concepts), a [detailed set-up guide](--ROOT--docs/setup/content), [API references](--ROOT--docs/reference/publican-options), and [common recipes](--ROOT--docs/recipe) you can use and adapt for your own projects.
+The [Publican documentation](--ROOT--docs/) provides a [quick start guide](--ROOT--docs/quickstart/concepts/), a [detailed set-up guide](--ROOT--docs/setup/content/), [API references](--ROOT--docs/reference/publican-options/), and [common recipes](--ROOT--docs/recipe/) you can use and adapt for your own projects.
 
 <ul class="flexcenter">
-  <li><a href="--ROOT--docs/quickstart/concepts" class="button">Get started</a></li>
+  <li><a href="--ROOT--docs/quickstart/concepts/" class="button">Get started</a></li>
   ${{ tacs.config.donate && `<li><a href="${ tacs.config.donate }" class="button">Donate</a></li>` }}
 </ul>

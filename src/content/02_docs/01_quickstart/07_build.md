@@ -3,8 +3,9 @@ title: Build your first static site with Publican
 menu: Build static site
 description: How to run Publican in production and development modes.
 date: 2025-01-23
+modified: 2025-06-10
 priority: 0.9
-tags: development build, production build
+tags: development build, production build, LiveLocalhost, esbuild
 ---
 
 Build your site to the project's `build/` directory with the command:
@@ -50,19 +51,12 @@ Refer to the [Configuration file](--ROOT--docs/setup/configuration/) for better 
 
 ## Local web server
 
-Publican does **not** provide a development web server to test your built site. The following command installs a small Node.js file server package globally:
-
-{{ terminal }}
-```bash
-npm i small-static-server -g
-```
-
-You can launch a server immediately after a successful build:
+Publican does **not** provide a development web server to test your built site. You can launch a server such as [LiveLocalhost](https://www.npmjs.com/package/livelocalhost) immediately after a successful build:
 
 {{ terminal }}
 ```bash
 node ./publican.config.js
-smallserver 8000 ./build/
+npx livelocalhost -d ./build/
 ```
 
 and test your site by opening `localhost:8000` in your browser.
@@ -72,9 +66,11 @@ and test your site by opening `localhost:8000` in your browser.
 
 Other server options include:
 
-1. **Install a file server package**
+1. **Use a file server module**
 
-   Node.js packages such as [small-static-server](https://www.npmjs.com/package/small-static-server) (shown above) and [Browsersync](https://browsersync.io/) can serve files from any directory.
+   Node.js packages such as [LiveLocalhost](https://www.npmjs.com/package/livelocalhost) (shown above) and [Browsersync](https://browsersync.io/) can serve files from any directory.
+
+   [This site](https://github.com/craigbuckler/publican.dev) uses LiveLocalhost as part of its configuration.
 
 1. **Install an editor server plugin**
 
@@ -90,4 +86,4 @@ Other server options include:
 
 1. **Add [esbuild](https://esbuild.github.io/) to your configuration**
 
-   [This site](https://github.com/craigbuckler/publican.dev) uses Publican to create web pages and [esbuild to bundle CSS and JavaScript](--ROOT--docs/recipe/build/esbuild/). esbuild includes a local server that can live reload when CSS files are modified.
+   [esbuild bundles CSS and JavaScript](--ROOT--docs/recipe/build/esbuild/) but also includes a local server that can hot reload CSS files.

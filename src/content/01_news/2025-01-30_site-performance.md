@@ -92,7 +92,7 @@ You can usually [make web pages printable](https://blog.craigbuckler.com/printer
 
 ## Search engine friendly
 
-Publican.dev provides [clean URLs](--ROOT--docs/setup/content#directory-structure), meta tags, [structured data](https://schema.org/), [tagged content](--ROOT--docs/setup/tag-indexes), `robots.txt`, [sitemaps](--ROOT--docs/recipe/feeds/xml-sitemap), [RSS feeds](--ROOT--docs/recipe/feeds/rss-feed), and social media sharing. [Good performance](#htmlfirst-performance) also influences search engine rankings.
+Publican.dev provides [clean URLs](--ROOT--docs/setup/content#directory-structure), meta tags, [structured data](https://schema.org/), [tagged content](--ROOT--docs/setup/tag-indexes/), `robots.txt`, [sitemaps](--ROOT--docs/recipe/feeds/xml-sitemap/), [RSS feeds](--ROOT--docs/recipe/feeds/rss-feed/), and social media sharing. [Good performance](#htmlfirst-performance) also influences search engine rankings.
 
 A Publican-built static site won't wondrously jump to #1 in Google, but there are no factors that could stop it happening.
 
@@ -132,9 +132,9 @@ We're finally seeing a backlash against poor website performance. Static site ge
 
 ## Get started
 
-The [Publican documentation](--ROOT--docs) provides a [quick start guide](--ROOT--docs/quickstart/concepts), a [detailed set-up guide](--ROOT--docs/setup/content), [API references](--ROOT--docs/reference/publican-options), and [common recipes](--ROOT--docs/recipe) you can use and adapt for your own projects.
+The [Publican documentation](--ROOT--docs/) provides a [quick start guide](--ROOT--docs/quickstart/concepts/), a [detailed set-up guide](--ROOT--docs/setup/content/), [API references](--ROOT--docs/reference/publican-options/), and [common recipes](--ROOT--docs/recipe/) you can use and adapt for your own projects.
 
 <ul class="flexcenter">
-  <li><a href="--ROOT--docs/quickstart/concepts" class="button">Get started</a></li>
+  <li><a href="--ROOT--docs/quickstart/concepts/" class="button">Get started</a></li>
   ${{ tacs.config.donate && `<li><a href="${ tacs.config.donate }" class="button">Donate</a></li>` }}
 </ul>

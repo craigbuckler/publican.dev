@@ -18,22 +18,22 @@ Publican is a new HTML first static site generator for Node.js. The first usable
 
 ## Not another one!
 
-There are plenty of great static site generators, but few provided all the features I wanted. So, yeah, [I created my own](--ROOT--news/why-another-ssg).
+There are plenty of great static site generators, but few provided all the features I wanted. So, yeah, [I created my own](--ROOT--news/why-another-ssg/).
 
 
 ## Use at your own risk!
 
 I've been working on Publican since late 2024 and it's small but stable. This site is built using it, but I'm the only developer and it's unlikely to be as robust as I hope.
 
-You can [use Publican without restriction](--ROOT--about/licence) at your own risk.
+You can [use Publican without restriction](--ROOT--about/licence/) at your own risk.
 
 
 ## Get started
 
-The [Publican documentation](--ROOT--docs) provides a [quick start guide](--ROOT--docs/quickstart/concepts), a [detailed set-up guide](--ROOT--docs/setup/content), [API references](--ROOT--docs/reference/publican-options), and [common recipes](--ROOT--docs/recipe) you can use and adapt for your own projects.
+The [Publican documentation](--ROOT--docs/) provides a [quick start guide](--ROOT--docs/quickstart/concepts/), a [detailed set-up guide](--ROOT--docs/setup/content/), [API references](--ROOT--docs/reference/publican-options/), and [common recipes](--ROOT--docs/recipe/) you can use and adapt for your own projects.
 
 <ul class="flexcenter">
-  <li><a href="--ROOT--docs/quickstart/concepts" class="button">Get started</a></li>
+  <li><a href="--ROOT--docs/quickstart/concepts/" class="button">Get started</a></li>
   ${{ tacs.config.donate && `<li><a href="${ tacs.config.donate }" class="button">Donate</a></li>` }}
 </ul>
 

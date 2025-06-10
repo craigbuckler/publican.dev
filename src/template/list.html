@@ -1,9 +1,9 @@
 ${ include('_partials/htmlhead.html') }
 ${ include('_partials/header.html') }
 
-<main>
+${ data.link.startsWith('/docs/') ? `<nav class="menudir">${ tacs.fn.nav.menuDir( data.link, 'docs' ) }</nav>` : '' }
 
-  ${ data.link.startsWith('/docs/') ? `<nav class="menudir">${ tacs.fn.nav.menuDir( data.link, 'docs' ) }</nav>` : '' }
+<main>
 
   ${ data?.pagination &&
     `<h1>${ data.title }${ data.pagination.pageTotal > 1 ? `, page ${ tacs.fn.format.number( data.pagination.pageCurrent1 ) } of ${ tacs.fn.format.number( data.pagination.pageTotal ) }` : ''}</h1>`

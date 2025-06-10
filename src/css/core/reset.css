@@ -4,7 +4,6 @@
   padding: 0;
   box-sizing: border-box;
   scrollbar-width: thin;
-  /* scrollbar-gutter: stable; */
 }
 
 :root {
@@ -19,16 +18,17 @@
 
 html {
   writing-mode: horizontal-tb;
+  scrollbar-gutter: stable;
   scroll-behavior: smooth;
-}
-
-html:has(::backdrop) {
-	overflow: hidden;
 }
 
 body {
   line-height: 1.1;
   touch-action: manipulation;
+}
+
+body:has(dialog[open]), body:has(static-search[aria-expanded]) {
+	overflow: hidden;
 }
 
 img, figure, picture, video, canvas {
@@ -71,6 +71,11 @@ a {
   outline-width: 0.2rem;
 }
 
+/* web components */
+:not(:defined) {
+  display: none;
+}
+
 nav, summary {
   user-select: none;
 }
@@ -103,10 +108,11 @@ label {
 /* disable animations */
 @media (prefers-reduced-motion: reduce) {
 
-  *, *::before, *::after {
+  *, *::before, *::after, ::backdrop {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transition-behavior: normal !important;
     scroll-behavior: auto !important;
   }
 

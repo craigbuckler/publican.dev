@@ -4,7 +4,7 @@ menu: Links
 description: A list of useful links to Publican resources.
 date: 2025-01-23
 priority: 0.5
-tags: SSG, jsTACS
+tags: SSG, jsTACS, StaticSearch, LiveLocalhost, PerfPro, ConCol
 ---
 
 Please refer to the following links for project details and resources.
@@ -20,6 +20,19 @@ Publican is the main static site generator that generates HTML and other content
 * **Publican npm project**
 
   [www.npmjs.com/package/publican](https://www.npmjs.com/package/publican)
+
+
+## StaticSearch
+
+A client-side search engine for static websites.
+
+* **StaticSearch Github repository**
+
+  [github.com/craigbuckler/staticsearch](https://github.com/craigbuckler/staticsearch)
+
+* **StaticSearch npm project**
+
+  [www.npmjs.com/package/staticsearch](https://www.npmjs.com/package/staticsearch)
 
 
 ## jsTACS
@@ -59,6 +72,32 @@ LiveLocalhost is a lightweight development server used by the [basic theme](#bas
 * **LiveLocalhost npm project**
 
   [www.npmjs.com/package/livelocalhost](https://www.npmjs.com/package/livelocalhost)
+
+
+## PerfPro
+
+A namespaced Node.js performance profiler.
+
+* **PerfPro Github repository**
+
+  [github.com/craigbuckler/perfpro](https://github.com/craigbuckler/perfpro)
+
+* **PerfPro npm project**
+
+  [www.npmjs.com/package/perfpro](https://www.npmjs.com/package/perfpro)
+
+
+## ConCol
+
+A prettier color console logger.
+
+* **ConCol Github repository**
+
+  [github.com/craigbuckler/concol](https://github.com/craigbuckler/concol)
+
+* **ConCol npm project**
+
+  [www.npmjs.com/package/concol](https://www.npmjs.com/package/concol)
 
 
 ## Publican.dev website

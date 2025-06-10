@@ -9,7 +9,7 @@ table {
 }
 
 th, td {
-  text-align: left;
+  text-align: start;
 	vertical-align: top;
   padding-block: 0.4em;
   padding-inline: 0.6em;
@@ -21,7 +21,7 @@ th, td {
   }
 
   &.center { text-align: center; }
-  &.right { text-align: right; }
+  &.right { text-align: end; }
 }
 
 thead {

@@ -1,5 +1,7 @@
 // Publican configuration
 import { Publican, tacs } from 'publican';
+import { staticsearch } from 'staticsearch';
+
 import * as fnNav from './lib/nav.js';
 import * as fnFormat from './lib/format.js';
 import * as fnHooks from './lib/hooks.js';
@@ -104,6 +106,13 @@ await publican.clean();
 // build site
 await publican.build();
 
+// run search indexer
+staticsearch.buildDir = publican.config.dir.build;
+staticsearch.searchdir = publican.config.dir.build + 'search/';
+staticsearch.domain = tacs.config.domain;
+staticsearch.stopWords = '';
+await staticsearch.index();
+
 
 // ___________________________________________________________
 // esbuild configuration for CSS, JavaScript, and local server
@@ -160,10 +169,12 @@ if (publican.config.watch) {
   await buildJS.watch();
 
   // development server
-  await buildCSS.serve({
-    servedir: process.env.BUILD_DIR,
-    port: parseInt(process.env.SERVE_PORT) || 8000
-  });
+  const { livelocalhost } = await import('livelocalhost');
+
+  livelocalhost.servedir = publican.config.dir.build;
+  livelocalhost.serveport = parseInt(process.env.SERVE_PORT) || 8000;
+  livelocalhost.accessLog = false;
+  livelocalhost.start();
 
 }
 else {

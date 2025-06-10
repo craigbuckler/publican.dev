@@ -1,11 +1,11 @@
 ${ include('_partials/htmlhead.html') }
 ${ include('_partials/header.html') }
 
+${ data.directory === 'docs' ? `<nav class="menudir">${ tacs.fn.nav.menuDir( data.link, 'docs' ) }</nav>` : '' }
+
 <main>
 
   ${ include('_partials/title.html') }
-
-  ${ data.directory === 'docs' ? `<nav class="menudir">${ tacs.fn.nav.menuDir( data.link, 'docs' ) }</nav>` : '' }
 
   <nav-heading title="Contents" class="pagecontents"></nav-heading>
 

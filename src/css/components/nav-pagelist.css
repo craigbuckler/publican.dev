@@ -38,7 +38,7 @@ nav.pagelist {
 
   p.pubdate, p.wordcount {
     font-size: var(--fsize--2);
-    text-align: right;
+    text-align: end;
     padding: 0;
     margin: 0;
     border: 0 none;

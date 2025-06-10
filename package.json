@@ -22,11 +22,15 @@
   "type": "module",
   "main": "publican.config.js",
   "scripts": {
-    "build": "node --no-warnings --env-file=.env.dev --env-file=.env.prod ./publican.config.js",
-    "start": "node --no-warnings --env-file=.env.dev ./publican.config.js"
+    "build": "node --env-file=.env.dev --env-file=.env.prod ./publican.config.js",
+    "start": "node --env-file=.env.dev ./publican.config.js"
   },
   "dependencies": {
-    "esbuild": "0.25.4",
-    "publican": "0.9.0"
+    "esbuild": "0.25.5",
+    "publican": "0.10.0",
+    "staticsearch": "0.2.1"
+  },
+  "devDependencies": {
+    "livelocalhost": "1.2.1"
   }
 }

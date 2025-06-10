@@ -3,6 +3,7 @@ title: Example configuration
 menu: Example configuration
 description: An example configuration with .env configuration, development mode, production mode, and esbuild integration.
 date: 2025-01-23
+modified: 2025-06-10
 priority: 0.9
 tags: configure, esbuild
 ---
@@ -232,7 +233,7 @@ else {
 
 ## Start a build
 
-Build a development site with watch mode and live reloading using:
+Build a development site with watch mode and hot reloading using:
 
 {{ terminal }}
 ```
