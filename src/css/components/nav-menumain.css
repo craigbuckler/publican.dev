@@ -34,9 +34,14 @@
     overflow-y: auto;
     overscroll-behavior: none;
 
-    a {
-      padding-block: 0.2em;
+    a, strong {
+      line-height: 1.6;
     }
+
+    strong {
+      color: var(--color-hint1);
+    }
+
   }
 
   details[name]::details-content {

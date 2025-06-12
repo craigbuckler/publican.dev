@@ -3,6 +3,7 @@ title: Publican core concepts
 menu: Core concepts
 description: An overview of Publican's core concepts and how it's used to build a static site. Please read this first!
 date: 2025-01-23
+modified: 2025-06-12
 priority: 0.9
 tags: content, front matter, templates, jsTACS, template literals, directory index, tag index, pass through, configure
 ---
@@ -12,6 +13,8 @@ Publican is a Node.js static site generator. It builds web pages from:
 1. [content](#content)
 1. [templates](#templates), and
 1. a [JavaScript configuration file](#configuration).
+
+[Download the basic theme](--ROOT--about/links/#basic-publican-theme) to examine and adapt for your own site.
 
 
 ## Content
@@ -23,14 +26,14 @@ By default, Publican looks for [text-based content files](--ROOT--docs/setup/con
 
 ### Front matter
 
-Any content file can have [front matter](--ROOT--docs/setup/content/#front-matter) values at the top. This defines meta data such as the title, date, and tags. [Some values control how Publican works](--ROOT--docs/reference/front-matter/#publican-values) but you can [define custom values](--ROOT--docs/reference/front-matter/#custom-front-matter) such as a description, author, image, etc.
+Any content file can have [front matter](--ROOT--docs/setup/content/#front-matter) values at the top. This defines meta data such as the title, date, and tags. [Some values control how Publican works](--ROOT--docs/reference/front-matter/#publican-values) and you can [define custom values](--ROOT--docs/reference/front-matter/#custom-front-matter) such as a description, author, image, etc.
 
 {{ `index.md` example }}
 ```md
 ---
 title: My first post
-description: The first post I wrote in my Publican site.
-date: 2025-01-23
+description: This is the first post I wrote in my Publican site.
+date: 2025-01-31
 tags: HTML, CSS, JavaScript
 ---
 
@@ -79,16 +82,30 @@ Publican uses [jsTACS](--ROOT--docs/setup/jstacs/) as its templating engine. It 
 
 ## Configuration
 
-Publican is [configured](--ROOT--docs/setup/configuration/) and launched from a `publican.config.js` file. It defines:
+Publican is [configured](--ROOT--docs/setup/configuration/) and launched from a `publican.config.js` file. Three lines of code is required:
+
+{{ `publican.config.js` }}
+```js
+// imports
+import { Publican } from 'publican';
+
+// create Publican object
+const publican = new Publican();
+
+// build site
+await publican.build();
+```
+
+but you can also define:
 
 * options such as directories, page sorting, and pagination
-* global values that can be used across all pages
+* global values that used across all pages, and
 * advanced options such as string replacement and event functions.
 
 
 ## Build
 
-The site is built to your project's default `build/` directory when you run:
+The site is built to a default `build/` directory when you execute the [configuration file](#configuration):
 
 {{ terminal }}
 ```bash

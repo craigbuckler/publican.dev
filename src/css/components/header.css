@@ -4,7 +4,7 @@ body > header {
   inline-size: 100%;
   block-size: var(--header-height);
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   gap: 1rem;
   align-content: center;
   padding-block: 0;
@@ -28,6 +28,7 @@ body > header {
   inline-size: 10em;
   align-content: center;
   margin: 0;
+  margin-inline-end: auto;
 
   svg {
     inline-size: 100%;
@@ -40,7 +41,6 @@ body > header {
 static-search {
 
   align-content: center;
-  margin-inline-start: auto;
 
   &::part(startsearch) {
     color: var(--color-fore2);

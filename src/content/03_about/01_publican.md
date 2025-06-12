@@ -3,7 +3,7 @@ title: About Publican
 menu: Publican
 description: Information about Publican and how it improves website resilience, security, and performance.
 date: 2025-01-23
-modified: 2025-02-26
+modified: 2025-06-12
 priority: 0.5
 tags: SSG, jsTACS, WordPress, PHP
 ---
@@ -44,17 +44,17 @@ SSGs offer CMS-like templating without the problems:
 
 * **Fewer constraints.** You're not tied to a specific CMS and can implement whatever functionality you require.
 * **Improved resilience.** It's easier to back-up or source control files and, if you're using a CMS, it need not be accessible from the internet.
-* **Better security.** There is little to *hack*. The worst someone could do is access your web server and change content -- but you could re-render it within minutes.
+* **Better security.** There's little to *hack*. The worst someone could do is access your web server and change content -- *but you could re-render it within minutes*.
 * **Better performance.** The site will load faster because it's pre-rendered. There's no runtime processing so the server need only return files.
 * **Less downtime.** A static site is less likely to fail because there are fewer dependencies such as server-side languages or databases.
 * **Lower costs.** Static sites are cheaper to host and scale.
 
 
-## Does *static* mean *limited*?
+## Does *"static"* mean *"limited"*?
 
 No. A *static* page means it's been pre-rendered once rather than on every page visit. It doesn't limit the features -- you can still have interactivity, animations, videos, etc.
 
-The main difference is you may not have server-side functionality. Features such as user login, form submissions, search, shopping carts, and user comments may require a different approach than a typical WordPress site.
+The main difference is you do not usually have server-side functionality. It is possible, but features such as user login, form submissions, search, shopping carts, and user comments may require a different approach than a typical WordPress site.
 
 ::: aside
 

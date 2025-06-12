@@ -3,7 +3,7 @@ title: Build your first static site with Publican
 menu: Build static site
 description: How to run Publican in production and development modes.
 date: 2025-01-23
-modified: 2025-06-10
+modified: 2025-06-12
 priority: 0.9
 tags: development build, production build, LiveLocalhost, esbuild
 ---
@@ -18,10 +18,10 @@ node ./publican.config.js
 
 ## Production mode
 
-By default, Publican builds a final production site for live deployment. It omits all pages where the front matter:
+By default, Publican builds a final production site for live deployment. It omits all pages where the front matter has:
 
-1. `date`{language=js} value set to a future time, or
-1. `pubish`{language=js} value is set to `false`{language=js}, `draft`{language=js}, or a future time.
+1. a `date`{language=js} set in the future, or
+1. a `pubish`{language=js} value set to `false`{language=js}, `draft`{language=js}, or a future time.
 
 
 ## Development mode
@@ -30,7 +30,7 @@ You will want to build and view draft pages during development. This can be achi
 
 {{ Linux / Mac OS / Windows WSL terminal }}
 ```bash
-NODE_ENV=development
+export NODE_ENV=development
 node ./publican.config.js
 ```
 
