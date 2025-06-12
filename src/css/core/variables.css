@@ -64,8 +64,9 @@
   --staticsearch-color-back: color-mix(in srgb, var(--color-back2), transparent 40%);
   --staticsearch-color-border: var(--color-back2);
 
-  --staticsearch-color-fore: var(--color-fore1);
-  --staticsearch-color-dim: var(--color-fore3);
+  --staticsearch-color-fore0: var(--color-fore1);
+  --staticsearch-color-fore1: var(--color-fore2);
+  --staticsearch-color-fore2: var(--color-fore3);
 
   --staticsearch-color-link: var(--color-hint1);
   --staticsearch-color-visited: color-mix(in srgb, var(--color-fore3), var(--color-fore2) 20%);
