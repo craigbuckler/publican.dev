@@ -1,6 +1,5 @@
 ---
 slug: _redirects
-publish: draft
 comment: CloudFlare pages redirects
 ---
 /staticsearch/ ${ tacs.root }tools/staticsearch/ 301
