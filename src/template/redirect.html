@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html><head>
-<script>location.replace('${ data.redirect }')</script>
+<script>location.replace('${ tacs.root + data.redirect }')</script>
 <meta charset="UTF-8">
-<title>${ data.menu }</title>
-<meta name="description" content="Redirect to ${ data.menu }.">
+<title>${ data.menu || data.redirect }</title>
+<meta name="description" content="Redirect to ${ data.menu || data.redirect }.">
 <meta name="robots" content="noindex,follow">
-<meta http-equiv="refresh" content="0;url=${ data.redirect }">
+<meta http-equiv="refresh" content="0;url=${ tacs.root + data.redirect }">
 </head><body>
-<h1><a href="${ data.redirect }">Continue to ${ data.menu }&hellip;</a></h1>
+<h1><a href="${ tacs.root + data.redirect }">Continue to ${ data.menu || data.redirect }&hellip;</a></h1>
 </body></html>

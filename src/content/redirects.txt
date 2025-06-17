@@ -1,0 +1,13 @@
+---
+slug: _redirects
+comment: CloudFlare pages redirects
+---
+staticsearch ${ tacs.root }tools/staticsearch/ 301
+StaticSearch ${ tacs.root }tools/staticsearch/ 301
+static-search ${ tacs.root }tools/staticsearch/ 301
+Static-Search ${ tacs.root }tools/staticsearch/ 301
+
+livelocalhost ${ tacs.root }tools/livelocalhost/ 301
+LiveLocalhost ${ tacs.root }tools/livelocalhost/ 301
+live-localhost ${ tacs.root }tools/livelocalhost/ 301
+Live-Localhost ${ tacs.root }tools/livelocalhost/ 301

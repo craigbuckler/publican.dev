@@ -70,6 +70,11 @@ Publican uses [jsTACS](--ROOT--docs/setup/jstacs/) as its templating engine:
 ::: /aside
 
 
+## Who created Publican?
+
+[Craig Buckler](https://craigbucker.com/). I'm a web developer with a few decades experience who first wrote a static site generator back 25 years ago before they became a thing!
+
+
 ## I want to know more!
 
 Refer to the [core concepts](--ROOT--docs/quickstart/concepts/) and [documentation pages](--ROOT--docs/) to get started.

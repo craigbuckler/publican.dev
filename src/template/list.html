@@ -1,7 +1,8 @@
 ${ include('_partials/htmlhead.html') }
 ${ include('_partials/header.html') }
 
-${ data.link.startsWith('/docs/') ? `<nav class="menudir">${ tacs.fn.nav.menuDir( data.link, 'docs' ) }</nav>` : '' }
+${ data.directory === 'docs' ? `<nav class="menudir">${ tacs.fn.nav.menuDir( data.link, 'docs' ) }</nav>` : '' }
+${ data.directory === 'tools' ? `<nav class="menudir">${ tacs.fn.nav.menuDir( data.link, 'tools' ) }</nav>` : '' }
 
 <main>
 
