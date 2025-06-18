@@ -26,6 +26,10 @@ Publican is the main static site generator that generates HTML and other content
 
 A client-side search engine for static websites.
 
+* **Main website and documentation**
+
+  [publican.dev/tools/staticsearch/](https://publican.dev/tools/staticsearch/)
+
 * **StaticSearch Github repository**
 
   [github.com/craigbuckler/staticsearch](https://github.com/craigbuckler/staticsearch)
@@ -64,6 +68,10 @@ A basic theme you can download and adapt for your own site. The theme is fast, s
 ## LiveLocalhost
 
 LiveLocalhost is a lightweight development server used by the [basic theme](#basic-publican-theme). It automatically reloads HTML pages and CSS stylesheets when files are changed.
+
+* **Main website and documentation**
+
+  [publican.dev/tools/livelocalhost/](https://publican.dev/tools/livelocalhost/)
 
 * **LiveLocalhost Github repository**
 

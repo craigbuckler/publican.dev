@@ -2,10 +2,10 @@
 <html><head>
 <script>location.replace('${ tacs.root + data.redirect }')</script>
 <meta charset="UTF-8">
-<title>${ data.menu || data.redirect }</title>
-<meta name="description" content="Redirect to ${ data.menu || data.redirect }.">
+<title>${ data.menu || (tacs.root + data.redirect) }</title>
+<meta name="description" content="Redirect to ${ data.menu || (tacs.root + data.redirect) }...">
 <meta name="robots" content="noindex,follow">
 <meta http-equiv="refresh" content="0;url=${ tacs.root + data.redirect }">
 </head><body>
-<h1><a href="${ tacs.root + data.redirect }">Continue to ${ data.menu || data.redirect }&hellip;</a></h1>
+<h1><a href="${ tacs.root + data.redirect }">Continue to ${ data.menu || (tacs.root + data.redirect) }&hellip;</a></h1>
 </body></html>
