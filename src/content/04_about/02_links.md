@@ -28,7 +28,7 @@ A client-side search engine for static websites.
 
 * **Main website and documentation**
 
-  [publican.dev/tools/staticsearch/](https://publican.dev/tools/staticsearch/)
+  [publican.dev/tools/staticsearch/](--ROOT--tools/staticsearch/)
 
 * **StaticSearch Github repository**
 
@@ -71,7 +71,7 @@ LiveLocalhost is a lightweight development server used by the [basic theme](#bas
 
 * **Main website and documentation**
 
-  [publican.dev/tools/livelocalhost/](https://publican.dev/tools/livelocalhost/)
+  [publican.dev/tools/livelocalhost/](--ROOT--tools/livelocalhost/)
 
 * **LiveLocalhost Github repository**
 
