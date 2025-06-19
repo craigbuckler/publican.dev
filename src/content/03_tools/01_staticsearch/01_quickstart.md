@@ -3,7 +3,7 @@ title: StaticSearch quickstart
 menu: Quickstart
 description: How to quickly add a search engine to your static site using StaticSearch.
 date: 2025-06-13
-priority: 1.0
+priority: 0.8
 tags: StaticSearch
 ---
 

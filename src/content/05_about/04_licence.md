@@ -13,10 +13,10 @@ The Publican code and associated templates can be used, adapted, and distributed
 I only ask you consider:
 
 1. My time. I cannot offer unlimited or unpaid support, updates, fixes, meetings, consultancy, etc. I am [available for hire](https://craigbuckler.com/), though.
-1. My liability. I am not liable for any problems or losses you encounter while using the Publican code, [Publican.dev](--ROOT--), documentation, or related materials.
-1. You acknowledge and promote your use of [Publican](https://www.npmjs.com/package/publican), perhaps with a link on your website.
+1. My liability. I am not liable for any problems or losses you encounter while using the [Publican code](https://www.npmjs.com/package/publican), [Publican.dev](--ROOT--), [documentation](--ROOT--docs/), or related materials.
+1. You acknowledge and promote your use of [Publican](https://www.npmjs.com/package/publican), perhaps with a link to [Publican.dev](--ROOT--) on your website.
 1. Contributing your own ideas, assets, code, fixes, etc. [to the Publican community](https://github.com/craigbuckler/publican).
-1. A [project donation](https://donate.publican.dev/) or [Github sponsorship](https://github.com/sponsors/craigbuckler) especially if you use Publican in a professional or commercial capacity.
+1. [Making a donation](--ROOT--about/donate/) especially if you use Publican in a professional or commercial capacity.
 
 
 ## MIT License

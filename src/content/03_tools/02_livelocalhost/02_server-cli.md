@@ -3,7 +3,7 @@ title: LiveLocalhost CLI usage
 menu: CLI usage
 description: The configuration options available to LiveLocalhost when used in a terminal.
 date: 2025-06-17
-priority: 1.0
+priority: 0.8
 tags: LiveLocalhost
 ---
 

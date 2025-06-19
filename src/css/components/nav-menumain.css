@@ -42,6 +42,17 @@
       color: var(--color-hint1);
     }
 
+    & > ul:not(.iconlinks) > li:not(:has(ul))::before {
+      display: inline-block;
+      font-size: 0.8em;
+      text-align: center;
+      vertical-align: baseline;
+      content: '\25bc';
+      inline-size: 1.5rem;
+      transform: rotate(-90deg);
+      opacity: 0.2;
+    }
+
   }
 
   details[name]::details-content {

@@ -3,7 +3,7 @@ title: LiveLocalhost environment variables
 menu: Environment variables
 description: LiveLocalhost can be configured with environment variables.
 date: 2025-06-17
-priority: 1.0
+priority: 0.8
 tags: LiveLocalhost
 ---
 

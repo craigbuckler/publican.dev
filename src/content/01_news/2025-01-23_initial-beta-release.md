@@ -34,7 +34,7 @@ The [Publican documentation](--ROOT--docs/) provides a [quick start guide](--ROO
 
 <ul class="flexcenter">
   <li><a href="--ROOT--docs/quickstart/concepts/" class="button">Get started</a></li>
-  ${{ tacs.config.donate && `<li><a href="${ tacs.config.donate }" class="button">Donate</a></li>` }}
+  <li><a href="--ROOT--about/donate/" class="button">Donate</a></li>
 </ul>
 
 

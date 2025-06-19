@@ -3,7 +3,7 @@ title: StaticSearch
 menu: StaticSearch
 description: StaticSearch is a client-side search engine that doesn't require a backend server or database. It can be added to any static site such as those created by Publican.
 date: 2025-06-17
-priority: 1.0
+priority: 0.8
 tags: StaticSearch, tools
 ---
 

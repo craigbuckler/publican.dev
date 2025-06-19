@@ -3,7 +3,7 @@ title: LiveLocalhost quickstart
 menu: Quickstart
 description: How to quickly use LiveLocalhost to start a local web development server.
 date: 2025-06-17
-priority: 1.0
+priority: 0.8
 tags: LiveLocalhost
 ---
 

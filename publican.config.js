@@ -79,7 +79,6 @@ tacs.config.description = process.env.SITE_DESCRIPTION;
 tacs.config.author = process.env.SITE_AUTHOR;
 tacs.config.wordCountShow = parseInt(process.env.SITE_WORDCOUNTSHOW) || 0;
 tacs.config.themeColor = process.env.SITE_THEMECOLOR || '#000';
-tacs.config.donate = process.env.SITE_DONATE;
 tacs.config.buildDate = new Date();
 
 // jsTACS functions

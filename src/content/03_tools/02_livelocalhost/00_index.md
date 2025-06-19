@@ -3,7 +3,7 @@ title: LiveLocalhost
 menu: LiveLocalhost
 description: LiveLocalhost is a simple localhost development web server with hot reloading. It can be run from the command line or in a Node.js application.
 date: 2025-06-17
-priority: 1.0
+priority: 0.8
 tags: LiveLocalhost, tools
 ---
 

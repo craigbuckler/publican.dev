@@ -3,7 +3,7 @@ title: Tools
 menu: Tools
 description: Other tools that can be useful when developing sites with the Publican static site generator.
 template: simple.html
-priority: 1.0
+priority: 0.8
 ---
 
 This section provides a selection of other tools I've created while working on Publican. Most will be useful when developing static sites, but you can apply them to any project.

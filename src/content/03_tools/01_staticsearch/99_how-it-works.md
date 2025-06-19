@@ -3,7 +3,7 @@ title: How StaticSearch works
 menu: How StaticSearch works
 description: An overview of how StaticSite indexes web pages and provides client-side only search engine functionality.
 date: 2025-06-13
-priority: 1.0
+priority: 0.8
 tags: StaticSearch, JavaScript
 ---
 

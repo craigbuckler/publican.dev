@@ -3,7 +3,7 @@ title: LiveLocalhost Node.js API
 menu: Node.js API
 description: LiveLocalhost can be installed, configured, and run from any Node.js application.
 date: 2025-06-17
-priority: 1.0
+priority: 0.8
 tags: LiveLocalhost, API
 ---
 
