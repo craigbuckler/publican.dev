@@ -193,11 +193,11 @@ If this is not suitable, you can set alternative elements using CSS selectors to
 |CLI|ENV|API|description|
 |-|-|-|-|
 |`-D`, `--dom` | `PAGE_DOMSELECTORS` | `.pageDOMSelectors`| nodes to include |
-|`-X`, `domx` | `PAGE_DOMEXCLUDE` | `.pageDOMExclude`| nodes to exclude |
+|`-X`, `--domx` | `PAGE_DOMEXCLUDE` | `.pageDOMExclude`| nodes to exclude |
 
-The `--dom` | `PAGE_DOMSELECTORS` | `.pageDOMSelectors` value defines a comma-delimited list of CSS selectors where content is located, e.g. `'article.primary, .secondary, aside'`{language=css}.
+The `--dom` | `PAGE_DOMSELECTORS` | `.pageDOMSelectors` value defines a comma-delimited list of CSS selectors where the main content is located, e.g. `'article.primary, .secondary, aside'`{language=css}.
 
-The `--domx` | `PAGE_DOMEXCLUDE` | `.pageDOMExclude` value defines a comma-delimited list of CSS child selectors to **exclude** from those selected e.g. `'nav, menu, .private'`{language=css}.
+The `--domx` | `PAGE_DOMEXCLUDE` | `.pageDOMExclude` value defines a comma-delimited list of CSS child selectors to **exclude** from selected nodes e.g. `'nav, menu, .private'`{language=css}.
 
 **Example**: index content in `#main`{language=css} and `.secondary`{language=css} elements but exclude all `<nav>`{language=html}, and `<div class="related">`{language=html} elements within those:
 
