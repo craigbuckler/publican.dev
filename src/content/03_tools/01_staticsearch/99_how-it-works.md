@@ -24,7 +24,25 @@ SiteSearch requires:
 
 * A typical 1,000 page site is indexed in less than six seconds and generates 800Kb of word data.
 
-Index data is incrementally loaded on demand as you search for different words. Indexes are cached in the browser so results appear faster the more searches you do.
+Index data is incrementally loaded on demand as you search for different words. Indexes are cached in the browser ([IndexedDB](https://www.npmjs.com/package/pixdb)) so results appear faster the more searches you do.
+
+
+### StaticSearch vs other engines
+
+Static sites cannot easily provide search facilities because there's no back-end database. You can integrate a third-party search service such as [Alogia](https://www.algolia.com/), [AddSearch](https://www.addsearch.com/), or [Google's Programmable Search Engine](https://programmablesearchengine.google.com/). These index your site and provide a search API, but have an ongoing cost and can take a while to update.
+
+JavaScript-only search options such as [Lunr](https://lunrjs.com/) require you to pass all content in a specific format. Every page then has a full index of your site, so the payload can become large as your site grows.
+
+[pagefind](https://pagefind.app/) analyses your built site and creates WASM binary indexes. Unfortunately, it can require some HTML configuration, requires considerable JavaScript code, and has problems with [Content Security Policies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) (and Safari compatibility).
+
+StaticSearch is easier to use, is fully compatible with Publican sites, but works with any static site generator. It:
+
+1. quickly indexes built pages (like pagefind)
+1. requires no special HTML markers or content changes
+1. is pure JavaScript and JSON without any CSP issues, and
+1. has a tiny payload.
+
+It doesn't offer advanced features such as phrase matching, but search results are generally good.
 
 
 ## Indexer processing

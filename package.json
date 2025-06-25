@@ -27,10 +27,10 @@
   },
   "dependencies": {
     "esbuild": "0.25.5",
-    "publican": "0.10.1",
-    "staticsearch": "0.3.0"
+    "publican": "0.10.2",
+    "staticsearch": "0.4.0"
   },
   "devDependencies": {
-    "livelocalhost": "1.2.1"
+    "livelocalhost": "1.2.2"
   }
 }

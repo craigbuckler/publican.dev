@@ -141,7 +141,7 @@ The following options control how static site files are parsed:
 
 The **build directory** (`--builddir` | `BUILD_DIR` | `.buildDir`) is an absolute or relative path to the directory where your static website files are built, e.g. `./build/`.
 
-The **search directory** (`--searchdir` | `SEARCH_DIR` | `.searchDir`) is an absolute or relative path to the directory where the search index JavaScript and JSON data files are generated. This will normally be inside your build directory, e.g. `./build/search/`.
+The **search directory** (`--searchdir` | `SEARCH_DIR` | `.searchDir`) is an absolute or relative path to the directory where the search index JavaScript and JSON data files are generated. You can use any path, but it should normally be inside your build directory, e.g. `./build/search/`. When no search directory is set, it will default to a `search` sub-directory of the build directory.
 
 If your pages use links with fully qualified URLs such as `https://mysite.com/path/`, you should set the **domain** (`--domain` | `SITE_DOMAIN` | `.siteDomain`) so they can be identified, e.g. `https://mysite.com`.
 
@@ -182,22 +182,50 @@ staticsearch --builddir ./dest/ --searchdir ./dest/search/ --ignorerobotfile
 
 ### Document indexing options
 
-The following options control how HTML content is located:
+StaticSearch attempts to locate your page's main content; you would not normally want to index text in the header, footer, and navigation which appears on every page. It checks for content in:
+
+1. the HTML `<main>` element. Any `<nav>` or `<menu>` blocks within that are ignored.
+
+1. the HTML `<body>` when no `<main>` element can be found. Content is ignored in `<header>`, `<footer>`, `<nav>`, and `<menu>` elements (or any element with an ID or class attribute containing `header`, `footer`, etc).
+
+If this is not suitable, you can set alternative elements using CSS selectors to locate your main content:
 
 |CLI|ENV|API|description|
 |-|-|-|-|
-|`-D`, `--dom` | `PAGE_DOMSELECTORS` | `.pageDOMSelectors`|comma-separated content DOM nodes (`main`)|
-|`-X`, `domx` | `PAGE_DOMEXCLUDE` | `.pageDOMExclude`|comma-separated DOM nodes to exclude (`nav`)|
+|`-D`, `--dom` | `PAGE_DOMSELECTORS` | `.pageDOMSelectors`| nodes to include |
+|`-X`, `domx` | `PAGE_DOMEXCLUDE` | `.pageDOMExclude`| nodes to exclude |
 
-The `--dom` | `PAGE_DOMSELECTORS` | `.pageDOMSelectors` value defines a comma-delimited list of CSS DOM selectors to index on the page. The default is `'main'`, but you can set it to anything else, e.g. `'article.primary, .secondary, footer'`.
+The `--dom` | `PAGE_DOMSELECTORS` | `.pageDOMSelectors` value defines a comma-delimited list of CSS selectors where content is located, e.g. `'article.primary, .secondary, aside'`{language=css}.
 
-The `--domx` | `PAGE_DOMEXCLUDE` | `.pageDOMExclude` value defines a comma-delimited list of CSS DOM selectors to **exclude** from any node selected by `--dom` | `PAGE_DOMSELECTORS` | `.pageDOMSelectors`. The default is `'nav'`, but you can set it to anything else, e.g. `'nav, aside, .private'`.
+The `--domx` | `PAGE_DOMEXCLUDE` | `.pageDOMExclude` value defines a comma-delimited list of CSS child selectors to **exclude** from those selected e.g. `'nav, menu, .private'`{language=css}.
 
-**Example**: examine content in the document's `<body>` but remove words contained in `<header>`, `<footer>`, and `<nav>` elements:
+**Example**: index content in `#main`{language=css} and `.secondary`{language=css} elements but exclude all `<nav>`{language=html}, and `<div class="related">`{language=html} elements within those:
 
+{{ terminal }}
 ```bash
-staticsearch --dom 'body' --domx 'header,footer,nav'
+npx staticsearch --dom '#main,.secondary' --domx 'nav,div.related'
 ```
+
+Notes:
+
+1. In the example above, pages without `#main`{language=css} or `.secondary`{language=css} elements will **not** be indexed.
+
+1. Be careful not to index the same elements more than once. In the example above, content inside a `.secondary`{language=css} block would be indexed twice if it were contained inside a `#main`{language=css} block.
+
+1. Ensure excluded nodes are valid **child** selectors. Consider this example:
+
+   ```bash
+   npx staticsearch --dom '.main' --domx 'body nav'
+   ```
+
+   It would **not** exclude the `<nav>` in the following HTML because it couldn't find a child `body`{language=css} element inside `.main`{language=css}:
+
+   ```html
+   <article class="main">
+     <p>main content</p>
+     <nav>navigation</nav>
+   </article>
+   ```
 
 
 ### Word indexing options
@@ -249,7 +277,7 @@ In addition, any other page linking to it using the word *"static"* adds a furth
 
 ::: aside
 
-Many inbound links can override scores allocated by titles and text. It's best to omit menus from indexing since they create an inbound link to many pages. For this reason, the default `--domx` | `PAGE_DOMEXCLUDE` | `.pageDOMExclude` is `'nav'`.
+Many inbound links can override scores allocated by titles and text. It's best to omit menus from indexing since they create an inbound link to many pages. For this reason, the indexer [excludes `<nav>` and `<menu>` elements by default](#document-indexing-options).
 
 ::: /aside
 
@@ -258,6 +286,21 @@ Many inbound links can override scores allocated by titles and text. It's best t
 ```bash
 staticsearch --language es --wordcrop 6 --weighttitle 20
 ```
+
+
+### Logging options
+
+The following option controls logging verbosity:
+
+|CLI|ENV|API|description|
+|-|-|-|-|
+|`-L`, `--loglevel` | `LOGLEVEL` | `.logLevel` | logging verbosity (2)|
+
+Set:
+
+* `0`: fatal errors only
+* `1`: errors and status messages
+* `2`: errors, status, and warning messages (the default)
 
 
 ## Next steps

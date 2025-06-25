@@ -39,7 +39,7 @@ For help, enter:
 
 {{ terminal }}
 ```bash
-npx staticsearch --help
+npx livelocalhost --help
 ```
 
 

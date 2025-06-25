@@ -41,8 +41,10 @@ If your site is in a different directory, such as `./dist/`, use:
 
 {{ terminal }}
 ```bash
-npx staticsearch --builddir ./dist/ --searchdir ./dist/search/
+npx staticsearch --builddir ./dist/
 ```
+
+StaticSearch code and indexes is created in `./dist/search/`.
 
 
 ### Omitting HTML pages: `robots.txt`
@@ -90,13 +92,15 @@ npx staticsearch --ignorerobotmeta
 ```
 
 
-### Indexing specific HTML page elements
+### Indexing main content
 
-StaticSearch examines words contained in your page's `<main>` HTML element. It also any `<nav>` elements (within `<main>`). If this is not suitable, you can set alternative DOM elements using CSS selectors. For example, index everything in `<body>` but exclude all `<header>`, `<footer>`, `<nav>`, and `<div class="related">` elements:
+StaticSearch attempts to locate your page's main content. It'll look for an HTML `<main>` element, but revert to the `<body>` when necessary. It will then remove content in blocks such as `<nav>` inside those elements.
+
+If this is not suitable, you can set alternative DOM elements using CSS selectors. For example, index content in `#main`{language=css} but exclude all `<header>`, `<footer>`, `<nav>`, and `<div class="related">` elements inside it:
 
 {{ terminal }}
 ```bash
-npx staticsearch --dom 'body' --domx 'header,footer,nav,div.related'
+npx staticsearch --dom '#main' --domx 'header,footer,nav,div.related'
 ```
 
 

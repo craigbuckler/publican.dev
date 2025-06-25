@@ -583,5 +583,5 @@ Publican only monitors content and template files. Changing the [configuration f
 Set `publican.config.logLevel`{language=js} to an integer:
 
 * `0`: errors only
-* `1`: basic status messages
-* `2`: status, warnings, and errors (the default)
+* `1`: errors and status messages
+* `2`: errors, status, and warning messages (the default)

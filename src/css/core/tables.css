@@ -1,3 +1,7 @@
+.tablescroll {
+  overflow-x: auto;
+}
+
 table {
 	font-size: 1em;
 	font-variant-numeric: tabular-nums;

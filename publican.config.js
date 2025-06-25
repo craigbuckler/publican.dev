@@ -90,8 +90,11 @@ tacs.fn.format = fnFormat;
 publican.config.replace = new Map([
   [ '--ROOT--', publican.config.root ],
   [ '--COPYRIGHT--', `&copy;<time datetime="${ tacs.fn.format.dateYear() }">${ tacs.fn.format.dateYear() }</time>` ],
+  [ ' style="text-align:end"', ' class="right"' ],
   [ ' style="text-align:right"', ' class="right"' ],
-  [ ' style="text-align:center"', ' class="center"' ]
+  [ ' style="text-align:center"', ' class="center"' ],
+  [ '<table>', '<div class="tablescroll"><table>' ],
+  [ '</table>', '</table></div>' ]
 ]);
 
 // utils
