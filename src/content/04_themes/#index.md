@@ -10,7 +10,9 @@ The following pre-built Publican themes can be used and adapted for your own web
 
 ## Basic theme
 
-A basic theme which is fast, standards based, and uses best practise techniques. It features pages, blog posts, tag indexes, a light/dark switcher, RSS feed, sitemaps, security, and a 100% Lighthouse score.
+The basic theme is fast, standards based, uses best practise techniques, and is an ideal starting point for a personal blog. It features pages, blog posts, tag indexes, desktop/mobile responsive layout, light/dark switcher (shown below), RSS feed, sitemaps, security, and a 100% Lighthouse performance score.
+
+<img src="--ROOT--images/publican-theme-basic.avif" alt="Publican basic theme" width="1060" height="950" />
 
 The theme can quicky be configured by [editing an `.env` file](https://publican-theme-basic.pages.dev/blog/basic-configuration/) and changing colors using [CSS custom properties](https://publican-theme-basic.pages.dev/blog/updating-css/#corevariablescss).
 
@@ -25,7 +27,7 @@ The theme can quicky be configured by [editing an `.env` file](https://publican-
 
 ## Publican.dev website
 
-The code for [this website](--ROOT--) is available at:
+The code for [the Publican.dev website](--ROOT--) is publicly available. It's not an ideal starter theme, but you may find code snippets you want to use and adapt.
 
 * **Github repository**
 
