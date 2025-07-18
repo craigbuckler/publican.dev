@@ -3,6 +3,7 @@ title: StaticSearch web component
 menu: Web component
 description: How to quickly add search functionality to any page using the <static-search> web component.
 date: 2025-06-17
+modified: 2025-07-18
 priority: 0.8
 tags: StaticSearch, HTML, CSS, web component
 ---
@@ -35,11 +36,11 @@ The `<script>` tag can be placed anywhere in the page. It's non-blocking and run
 The component uses the [Shadow DOM](https://developer.mozilla.org/docs/Web/API/Web_components/Using_shadow_DOM) so it can be added without your styles affecting the layout. Styling can still be achieved using [custom properties](#css-custom-property-styling) and/or [`::part` selectors](#css-part-selector-styling).
 
 
-## Activation element
+## Search activation element
 
-`<static-search>` can can be placed anywhere you want a search icon or text -- perhaps the page `<header>`. It requires a single inner element that can be clicked to activate the search. This opens a modal dialog with an input field and list of results.
+`<static-search>` can can be placed anywhere you want a search icon or text -- perhaps the page `<header>`. It requires a single inner element that can be clicked to activate the search. This opens a modal dialog with an input field and results list.
 
-Note that the activation element must be an element with content -- it cannot be empty or text only. You can also assign [`part` attributes so they can be styled](#css-part-selector-styling), e.g.
+The activation element must be an element with content -- it cannot be empty or text only. You can also assign [`part` attributes so they can be styled](#css-part-selector-styling), e.g.
 
 ```html
 <static-search title="press Ctrl+K to search">
@@ -53,6 +54,8 @@ Note that the activation element must be an element with content -- it cannot be
 </static-search>
 ```
 
+> This example links to [duckduckgo.com search](https://duckduckgo.com/) by default. The web component progressively enhances it to use StaticSearch instead. The user therefore gets a search facility when JavaScript fails to load or run.
+
 
 ## Web component attributes
 
@@ -60,7 +63,7 @@ The following attributes can be added to the `<static-search>` element to contro
 
 | attribute | description |
 |-|-|
-| `title="<string>"` | activation instructions (clicking and <kbd>Ctrl</kbd> | <kbd>Cmd</kbd> + <kbd>K</kbd> is supported) |
+| `title="<string>"` | activation instructions (clicking and <kbd>Ctrl</kbd>\|<kbd>Cmd</kbd>+<kbd>K</kbd> is supported) |
 | `label="<string>"` | the label on the search `<input>` |
 | `minscore="<num>"` | only show pages with [total relevancy scores](--ROOT--tools/staticsearch/search-indexer/#word-indexing-options) of this or above on results |
 | `maxresults="<num>"` | show up to this number of pages on the results |

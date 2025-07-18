@@ -3,6 +3,7 @@ title: StaticSearch indexer
 menu: Indexer
 description: How to use and configure the StaticSearch indexer to index words in your static site.
 date: 2025-06-17
+modified: 2025-07-18
 priority: 0.8
 tags: StaticSearch
 ---
@@ -92,7 +93,7 @@ Run your application as normal to index a site, e.g. `node index.js`
 
 ## Configuring StaticSearch
 
-StaticSearch can index most sites without additional configuration. However, you can set options as CLI arguments, environment variables, or the [Node.js API](#using-the-staticsearch-nodejs-api). This section describes the configuration parameters.
+StaticSearch can index most sites without additional configuration. However, you can set options as CLI arguments, environment variables, or as [Node.js API properties](#using-the-staticsearch-nodejs-api). This section describes the configuration parameters.
 
 
 ### Load environment files
@@ -145,7 +146,7 @@ The **search directory** (`--searchdir` | `SEARCH_DIR` | `.searchDir`) is an abs
 
 If your pages use links with fully qualified URLs such as `https://mysite.com/path/`, you should set the **domain** (`--domain` | `SITE_DOMAIN` | `.siteDomain`) so they can be identified, e.g. `https://mysite.com`.
 
-The **web root path** is presumed to be `/`, so a file named `./build/index.html` is your home page. You can set it to another path, such as `/blog/` if necessary (`--root` | `BUILD_ROOT` | `.buildRoot`). The file at `./build/index.html` is then presumed to have the URL `http://site.com/blog/index.html`.
+The **web root path** is presumed to be `/`, so a file named `./build/index.html` is your home page. You can set it to another path, such as `/blog/` if necessary (`--root` | `BUILD_ROOT` | `.buildRoot`). The file at `./build/index.html` is then presumed to have the URL `http://yoursite.com/blog/index.html`.
 
 The **HTML index file** used as the default for directory paths is presumed to be `index.html`. You can change this to another filename if necessary (`--indexfile` | `SITE_INDEXFILE` | `.siteIndexFile`), e.g. `default.htm`.
 
@@ -160,7 +161,7 @@ User-agent: staticsearch
 Disallow: /personal/
 ```
 
-In this case, StaticSearch will not index any HTML file in the `/secret/` or `/personal/` directories. This can be disabled using `--ignorerobotfile` | `SITE_PARSEROBOTSFILE=false` | `.siteParseRobotsFile=false`.
+In this case, StaticSearch will not index any HTML file in the `/secret/` or `/personal/` directories. This can be disabled using `--ignorerobotfile` | `SITE_PARSEROBOTSFILE=false` | `.siteParseRobotsFile=false`{language=js}.
 
 StaticSearch parses **HTML `meta` tags**. A page containing `noindex` in the `content` attribute of either of the following meta tags is not indexed:
 
@@ -171,7 +172,7 @@ StaticSearch parses **HTML `meta` tags**. A page containing `noindex` in the `co
 <meta name="staticsearch" content="noindex">
 ```
 
-This can be disabled by setting `--ignorerobotmeta` | `SITE_PARSEROBOTSMETA=false` | `.siteParseRobotsMeta=false`.
+This can be disabled by setting `--ignorerobotmeta` | `SITE_PARSEROBOTSMETA=false` | `.siteParseRobotsMeta=false`{language=js}.
 
 **Example**: index HTML files in the `./dest/` directory, ignore `robots.txt` restrictions, and write search index files to `./dest/search/`:
 
@@ -182,11 +183,11 @@ staticsearch --builddir ./dest/ --searchdir ./dest/search/ --ignorerobotfile
 
 ### Document indexing options
 
-StaticSearch attempts to locate your page's main content; you would not normally want to index text in the header, footer, and navigation which appears on every page. It checks for content in:
+StaticSearch attempts to locate your page's primary content. You would not normally want to index text in headers, footers, and navigation which appears on every page. The indexer checks for content in:
 
 1. the HTML `<main>` element. Any `<nav>` or `<menu>` blocks within that are ignored.
 
-1. the HTML `<body>` when no `<main>` element can be found. Content is ignored in `<header>`, `<footer>`, `<nav>`, and `<menu>` elements (or any element with an ID or class attribute containing `header`, `footer`, etc).
+1. when no `<main>` element can be found, it uses the HTML `<body>` element. Content is ignored in `<header>`, `<footer>`, `<nav>`, and `<menu>` elements (or any element with an ID or class attribute containing `header`, `footer`, etc).
 
 If this is not suitable, you can set alternative elements using CSS selectors to locate your main content:
 
@@ -218,7 +219,7 @@ Notes:
    npx staticsearch --dom '.main' --domx 'body nav'
    ```
 
-   It would **not** exclude the `<nav>` in the following HTML because it couldn't find a child `body`{language=css} element inside `.main`{language=css}:
+   It would **not** exclude the `<nav>` in the following HTML because it couldn't find a child `body`{language=css} *inside* the `.main`{language=css} element:
 
    ```html
    <article class="main">
@@ -253,7 +254,7 @@ The default `--language` | `LANGUAGE` | `.language` is English (`en`). This prov
 
 By default, `--wordcrop` | `WORDCROP` | `.wordCrop` is set to `7`: only the first 7 letters of any word are considered important. Therefore, the word "consider", "considered", and "considering" are effectively identical (and indexed as `conside`). You can change this limit if necessary.
 
-You can add further stop words (words omitted from the index) using `--stopwords` | `STOPWORDS` | `.stopWords`. For example, a site about "Acme widgets" probably mentions them on every page. The words are of little practical use in the search index so the stop words `'acme,widget'` could be set.
+You can add further stop words to omit them from the index using `--stopwords` | `STOPWORDS` | `.stopWords`. For example, a site about "Acme widgets" probably mentions them on every page. The words are of little practical use in the search index so the stop words `'acme,widget'` could be set.
 
 The `--weight` | `WEIGHT_` | `.wordWeight` values define the score allocated to a word according to its location in a page. The defaults:
 
@@ -305,10 +306,10 @@ Set:
 
 ## Next steps
 
-Once a site has been indexed, StaticSearch provides three options for implementing search on your site:
+Once your site has been indexed, StaticSearch provides three options for implementing search on your site:
 
-1. the [web component](--ROOT--tools/staticsearch/search-web-component/) -- an HTML-only search widget
+1. a [web component](--ROOT--tools/staticsearch/search-web-component/) -- add search using a single HTML `<static-search>`{language=html} tag
 
-1. the [bind module](--ROOT--tools/staticsearch/search-bind-module/) -- allows you to *bind* elements to search functionality using HTML and/or JavaScript
+1. a [bind module](--ROOT--tools/staticsearch/search-bind-module/) -- add search by *binding* HTML elements to search functionality using HTML or JavaScript
 
-1. the [search API](--ROOT--tools/staticsearch/search-api/) -- create your own search UI using the JavaScript API.
+1. a [search API](--ROOT--tools/staticsearch/search-api/) -- create your own search UI using the JavaScript API.

@@ -3,13 +3,14 @@ title: StaticSearch quickstart
 menu: Quickstart
 description: How to quickly add a search engine to your static site using StaticSearch.
 date: 2025-06-13
+modified: 2025-07-18
 priority: 0.8
 tags: StaticSearch
 ---
 
 To use StaticSearch, you must build your static site to a local directory, then:
 
-1. [Index all pages](#index-a-site) to create JavaScript and JSON data files in that directory. Indexing must be run every time the site changes.
+1. [Index all pages](#index-a-site) to create JavaScript and JSON data files in the same directory. Indexing must be run every time the site changes.
 1. [Add search functionality to your site](#add-search-functionality-to-your-site). This is done once after the first index.
 
 

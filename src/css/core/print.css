@@ -117,8 +117,12 @@
 
   }
 
-  article, section, aside, nav, blockquote, table, img, picture, figure, svg, li, pre {
+  article, section, aside, blockquote, table, img, picture, figure, svg, li, pre {
     break-inside: avoid;
+  }
+
+  h2 + *, h3 + * {
+    break-before: avoid;
   }
 
   main a[href^="http"]:not([class])::after {

@@ -3,6 +3,7 @@ title: How StaticSearch works
 menu: How StaticSearch works
 description: An overview of how StaticSite indexes web pages and provides client-side only search engine functionality.
 date: 2025-06-13
+modified: 2025-07-18
 priority: 0.8
 tags: StaticSearch, JavaScript
 ---
@@ -20,22 +21,24 @@ SiteSearch requires:
 
 * 13Kb of JavaScript and 4Kb of CSS for the [web component](#staticsearchcomponentjs-web-component). Sites just using the [bind module](#staticsearchbindjs-bind-module) require 8Kb of JavaScript. Sites directly using the [search API](#staticsearchjs-search-api) require less than 6Kb of JavaScript.
 
-* A typical 100 page site is indexed in less than one second and generates 100Kb of word data.
+* A typical 100 page site is indexed in less than one second and generates 100Kb of word index data.
 
-* A typical 1,000 page site is indexed in less than six seconds and generates 800Kb of word data.
+* A typical 1,000 page site is indexed in less than six seconds and generates 800Kb of word index data.
 
 Index data is incrementally loaded on demand as you search for different words. Indexes are cached in the browser ([IndexedDB](https://www.npmjs.com/package/pixdb)) so results appear faster the more searches you do.
 
 
 ### StaticSearch vs other engines
 
-Static sites cannot easily provide search facilities because there's no back-end database. You can integrate a third-party search service such as [Alogia](https://www.algolia.com/), [AddSearch](https://www.addsearch.com/), or [Google's Programmable Search Engine](https://programmablesearchengine.google.com/). These index your site and provide a search API, but have an ongoing cost and can take a while to update.
+Static sites cannot easily provide search facilities because there's no back-end framework, language, or database.
+
+You can integrate a third-party search service such as [Alogia](https://www.algolia.com/), [AddSearch](https://www.addsearch.com/), or [Google's Programmable Search Engine](https://programmablesearchengine.google.com/). These index your site and provide a search API, but have an ongoing cost and can take a while to update.
 
 JavaScript-only search options such as [Lunr](https://lunrjs.com/) require you to pass all content in a specific format. Every page then has a full index of your site, so the payload can become large as your site grows.
 
 [pagefind](https://pagefind.app/) analyses your built site and creates WASM binary indexes. Unfortunately, it can require some HTML configuration, requires considerable JavaScript code, and has problems with [Content Security Policies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) (and Safari compatibility).
 
-StaticSearch is easier to use, is fully compatible with Publican sites, but works with any static site generator. It:
+StaticSearch is easier to use, is fully compatible with Publican sites, but works with any other static site generator. It:
 
 1. quickly indexes built pages (like pagefind)
 1. requires no special HTML markers or content changes
@@ -52,7 +55,7 @@ This section explain how the indexer processes HTML files to find and index word
 
 ### 1. Find all indexable HTML pages
 
-The indexer locates every HTML file in every sub-directory of the `build/` directory and determines its URL slug. These are checked against `robots.txt` `Disallow` rules and removed as necessary.
+The indexer locates every HTML file in every sub-directory of the `build/` directory and determines its URL slug. These are checked against any `robots.txt` `Disallow` rules and removed as necessary.
 
 All file content is then loaded. Any page with a `noindex` meta tag is removed.
 
@@ -79,7 +82,7 @@ Words found in the HTML sections are processed using the following rules:
 
    Stemming does not occur for non-English sites, but this may be added in future releases.
 
-1. English stop words are removed. These are commonly-used words considered insignificant to the meaning of text, such as "and", "the", "but", etc.
+1. English stop words are removed. These are commonly-used words considered insignificant to the meaning of text, such as "and", "the", "but", etc. (these are also processed by the stemming algorithm).
 
    Stop words are not removed in other languages, but this may be added in future releases.
 
@@ -190,9 +193,7 @@ Nothing else occurs until the asynchronous `.find()` method is passed a search s
 
 1. For each word -- such as *"star"* -- it:
 
-   * checks the `file` store to see if the word index data has been loaded (`data/st.json`)
-
-   * if necessary, it loads that file and puts every word (beginning with *"st"*) into the `index` store
+   * checks the `file` store to see if the word index data has been loaded (`data/st.json`). If necessary, it loads that file and puts every word (beginning with *"st"*) into the `index` store.
 
    * attempts to locate the word in the `index` store. The associated page IDs and relevancy scores are obtained and added to a list of page and score metrics.
 
@@ -243,7 +244,7 @@ The bind module can automatically or programmatically attach StaticSearch functi
 
 * `<input>` debouncing and initiating calls to the [search API](#staticsearchjs-search-api)
 * displaying results
-* URL querystring and hash functionality when clicking a result link followed by the back button.
+* URL querystring and hash functionality when clicking a result link followed by the browser's back button.
 
 When the page loads, the script looks for elements with the IDs `staticsearch_search` and `staticsearch_result`. If found, the nodes are passed to `staticSearchInput()` and `staticSearchResult()` accordingly.
 

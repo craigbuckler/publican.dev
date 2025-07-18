@@ -124,6 +124,7 @@ a.headlink {
   font-size: 0.85em;
   vertical-align: text-top;
   text-decoration: none;
+  user-select: none;
 
   :where(h2, h3):where(:hover, :focus) & {
     visibility: visible;

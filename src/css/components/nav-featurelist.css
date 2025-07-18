@@ -24,14 +24,25 @@ nav.featurelist {
     border-color: var(--color-hint1);
   }
 
+  svg {
+    display: inline;
+    inline-size: 1.3em;
+    block-size: auto;
+    vertical-align: middle;
+    color: var(--color-fore3);
+  }
+
   h2 {
-    font-size: var(--fsize-1);
-    font-weight: var(--font-weight-head);
+    display: inline;
+    font-size: var(--fsize-0);
+    font-weight: var(--font-weight-bold);
     color: var(--color-hint1);
     margin-block-start: 0;
+    vertical-align: middle;
   }
 
   p {
+    clear: inline-start;
     font-size: var(--fsize--1);
   }
 
