@@ -3,7 +3,7 @@ title: How StaticSearch works
 menu: How StaticSearch works
 description: An overview of how StaticSite indexes web pages and provides client-side only search engine functionality.
 date: 2025-06-13
-modified: 2025-07-18
+modified: 2025-08-05
 priority: 0.8
 tags: StaticSearch, JavaScript
 ---
@@ -82,9 +82,9 @@ Words found in the HTML sections are processed using the following rules:
 
    Stemming does not occur for non-English sites, but this may be added in future releases.
 
-1. English stop words are removed. These are commonly-used words considered insignificant to the meaning of text, such as "and", "the", "but", etc. (these are also processed by the stemming algorithm).
+1. Stop words are removed. These are commonly-used words considered insignificant to the meaning of text -- such as *"and"*, *"the"*, and *"but"* in English.
 
-   Stop words are not removed in other languages, but this may be added in future releases.
+   StaticSearch supports Danish (`da`{language=html}), Dutch (`nl`{language=html}), English (`en`{language=html}), Finnish (`fi`{language=html}), French (`fr`{language=html}), German (`de`{language=html}), Italian (`it`{language=html}), Norwegian (`no`{language=html}), Portuguese (`pt`{language=html}), Spanish (`es`{language=html}), Swedish (`sv`{language=html}), and Turkish (`tr`{language=html}) stop words. Other languages may be added in future releases.
 
 1. Words are cropped to a maximum of 7 letters.
 
@@ -197,7 +197,7 @@ Nothing else occurs until the asynchronous `.find()` method is passed a search s
 
    * attempts to locate the word in the `index` store. The associated page IDs and relevancy scores are obtained and added to a list of page and score metrics.
 
-1. A result array is generated containing a list of pages and the total relevancy score. It is sorted from highest to lowest relevancy order.
+1. A result array is generated containing a list of pages with their total `relevancy` score and the proportion of search words `found`. It is sorted from highest to lowest relevancy order.
 
 1. Triggers a `staticsearch:result` event on the document to indicate a search result is available.
 
@@ -214,7 +214,8 @@ Assuming the [index generated above](#a-5-write-word-index-files), a search for 
     "description": "About Star Wars, the 1977 movie directed by George Lucas.",
     "date": "2025-01-31",
     "words": 1234,
-    "relevancy": 94
+    "relevancy": 94,
+    "found": 1
   },
   {
     "id": 55,
@@ -223,7 +224,8 @@ Assuming the [index generated above](#a-5-write-word-index-files), a search for 
     "description": "Information about our closest star.",
     "date": "2025-02-01",
     "words": 954,
-    "relevancy": 21
+    "relevancy": 21,
+    "found": 0.5
   },
   {
     "id": 22,
@@ -232,7 +234,8 @@ Assuming the [index generated above](#a-5-write-word-index-files), a search for 
     "description": "Hollywood is the location of the US movie industry",
     "date": "2025-02-22",
     "words": 222,
-    "relevancy": 6
+    "relevancy": 6,
+    "found": 0.5
   }
 ]
 ```
@@ -243,7 +246,7 @@ Assuming the [index generated above](#a-5-write-word-index-files), a search for 
 The bind module can automatically or programmatically attach StaticSearch functionality to HTML elements. It handles:
 
 * `<input>` debouncing and initiating calls to the [search API](#staticsearchjs-search-api)
-* displaying results
+* displaying results according to `minFound`, `minScore`, and `maxResults` settings
 * URL querystring and hash functionality when clicking a result link followed by the browser's back button.
 
 When the page loads, the script looks for elements with the IDs `staticsearch_search` and `staticsearch_result`. If found, the nodes are passed to `staticSearchInput()` and `staticSearchResult()` accordingly.

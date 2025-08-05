@@ -3,6 +3,7 @@ title: StaticSearch bind module
 menu: Bind module
 description: How to bind StaticSearch functionality to any page elements to provide a custom user experience.
 date: 2025-06-16
+modified: 2025-08-05
 priority: 0.8
 tags: StaticSearch, HTML, JavaScript
 ---
@@ -60,8 +61,19 @@ The results element must use the ID `staticsearch_result` but can set optional a
 
 | attribute | description |
 |-|-|
+| `minfound="<num>"` | only show pages with this proportion of words (`0.0` to `1.0`) |
 | `minscore="<num>"` | only show pages with total relevancy scores of this or above on results |
 | `maxresults="<num>"` | show up to this number of pages on the results |
+
+Search results provide a `found` value indicating the percentage of search words found on a page, e.g. two of four search words is `0.5`.
+
+* setting `minfound="0"`{language=html} (the default) is a *logical OR*. A page appears in results when it contains ANY of the search words.
+
+* setting `minfound="1"`{language=html} is a *logical AND*. A page appears in results when it contains ALL the search words.
+
+* setting `minfound="0.5"`{language=html} means a page appears in results when it contains at least half of the search words.
+
+Pages still appear in `relevancy` order, but higher `minfound` values will reduce the number of results.
 
 
 ## Overriding HTML templates
@@ -164,8 +176,9 @@ staticSearchResult( document.getElementById('myresult') );
 
 | option property | description |
 |-|-|
-| `minScore` | only show pages with total word scores of this or above on results |
-| `maxResults` | show up to this number of pages on the results |
+| `minFound` | only show pages that have this proportion of search words (default `0`) |
+| `minScore` | only show pages with total relevancy scores of this or above on results (no minimum) |
+| `maxResults` | show up to this number of pages on the results (no maximum) |
 | `resultElement` | the outer list element (defaults to `ol`) |
 | `messageTemplate` | a DOM `<template>` configuring the results message |
 | `itemTemplate` | a DOM `<template>` configuring a result item |
@@ -186,9 +199,10 @@ messageTemplate.innerHTML = `
 staticSearchResult(
   document.getElementById('myresult'),
   {
-    minScore: 5,
-    maxResults: 10,
-    messageTemplate
+    minFound: 0.5,  // at least half the search terms must be on a page
+    minScore: 5,    // minimum relevancy score
+    maxResults: 10, // maximum number of results
+    messageTemplate // DOM <template> defined above
   }
 );
 ```

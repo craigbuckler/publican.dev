@@ -3,7 +3,7 @@ title: StaticSearch indexer
 menu: Indexer
 description: How to use and configure the StaticSearch indexer to index words in your static site.
 date: 2025-06-17
-modified: 2025-07-18
+modified: 2025-08-05
 priority: 0.8
 tags: StaticSearch
 ---
@@ -250,7 +250,7 @@ The following options control how words are indexed:
 |`--weightalt` | `WEIGHT_ALT` | `.wordWeight.alt`|word weight for alt tags (`1`)|
 |`--weightcontent` | `WEIGHT_CONTENT` | `.wordWeight.content`|word weight for content (`1`)|
 
-The default `--language` | `LANGUAGE` | `.language` is English (`en`). This provides[ word stemming and stop word lists](--ROOT--tools/staticsearch/how-it-works/#a-3-process-words) to reduce the size of the index and provide *fuzzier* searching. Setting any other language indexes every word without stemming or stop words (further languages may be supported in future releases).
+The default `--language` | `LANGUAGE` | `.language` is English (`en`) which provides [word stemming and stop word lists](--ROOT--tools/staticsearch/how-it-works/#a-3-process-words) to reduce the size of the index and provide *fuzzier* searching. Stop words are also provided for Danish (`da`), Dutch (`nl`), Finnish (`fi`), French (`fr`), German (`de`), Italian (`it`), Norwegian (`no`), Portuguese (`pt`), Spanish (`es`), Swedish (`sv`), and Turkish (`tr`), courtesy of [Stopwords ISO](https://github.com/stopwords-iso).
 
 By default, `--wordcrop` | `WORDCROP` | `.wordCrop` is set to `7`: only the first 7 letters of any word are considered important. Therefore, the word "consider", "considered", and "considering" are effectively identical (and indexed as `conside`). You can change this limit if necessary.
 

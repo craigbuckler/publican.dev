@@ -3,7 +3,7 @@ title: StaticSearch web component
 menu: Web component
 description: How to quickly add search functionality to any page using the <static-search> web component.
 date: 2025-06-17
-modified: 2025-07-18
+modified: 2025-08-05
 priority: 0.8
 tags: StaticSearch, HTML, CSS, web component
 ---
@@ -65,8 +65,19 @@ The following attributes can be added to the `<static-search>` element to contro
 |-|-|
 | `title="<string>"` | activation instructions (clicking and <kbd>Ctrl</kbd>\|<kbd>Cmd</kbd>+<kbd>K</kbd> is supported) |
 | `label="<string>"` | the label on the search `<input>` |
+| `minfound="<num>"` | only show pages with this proportion of words (`0.0` to `1.0`) |
 | `minscore="<num>"` | only show pages with [total relevancy scores](--ROOT--tools/staticsearch/search-indexer/#word-indexing-options) of this or above on results |
 | `maxresults="<num>"` | show up to this number of pages on the results |
+
+Search results provide a `found` value indicating the percentage of search words found on a page, e.g. two of four search words is `0.5`.
+
+* setting `minfound="0"`{language=html} (the default) is a *logical OR*. A page appears in results when it contains ANY of the search words.
+
+* setting `minfound="1"`{language=html} is a *logical AND*. A page appears in results when it contains ALL the search words.
+
+* setting `minfound="0.5"`{language=html} means a page appears in results when it contains at least half of the search words.
+
+Pages still appear in `relevancy` order, but higher `minfound` values will reduce the number of results.
 
 
 ## Overriding HTML templates

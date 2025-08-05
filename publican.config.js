@@ -112,6 +112,8 @@ await publican.build();
 staticsearch.buildDir = publican.config.dir.build;
 staticsearch.searchdir = publican.config.dir.build + 'search/';
 staticsearch.domain = tacs.config.domain;
+staticsearch.pageDOMSelectors = 'main';
+staticsearch.pageDOMExclude = 'header,nav,nav-heading,menu,footer';
 staticsearch.stopWords = '';
 await staticsearch.index();
 

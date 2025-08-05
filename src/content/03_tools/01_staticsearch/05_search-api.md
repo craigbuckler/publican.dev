@@ -3,6 +3,7 @@ title: StaticSearch JavaScript search API
 menu: Search API
 description: How to use the StaticSearch JavaScript API to implement custom search functionality.
 date: 2025-06-16
+modified: 2025-08-05
 priority: 0.8
 tags: StaticSearch, JavaScript, API
 ---
@@ -38,10 +39,11 @@ ES6 module code is shown here. It loads 6Kb of JavaScript and associated index d
 |-|-|
 | `id` | page ID (number) |
 | `url` | page URL from the root path (string) |
-| `title` | title/h1 (string) |
-| `date` | date in `YYYY-MM-DD` format (string) |
-| `words` | number of words (number) |
-| `relevancy` | relevancy score (number) |
+| `title` | page title/H1 (string) |
+| `date` | page date in `YYYY-MM-DD` format (string) |
+| `words` | page's number of words (number) |
+| `relevancy` | search relevancy score (number) |
+| `found` | the proportion of search words found on the page (`0.0` to `1.0`) |
 
 Example result:
 
@@ -54,7 +56,8 @@ Example result:
     "description": "Do static sites rank better in search engines?",
     "date": "2025-01-31",
     "words": 1234,
-    "relevancy": 21
+    "relevancy": 21,
+    "found": 1
   },
   {
     "id": 55,
@@ -63,7 +66,8 @@ Example result:
     "description": "How to output a list of all pages for search engines.",
     "date": "2025-02-01",
     "words": 954,
-    "relevancy": 12
+    "relevancy": 12,
+    "found": 0.5
   },
   {
     "id": 22,
@@ -72,9 +76,20 @@ Example result:
     "description": "Static sites typically perform better than others.",
     "date": "2025-02-22",
     "words": 222,
-    "relevancy": 2
+    "relevancy": 2,
+    "found": 0.5
   }
 ]
+```
+
+
+## `staticsearch.fetchTimeout` property
+
+Index loading is limited a maximum of five seconds per file. This should be adequate for most sites, but you can specify any `.fetchTimeout` in milliseconds, e.g.
+
+```js
+// set fetch timeout to 10 seconds
+staticsearch.fetchTimeout = 10000;
 ```
 
 
