@@ -3,18 +3,19 @@ title: LiveLocalhost environment variables
 menu: Environment variables
 description: LiveLocalhost can be configured with environment variables.
 date: 2025-06-17
+modified: 2025-08-08
 priority: 0.8
 tags: LiveLocalhost
 ---
 
-The LiveLocalhost server can be configured with environment variables. The switches `-E` or `--helpenv` show variable help from the CLI:
+You can configure LiveLocalhost with environment variables. The switches `-E` or `--helpenv` show variable help from the CLI:
 
 {{ terminal }}
 ```bash
 npx livelocalhost --helpenv
 ```
 
-The following environment variables are supported:
+It supports the following environment variables:
 
 | env variable | description |
 |-|-|
@@ -69,7 +70,7 @@ Stop the server with <kbd>Ctrl</kbd> | <kbd>Cmd</kbd> + <kbd>C</kbd>.
 
 ## Using .env files
 
-It is generally more practical to define variables in a file, e.g.
+It's generally more practical to define variables in a file, e.g.
 
 ```ini
 # example .env file

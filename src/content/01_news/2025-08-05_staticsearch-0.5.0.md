@@ -20,13 +20,13 @@ heroCaption: Image courtesy of <a href="https://unsplash.com/@markuswinkler">Mar
 
 ## Logical OR/AND searches
 
-A new [`found` value has been added to search results](--ROOT--tools/staticsearch/search-api/#staticsearchfind-method) that returns the proportion of search words found on a page. For example, a page featuring two of the four search words entered has a `found` value of `0.5`. A new `minfound` attribute can be set on the [web component](--ROOT--tools/staticsearch/search-web-component/#web-component-attributes) or [bind module](--ROOT--tools/staticsearch/search-bind-module/#search-result-attributes) to only show pages with equal or higher `found` values.
+Search results now contain a new [`found` value](--ROOT--tools/staticsearch/search-api/#staticsearchfind-method) that gives the proportion of search words found on a page. For example, a page featuring two of the four search words entered has a `found` value of `0.5`. You can set a new `minfound` attribute on the [web component](--ROOT--tools/staticsearch/search-web-component/#web-component-attributes) or [bind module](--ROOT--tools/staticsearch/search-bind-module/#search-result-attributes) to limit results to pages with an equal or higher `found` value.
 
 Consider a cooking website *(thanks for the suggestion, Jos!)* where users can search for recipes according to ingredients they have in the cupboard:
 
 * setting `minfound="0"`{language=html} (the default) is a *logical OR*.
 
-  A recipe page appears in results when it contains ANY of the ingredients. Recipes containing all ingredients *should* be at the top, but there will be less useful recipes featuring just one ingredient.
+  A recipe page appears in results when it contains ANY of the ingredients. Recipes containing all ingredients *should* be at the top, but there will be less useful recipes featuring a single ingredient.
 
 * setting `minfound="1"`{language=html} is a *logical AND*.
 
@@ -41,7 +41,7 @@ StaticSearch allows you build a custom recipe search where the user could click 
 
 ## Additional language support
 
-StaticSearch removes commonly-used *stop words* that are considered insignificant to the meaning of text -- such as *"and"*, *"the"*, and *"but"* in English. This can produce better results and v0.5.0 now supports stop words in:
+StaticSearch removes commonly-used *stop words* considered insignificant to the meaning of text -- such as *"and"*, *"the"*, and *"but"* in English. This can produce better results and v0.5.0 now supports stop words in:
 
 * Danish (`da`{language=html})
 * Dutch (`nl`{language=html})
@@ -56,12 +56,12 @@ StaticSearch removes commonly-used *stop words* that are considered insignifican
 * Swedish (`sv`{language=html})
 * Turkish (`tr`{language=html})
 
-The lists have been added courtesy of [Stopwords ISO](https://github.com/stopwords-iso).
+The lists are courtesy of [Stopwords ISO](https://github.com/stopwords-iso).
 
 
 ## StaticSearch on Frontend Focus
 
-StaticSearch was featured in the [Frontend Focus newsletter, issue 703](https://frontendfoc.us/issues/703) so many thanks to their editors.
+The [Frontend Focus newsletter, issue 703](https://frontendfoc.us/issues/703) featured StaticSearch, so many thanks to their editors.
 
 
 ## Get started

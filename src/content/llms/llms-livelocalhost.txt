@@ -1,0 +1,14 @@
+---
+slug: livelocalhost/llms.txt
+index: true
+---
+# LiveLocalhost documentation for LLMs
+
+> LiveLocalhost is a simple localhost development web server with hot reloading. It serves web files from any local directory, watches for file changes, and triggers automated browser refreshes.
+
+## LiveLocalhost documentation
+
+${ tacs.dir.get('tools').filter(p => p.title && p.link.includes('livelocalhost')).map(p =>
+  `- [${ p.title }](${ tacs.config.domain }${ p.link }): ${ p.description }
+`
+)}

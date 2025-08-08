@@ -1,13 +1,13 @@
 ---
 title: Custom jsTACS global properties and functions
 menu: Template globals
-description: How to use Custom configuration options
+description: How to append data and functions to the global tacs object and use them on any page or template.
 date: 2025-01-23
 priority: 0.9
 tags: configure, jsTACS
 ---
 
-You can append custom data and functions to the [global `tacs` object](--ROOT--docs/reference/global-properties/) so it can be used in template expressions. These can provide advanced functionality that would be difficult to create in an `${ expression }`{language=js} or cause [issues in markdown content](--ROOT--docs/setup/jstacs/#template-literals-in-markdown).
+You can append custom data and functions to the [global `tacs` object](--ROOT--docs/reference/global-properties/) and use them in template expressions. These can provide advanced functionality that would be difficult to create in an `${ expression }`{language=js} or cause [issues in markdown content](--ROOT--docs/setup/jstacs/#template-literals-in-markdown).
 
 
 ## Accessing the global object

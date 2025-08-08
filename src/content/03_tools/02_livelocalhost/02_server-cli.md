@@ -3,6 +3,7 @@ title: LiveLocalhost CLI usage
 menu: CLI usage
 description: The configuration options available to LiveLocalhost when used in a terminal.
 date: 2025-06-17
+modified: 2025-08-08
 priority: 0.8
 tags: LiveLocalhost
 ---
@@ -14,7 +15,7 @@ The switches `-?` or `--help` show CLI help:
 npx livelocalhost --help
 ```
 
-The following CLI switches are supported:
+It supports the following CLI switches:
 
 | CLI | description |
 |-|-|
@@ -68,6 +69,6 @@ You need only change `--reloadservice` when the default path is in use or you wa
 
 ## Watch debouncing
 
-When a file is changed, LiveLocalhost waits 600ms. A hot reload is only triggered if no other files change within that time.
+When a file changes, LiveLocalhost waits 600ms. A hot reload is then triggered if no other files change within that time.
 
 You can change the delay time using `--watchDebounce`. Note that very low settings can make reloading slower.

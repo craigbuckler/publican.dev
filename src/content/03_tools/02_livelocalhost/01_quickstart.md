@@ -1,18 +1,19 @@
 ---
 title: LiveLocalhost quickstart
 menu: Quickstart
-description: How to quickly use LiveLocalhost to start a local web development server.
+description: How to use LiveLocalhost to start a local web development server.
 date: 2025-06-17
+modified: 2025-08-08
 priority: 0.8
 tags: LiveLocalhost
 ---
 
-To use LiveLocalhost, you should have a directory of static site files containing HTML and assets such as CSS, JavaScript, images, video, etc. LiveLocalhost starts a local web server so you navigate the site in a web browser.
+To use LiveLocalhost, you should have a directory of static site files containing HTML and assets such as CSS, JavaScript, images, video, etc. LiveLocalhost starts a local web server so you can navigate the site in a web browser.
 
 
 ## Start a web server
 
-LiveLocalhost can be run without installation using `npx`. Assuming you're in the site's root directory, enter:
+You can run LiveLocalhost without installation using `npx`. Assuming you're in the site's root directory, enter:
 
 {{ terminal }}
 ```bash

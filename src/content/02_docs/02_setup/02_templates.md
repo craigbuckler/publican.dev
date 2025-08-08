@@ -1,19 +1,20 @@
 ---
 title: Publican templates
 menu: Templates
-description: How templates are defined in a Publican static site.
+description: How to define templates for a Publican static site.
 date: 2025-01-23
+modified: 2025-08-08
 priority: 0.9
 tags: templates, jsTACS, template literals, HTML
 ---
 
-Publican templates define how [content](--ROOT--docs/setup/content/) is slotted into HTML to create static web pages. Templates typically define page headers, footers, navigation, and content locations.
+To build static web pages, Publican requires HTML templates that *pull in* [content](--ROOT--docs/setup/content/). Templates typically define page headers, footers, navigation, and content locations.
 
 ::: aside
 
 ## Template formats
 
-Publican builds static web pages so most templates are likely to be HTML files. However, you can create templates for XML, TXT, SVG or any other text type.
+Publican builds static web pages so most templates will be HTML files. However, you can create templates for XML, TXT, SVG or any other text type.
 
 ::: /aside
 
@@ -77,7 +78,7 @@ await publican.build();
 
 ## Default templates
 
-A `template` can be selected in the [content's front matter](--ROOT--docs/reference/front-matter/#template):
+The [content's front matter](--ROOT--docs/reference/front-matter/#template) can specify a `template` file:
 
 ```md
 ---
@@ -110,7 +111,7 @@ publican.config.tagPages.template = 'tag.html';
 
 ## Virtual template files
 
-Templates can be passed to Publican as a string in the [configuration file](--ROOT--docs/setup/configuration/). This may be useful if you want to create custom templates or partials using conditions or other logic.
+You can pass templates as a string to Publican in the [configuration file](--ROOT--docs/setup/configuration/). This may be useful if you want to create custom templates or partials using conditions or other logic.
 
 To add a virtual template, call:
 
@@ -118,7 +119,7 @@ To add a virtual template, call:
 publican.addTemplate( <filename>, <content> );
 ```
 
-The `filename` is relative to the [template location](#template-file-location). The following example adds a template which shows an HTML `<blockquote>` section when a `quote` value is set in [front matter](--ROOT--docs/setup/content/#front-matter).
+The `filename` is relative to the [template location](#template-file-location). The following example adds a template which shows an HTML `<blockquote>` section when the [front matter](--ROOT--docs/setup/content/#front-matter) defines a `quote` value.
 
 {{ `publican.config.js` excerpt }}
 ```js
@@ -128,7 +129,7 @@ publican.addTemplate(
 );
 ```
 
-It can be used in any other template with an [`include()` expression](--ROOT--docs/setup/jstacs/#include-templates):
+You can include this in any other template with an [`include()` expression](--ROOT--docs/setup/jstacs/#include-templates):
 
 {{ `default.html` excerpt }}
 ```html

@@ -1,20 +1,20 @@
 ---
 title: StaticSearch JavaScript search API
 menu: Search API
-description: How to use the StaticSearch JavaScript API to implement custom search functionality.
+description: How to use the StaticSearch JavaScript API to create your own custom search functionality.
 date: 2025-06-16
-modified: 2025-08-05
+modified: 2025-08-08
 priority: 0.8
 tags: StaticSearch, JavaScript, API
 ---
 
 ::: aside
 
-You must [run the StaticSearch indexer](--ROOT--tools/staticsearch/search-indexer/) to generate a word indexes before you can add search functionality to your site. This tutorial assumes search index files have been generated in the static site's `/search/` directory.
+You must [run the StaticSearch indexer](--ROOT--tools/staticsearch/search-indexer/) to generate JavaScript code and JSON word indexes before adding search functionality to your site. This tutorial assumes you generated them to the static site's `/search/` directory.
 
 ::: /aside
 
-You can implement whatever input and output functionality or styling you require by directly using the StaticSearch JavaScript API. It can be used when the [bind module](--ROOT--tools/staticsearch/search-bind-module/) does not provide the features you require.
+You can create whatever input and output functionality or styling you require by directly calling the StaticSearch JavaScript API. You can use it when the [web component](--ROOT--tools/staticsearch/search-web-component/) and [bind module](--ROOT--tools/staticsearch/search-bind-module/) do not provide the features you require.
 
 
 ## `staticsearch.find()` method
@@ -29,7 +29,7 @@ const result = await staticsearch.find('my search query');
 
 :::aside
 
-ES6 module code is shown here. It loads 6Kb of JavaScript and associated index data when a search is started.
+This example uses ES6 module code. It loads 6Kb of JavaScript and associated index data when a searching for a term.
 
 :::/aside
 
@@ -85,7 +85,7 @@ Example result:
 
 ## `staticsearch.fetchTimeout` property
 
-Index loading is limited a maximum of five seconds per file. This should be adequate for most sites, but you can specify any `.fetchTimeout` in milliseconds, e.g.
+StaticSearch permits up to five seconds for loading an index file. This should be adequate for most sites, but you can specify any `.fetchTimeout` limit in milliseconds, e.g.
 
 ```js
 // set fetch timeout to 10 seconds
@@ -95,12 +95,15 @@ staticsearch.fetchTimeout = 10000;
 
 ## StaticSearch events
 
-However a search is initiated, StaticSearch events are triggered on the `document` object. These can be used so there's no need to `await` a result or to show result information in any number of components.
+Whenever a search runs, StaticSearch triggers events on the page's `document` object. This may be useful when:
+
+* you'd rather not [`await` the `.find()` Promise](#staticsearchfind-event)
+* you want to show the same search result in more than one element.
 
 
 ### `staticsearch:find` event
 
-This is triggered when `staticsearch.find()` is run and before any results are available. The search term is available in the event object's `detail.search` property:
+This event triggers when `staticsearch.find()` runs and before any results are available. The search term is available in the event object's `detail.search` property:
 
 ```js
 // search started
@@ -117,7 +120,7 @@ document.addEventListener('staticsearch:find', e => {
 
 ### `staticsearch:result` event
 
-This is triggered when a search result is available. The search term and results array is available in the event object's `detail.search` and `detail.result` properties:
+This event triggers when search results are ready. The search term and results array are available in the event object's `detail.search` and `detail.result` properties:
 
 ```js
 // search result available
@@ -134,4 +137,4 @@ document.addEventListener('staticsearch:result', e => {
 
 ## Re-run the indexer
 
-Once you have added StaticSearch functionality to your static site's templates, you should [re-run the indexer](--ROOT--tools/staticsearch/search-indexer/) to ensure the latest content is indexed.
+Once you have added StaticSearch functionality to your static site's templates, you should [re-run the indexer](--ROOT--tools/staticsearch/search-indexer/) to ensure word indexes are up-to-date.

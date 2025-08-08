@@ -1,29 +1,29 @@
 ---
 title: StaticSearch quickstart
 menu: Quickstart
-description: How to quickly add a search engine to your static site using StaticSearch.
+description: How to add a search engine to your static site using StaticSearch.
 date: 2025-06-13
-modified: 2025-08-05
+modified: 2025-08-08
 priority: 0.8
 tags: StaticSearch
 ---
 
 To use StaticSearch, you must build your static site to a local directory, then:
 
-1. [Index all pages](#index-a-site) to create JavaScript and JSON data files in the same directory. Indexing must be run every time the site changes.
-1. [Add search functionality to your site](#add-search-functionality-to-your-site). This is done once after the first index.
+1. [Index all pages](#index-a-site) to create JavaScript and JSON data files in the same directory. You must re-run the indexing process every time the site changes.
+1. [Add search functionality to your site](#add-search-functionality-to-your-site). It's easiest to do this after indexing the pages for the first time.
 
 
 ## Index a site
 
-StaticSearch can be run without installation using `npx`. Assuming your static site has been generated in a sub-directory named `./build/`, run StaticSearch using:
+You can run StaticSearch without installation using `npx`. Assuming you built your static site to a sub-directory named `./build/`, run StaticSearch using:
 
 {{ terminal }}
 ```bash
 npx staticsearch
 ```
 
-This creates a new directory named `./build/search/` containing JavaScript code and word index data.
+This creates a new directory named `./build/search/` containing StaticSearch's JavaScript code and word index data.
 
 
 ### Indexing help
@@ -107,7 +107,7 @@ npx staticsearch --dom '#main' --domx 'header,footer,nav,div.related'
 
 ## Add search functionality to your site
 
-StaticSearch provides a web component to quickly add the search facilities to your pages. The following snippet could be added to any template, perhaps in the HTML `<header>`:
+The easiest way to add search facilities to your site is to use the `<static-search>` web component. Add the following snippet to any template, perhaps in the HTML `<header>`:
 
 {{ template excerpt }}
 ```html
@@ -120,11 +120,11 @@ StaticSearch provides a web component to quickly add the search facilities to yo
 
 :::aside
 
-The `<script>` tag can be placed anywhere in the page. It's non-blocking and runs when the DOM is ready, so you can put it near the top of the HTML `<head>`.
+You can put the `<script>` tag anywhere in your page. It's non-blocking and runs when the DOM is ready -- near the top of the HTML `<head>` is best.
 
 :::/aside
 
-Any HTML element can be placed inside `<static-search>` to activate search when clicked. The following example uses an icon where a search engine link is used when JavaScript fails or is not available:
+You can put any HTML element inside `<static-search>` to activate search when clicked. The following example uses an icon that links to a search engine when JavaScript fails or is not available:
 
 {{ template excerpt }}
 ```html
@@ -139,4 +139,4 @@ Any HTML element can be placed inside `<static-search>` to activate search when 
 </static-search>
 ```
 
-After changing the template, you'll need to regenerate the site -- which means you should then [re-run the indexer](#index-a-site) to ensure files are up-to-date.
+You'll need to re-build your site after changing its template -- which means you should then [re-run the indexer](#index-a-site) to ensure word indexes are up-to-date.

@@ -3,7 +3,7 @@ title: How StaticSearch works
 menu: How StaticSearch works
 description: An overview of how StaticSite indexes web pages and provides client-side only search engine functionality.
 date: 2025-06-13
-modified: 2025-08-05
+modified: 2025-08-08
 priority: 0.8
 tags: StaticSearch, JavaScript
 ---
@@ -13,19 +13,19 @@ This page explains how StaticSite works. It's not essential to read or understan
 
 ## Overview
 
-StaticSearch code and data is kept simple to ensure search remains fast and lightweight.
+StaticSearch's simple code and data format ensure search remains fast and lightweight.
 
-It processes unique words in HTML files -- *not the full content*. When you search for *"Star Wars"*, it finds all pages where the words *"star"* or *"wars"* are found. It does not recognise the context or know the words are together, but pages with *"Star Wars"* in titles, descriptions, and inbound links will have a higher relevancy score and appear toward the top of results.
+It processes unique words in HTML files -- *not the full content*. When you search for *"Star Wars"*, it finds all pages containing the words *"star"* OR *"wars"*. It does not recognise the context or know the words are together, but pages with *"Star Wars"* in titles, descriptions, and inbound links will have a higher relevancy score and appear toward the top of results.
 
 SiteSearch requires:
 
 * 13Kb of JavaScript and 4Kb of CSS for the [web component](#staticsearchcomponentjs-web-component). Sites just using the [bind module](#staticsearchbindjs-bind-module) require 8Kb of JavaScript. Sites directly using the [search API](#staticsearchjs-search-api) require less than 6Kb of JavaScript.
 
-* A typical 100 page site is indexed in less than one second and generates 100Kb of word index data.
+* Indexing a typical 100 page site takes less than one second and generates 100Kb of word index data.
 
-* A typical 1,000 page site is indexed in less than six seconds and generates 800Kb of word index data.
+* Indexing a typical 1,000 page site takes less than six seconds and generates 800Kb of word index data.
 
-Index data is incrementally loaded on demand as you search for different words. Indexes are cached in the browser ([IndexedDB](https://www.npmjs.com/package/pixdb)) so results appear faster the more searches you do.
+Index data is incrementally loaded on demand as you search for different words. The browser caches index data ([IndexedDB](https://www.npmjs.com/package/pixdb)) so results appear faster the more searches you do.
 
 
 ### StaticSearch vs other engines
@@ -55,16 +55,16 @@ This section explain how the indexer processes HTML files to find and index word
 
 ### 1. Find all indexable HTML pages
 
-The indexer locates every HTML file in every sub-directory of the `build/` directory and determines its URL slug. These are checked against any `robots.txt` `Disallow` rules and removed as necessary.
+The indexer locates every HTML file in every sub-directory of the `build/` directory and determines its URL slug. It checks `robots.txt` `Disallow` rules and removes files as necessary.
 
-All file content is then loaded. Any page with a `noindex` meta tag is removed.
+All file content is then loaded, but pages with a `noindex` meta tag are removed.
 
 
 ### 2. Parse HTML content
 
-The HTML code is processed to find the page title, description, date, and word count.
+The indexer processes each page's HTML code to find the title, description, date, and word count.
 
-The main content is identified by locating DOM node(s) to index and remove. Within this, the indexer also looks for content in:
+It identifies the main content by locating DOM node(s) to index and remove. Within this, the indexer also looks for content in:
 
 * heading `h2` to `h6` tags
 * emphasised `<strong>`, `<b>`, `<em>`, and `<i>` tags
@@ -120,7 +120,7 @@ In addition, any other page on the site linking to this page adds another 5 poin
 
 ### 5. Write word index files
 
-Once every HTML file has been processed, the indexer has a list of words, and one or more pages where that word appears. Each of those pages has a relevancy score. For example:
+Once every HTML file is processed, the indexer has a list of words, and one or more pages where that word appears. Each of those pages has a relevancy score. For example:
 
 | word | page slug | relevancy score |
 |-|-|-|

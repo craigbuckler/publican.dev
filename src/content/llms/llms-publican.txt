@@ -1,0 +1,21 @@
+---
+slug: llms.txt
+index: true
+---
+# Publican documentation for LLMs
+
+> ${ tacs.config.description }
+
+## Publican documentation
+
+> How to create a static site using Publican.
+
+${ tacs.dir.get('docs').map(p => p.link.split('/').length < 5 ? `
+## ${ p.title }
+
+> ${ p.description }
+
+` :
+`- [${ p.title }](${ tacs.config.domain }${ p.link }): ${ p.description }
+`
+)}

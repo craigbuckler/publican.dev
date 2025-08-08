@@ -1,0 +1,14 @@
+---
+slug: staticsearch/llms.txt
+index: true
+---
+# StaticSeach documentation for LLMs
+
+> StaticSearch is a simple search engine you can add to any static website. It uses client-side JavaScript and JSON data files so there is no need for back-end server technologies or a database.
+
+## StaticSearch documentation
+
+${ tacs.dir.get('tools').filter(p => p.title && p.link.includes('staticsearch')).map(p =>
+  `- [${ p.title }](${ tacs.config.domain }${ p.link }): ${ p.description }
+`
+)}

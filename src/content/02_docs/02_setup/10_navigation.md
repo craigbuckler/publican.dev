@@ -1,19 +1,19 @@
 ---
 title: Publican navigation options
 menu: Navigation
-description: Publican provides various objects to help with site navigation.
+description: Publican provides in-page and site-wide navigation objects to help create menus and links to other pages.
 date: 2025-01-23
-modified: 2025-02-26
+modified: 2025-08-08
 priority: 0.9
 tags: navigation, headings
 ---
 
-Publican provides a number of in-page and site-wide navigation objects and properties to help you create menus and links to other pages.
+Publican provides in-page and site-wide navigation objects to help you create menus and links to other pages.
 
 
 ## Heading links
 
-Content sub-headings (`<h2>`{language=html} to `<h6>`{language=html}) are automatically given `id` attributes so they are available as link targets and can be shown in an [in-page menu](#inpage-navigation). The `publican.config.headingAnchor`{language=js} object controls how headings are rendered. You can set it to `false` (or any falsy value) to disable heading links or define your own values. The defaults are:
+Content sub-headings (`<h2>`{language=html} to `<h6>`{language=html}) are automatically assigned `id` attributes so they are available as link targets and can appear in an [in-page menu](#inpage-navigation). You can configure headings using the `publican.config.headingAnchor`{language=js} object. Set it `false` (or any falsy value) to disable heading links, or define your own values:
 
 {{ `publican.config.js` excerpt }}
 ```js
@@ -33,7 +33,7 @@ publican.config.headingAnchor.linkClass = 'headlink';
 <h2>My heading</h2>
 ```
 
-is transformed to *(carriage returns added for clarity)*:
+becomes *(carriage returns added for clarity)*:
 
 ```html
 <h2 id="my-heading" tabindex="-1">
@@ -42,13 +42,13 @@ is transformed to *(carriage returns added for clarity)*:
 </h2>
 ```
 
-**Example 2.** Headings retain their IDs when transformed so:
+**Example 2.** Headings keep their ID when transformed so:
 
 ```html
 <h2 id="myh2">My heading</h2>
 ```
 
-is transformed to:
+becomes:
 
 ```html
 <h2 id="myh2" tabindex="-1">
@@ -74,7 +74,7 @@ is transformed to:
 
 ## In-page navigation
 
-The code `<nav-heading></nav-heading>` can be placed in any content or template file. The page's nested [headings links](#heading-links) (`<h2>`{language=html} to `<h6>`{language=html}) are rendered into the block, e.g.
+You can place the code `<nav-heading></nav-heading>` in any content or template file. Publican renders the page's nested [headings links](#heading-links) (`<h2>`{language=html} to `<h6>`{language=html}) inside the block, e.g.
 
 ```html
 <nav-heading>
@@ -93,7 +93,7 @@ The code `<nav-heading></nav-heading>` can be placed in any content or template 
 </nav-heading>
 ```
 
-Additional `publican.config.headingAnchor`{language=js} properties control the options:
+`publican.config.headingAnchor`{language=js} properties control the options:
 
 {{ `publican.config.js` excerpt }}
 ```js
@@ -107,23 +107,27 @@ publican.config.headingAnchor.tag = 'nav-heading';
 publican.config.headingAnchor.navClass = 'contents';
 ```
 
-Headings with `nomenu` somewhere in the tag are omitted from the menu. For example, the following headings:
+Setting `publican.config.headingAnchor.nomenu = 'nomenu'` omits any heading with `nomenu` somewhere in the tag. For example, the following headings:
 
 ```html
 <h2 class="nomenu">Heading 1</h2>
+
 <h2 class="nolink">Heading 2</h2>
+
 <h2 data-nolink-nomenu>Heading 3</h2>
 ```
 
-are transformed to:
+become:
 
 ```html
 <h2 id="heading1" tabindex="-1" class="nomenu">Heading 1 <a href="#heading1" class="headlink">#</a></h2>
+
 <h2 id="heading2" tabindex="-1" class="nolink">Heading 2</h2>
+
 <h2 data-nolink-nomenu>Heading 3</h2>
 ```
 
-and the `<nav-heading>`{language=html} block only shows **Heading 2**:
+Only **Heading 2** appears `<nav-heading>`{language=html} block:
 
 ```html
 <nav-heading>
@@ -161,7 +165,7 @@ ${ data?.postnext?.link &&
 
 Each element of the `tacs.nav` array has two values:
 
-1. a `data` property containing the [page `data` object](--ROOT--docs/reference/content-properties/) at the site's top level, i.e. they have no parent pages. The pages are sorted by whatever has been defined for [directory indexing](--ROOT--docs/setup/directory-indexes/#directory-index-configuration).
+1. a `data` property containing the [page `data` object](--ROOT--docs/reference/content-properties/) at the site's top level, i.e. they have no parent pages. Pages are sorted by whatever is defined for [directory indexing](--ROOT--docs/setup/directory-indexes/#directory-index-configuration).
 
 1. a `children` property containing an array of immediate child page objects. Each of these elements has its own `data` and `children` properties. Those `children` properties will have further `children` properties until no more exist.
 
@@ -219,7 +223,7 @@ an abbreviated `tacs.nav` object would have a structure similar to this:
 ]
 ```
 
-It is usually necessary to recurse the `tacs.nav` object, so this is easier in a [global function](--ROOT--docs/reference/template-globals/#defining-global-functions) rather than template `${ expressions }`{language=js}. The following recipes provide code for:
+It may be necessary to recurse the `tacs.nav` object. This is easier in a [global function](--ROOT--docs/reference/template-globals/#defining-global-functions) rather than template `${ expressions }`{language=js}. The following recipes provide code for:
 
 * [a site-wide main menu](--ROOT--docs/recipe/navigation/main-menu/)
 * [a section menu for a specific directory](--ROOT--docs/recipe/navigation/section-menu/)

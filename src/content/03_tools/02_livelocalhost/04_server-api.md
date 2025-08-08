@@ -3,11 +3,12 @@ title: LiveLocalhost Node.js API
 menu: Node.js API
 description: LiveLocalhost can be installed, configured, and run from any Node.js application.
 date: 2025-06-17
+modified: 2025-08-08
 priority: 0.8
 tags: LiveLocalhost, API
 ---
 
-LiveLocalhost can be added to a Node.js application and configured using its API. The switches `-A` or `--helpapi` show API help from the CLI:
+You can start LiveLocalhost from a Node.js application and configure it using the API. The switches `-A` or `--helpapi` show API help from the CLI:
 
 {{ terminal }}
 ```bash

@@ -3,6 +3,7 @@ title: Publican project links
 menu: Links
 description: A list of useful links to Publican resources.
 date: 2025-01-23
+modified: 2025-08-08
 priority: 0.5
 tags: SSG, jsTACS, StaticSearch, LiveLocalhost, PerfPro, ConCol
 ---
@@ -24,6 +25,14 @@ Publican is the main static site generator that generates HTML and other content
 * **Publican Github repository**
 
   [github.com/craigbuckler/publican](https://github.com/craigbuckler/publican)
+
+* **Publican LLM documentation**
+
+  [publican.dev/llms.txt](--ROOT--llms.txt)
+
+* **Publican around the web**
+
+  [Node Weekly 565](https://nodeweekly.com/issues/565)
 
 
 ## jsTACS
@@ -59,6 +68,14 @@ StaticSearch is a client-side search engine for static websites that requires no
 
   [github.com/craigbuckler/staticsearch](https://github.com/craigbuckler/staticsearch)
 
+* **StaticSearch LLM documentation**
+
+  [publican.dev/staticsearch/llms.txt](--ROOT--staticsearch/llms.txt)
+
+* **StaticSearch around the web**
+
+  [Frontend Focus 703](https://frontendfoc.us/issues/703), [TLDR Web Dev 2025-08-07](https://tldr.tech/webdev/2025-08-07)
+
 
 ## LiveLocalhost
 
@@ -75,6 +92,10 @@ LiveLocalhost is a lightweight web server used by [Publican.dev](--ROOT--themes/
 * **LiveLocalhost Github repository**
 
   [github.com/craigbuckler/livelocalhost](https://github.com/craigbuckler/livelocalhost)
+
+* **LiveLocalhost LLM documentation**
+
+  [publican.dev/livelocalhost/llms.txt](--ROOT--livelocalhost/llms.txt)
 
 
 ## PerfPro

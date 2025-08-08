@@ -3,18 +3,18 @@ title: StaticSearch bind module
 menu: Bind module
 description: How to bind StaticSearch functionality to any page elements to provide a custom user experience.
 date: 2025-06-16
-modified: 2025-08-05
+modified: 2025-08-08
 priority: 0.8
 tags: StaticSearch, HTML, JavaScript
 ---
 
 ::: aside
 
-You must [run the StaticSearch indexer](--ROOT--tools/staticsearch/search-indexer/) to generate a word indexes before you can add search functionality to your site. This tutorial assumes search index files have been generated in the static site's `/search/` directory.
+You must [run the StaticSearch indexer](--ROOT--tools/staticsearch/search-indexer/) to generate JavaScript code and JSON word indexes before adding search functionality to your site. This tutorial assumes you generated them to the static site's `/search/` directory.
 
 ::: /aside
 
-The JavaScript bind module can automatically or programmatically attach StaticSearch functionality to HTML `<input>` and result elements. It can be used in situations where you want to create your own search widget but utilize StaticSearch functionality including:
+The JavaScript bind module can automatically or programmatically attach StaticSearch functionality to HTML `<input>` and result elements. Use it in situations where you want to create your own search widget using StaticSearch functionality including:
 
 * `<input>` debouncing and initiating calls to the [search API](--ROOT--tools/staticsearch/search-api/)
 * displaying results
@@ -39,7 +39,7 @@ The following example automatically binds `<input>` and results elements using H
 
 :::aside
 
-The `<script>` tag can be placed anywhere in the page. It's non-blocking and runs when the DOM is ready, so you can put it near the top of the HTML `<head>`. It loads 8Kb of JavaScript and associated index data when the user starts a new search.
+You can put the `<script>` tag anywhere in your page. It's non-blocking and runs when the DOM is ready -- near the top of the HTML `<head>` is best. It loads 8Kb of JavaScript and associated index data when the user starts a new search.
 
 :::/aside
 
@@ -48,7 +48,7 @@ The `<script>` tag can be placed anywhere in the page. It's non-blocking and run
 
 The `<input>` field must use the ID `staticsearch_search` but can have any other HTML attributes set.
 
-The `name` attribute is presumed to be `q` by default and its value is checked on the querystring. You can set any other value, e.g.
+StaticSearch presumes the `name` is `q` and checks its value on the querystring. You can set any other value, e.g.
 
 ```html
 <input type="search" id="staticsearch_search" name="query">
@@ -61,7 +61,7 @@ The results element must use the ID `staticsearch_result` but can set optional a
 
 | attribute | description |
 |-|-|
-| `minfound="<num>"` | only show pages with this proportion of words (`0.0` to `1.0`) |
+| `minfound="<num>"` | only show pages containing at least this proportion of search words (`0.0` to `1.0`) |
 | `minscore="<num>"` | only show pages with total relevancy scores of this or above on results |
 | `maxresults="<num>"` | show up to this number of pages on the results |
 
@@ -78,12 +78,12 @@ Pages still appear in `relevancy` order, but higher `minfound` values will reduc
 
 ## Overriding HTML templates
 
-The HTML generated when displaying results can be changed using `<template>` elements.
+You can change the HTML shown when displaying results using `<template>` elements.
 
 
 ### Search results message
 
-A message such as the following is shown when search results are available:
+When search results are available, you'll see a message such as:
 
 > 7 found for *"web component"*&hellip;
 
@@ -110,9 +110,10 @@ You can override this using a `<template>` with an ID of `staticsearch_resultmes
 </template>
 ```
 
+
 ### Search result item
 
-Search results are shown in an ordered list: `<ol part="searchresult">`. The following HTML is used for each list item:
+An ordered list (`<ol part="searchresult">`) contains search results. Each page result uses the HTML:
 
 ```html
 <li part="item">
@@ -143,7 +144,7 @@ You can override this using a `<template>` with an ID of `staticsearch_item` any
 
 ::: aside
 
-The date and word count number are formatted for the active user's locale. This may be different to the language your site uses.
+The user's locale determines the date and word count formats. This may be different to the language your site uses.
 
 ::: /aside
 
@@ -170,13 +171,13 @@ staticSearchInput( document.getElementById('mysearch') );
 staticSearchResult( document.getElementById('myresult') );
 ```
 
-`staticSearchInput(element)` is passed the input element.
+Pass the `<input>` element to `staticSearchInput(element)`.
 
-`staticSearchResult(element, options)` is passed the result element and an optional options object with the following properties:
+Pass the result element and an optional options object to `staticSearchResult(element, options)`. The option object properties:
 
 | option property | description |
 |-|-|
-| `minFound` | only show pages that have this proportion of search words (default `0`) |
+| `minFound` | only show pages containing at least this proportion of search words (default `0`) |
 | `minScore` | only show pages with total relevancy scores of this or above on results (no minimum) |
 | `maxResults` | show up to this number of pages on the results (no maximum) |
 | `resultElement` | the outer list element (defaults to `ol`) |
@@ -210,4 +211,4 @@ staticSearchResult(
 
 ## Re-run the indexer
 
-Once you have added StaticSearch functionality to your static site's templates, you should [re-run the indexer](--ROOT--tools/staticsearch/search-indexer/) to ensure the latest content is indexed.
+Once you have added StaticSearch functionality to your static site's templates, you should [re-run the indexer](--ROOT--tools/staticsearch/search-indexer/) to ensure word indexes are up-to-date.

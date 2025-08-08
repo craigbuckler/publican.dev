@@ -1,21 +1,21 @@
 ---
 title: StaticSearch web component
 menu: Web component
-description: How to quickly add search functionality to any page using the <static-search> web component.
+description: How to add search functionality to any page using the <static-search> web component.
 date: 2025-06-17
-modified: 2025-08-05
+modified: 2025-08-08
 priority: 0.8
 tags: StaticSearch, HTML, CSS, web component
 ---
 
 ::: aside
 
-You must [run the StaticSearch indexer](--ROOT--tools/staticsearch/search-indexer/) to generate a word indexes before you can add search functionality to your site. This tutorial assumes search index files have been generated in the static site's `/search/` directory.
+You must [run the StaticSearch indexer](--ROOT--tools/staticsearch/search-indexer/) to generate JavaScript code and JSON word indexes before adding search functionality to your site. This tutorial assumes you generated them to the static site's `/search/` directory.
 
 ::: /aside
 
 
-The `<static-search>` web component provides full search functionality in any web page using HTML alone. It is the easiest option to use, e.g.
+The `<static-search>` web component provides full search functionality in any web page using HTML alone. It's the easiest option, e.g.
 
 ```html
 <!-- include script once on your page -->
@@ -29,18 +29,18 @@ The `<static-search>` web component provides full search functionality in any we
 
 :::aside
 
-The `<script>` tag can be placed anywhere in the page. It's non-blocking and runs when the DOM is ready, so you can put it near the top of the HTML `<head>`. It loads 13Kb of JavaScript, 4Kb of CSS, and associated index data when the user starts a new search.
+You can put the `<script>` tag anywhere in your page. It's non-blocking and runs when the DOM is ready -- near the top of the HTML `<head>` is best. It loads 13Kb of JavaScript, 4Kb of CSS, and associated index data when the user starts a new search.
 
 :::/aside
 
-The component uses the [Shadow DOM](https://developer.mozilla.org/docs/Web/API/Web_components/Using_shadow_DOM) so it can be added without your styles affecting the layout. Styling can still be achieved using [custom properties](#css-custom-property-styling) and/or [`::part` selectors](#css-part-selector-styling).
+The component uses the [Shadow DOM](https://developer.mozilla.org/docs/Web/API/Web_components/Using_shadow_DOM) so your styles will not affect its layout. You can style it using [custom properties](#css-custom-property-styling) and/or [`::part` selectors](#css-part-selector-styling).
 
 
 ## Search activation element
 
-`<static-search>` can can be placed anywhere you want a search icon or text -- perhaps the page `<header>`. It requires a single inner element that can be clicked to activate the search. This opens a modal dialog with an input field and results list.
+Place `<static-search>` anywhere you want a search icon or text -- perhaps in the page `<header>`. It requires a single inner element that the user clicks to activate the search. This opens a modal dialog with an input field and results list.
 
-The activation element must be an element with content -- it cannot be empty or text only. You can also assign [`part` attributes so they can be styled](#css-part-selector-styling), e.g.
+The activation element must be an element with content -- it cannot be empty or text only. You can also assign [`part` attributes for styling](#css-part-selector-styling), e.g.
 
 ```html
 <static-search title="press Ctrl+K to search">
@@ -54,18 +54,18 @@ The activation element must be an element with content -- it cannot be empty or 
 </static-search>
 ```
 
-> This example links to [duckduckgo.com search](https://duckduckgo.com/) by default. The web component progressively enhances it to use StaticSearch instead. The user therefore gets a search facility when JavaScript fails to load or run.
+> This example links to [duckduckgo.com search](https://duckduckgo.com/) by default. The web component progressively enhances it to use StaticSearch instead. The user gets a search facility when JavaScript fails to load or run.
 
 
 ## Web component attributes
 
-The following attributes can be added to the `<static-search>` element to control functionality:
+Add any of the following `<static-search>` attributes to control functionality:
 
 | attribute | description |
 |-|-|
-| `title="<string>"` | activation instructions (clicking and <kbd>Ctrl</kbd>\|<kbd>Cmd</kbd>+<kbd>K</kbd> is supported) |
+| `title="<string>"` | activation instructions (users can click or press <kbd>Ctrl</kbd>\|<kbd>Cmd</kbd>+<kbd>K</kbd>) |
 | `label="<string>"` | the label on the search `<input>` |
-| `minfound="<num>"` | only show pages with this proportion of words (`0.0` to `1.0`) |
+| `minfound="<num>"` | only show pages containing at least this proportion of search words (`0.0` to `1.0`) |
 | `minscore="<num>"` | only show pages with [total relevancy scores](--ROOT--tools/staticsearch/search-indexer/#word-indexing-options) of this or above on results |
 | `maxresults="<num>"` | show up to this number of pages on the results |
 
@@ -82,12 +82,12 @@ Pages still appear in `relevancy` order, but higher `minfound` values will reduc
 
 ## Overriding HTML templates
 
-The HTML generated when displaying results can be changed using `<template>` elements.
+You can change the HTML shown when displaying results using `<template>` elements.
 
 
 ### Search results message
 
-A message such as the following is shown when search results are available:
+When search results are available, you'll see a message such as:
 
 > 7 found for *"web component"*&hellip;
 
@@ -116,7 +116,7 @@ You can override this using a `<template>` with an ID of `staticsearch_resultmes
 
 ### Search result item
 
-Search results are shown in an ordered list: `<ol part="searchresult">`. The following HTML is used for each list item:
+An ordered list (`<ol part="searchresult">`) contains search results. Each page result uses the HTML:
 
 ```html
 <li part="item">
@@ -147,14 +147,14 @@ You can override this using a `<template>` with an ID of `staticsearch_item` in 
 
 ::: aside
 
-The date and word count number are formatted for the active user's locale. This may be different to the language your site uses.
+The user's locale determines the date and word count formats. This may be different to the language your site uses.
 
 ::: /aside
 
 
 ## CSS custom property styling
 
-The following CSS custom properties (variables) can be set in the `:root` or any element that's an ancestor of `<static-search>`. A neutral set of colors is defined and your site's light/dark theme will be followed presuming your CSS sets `color-scheme: light dark;`, `color-scheme: light;`, or `color-scheme: dark;` accordingly.
+You can style `<static-search>` elements using CSS custom properties (variables) in the `:root` or any ancestor element. StaticSearch uses a neutral set of colors and follows your site's light/dark theme if your CSS sets `color-scheme: light dark;`, `color-scheme: light;`, or `color-scheme: dark;` as necessary.
 
 The following code shows custom property defaults you can change:
 
@@ -189,7 +189,7 @@ The following code shows custom property defaults you can change:
 
 ## CSS `::part` selector styling
 
-You can target `static-search` elements using `::part` selectors. HTML similar to the following is produced -- note the `part` attribute names:
+You can target `static-search` elements using `::part` selectors. StaticSearch generates HTML such as this -- *note the `part` attribute names:*
 
 ```html
 <static-search>
@@ -246,7 +246,7 @@ You can target `static-search` elements using `::part` selectors. HTML similar t
 <static-search>
 ```
 
-You can therefore target any element with its `::part` selector:
+You can target any element with its `::part` selector:
 
 ```css
 static-search {
@@ -279,4 +279,4 @@ static-search {
 
 ## Re-run the indexer
 
-Once you have added StaticSearch functionality to your static site's templates, you should [re-run the indexer](--ROOT--tools/staticsearch/search-indexer/) to ensure the latest content is indexed.
+Once you have added StaticSearch functionality to your static site's templates, you should [re-run the indexer](--ROOT--tools/staticsearch/search-indexer/) to ensure word indexes are up-to-date.
