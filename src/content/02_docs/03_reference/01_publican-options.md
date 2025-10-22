@@ -3,7 +3,7 @@ title: Publican configuration options
 menu: Publican configuration
 description: A list of Publican's configuration file options.
 date: 2025-01-23
-modified: 2025-04-10
+modified: 2025-10-22
 priority: 0.9
 tags: configure, root path, string replacement, headings
 ---
@@ -242,7 +242,7 @@ You can `.add()` any number of markdown-it plugins using similar code.
 
 ## Heading links
 
-Content sub-headings (`<h2>`{language=html} to `<h6>`{language=html}) are automatically given `id` attributes so they are available as link targets and can be shown in an [in-page menu](#inpage-navigation). The `publican.config.headingAnchor`{language=js} object controls how headings are rendered. You can set it to `false` (or any falsy value) to disable heading links or define your own values. The defaults are:
+Content sub-headings (`<h2>`{language=html} to `<h6>`{language=html}) are automatically given `id` attributes so they are available as link targets and can be shown in an [in-page menu](#inpage-navigation). The `publican.config.headingAnchor`{language=js} object controls how headings render. You can set it `false` (or any falsy value) to disable heading links or define your own values. The defaults are:
 
 {{ `publican.config.js` excerpt }}
 ```js
@@ -303,7 +303,7 @@ is transformed to:
 
 ## In-page navigation
 
-The code `<nav-heading></nav-heading>` can be placed in any content or template file. The page's nested [headings links](#heading-links) (`<h2>`{language=html} to `<h6>`{language=html}) are rendered into the block, e.g.
+Place the code `<nav-heading></nav-heading>` in any content or template file and the page's nested [headings links](#heading-links) (`<h2>`{language=html} to `<h6>`{language=html}) render into that block, e.g.
 
 ```html
 <nav-heading>
@@ -322,7 +322,7 @@ The code `<nav-heading></nav-heading>` can be placed in any content or template 
 </nav-heading>
 ```
 
-Additional `publican.config.headingAnchor`{language=js} properties control the options:
+Set `publican.config.headingAnchor`{language=js} to `false` (or any falsy value) to disable in-page navigation. Otherwise, properties control its options:
 
 {{ `publican.config.js` excerpt }}
 ```js
@@ -344,7 +344,7 @@ Headings with `nomenu` somewhere in the tag are omitted from the menu. For examp
 <h2 data-nolink-nomenu>Heading 3</h2>
 ```
 
-are transformed to:
+transform to:
 
 ```html
 <h2 id="heading1" tabindex="-1" class="nomenu">Heading 1 <a href="#heading1" class="headlink">#</a></h2>
@@ -369,6 +369,11 @@ and the `<nav-heading>`{language=html} block only shows **Heading 2**:
 Ensure your heading hierarchy is correct. For example, following an `<h2>`{language=html}, you could have another `<h2>`{language=html} or an `<h3>`{language=html}, but not an `<h4>`{language=html}. Publican does not report hierarchy errors, but the menu may look unusual.
 
 ::: /aside
+
+
+## Navigation menus
+
+The [`tacs.nav` global property](--ROOT--docs/reference/global-properties/#tacsnav) returns an nested array of post objects used to [create navigation menus](--ROOT--docs/setup/navigation/#tacsnav-site-menus). Setting `publican.config.nav` to `false` (or any falsy value) disables navigation menus.
 
 
 ## String replacement
@@ -473,6 +478,74 @@ Any template used by a tag index can access a [`data.pagination`](--ROOT--docs/r
 Setting `publican.config.tagPages`{language=js} to `false` (or any falsy value) disables tag index pages.
 
 Note that a root `tag/index.html` page is not automatically created. You can create a [tag index page](--ROOT--docs/setup/tag-indexes/#tacstaglist) to output all tags using the [`tacs.tagList` object](--ROOT--docs/reference/global-properties/#tacstaglist).
+
+
+## Group index pages
+
+Content front matter can specify [groups](--ROOT--docs/reference/front-matter/#groups) to put posts into arbitrary lists. The `publican.config.groupPages`{language=js} configuration object controls group lists. For example, put all group lists in reverse chronological order:
+
+{{ `publican.config.js` excerpt }}
+```js
+publican.config.groupPages = {
+  sortBy: 'date',
+  sortOrder: -1,
+};
+```
+
+You can configure ordering for specific lists using a child `list` object. The following code orders the `featured` group by `priority`, but uses the default `date` for other groups:
+
+{{ `publican.config.js` excerpt }}
+```js
+publican.config.groupPages = {
+  sortBy: 'date',
+  sortOrder: -1,
+  list: {
+    'featured': {
+      sortBy: 'priority',
+      sortOrder: -1,
+    }
+  }
+};
+```
+
+You can also define `filter` functions in any `list` object to programmatically create groups, e.g. a `latest` group for all posts that have `groups: latest` or dated within the past 28 days:
+
+{{ `publican.config.js` excerpt }}
+```js
+publican.config.groupPages = {
+  sortBy: 'date',
+  sortOrder: -1,
+  list: {
+    'latest': {
+      filter: data => (
+        data.groups.has('latest') ||
+        data.date >= new Date(Date.now() - 28 * 24 * 60 * 60 * 1000)
+      )
+    }
+  }
+};
+```
+
+Publican can generate paginated index pages for any group by setting a `root` path in the `list` definition with optional `size`, `template`, and `index` values:
+
+{{ `publican.config.js` excerpt }}
+```js
+publican.config.groupPages = {
+  sortBy: 'date',
+  sortOrder: -1,
+  size: 12,
+  template: 'list.html',
+  index: 'monthly',
+  list: {
+    'latest': {
+      filter: data => data.date >= new Date(Date.now() - 28 * 24 * 60 * 60 * 1000),
+      root: '/'
+    }
+  }
+};
+```
+
+Any template used by a group index can access a [`data.pagination`](--ROOT--docs/reference/content-properties/#datapaginatation) object to generate lists of pages.
 
 
 ## HTML minification

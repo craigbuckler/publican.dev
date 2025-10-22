@@ -5,7 +5,6 @@ description: StaticSearch now supports more languages and can limit results to p
 author: Craig Buckler
 tags: update, tools, StaticSearch
 priority: 1.0
-pinned: 0.9
 hero: images/update.avif
 heroWidth: 1200
 heroHeight: 600

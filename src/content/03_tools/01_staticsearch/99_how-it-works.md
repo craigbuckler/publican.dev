@@ -281,4 +281,4 @@ This script provides functionality for the `<static-search>` web component. It h
 
 1. Copying the clickable element into the shadow DOM and attaching a click event handler to open the `<dialog>`. A similar handler also handles <kbd>Ctrl</kbd> | <kbd>Cmd</kbd> + <kbd>K</kbd> keyboard events on the `window` element.
 
-The component is designed to be dropped into any site and work with minimal configuration. The shadow DOM is used in preference to the light DOM because it was too easy to unintentionally style the generated HTML and break the layout. CSS custom properties and shadow `::parts` have been provided to permit safer styling.
+The component's design allows you to use it in any site with minimal configuration. It uses a shadow DOM because it's too easy to unintentionally style the generated HTML and break the layout. Safer CSS styling is available with custom properties and shadow `::parts`.

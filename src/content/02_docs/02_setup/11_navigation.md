@@ -3,7 +3,7 @@ title: Publican navigation options
 menu: Navigation
 description: Publican provides in-page and site-wide navigation objects to help create menus and links to other pages.
 date: 2025-01-23
-modified: 2025-08-08
+modified: 2025-10-22
 priority: 0.9
 tags: navigation, headings
 ---
@@ -93,7 +93,7 @@ You can place the code `<nav-heading></nav-heading>` in any content or template 
 </nav-heading>
 ```
 
-`publican.config.headingAnchor`{language=js} properties control the options:
+Set `publican.config.headingAnchor`{language=js} to `false` (or any falsy value) to disable in-page navigation. Otherwise, properties control its options:
 
 {{ `publican.config.js` excerpt }}
 ```js
@@ -161,7 +161,7 @@ ${ data?.postnext?.link &&
 
 ## `tacs.nav`{language=js} site menus
 
-`tacs.nav` is a global nested array of HTML page post objects ordered for navigation menus, breadcrumb trails, etc.
+`tacs.nav` is a global nested array of HTML page post objects ordered for navigation menus, breadcrumb trails, etc. (You can disable it by setting `publican.config.nav` to `false` or any falsy value).
 
 Each element of the `tacs.nav` array has two values:
 

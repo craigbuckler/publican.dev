@@ -33,7 +33,7 @@ You can put the `<script>` tag anywhere in your page. It's non-blocking and runs
 
 :::/aside
 
-The component uses the [Shadow DOM](https://developer.mozilla.org/docs/Web/API/Web_components/Using_shadow_DOM) so your styles will not affect its layout. You can style it using [custom properties](#css-custom-property-styling) and/or [`::part` selectors](#css-part-selector-styling).
+The component uses a [Shadow DOM](https://developer.mozilla.org/docs/Web/API/Web_components/Using_shadow_DOM) so your page styles do not affect its layout. You can safely style it using [custom properties](#css-custom-property-styling) and/or [`::part` selectors](#css-part-selector-styling).
 
 
 ## Search activation element

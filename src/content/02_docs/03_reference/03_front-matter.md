@@ -3,7 +3,7 @@ title: Front matter
 menu: Front matter
 description: How to define front matter in Publican content files.
 date: 2025-01-23
-modified: 2025-03-19
+modified: 2025-10-22
 priority: 0.9
 tags: content, front matter
 ---
@@ -96,6 +96,17 @@ tags: HTML, CSS, JavaScript
 ```
 
 Publican can [generate index pages based on these tags](--ROOT--docs/setup/tag-indexes/).
+
+
+### `groups`{language=js}
+
+A comma-delimited list of groups for arbitrarily organising lists of posts, e.g.
+
+```js
+groups: featured, new
+```
+
+Publican can [generate index pages based on these groups](--ROOT--docs/setup/group-indexes/).
 
 
 ### `template`{language=js}

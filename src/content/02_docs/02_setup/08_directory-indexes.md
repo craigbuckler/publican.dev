@@ -3,7 +3,7 @@ title: Publican directory indexes
 menu: Directory indexes
 description: How to use automated pagination for posts in specific directories.
 date: 2025-01-23
-modified: 2025-02-26
+modified: 2025-10-22
 priority: 0.9
 tags: directory index, navigation, string replacement
 ---
@@ -78,7 +78,7 @@ The posts are ordered by `priority` from highest to lowest, but you can change t
 
 ```js
 // sort by filename in alphabetical order
-publican.config.dirPages.sortBy = 'fileame';
+publican.config.dirPages.sortBy = 'filename';
 publican.config.dirPages.sortOrder = 1;
 ```
 

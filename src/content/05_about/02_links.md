@@ -58,7 +58,7 @@ StaticSearch is a client-side search engine for static websites that requires no
 
 * **Main website and documentation**
 
-  [publican.dev/tools/staticsearch/](--ROOT--tools/staticsearch/)
+  [staticsearch.com](https://staticsearch.com/) and [publican.dev/tools/staticsearch/](--ROOT--tools/staticsearch/)
 
 * **StaticSearch npm package**
 
@@ -74,7 +74,7 @@ StaticSearch is a client-side search engine for static websites that requires no
 
 * **StaticSearch around the web**
 
-  [Frontend Focus 703](https://frontendfoc.us/issues/703), [TLDR Web Dev 2025-08-07](https://tldr.tech/webdev/2025-08-07)
+  [Frontend Focus 703](https://frontendfoc.us/issues/703), [SitePoint Source](https://sitepoint.msnd25.com/show_campaign/4afc4b99-fbbd-42a4-823e-4afc46852e23/a1a28f08-c92d-7828-f0e3-437e7d798489/), [TLDR Web Dev 2025-08-07](https://tldr.tech/webdev/2025-08-07), [WebToolsWeekly](https://mailchi.mp/webtoolsweekly/web-tools-630)
 
 
 ## LiveLocalhost

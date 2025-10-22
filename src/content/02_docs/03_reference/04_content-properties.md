@@ -3,7 +3,7 @@ title: Content properties
 menu: Content properties
 description: The content properties provided to each page rendered by Publican.
 date: 2025-01-23
-modified: 2025-02-26
+modified: 2025-10-22
 priority: 0.9
 tags: content, front matter, templates, template literals
 ---
@@ -26,6 +26,7 @@ The following properties are provided for page content by Publican irrespective 
 |`.index`|`false` or indexing frequency|[*more*](#dataindex)|
 |`.priority`|`0` (least) to `1` (most) important|[*more*](#datapriority)|
 |`.tags`|array of tag data|[*more*](#datatags)|
+|`.groups`|Set of group names|[*more*](#datagroups)|
 |`.wordCount`|number of words in content|[*more*](#datawordcount)|
 |`.postnext`|`data` of next post|[*more*](#datapostnext)|
 |`.postback`|`data` of previous post|[*more*](#datapostback)|
@@ -58,12 +59,12 @@ Where necessary, an abbreviated page title for menus and other navigation links.
 
 ### `data.content`{language=js}
 
-The main page content. Markdown content is already converted to HTML.
+The main page content, typically slotted into a template inside the `<main>` tag. Markdown content is already converted to HTML.
 
 
 ### `data.contentRendered`{language=js}
 
-Content such as RSS feeds needs to access the fully-rendered content of pages. Publican ensures this content is rendered last to ensure fully-processed page content is available.
+Content such as [RSS feeds](--ROOT--docs/recipe/feeds/rss-feed/) needs the fully-rendered content of pages without page headers, footers, navigation, etc. This is available in the `data.contentRendered`{language=js} property. Publican renders pages using this property last to ensure fully-processed page content is available.
 
 
 ### `data.date`{language=js}
@@ -131,6 +132,14 @@ Code to output the page's tags with links to their index pages:
 ${ data?.tags?.map(
   t => `<p><a href="${ t.link }">${ t.tag }</a></p>`
 ) }
+```
+
+### `data.groups`{language=js}
+
+A [Set](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Set) of groups that reference the post. You can check a post is within a group, e.g.
+
+```js
+This is ${ data?.groups?.has('featured') ? '' : 'not' } a featured post.
 ```
 
 

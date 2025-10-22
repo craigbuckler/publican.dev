@@ -1,6 +1,9 @@
 ---
+title: StaticSearch documentation for Large Language Models (AI)
 slug: staticsearch/llms.txt
 index: true
+priority: 0.02
+groups: llm
 ---
 # StaticSeach documentation for LLMs
 

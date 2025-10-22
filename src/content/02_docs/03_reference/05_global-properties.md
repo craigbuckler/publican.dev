@@ -3,6 +3,7 @@ title: Global properties
 menu: Global properties
 description: The global jsTACS properties provided on all pages by Publican.
 date: 2025-01-23
+modified: 2025-10-22
 priority: 0.9
 tags: content, front matter, templates, template literals
 ---
@@ -21,6 +22,7 @@ The following properties are provided for page content by Publican irrespective 
 |`.dir`|Map of posts in root directories|[*more*](#tacsdir)|
 |`.tag`|Map of posts with tags|[*more*](#tacstag)|
 |`.tagList`|array of tag objects|[*more*](#tacstaglist)|
+|`.group`|Map of posts in groups|[*more*](#tacsgroup)|
 |`.nav`|nested array of navigation objects|[*more*](#tacsnav)|
 
 
@@ -101,6 +103,17 @@ Example:
 ```
 
 You should only require `tacs.tagList` on a [root tag page that lists all tags](--ROOT--docs/setup/tag-indexes/#tacstaglist).
+
+
+### `tacs.group`{language=js}
+
+A [Map object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map) of all published posts listed in groups. Each item returns an ordered array of posts. For example, list all posts in the `featured` group:
+
+```js
+${ tacs.group.get('featured').map(
+  p => `<p>${ p.title }</p>`
+) }
+```
 
 
 ### `tacs.nav`{language=js}

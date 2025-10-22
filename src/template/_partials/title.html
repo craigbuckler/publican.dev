@@ -6,7 +6,7 @@
 
   ${ data.author && `<p class="author">By ${ data.author }</p>` }
 
-  ${ data.date && `<p class="pubdate"><time datetime="${ tacs.fn.format.dateISO( data.date ) }">${ tacs.fn.format.dateHuman( data.date ) }</time>${ data.modified && new Date(data.modified) > new Date(data.date) ? ` (updated <time datetime="${ tacs.fn.format.dateISO( data.modified ) }">${ tacs.fn.format.dateHuman( data.modified ) }</time>)` : '' }</p>` }
+  ${ data.date && `<p class="pubdate"><time datetime="${ tacs.fn.format.dateISO( data.date ) }">${ tacs.fn.format.dateHuman( data.date ) }</time>${ data.modified > data.date ? ` (updated <time datetime="${ tacs.fn.format.dateISO( data.modified ) }">${ tacs.fn.format.dateHuman( data.modified ) }</time>)` : '' }</p>` }
 
   ${ data?.wordCount >= tacs.config.wordCountShow ?
     `<p class="wordcount">${ tacs.fn.format.numberRound( data.wordCount ) } words, ${ tacs.fn.format.numberRound( Math.ceil( data.wordCount / 200 ) ) }-minute read</p>` :

@@ -3,7 +3,7 @@ title: Publican core concepts
 menu: Core concepts
 description: An overview of Publican's core concepts and how it's used to build a static site. Please read this first!
 date: 2025-01-23
-modified: 2025-06-12
+modified: 2025-10-22
 priority: 0.9
 tags: content, front matter, templates, jsTACS, template literals, directory index, tag index, pass through, configure
 ---
@@ -49,9 +49,9 @@ Publican presumes directories directly under `src/content/` contain specific *ty
 * `post/` contains blog posts
 * `about/` contains person/organization information.
 
-(Sub-directories of these are presumed to have the same type of content.)
+(Publican presumes sub-directories have the same content types.)
 
-Publican generates [paginated directory index pages](--ROOT--docs/setup/directory-indexes/) which can be configured and presented in different ways.
+Publican generates [paginated directory index pages](--ROOT--docs/setup/directory-indexes/) that you can configure and present in different ways.
 
 
 ### Tag indexes
@@ -62,7 +62,18 @@ Front matter can specify [tags](--ROOT--docs/reference/front-matter/#tags) -- ke
 tags: HTML, CSS, JavaScript
 ```
 
-Publican generates [paginated tag index pages](--ROOT--docs/setup/tag-indexes/) linking to pages that use those tags. These can be configured and presented in different ways.
+Publican generates [paginated tag index pages](--ROOT--docs/setup/tag-indexes/) linking to pages that use those tags. You can configure and present these in different ways.
+
+
+### Group indexes
+
+Front matter can specify [groups](--ROOT--docs/reference/front-matter/#groups) to define arbitrary lists of posts:
+
+```md
+groups: featured, new
+```
+
+Publican can generate [paginated group index pages](--ROOT--docs/setup/group-indexes/) linking to pages within those groups. You can configure and present these in different ways.
 
 
 ### Media files
