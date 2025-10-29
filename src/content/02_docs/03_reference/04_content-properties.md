@@ -30,7 +30,8 @@ The following properties are provided for page content by Publican irrespective 
 |`.wordCount`|number of words in content|[*more*](#datawordcount)|
 |`.postnext`|`data` of next post|[*more*](#datapostnext)|
 |`.postback`|`data` of previous post|[*more*](#datapostback)|
-|`.pagination`|object for directory and tag index pages|[*more*](#datapaginatation)|
+|`.childPageTotal`|number of child pages in a directory, tag, or group index|[*more*](#datachildpagetotal)|
+|`.pagination`|object for directory, tag, and group index pages|[*more*](#datapaginatation)|
 |`.filename`|content filename|[*more*](#datafilename)|
 |`.template`|template filename|[*more*](#datatemplate)|
 |`.slug`|build filename|[*more*](#dataslug)|
@@ -40,6 +41,7 @@ The following properties are provided for page content by Publican irrespective 
 |`.isIndexPage`|content is an index page|[*more*](#dataisindexpage)|
 |`.isDirIndex`|the directory title (paginated lists pages)|[*more*](#dataisdirindex)|
 |`.isTagIndex`|the tag name (paginated list pages)|[*more*](#dataistagindex)|
+|`.isGroupIndex`|the group name (paginated list pages)|[*more*](#dataisgroupindex)|
 |`.isHTML`|built file is HTML|[*more*](#dataishtml)|
 |`.isXML`|built file is XML|[*more*](#dataisxml)|
 |`.isCSS`|built file is CSS|[*more*](#dataiscss)|
@@ -176,9 +178,14 @@ ${
 ```
 
 
+### `data.childPageTotal`{language=js}
+
+Returns the total number of child pages in a [directory](--ROOT--docs/setup/directory-indexes/), [tag](--ROOT--docs/setup/tag-indexes/), and [group](--ROOT--docs/setup/group-indexes/) index.
+
+
 ### `data.paginatation`{language=js}
 
-Generated root [directory](--ROOT--docs/setup/directory-indexes/) and [tag](--ROOT--docs/setup/tag-indexes/) index pages provide a `data.pagination` object with the following properties.
+Generated root [directory](--ROOT--docs/setup/directory-indexes/), [tag](--ROOT--docs/setup/tag-indexes/), and [group](--ROOT--docs/setup/group-indexes/) index pages provide a `data.pagination` object with the following properties.
 
 |name|description|
 |-|-|
@@ -243,6 +250,11 @@ When the page is one of the indexes listing pages in a directory, `data.isDirInd
 ### `data.isTagIndex`{language=js}
 
 When the page is one of the indexes listing pages with a specific tag, `data.isTagIndex`{language=js} is set to the tag name.
+
+
+### `data.isGroupIndex`{language=js}
+
+When the page is one of the indexes listing pages with a specific group, `data.isGroupIndex`{language=js} is set to the group name.
 
 
 ### `data.isHTML`{language=js}

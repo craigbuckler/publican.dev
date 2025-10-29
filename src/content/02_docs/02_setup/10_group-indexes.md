@@ -143,7 +143,12 @@ Group pagination overrides [directory](--ROOT--docs/setup/directory-indexes/) an
 ::: /aside
 
 
-## `data.pagination`
+## `data.childPageTotal`{language=js}
+
+Returns the total number of child pages in a group index.
+
+
+## `data.pagination`{language=js}
 
 Publican provides index pages with a `data.pagination` object that has the following properties.
 

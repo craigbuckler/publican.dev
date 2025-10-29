@@ -100,7 +100,12 @@ publican.config.dirPages.dir.post = {
 ```
 
 
-## `data.pagination`
+## `data.childPageTotal`{language=js}
+
+Returns the total number of child pages in a directory index.
+
+
+## `data.pagination`{language=js}
 
 Publican provides all index pages with a `data.pagination` object that has the following properties.
 

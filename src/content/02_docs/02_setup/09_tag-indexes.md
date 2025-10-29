@@ -102,7 +102,12 @@ publican.config.tagPages.sortOrder = -1;
 ```
 
 
-## `data.pagination`
+## `data.childPageTotal`{language=js}
+
+Returns the total number of child pages in a tag index.
+
+
+## `data.pagination`{language=js}
 
 Publican provides all index pages with a `data.pagination` object that has the following properties.
 
