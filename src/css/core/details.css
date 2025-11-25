@@ -15,6 +15,7 @@ details::details-content {
 
 summary {
   font-weight: var(--font-weight-bold);
+  list-style-type: none;
   cursor: pointer;
 
   &::marker {
