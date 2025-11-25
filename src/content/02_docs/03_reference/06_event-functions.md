@@ -160,12 +160,12 @@ Function parameters:
 1. `changed` (array): an array of `{ slug, content }` objects for changed files
 1. `tacs` (object): the [global `tacs` object](--ROOT--docs/reference/global-properties/).
 
-The function can examine data but no changes can be made because rendering has finished. Return values are ignored.
+The function can examine data and run other processes but not make any changes because rendering is complete. Return values are ignored.
 
 ```js
 // example processRenderEnd hook
 // logs changed files
-publican.config.processRenderStart.add(
+publican.config.processRenderEnd.add(
   changed => {
     console.log('changed files:');
     console.log(changed.map(f => f.slug).join('\n'));

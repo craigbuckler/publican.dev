@@ -93,8 +93,18 @@ publican.config.replace = new Map([
   [ ' style="text-align:end"', ' class="right"' ],
   [ ' style="text-align:right"', ' class="right"' ],
   [ ' style="text-align:center"', ' class="center"' ],
-  [ '<table>', '<div class="tablescroll"><table>' ],
-  [ '</table>', '</table></div>' ]
+  [ /[^<div class="tablescroll">]<table>/gm, '<div class="tablescroll"><table>' ],
+  [ /<\/table>[^</div>]/gm, '</table></div>' ],
+  [ /<p>(<img.+?>)<\/p>/gim, '$1' ],                                          // <p> around <img>
+  [ /<p>(<svg.+?<\/svg>)<\/p>/gim, '$1' ],                                    // <p> around <svg>
+  [ /<img(\b(?![^>]*\balt\s*=)[^>]*)>/gism, '<img$1 alt="illustration">' ],   // <img> alt
+  [ /<img(\b(?![^>]*\bloading\s*=)[^>]*)\/>/gism, '<img$1 loading="lazy">' ], // <img> lazy loading
+  [ /<img(\b(?![^>]*\bloading\s*=)[^>]*)>/gism, '<img$1 loading="lazy">' ],   // <img> lazy loading
+  [ /alt=""/gim, 'alt="decoration"' ],                                        // empty alt
+  [ /<\/blockquote>\s*<blockquote>/gi, '' ],                                  // multiple <blockquote>
+  [ '&feedquot;', '\\"' ],                                                    // JSON feed replace
+  [ '&feedtab;', '\\t' ],
+  [ '&feedcr;', '\\n' ],
 ]);
 
 // utils

@@ -1,12 +1,13 @@
 /* utility classes */
 .logolarge {
-  inline-size: 100%;
+  display: block;
   block-size: auto;
+  margin-block-start: 1em;
   fill: var(--color-fore3);
 }
 
 .m0 {
-  margin-block-start: 0;
+
 }
 
 .wn {
