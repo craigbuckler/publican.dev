@@ -3,6 +3,7 @@ title: Publican content
 menu: Content
 description: How to define content for your Publican static site.
 date: 2025-01-23
+modified: 2025-12-09
 priority: 0.9
 tags: content, markdown, front matter, template literals, string replacement
 ---
@@ -174,12 +175,19 @@ Content can also be passed to Publican as a string in the [configuration file](-
 To add virtual content, call:
 
 ```js
-publican.addContent( <filename>, <content> );
+publican.addContent( <filename>, <content> [, <dataObject> ] );
 ```
 
-prior to running the build process (`await publican.build();`{language=js}).
+prior to running the build process (`await publican.build();`{language=js}). The arguments:
 
-The `filename` follows the [directory structure rules](#directory-structure) and determines the type of content. For example, to add a markdown page:
+1. `filename` follows the [directory structure rules](#directory-structure) and determines the content type (HTML, markdown, etc.)
+
+1. `content` is the main content strong with [front matter](--ROOT--docs/reference/front-matter/) if necessary.
+
+1. `dataObject` is an optional initialization object containing values that you would normally use in [front matter](--ROOT--docs/reference/front-matter/) (properties defined in front matter take precedence).
+
+
+The following example creates a page with a filename and content string:
 
 {{ `publican.config.js` }}
 ```js
@@ -194,6 +202,51 @@ This is a virtual post!
 
 ::: aside
 
-A backtick-delimited string has been used here for readability. This would parse any `${ expressions }`{language=js} before Publican and could lead to unexpected consequences.
+The backtick-delimited string used here is for readability. Backticks would parse any `${ expressions }`{language=js} before Publican rendered and could lead to unexpected consequences.
 
 ::: /aside
+
+
+The following example is similar but also passes a data object:
+
+{{ `publican.config.js` }}
+```js
+publican.addContent(
+  'article/virtual-post.md', `
+---
+title: Virtual post
+---
+This is a virtual post!
+`,
+  {
+    title: 'My title',
+    description: 'My description',
+    date: new Date(), // now
+    tags: ['automatic', 'content'],
+    groups: 'virtual, content'
+  }
+);
+```
+
+The `title` is `Virtual post` rather than `My title` because content front matter takes priority.
+
+You can pass:
+
+* `date` as a `Date()` object or string such as `"2025-12-25"`.
+
+* `menu` and `index` values as strings or Boolean `false`.
+
+* [tags](--ROOT--docs/setup/tag-indexes/) and [groups](--ROOT--docs/setup/group-indexes/) as arrays or comma-separated strings.
+
+* a `dataObject.content` property when the `content` parameter is falsy, e.g.
+
+   ```js
+   publican.addContent(
+     'article/virtual-post.md',
+     null,
+     {
+       title: 'My post',
+       content: 'Some content.'
+     }
+   );
+   ```

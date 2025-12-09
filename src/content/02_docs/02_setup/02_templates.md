@@ -3,7 +3,7 @@ title: Publican templates
 menu: Templates
 description: How to define templates for a Publican static site.
 date: 2025-01-23
-modified: 2025-08-08
+modified: 2025-12-09
 priority: 0.9
 tags: templates, jsTACS, template literals, HTML
 ---
@@ -14,7 +14,9 @@ To build static web pages, Publican requires HTML templates that *pull in* [cont
 
 ## Template formats
 
-Publican builds static web pages so most templates will be HTML files. However, you can create templates for XML, TXT, SVG or any other text type.
+Publican builds static web pages so most templates will be HTML files. You can also provide templates in markdown format (with an `.md` extension) which Publican converts to HTML.
+
+Publican reads and outputs text files so you can create templates for XML, TXT, SVG, JSON, or any other text type as appropriate.
 
 ::: /aside
 
