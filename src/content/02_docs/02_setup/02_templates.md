@@ -14,9 +14,9 @@ To build static web pages, Publican requires HTML templates that *pull in* [cont
 
 ## Template formats
 
-Publican builds static web pages so most templates will be HTML files. You can also provide templates in markdown format (with an `.md` extension) which Publican converts to HTML.
+Publican builds static web pages so most templates will be HTML files. Publican reads and outputs text files so you can create templates for XML, TXT, SVG, JSON, or any other text type as necessary.
 
-Publican reads and outputs text files so you can create templates for XML, TXT, SVG, JSON, or any other text type as appropriate.
+You can also provide templates in markdown format using a file with an `.md` extension. Publican converts markdown to HTML when the file is loaded. Markdown is best used in partials where you require blocks of text.
 
 ::: /aside
 
