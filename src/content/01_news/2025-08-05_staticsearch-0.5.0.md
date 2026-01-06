@@ -67,7 +67,7 @@ The [Frontend Focus newsletter, issue 703](https://frontendfoc.us/issues/703) fe
 
 The [StaticSearch documentation](--ROOT--tools/staticsearch/) provides a [quick start guide](--ROOT--tools/staticsearch/quickstart/), and details about the [indexer](--ROOT--tools/staticsearch/search-indexer/), [web component](--ROOT--tools/staticsearch/search-web-component/), [bind module](--ROOT--tools/staticsearch/search-bind-module/), and [JavaScript API](--ROOT--tools/staticsearch/search-api/).
 
-StaticSearch works well with Publican sites. The [Publican documentation](--ROOT--docs) provides a [quick start guide](--ROOT--docs/quickstart/concepts), a [detailed set-up guide](--ROOT--docs/setup/content), [API references](--ROOT--docs/reference/publican-options), and [common recipes](--ROOT--docs/recipe) you can use and adapt for your own projects.
+StaticSearch works well with Publican sites. The [Publican documentation](--ROOT--docs/) provides a [quick start guide](--ROOT--docs/quickstart/concepts/), a [detailed set-up guide](--ROOT--docs/setup/content/), [API references](--ROOT--docs/reference/publican-options/), and [common recipes](--ROOT--docs/recipe/) you can use and adapt for your own projects.
 
 <ul class="flexcenter">
   <li><a href="--ROOT--docs/quickstart/concepts" class="button">Get started</a></li>

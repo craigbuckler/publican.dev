@@ -14,7 +14,7 @@ heroAlt: performance
 heroCaption: Image courtesy of <a href="https://unsplash.com/@marcsm">Marc Sendra Martorell</a>
 ---
 
-Publican can build a site however you want. It primarily creates HTML pages (or [mostly static templates](--ROOT--docs/setup/jstacs#runtime-expressions)), but you can add PHP code, frameworks, CSS, JavaScript, and any other assets you require.
+Publican can build a site however you want. It primarily creates HTML pages (or [mostly static templates](--ROOT--docs/setup/jstacs/#runtime-expressions)), but you can add PHP code, frameworks, CSS, JavaScript, and any other assets you require.
 
 This site -- [Publican.dev](--ROOT--) -- is built using Publican. It implements web standards and best practice techniques to ensure the site remains fast, usable, and secure. The techniques can be adapted for your sites.
 
@@ -92,7 +92,7 @@ You can usually [make web pages printable](https://blog.craigbuckler.com/printer
 
 ## Search engine friendly
 
-Publican.dev provides [clean URLs](--ROOT--docs/setup/content#directory-structure), meta tags, [structured data](https://schema.org/), [tagged content](--ROOT--docs/setup/tag-indexes/), `robots.txt`, [sitemaps](--ROOT--docs/recipe/feeds/xml-sitemap/), [RSS feeds](--ROOT--docs/recipe/feeds/rss-feed/), and social media sharing. [Good performance](#htmlfirst-performance) also influences search engine rankings.
+Publican.dev provides [clean URLs](--ROOT--docs/setup/content/#directory-structure), meta tags, [structured data](https://schema.org/), [tagged content](--ROOT--docs/setup/tag-indexes/), `robots.txt`, [sitemaps](--ROOT--docs/recipe/feeds/xml-sitemap/), [RSS feeds](--ROOT--docs/recipe/feeds/rss-feed/), and social media sharing. [Good performance](#htmlfirst-performance) also influences search engine rankings.
 
 A Publican-built static site won't wondrously jump to #1 in Google, but there are no factors that could stop it happening.
 

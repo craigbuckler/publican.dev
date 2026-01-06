@@ -3,7 +3,7 @@ title: StaticSearch indexer
 menu: Indexer
 description: How to use and configure the StaticSearch indexer to index words in your static site.
 date: 2025-06-17
-modified: 2025-08-08
+modified: 2026-01-06
 priority: 0.8
 tags: StaticSearch
 ---
@@ -150,6 +150,12 @@ StaticSearch presumes the **web root path** is `/` -- so the file `./build/index
 
 StaticSearch presumes the **HTML index file** used as the default for directory paths is `index.html`. You can change this to another filename (`--indexfile` | `SITE_INDEXFILE` | `.siteIndexFile`), e.g. `default.htm`.
 
+:::aside
+
+You *may* be able to index `.php` and similar server-processed files if they contain HTML with chunks of code in [document sections](#document-indexing-options) that are not indexed.
+
+:::/aside
+
 StaticSearch parses the **`robots.txt` file** in the root of the build directory, e.g.
 
 {{ example `robots.txt` }}
@@ -176,6 +182,7 @@ You can disable meta tag parsing with `--ignorerobotmeta` | `SITE_PARSEROBOTSMET
 
 **Example**: index HTML files in the `./dest/` directory, ignore `robots.txt` restrictions, and write search index files to `./dest/search/`:
 
+{{ terminal }}
 ```bash
 staticsearch --builddir ./dest/ --searchdir ./dest/search/ --ignorerobotfile
 ```
@@ -250,7 +257,35 @@ The following options control word indexing:
 |`--weightalt` | `WEIGHT_ALT` | `.wordWeight.alt`|word weight for alt tags (`1`)|
 |`--weightcontent` | `WEIGHT_CONTENT` | `.wordWeight.content`|word weight for content (`1`)|
 
-The default `--language` | `LANGUAGE` | `.language` is English (`en`) which provides [word stemming and stop word lists](--ROOT--tools/staticsearch/how-it-works/#a-3-process-words) to reduce the size of the index and provide *fuzzier* searching. Stop words are also provided for Danish (`da`), Dutch (`nl`), Finnish (`fi`), French (`fr`), German (`de`), Italian (`it`), Norwegian (`no`), Portuguese (`pt`), Spanish (`es`), Swedish (`sv`), and Turkish (`tr`), courtesy of [Stopwords ISO](https://github.com/stopwords-iso).
+The default `--language` | `LANGUAGE` | `.language` is English (`en`) which provides [word stemming and stop word lists](--ROOT--tools/staticsearch/how-it-works/#a-3-process-words) to reduce the size of the index and provide *fuzzier* searching. Courtesy of [Stopwords ISO](https://github.com/stopwords-iso), StaticSearch provides stop words for:
+
+* Afrikaans (`af`)
+* Croatian (`hr`)
+* Czech (`cs`)
+* Danish (`da`)
+* Dutch (`nl`)
+* English (`en`)
+* Estonian (`et`)
+* Finnish (`fi`)
+* French (`fr`)
+* German (`de`)
+* Hungarian (`hu`)
+* Irish (`ga`)
+* Italian (`it`)
+* Latvian (`lv`)
+* Lithuanian (`lt`)
+* Malay (`ms`)
+* Norwegian (`no`)
+* Polish (`pl`)
+* Portuguese (`pt`)
+* Romanian (`ro`)
+* Slovak (`sk`)
+* Somali (`so`)
+* Spanish (`es`)
+* Swahili (`sw`)
+* Swedish (`sv`)
+* Turkish (`tr`)
+* Zulu (`zu`)
 
 By default, `--wordcrop` | `WORDCROP` | `.wordCrop` is `7`: only the first 7 letters of any word are considered important. Therefore, the word "consider", "considered", and "considering" are effectively identical (and indexed as `conside`). You can change this limit if necessary.
 
@@ -284,6 +319,7 @@ Lots of inbound links can override scores allocated by titles and text. Menus li
 
 **Example**: change the language to Spanish, crop words to 6 characters, and set the title score to 20:
 
+{{ terminal }}
 ```bash
 staticsearch --language es --wordcrop 6 --weighttitle 20
 ```

@@ -3,7 +3,7 @@ title: StaticSearch web component
 menu: Web component
 description: How to add search functionality to any page using the <static-search> web component.
 date: 2025-06-17
-modified: 2025-08-08
+modified: 2026-01-06
 priority: 0.8
 tags: StaticSearch, HTML, CSS, web component
 ---
@@ -15,8 +15,9 @@ You must [run the StaticSearch indexer](--ROOT--tools/staticsearch/search-indexe
 ::: /aside
 
 
-The `<static-search>` web component provides full search functionality in any web page using HTML alone. It's the easiest option, e.g.
+The `<static-search>`{language=html} web component provides full search functionality in any web page using HTML alone. It's the easiest option, e.g.
 
+{{ HTML excerpt }}
 ```html
 <!-- include script once on your page -->
 <script type="module" src="/search/staticsearch-component.js"></script>
@@ -29,19 +30,20 @@ The `<static-search>` web component provides full search functionality in any we
 
 :::aside
 
-You can put the `<script>` tag anywhere in your page. It's non-blocking and runs when the DOM is ready -- near the top of the HTML `<head>` is best. It loads 13Kb of JavaScript, 4Kb of CSS, and associated index data when the user starts a new search.
+Put the `<script>` tag anywhere in your page. It's non-blocking and runs when the DOM is ready -- near the top of the HTML `<head>` is best. It loads 11Kb of JavaScript, 4Kb of CSS, and associated index data when the user starts a new search.
 
 :::/aside
 
-The component uses a [Shadow DOM](https://developer.mozilla.org/docs/Web/API/Web_components/Using_shadow_DOM) so your page styles do not affect its layout. You can safely style it using [custom properties](#css-custom-property-styling) and/or [`::part` selectors](#css-part-selector-styling).
+The component uses a [Shadow DOM](https://developer.mozilla.org/docs/Web/API/Web_components/Using_shadow_DOM) so your page styles do not affect its layout. You can safely style it using [custom properties](#css-custom-property-styling) or [`::part` selectors](#css-part-selector-styling).
 
 
 ## Search activation element
 
-Place `<static-search>` anywhere you want a search icon or text -- perhaps in the page `<header>`. It requires a single inner element that the user clicks to activate the search. This opens a modal dialog with an input field and results list.
+Place `<static-search>`{language=html} anywhere you want a search icon or text -- perhaps in the page `<header>`{language=html}. It requires a single inner element that the user clicks to activate the search. This opens a modal dialog with an input field and results list.
 
 The activation element must be an element with content -- it cannot be empty or text only. You can also assign [`part` attributes for styling](#css-part-selector-styling), e.g.
 
+{{ HTML excerpt }}
 ```html
 <static-search title="press Ctrl+K to search">
 
@@ -54,7 +56,11 @@ The activation element must be an element with content -- it cannot be empty or 
 </static-search>
 ```
 
-> This example links to [duckduckgo.com search](https://duckduckgo.com/) by default. The web component progressively enhances it to use StaticSearch instead. The user gets a search facility when JavaScript fails to load or run.
+::: aside
+
+This example links to [duckduckgo.com search](https://duckduckgo.com/) by default. The web component progressively enhances it to use StaticSearch instead, but the user still gets a search facility when JavaScript fails to load or run.
+
+::: /aside
 
 
 ## Web component attributes
@@ -68,6 +74,7 @@ Add any of the following `<static-search>` attributes to control functionality:
 | `minfound="<num>"` | only show pages containing at least this proportion of search words (`0.0` to `1.0`) |
 | `minscore="<num>"` | only show pages with [total relevancy scores](--ROOT--tools/staticsearch/search-indexer/#word-indexing-options) of this or above on results |
 | `maxresults="<num>"` | show up to this number of pages on the results |
+| `highlight="<any>"` | scroll to and highlight the first matching search terms |
 
 Search results provide a `found` value indicating the percentage of search words found on a page, e.g. two of four search words is `0.5`.
 
@@ -77,7 +84,13 @@ Search results provide a `found` value indicating the percentage of search words
 
 * setting `minfound="0.5"`{language=html} means a page appears in results when it contains at least half of the search words.
 
-Pages still appear in `relevancy` order, but higher `minfound` values will reduce the number of results.
+Pages still appear in order of relevancy, but higher `minfound` values will reduce the number of results.
+
+Set a `highlight` attribute to scroll to and highlight the first matching search terms on a results page. This uses [text fragment links](https://developer.mozilla.org/docs/Web/URI/Reference/Fragment/Text_fragments) which can have issues:
+
+1. searching for "highlight" will return pages containing "highlighted" and "highlighter", but they are not highlighted.
+
+1. A highlighted word could appear outside your main content, such as in a menu.
 
 
 ## Overriding HTML templates
@@ -93,6 +106,7 @@ When search results are available, you'll see a message such as:
 
 It uses the HTML code:
 
+{{ HTML excerpt }}
 ```html
 <p part="resultmessage">
   <span part="resultcount"></span> found for
@@ -100,8 +114,9 @@ It uses the HTML code:
 </p>
 ```
 
-You can override this using a `<template>` with an ID of `staticsearch_resultmessage` in your HTML page (it can be within `<static-search>` or anywhere else). You must set the `part` attributes `"resultmessage"`, `"resultcount"`, and `"searchterm"` as necessary, e.g.
+You can override this using a `<template>`{language=html} with an ID of `staticsearch_resultmessage` in your HTML page (it can be within `<static-search>`{language=html} or elsewhere). You must set the `part` attributes `"resultmessage"`, `"resultcount"`, and `"searchterm"` as necessary, e.g.
 
+{{ HTML excerpt }}
 ```html
 <template id="staticsearch_resultmessage">
 
@@ -116,8 +131,9 @@ You can override this using a `<template>` with an ID of `staticsearch_resultmes
 
 ### Search result item
 
-An ordered list (`<ol part="searchresult">`) contains search results. Each page result uses the HTML:
+An ordered list (`<ol part="searchresult">`{language=html}) contains search results. Each page result uses the HTML:
 
+{{ HTML excerpt }}
 ```html
 <li part="item">
   <a part="link">
@@ -131,8 +147,9 @@ An ordered list (`<ol part="searchresult">`) contains search results. Each page 
 </li>
 ```
 
-You can override this using a `<template>` with an ID of `staticsearch_item` in your HTML page (it can be within `<static-search>` or anywhere else). Set the `part` attributes `"item"`, `"link"`, `"title"`, `meta`, `date`, `words`, and `"description"` as necessary, e.g. show the title but no description, date, or word count in an `<article>`:
+You can override this using a `<template>`{language=html} with an ID of `staticsearch_item` in your HTML page (it can be within `<static-search>`{language=html} or elsewhere). Set the `part` attributes `"item"`, `"link"`, `"title"`, `"meta"`, `"date"`, `"words"`, and `"description"` as necessary, e.g. show the title but no description, date, or word count in an `<article>`:
 
+{{ HTML excerpt }}
 ```html
 <template id="staticsearch_item">
 
@@ -158,6 +175,7 @@ You can style `<static-search>` elements using CSS custom properties (variables)
 
 The following code shows custom property defaults you can change:
 
+{{ CSS excerpt }}
 ```css
 :root {
   /* font size */
@@ -191,6 +209,7 @@ The following code shows custom property defaults you can change:
 
 You can target `static-search` elements using `::part` selectors. StaticSearch generates HTML such as this -- *note the `part` attribute names:*
 
+{{ HTML excerpt }}
 ```html
 <static-search>
 
@@ -248,6 +267,7 @@ You can target `static-search` elements using `::part` selectors. StaticSearch g
 
 You can target any element with its `::part` selector:
 
+{{ CSS excerpt }}
 ```css
 static-search {
 

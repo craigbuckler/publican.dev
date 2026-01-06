@@ -3,12 +3,12 @@ title: StaticSearch quickstart
 menu: Quickstart
 description: How to add a search engine to your static site using StaticSearch.
 date: 2025-06-13
-modified: 2025-08-08
+modified: 2026-01-06
 priority: 0.8
 tags: StaticSearch
 ---
 
-To use StaticSearch, you must build your static site to a local directory, then:
+To use StaticSearch, build your static site to a local directory, then:
 
 1. [Index all pages](#index-a-site) to create JavaScript and JSON data files in the same directory. You must re-run the indexing process every time the site changes.
 1. [Add search functionality to your site](#add-search-functionality-to-your-site). It's easiest to do this after indexing the pages for the first time.
@@ -23,7 +23,7 @@ You can run StaticSearch without installation using `npx`. Assuming you built yo
 npx staticsearch
 ```
 
-This creates a new directory named `./build/search/` containing StaticSearch's JavaScript code and word index data.
+This creates a new directory named `./build/search/` containing StaticSearch's JavaScript code and index data.
 
 
 ### Indexing help
@@ -45,12 +45,12 @@ If your site is in a different directory, such as `./dist/`, use:
 npx staticsearch --builddir ./dist/
 ```
 
-StaticSearch code and indexes is created in `./dist/search/`.
+This creates StaticSearch code and indexes in `./dist/search/`.
 
 
 ### Omitting HTML pages: `robots.txt`
 
-StaticSearch removes pages from the index when they're disallowed in the `robots.txt` file in the site's root. For example, this disallows indexing for any page with `/video/` or `/docs/` paths:
+StaticSearch removes pages from the index when they're disallowed by the `robots.txt` file in the site's root. For example, this disallows indexing for any page with `/video/` or `/docs/` paths:
 
 {{ `robots.txt` example }}
 ```txt
@@ -71,7 +71,7 @@ npx staticsearch --ignorerobotfile
 
 ### Omitting HTML pages: `<meta>` noindex
 
-StaticSearch removes pages from the index when a `noindex` value is found in the meta tag:
+StaticSearch removes pages from the index when it finds a `noindex` value in the `robots` meta tag:
 
 {{ HTML `<head>` }}
 ```html
@@ -120,11 +120,11 @@ The easiest way to add search facilities to your site is to use the `<static-sea
 
 :::aside
 
-You can put the `<script>` tag anywhere in your page. It's non-blocking and runs when the DOM is ready -- near the top of the HTML `<head>` is best.
+The `<script>` tag can go anywhere in your page. It's non-blocking and runs when the DOM is ready -- near the top of the HTML `<head>` is best.
 
 :::/aside
 
-You can put any HTML element inside `<static-search>` to activate search when clicked. The following example uses an icon that links to a search engine when JavaScript fails or is not available:
+Put any HTML element inside `<static-search>` to activate search when clicked. The following example uses an icon that links to a search engine when JavaScript fails or is not available:
 
 {{ template excerpt }}
 ```html

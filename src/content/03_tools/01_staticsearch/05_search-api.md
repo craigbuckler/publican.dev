@@ -3,7 +3,7 @@ title: StaticSearch JavaScript search API
 menu: Search API
 description: How to use the StaticSearch JavaScript API to create your own custom search functionality.
 date: 2025-06-16
-modified: 2025-08-08
+modified: 2026-01-06
 priority: 0.8
 tags: StaticSearch, JavaScript, API
 ---
@@ -21,6 +21,7 @@ You can create whatever input and output functionality or styling you require by
 
 The `staticsearch.find(<term>)` method returns an array of results for a specific search term:
 
+{{ JavaScript excerpt }}
 ```js
 import { staticsearch } from '/search/staticsearch.js';
 
@@ -45,8 +46,7 @@ This example uses ES6 module code. It loads 6Kb of JavaScript and associated ind
 | `relevancy` | search relevancy score (number) |
 | `found` | the proportion of search words found on the page (`0.0` to `1.0`) |
 
-Example result:
-
+{{ example result }}
 ```json
 [
   {
@@ -85,8 +85,9 @@ Example result:
 
 ## `staticsearch.fetchTimeout` property
 
-StaticSearch permits up to five seconds for loading an index file. This should be adequate for most sites, but you can specify any `.fetchTimeout` limit in milliseconds, e.g.
+StaticSearch permits up to five seconds to load an index file. This should be adequate for most sites, but you can specify any `.fetchTimeout` limit in milliseconds, e.g.
 
+{{ JavaScript excerpt }}
 ```js
 // set fetch timeout to 10 seconds
 staticsearch.fetchTimeout = 10000;
@@ -105,6 +106,7 @@ Whenever a search runs, StaticSearch triggers events on the page's `document` ob
 
 This event triggers when `staticsearch.find()` runs and before any results are available. The search term is available in the event object's `detail.search` property:
 
+{{ JavaScript excerpt }}
 ```js
 // search started
 document.addEventListener('staticsearch:find', e => {
@@ -122,6 +124,7 @@ document.addEventListener('staticsearch:find', e => {
 
 This event triggers when search results are ready. The search term and results array are available in the event object's `detail.search` and `detail.result` properties:
 
+{{ JavaScript excerpt }}
 ```js
 // search result available
 document.addEventListener('staticsearch:result', e => {
