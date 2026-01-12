@@ -129,12 +129,16 @@ code {
 	line-height: 1.3;
 	direction: ltr;
 	text-align: start;
-	white-space: pre;
+	white-space: pre-wrap;
 	word-spacing: normal;
 	word-break: normal;
 	tab-size: 2;
 	hyphens: none;
 	color: var(--color-code-fore);
+}
+
+pre, pre > code {
+	white-space: pre;
 }
 
 :where(h1, h2, h3, h4) code {
