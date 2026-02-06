@@ -5,7 +5,7 @@ description: More information about the jsTACS rendering engine used in Publican
 date: 2025-01-23
 modified: 2026-02-06
 priority: 0.9
-tags: jsTACS, templates, template literals, markdown, HTML
+tags: jsTACS, templates, template literals, markdown, HTML, JavaScript
 ---
 
 Publican uses [jsTACS](https://www.npmjs.com/package/jstacs) -- *JavaScript Templating and Caching System* -- as its templating engine. Unlike other engines, there's no special files or syntax. You just use JavaScript template literals such as:
