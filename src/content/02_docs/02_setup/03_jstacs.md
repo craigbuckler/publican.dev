@@ -3,7 +3,7 @@ title: The jsTACS template engine
 menu: jsTACS
 description: More information about the jsTACS rendering engine used in Publican templates.
 date: 2025-01-23
-modified: 2025-03-19
+modified: 2026-02-06
 priority: 0.9
 tags: jsTACS, templates, template literals, markdown, HTML
 ---
@@ -253,7 +253,7 @@ results in:
 console.log('Hello World!');
 ```
 
-Simpler expressions will work as expected, but you can **not** use expressions with internal backtick (<code>`</code>) characters. This will cause an error:
+Simpler expressions will work as expected, but you can **not** use backtick (<code>`</code>) characters anywhere in your code. This will cause an error:
 
 {{ `example.js` fails }}
 ```js
@@ -264,27 +264,29 @@ alert: Hello world!
 ${ data.alert ? `// ${ data.alert }` : ''}
 ```
 
-Template literals intended for runtime processing must use `!{ expressions }`{language=js} to ensure errors are not triggered during the build, e.g.
+Use string concatenation to fix the issue:
 
+{{ `example.js` works }}
 ```js
-const name = 'Craig';
-console.log(`Hello !{ name }`);
+---
+alert: Hello world!
+---
+// conditional comment
+${ data.alert ? '// ' + data.alert : ''}
 ```
-
-These can use backticks without restrictions and the built code will have standard `${ expressions }`{language=js}.
 
 :::aside
 
 ### JavaScript bundlers
 
-While Publican can be used to process or [copy simpler JavaScript files](--ROOT--docs/setup/pass-through-files/), a dedicated JavaScript bundler such as [esbuild](--ROOT--docs/recipe/build/esbuild/) offers features such as linting, tree shaking, bundling, and minification.
+Although you can use Publican to process or [copy simpler JavaScript files](--ROOT--docs/setup/pass-through-files/), a dedicated JavaScript bundler such as [esbuild](--ROOT--docs/recipe/build/esbuild/) offers features such as linting, tree shaking, bundling, and minification.
 
 :::/aside
 
 
 ## Runtime expressions
 
-`!{ expression }`{language=js} identifies an expression that is ignored during the build but converted to `${ expression }` at the end and remain in the rendered file. Publican can therefore create sites that are *mostly* static, with islands of dynamic values rendered at runtime (also using [jsTACS](https://www.npmjs.com/package/jstacs)).
+You can define `!{ expressions }`{language=js} that are ignored during the build but converted to `${ expression }` at the end so they remain in the rendered file. Publican can create sites that are *mostly* static, with islands of dynamic content rendered at runtime (also using [jsTACS](https://www.npmjs.com/package/jstacs)).
 
 Consider the following content:
 
@@ -322,7 +324,7 @@ It uses a default template:
 </html>
 ```
 
-Publican builds the following static HTML page. The title and content have rendered, but `!{ data.today }`{language=js} has become `${ data.today }`{language=js}:
+Publican builds the following static HTML page. It renders `${ data.title }`{language=js} and `${ data.content }`{language=js}, but `!{ data.today }`{language=js} becomes `${ data.today }`{language=js}:
 
 {{ `build/index.html` }}
 ```html
@@ -347,7 +349,7 @@ Publican builds the following static HTML page. The title and content have rende
 </html>
 ```
 
-This partially-rendered template can be used in a framework such as [Express.js](https://expressjs.com/) with [jsTACS](https://www.npmjs.com/package/jstacs) as its rendering engine. It can dynamically set the `data.today` property on every page visit:
+You can use this partially-rendered template in a framework such as [Express.js](https://expressjs.com/) with [jsTACS](https://www.npmjs.com/package/jstacs) as its rendering engine. The dynamic `data.today` value updates on every page visit:
 
 ```js
 import express from 'express';
@@ -371,6 +373,38 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Express started on port ${port}`);
 });
+```
+
+Simpler `!{ expressions }`{language=js} work as expected, but you can **not** use backtick (<code>`</code>) characters anywhere inside them. This fails:
+
+{{ `src/template/_partials/footer.html` fails }}
+```html
+<footer>
+  !{ data.today ? `<p>Today's date is ${ data.today }</p>` : '' }
+</footer>
+```
+
+One way around this restriction is to [define global jsTACS functions](--ROOT--docs/reference/template-globals/#defining-global-functions) that process values at runtime, e.g.
+
+```js
+import express from 'express';
+import { tacs, templateEngine } from 'jstacs';
+
+tacs.fn = {
+  today( date => date ?
+    `<p>Today's date is ${ date }</p>` :
+    ''
+  )
+};
+```
+
+You can use global functions inside content or templates:
+
+{{ `src/template/_partials/footer.html` works }}
+```html
+<footer>
+  !{ tacs.fn.today( data.today ) }
+</footer>
 ```
 
 ::: aside
