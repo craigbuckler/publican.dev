@@ -1,6 +1,6 @@
 ---
 slug: _headers
-comment: set HTTP headers in CloudFlare pages
+comment: Cloudflare HTTP headers. Access-Control-Allow-Origin: * set by default
 ---
 ${ tacs.root }*
   X-Frame-Options: DENY
