@@ -39,6 +39,16 @@ This theme is an ideal starting point for web-based documentation. It features m
 
   [github.com/craigbuckler/publican.theme.doc](https://github.com/craigbuckler/publican.theme.doc)
 
+A single hue value (`0` to `360`) set in the `.env.dev` file can provide complimentary light and dark mode color schemes:
+
+{{ `.env.dev` }}
+```bash
+# default blue
+SITE_THEMEHUE=270
+```
+
+If necessary, you can override this and specify your own CSS colors. The theme uses [esbuild](https://esbuild.github.io/) to bundle and minify client-side CSS and JavaScript files.
+
 
 ## Publican.dev website
 
