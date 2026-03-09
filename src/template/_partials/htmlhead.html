@@ -13,7 +13,7 @@ img-src 'self' data:;
 media-src 'self';
 font-src 'none';
 style-src 'self';
-script-src 'self' 'sha256-ZOX448l7rXKv9iyuV8zV2PRNOWPsjZ7tkddjiBxmzqw=' 'sha256-OM0hjhCFzKhe37rKuW7480xLoDyRIzyLMKCvzoH6tGU=' static.cloudflareinsights.com 'sha256-hGia+rU1eovc6J9/Y5VLmwXOuoZo6Qs2ciYHHzdQKUY=';
+script-src 'self' 'sha256-${ tacs.script.get('theme').hash }' 'sha256-${ data.script.get('schema').hash }' 'sha256-${ tacs.script.get('speculation').hash }' static.cloudflareinsights.com;
 connect-src 'self' cloudflareinsights.com;
 form-action 'none';
 frame-src 'none';
@@ -24,7 +24,7 @@ manifest-src 'self';
 <link rel="stylesheet" href="${ tacs.root }css/main.css">
 <script type="module" src="${ tacs.root }js/main.js"></script>
 <script type="module" src="${ tacs.root }search/staticsearch-component.js"></script>
-<script>document.documentElement.dataset.theme=localStorage.getItem('theme')||''</script>
+${ tacs.script.get('theme').code }
 
 <!-- meta -->
 <meta name="description" content="${ data.description || tacs.config.description }">
@@ -59,6 +59,9 @@ manifest-src 'self';
 <link rel="icon" type="image/png" sizes="32x32" href="${ tacs.root }favicon032.png">
 <link rel="icon" type="image/png" sizes="16x16" href="${ tacs.root }favicon016.png">
 <link rel="manifest" href="${ tacs.root }site.webmanifest">
+
+<!-- structured data -->
+${ data.script.get('schema').code }
 
 <!-- social media -->
 <meta property="og:site_name" content="Publican.dev">

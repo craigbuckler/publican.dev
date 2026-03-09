@@ -25,6 +25,21 @@ The theme can quicky be configured by [editing an `.env` file](https://publican-
   [github.com/craigbuckler/publican.theme.basic](https://github.com/craigbuckler/publican.theme.basic)
 
 
+## Documentation theme
+
+This theme is an ideal starting point for web-based documentation. It features main menus, page menus, [StaticSearch](--ROOT--tools/staticsearch/), easy theming, a responsive layout, a light/dark switcher, sitemaps, security, and a 100% Lighthouse performance score.
+
+<img src="--ROOT--images/publican-theme-doc.avif" alt="Publican documentation theme" width="1590" height="1425" />
+
+* **Demonstration site**
+
+  [https://publican-theme-doc.pages.dev/](https://publican-theme-doc.pages.dev/)
+
+* **Github repository**
+
+  [github.com/craigbuckler/publican.theme.doc](https://github.com/craigbuckler/publican.theme.doc)
+
+
 ## Publican.dev website
 
 The code for [the Publican.dev website](--ROOT--) is publicly available. It's not an ideal starter theme, but you may find code snippets you want to use and adapt.
