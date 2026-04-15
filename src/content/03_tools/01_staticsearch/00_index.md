@@ -3,7 +3,7 @@ title: StaticSearch
 menu: StaticSearch
 description: StaticSearch is a client-side search engine that doesn't require a backend server or database. You can add search facilities to any static site such as those created by Publican.
 date: 2025-06-17
-modified: 2026-01-06
+modified: 2026-04-15
 priority: 0.8
 tags: StaticSearch, tools
 ---
@@ -20,13 +20,27 @@ Using StaticSearch is a two-step process:
 
 1. **[Index a directory](--ROOT--tools/staticsearch/search-indexer/) containing your static website files**
 
-   You can index from the command line or in any Node.js project. It supports command line, environment variable, and API property configuration.
+   You can index from the command line or in any Node.js project using configuration options on the command line, environment variable, or API properties, e.g.
+
+   {{ terminal }}
+   ```bash
+   npx staticsearch
+   ```
 
 1. **Add a search facility to your website**
 
-   You can use a [web component](--ROOT--tools/staticsearch/search-web-component/), [bind module](--ROOT--tools/staticsearch/search-bind-module/), or the [search API](--ROOT--tools/staticsearch/search-api/).
+   You can use a [web component](--ROOT--tools/staticsearch/search-web-component/), [bind module](--ROOT--tools/staticsearch/search-bind-module/), or the [search API](--ROOT--tools/staticsearch/search-api/), e.g.
 
-The [following pages](--ROOT--tools/staticsearch/quickstart/) provide full documentation. You can also view:
+   {{ HTML excerpt }}
+   ```html
+   <script type="module" src="/search/staticsearch-component.js"></script>
+
+   <static-search>
+      <p>search</p>
+   </static-search>
+   ```
+
+The [following pages](--ROOT--tools/staticsearch/quickstart/) provide full documentation. See also:
 
 * [StaticSearch on npm](https://www.npmjs.com/package/staticsearch)
 * [StaticSearch Github repository](https://github.com/craigbuckler/staticsearch)

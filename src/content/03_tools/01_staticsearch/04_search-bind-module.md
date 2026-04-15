@@ -3,7 +3,7 @@ title: StaticSearch bind module
 menu: Bind module
 description: How to bind StaticSearch functionality to any page elements to provide a custom user experience.
 date: 2025-06-16
-modified: 2026-01-06
+modified: 2026-04-15
 priority: 0.8
 tags: StaticSearch, HTML, JavaScript
 ---
@@ -47,14 +47,20 @@ Put the `<script>` tag anywhere in your page. It's non-blocking and runs when th
 
 ## Input field attributes
 
-The `<input>` field must use the ID `staticsearch_search` but can have any other HTML attributes set.
+The `<input>` field must use the ID `staticsearch_search` but can have any other HTML attributes set including:
 
-StaticSearch presumes the `name` is `q` and checks its value on the querystring. You can set any other value, e.g.
+| attribute | description |
+|-|-|
+| `name="<str>"` | querystring name |
+| `fuzzy="<num>"` | return up to this many words for partial string matches |
 
-{{ HTML excerpt }}
-```html
-<input type="search" id="staticsearch_search" name="query">
-```
+StaticSearch uses a default `name` of `q` and checks its value on the querystring when the page loads.
+
+The default `fuzzy` value is `6`. Searching for a string such as `"exp"` returns up to six words in the index starting with those characters.
+
+* Setting `fuzzy="3"` returns up to three words
+
+* Setting `fuzzy="1"` or lower reverts to the original search behaviour and the user must type most of the word before results appear.
 
 
 ## Search result attributes
@@ -72,13 +78,13 @@ Search results provide a `found` value indicating the percentage of search words
 
 * setting `minfound="0"`{language=html} (the default) is a *logical OR*. A page appears in results when it contains ANY of the search words.
 
-* setting `minfound="1"`{language=html} is a *logical AND*. A page appears in results when it contains ALL the search words.
+* setting `minfound="1"`{language=html} is a *logical AND*. A page appears in results when it contains ALL the search words. This could be useful for finding recipes that contain specific ingredients.
 
 * setting `minfound="0.5"`{language=html} means a page appears in results when it contains at least half of the search words.
 
 Pages still appear in order of relevancy, but higher `minfound` values will reduce the number of results.
 
-Set a `highlight` attribute to scroll to and highlight the first matching search terms on a results page. This uses [text fragment links](https://developer.mozilla.org/docs/Web/URI/Reference/Fragment/Text_fragments) which can have issues:
+Set a `highlight` attribute to scroll to and highlight the first matching search terms on a results page. This uses the browser's native [text fragment links](https://developer.mozilla.org/docs/Web/URI/Reference/Fragment/Text_fragments) but note:
 
 1. searching for "highlight" will return pages containing "highlighted" and "highlighter", but they are not highlighted.
 
@@ -186,9 +192,27 @@ staticSearchInput( document.getElementById('mysearch') );
 staticSearchResult( document.getElementById('myresult') );
 ```
 
-Pass the `<input>` element to `staticSearchInput(element)`.
+Pass the `<input>` element to `staticSearchInput(element, options)`. The optional `option` object properties can set:
 
-Pass the result element and an optional options object to `staticSearchResult(element, options)`. The option object properties:
+| option property | description |
+|-|-|
+| `fuzzy` | return up to this many words for partial string matches (default `6`) |
+
+Example usage:
+
+{{ JavaScript excerpt }}
+```js
+// bind input element
+staticSearchInput(
+  document.getElementById('mysearch'),
+  {
+    fuzzy: 3
+  }
+);
+```
+
+
+Pass the result element to `staticSearchResult(element, options)`. The optional `option` object properties can set:
 
 | option property | description |
 |-|-|

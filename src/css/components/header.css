@@ -115,7 +115,7 @@ static-search {
   }
 
   h1, h2, h3 {
-    scroll-margin-top: var(--header-fix-height);
+    scroll-margin-block-start: var(--header-fix-height);
   }
 
 }

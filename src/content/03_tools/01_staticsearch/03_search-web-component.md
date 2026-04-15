@@ -3,7 +3,7 @@ title: StaticSearch web component
 menu: Web component
 description: How to add search functionality to any page using the <static-search> web component.
 date: 2025-06-17
-modified: 2026-01-06
+modified: 2026-04-15
 priority: 0.8
 tags: StaticSearch, HTML, CSS, web component
 ---
@@ -41,14 +41,14 @@ The component uses a [Shadow DOM](https://developer.mozilla.org/docs/Web/API/Web
 
 Place `<static-search>`{language=html} anywhere you want a search icon or text -- perhaps in the page `<header>`{language=html}. It requires a single inner element that the user clicks to activate the search. This opens a modal dialog with an input field and results list.
 
-The activation element must be an element with content -- it cannot be empty or text only. You can also assign [`part` attributes for styling](#css-part-selector-styling), e.g.
+The activation element must be an element with content -- it cannot be empty or text only. The element has a `part` attribute of `activate` (unless you override it) which you can [use for styling](#css-part-selector-styling), e.g.
 
 {{ HTML excerpt }}
 ```html
 <static-search title="press Ctrl+K to search">
 
-  <a part="staticsearchactivate" href="https://duckduckgo.com/?q=search%20site:mysite.com">
-    <svg part="staticsearchicon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+  <a href="https://duckduckgo.com/?q=search%20site:mysite.com">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="30" height="30">
       <path d="M10 4a6 6 0 1 0 0 12 6 6 0 0 0 0-12Zm-8 6a8 8 0 1 1 14.3 5l5.4 5.3a1 1 0 0 1-1.4 1.4l-5.4-5.4A8 8 0 0 1 2 10Z"></path>
     </svg>
   </a>
@@ -63,30 +63,47 @@ This example links to [duckduckgo.com search](https://duckduckgo.com/) by defaul
 ::: /aside
 
 
+### Activating search from other elements
+
+Any HTML element with a non-empty `data-static-search` attribute can also activate the search dialog, e.g.
+
+{{ HTML excerpt }}
+```html
+<a href="#" data-static-search="search">search</a>
+```
+
+
 ## Web component attributes
 
 Add any of the following `<static-search>` attributes to control functionality:
 
 | attribute | description |
 |-|-|
-| `title="<string>"` | activation instructions (users can click or press <kbd>Ctrl</kbd>\|<kbd>Cmd</kbd>+<kbd>K</kbd>) |
+| `title="<string>"` | hover-over activation instructions |
 | `label="<string>"` | the label on the search `<input>` |
+| `fuzzy="<num>"` | return up to this many words for partial string matches |
 | `minfound="<num>"` | only show pages containing at least this proportion of search words (`0.0` to `1.0`) |
 | `minscore="<num>"` | only show pages with [total relevancy scores](--ROOT--tools/staticsearch/search-indexer/#word-indexing-options) of this or above on results |
 | `maxresults="<num>"` | show up to this number of pages on the results |
 | `highlight="<any>"` | scroll to and highlight the first matching search terms |
 
+The default `fuzzy` value is `6`. Searching for a string such as `"exp"` returns up to six words in the index starting with those characters.
+
+* Setting `fuzzy="3"` returns up to three words
+
+* Setting `fuzzy="1"` or lower reverts to the original search behaviour and the user must type most of the word before results appear.
+
 Search results provide a `found` value indicating the percentage of search words found on a page, e.g. two of four search words is `0.5`.
 
 * setting `minfound="0"`{language=html} (the default) is a *logical OR*. A page appears in results when it contains ANY of the search words.
 
-* setting `minfound="1"`{language=html} is a *logical AND*. A page appears in results when it contains ALL the search words.
+* setting `minfound="1"`{language=html} is a *logical AND*. A page appears in results when it contains ALL the search words. This could be useful for finding recipes that contain specific ingredients.
 
 * setting `minfound="0.5"`{language=html} means a page appears in results when it contains at least half of the search words.
 
 Pages still appear in order of relevancy, but higher `minfound` values will reduce the number of results.
 
-Set a `highlight` attribute to scroll to and highlight the first matching search terms on a results page. This uses [text fragment links](https://developer.mozilla.org/docs/Web/URI/Reference/Fragment/Text_fragments) which can have issues:
+Set a `highlight` attribute to scroll to and highlight the first matching search terms on a results page. This uses the browser's native [text fragment links](https://developer.mozilla.org/docs/Web/URI/Reference/Fragment/Text_fragments) but note:
 
 1. searching for "highlight" will return pages containing "highlighted" and "highlighter", but they are not highlighted.
 
@@ -214,7 +231,7 @@ You can target `static-search` elements using `::part` selectors. StaticSearch g
 <static-search>
 
   <!-- user-defined activation element -->
-  <p>search</p>
+  <p part="activate">search</p>
 
   <!-- dialog with aria-expanded when open -->
   <dialog part="dialog" aria-expanded="true">
@@ -270,6 +287,11 @@ You can target any element with its `::part` selector:
 {{ CSS excerpt }}
 ```css
 static-search {
+
+  /* activation element */
+  &::part(activate) {
+    color: #00f;
+  }
 
   /* modal dialog */
   &::part(dialog) {

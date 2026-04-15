@@ -3,7 +3,7 @@ title: StaticSearch JavaScript search API
 menu: Search API
 description: How to use the StaticSearch JavaScript API to create your own custom search functionality.
 date: 2025-06-16
-modified: 2026-01-06
+modified: 2026-04-15
 priority: 0.8
 tags: StaticSearch, JavaScript, API
 ---
@@ -14,12 +14,12 @@ You must [run the StaticSearch indexer](--ROOT--tools/staticsearch/search-indexe
 
 ::: /aside
 
-You can create whatever input and output functionality or styling you require by directly calling the StaticSearch JavaScript API. You can use it when the [web component](--ROOT--tools/staticsearch/search-web-component/) and [bind module](--ROOT--tools/staticsearch/search-bind-module/) do not provide the features you require.
+You can create whatever input and output functionality or styling you require by directly calling the StaticSearch JavaScript API. You can use it if the [web component](--ROOT--tools/staticsearch/search-web-component/) and [bind module](--ROOT--tools/staticsearch/search-bind-module/) do not provide features you require.
 
 
 ## `staticsearch.find()` method
 
-The `staticsearch.find(<term>)` method returns an array of results for a specific search term:
+The `staticsearch.find(<term>[, <fuzzy>])` method returns an array of results for a specific search term:
 
 {{ JavaScript excerpt }}
 ```js
@@ -28,13 +28,20 @@ import { staticsearch } from '/search/staticsearch.js';
 const result = await staticsearch.find('my search query');
 ```
 
+The second `fuzzy` argument returns a number words for partial string matches (default `6`). Using a `fuzzy` value of `1` looks for exact word matches:
+
+{{ JavaScript excerpt }}
+```js
+const result = await staticsearch.find('my search query', 1);
+```
+
 :::aside
 
 This example uses ES6 module code. It loads 6Kb of JavaScript and associated index data when a searching for a term.
 
 :::/aside
 
-`result` will hold an array of page objects sorted into highest to lowest relevancy order. Each object has the properties:
+The returned `result` holds an array of page objects sorted from highest to lowest relevancy. Each page object has the properties:
 
 | property | description |
 |-|-|
@@ -42,7 +49,7 @@ This example uses ES6 module code. It loads 6Kb of JavaScript and associated ind
 | `url` | page URL from the root path (string) |
 | `title` | page title/H1 (string) |
 | `date` | page date in `YYYY-MM-DD` format (string) |
-| `words` | page's number of words (number) |
+| `words` | number of words on page (number) |
 | `relevancy` | search relevancy score (number) |
 | `found` | the proportion of search words found on the page (`0.0` to `1.0`) |
 
@@ -104,7 +111,7 @@ Whenever a search runs, StaticSearch triggers events on the page's `document` ob
 
 ### `staticsearch:find` event
 
-This event triggers when `staticsearch.find()` runs and before any results are available. The search term is available in the event object's `detail.search` property:
+This event triggers when `staticsearch.find()` runs (before results are available). The search term is available in the event object's `detail.search` property:
 
 {{ JavaScript excerpt }}
 ```js

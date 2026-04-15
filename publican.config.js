@@ -130,7 +130,7 @@ staticsearch.searchdir = publican.config.dir.build + 'search/';
 staticsearch.domain = tacs.config.domain;
 staticsearch.pageDOMSelectors = 'main';
 staticsearch.pageDOMExclude = 'header,nav,nav-heading,menu,footer';
-staticsearch.stopWords = '';
+staticsearch.stopWordsDefault = false;
 await staticsearch.index();
 
 

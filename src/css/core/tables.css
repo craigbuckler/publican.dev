@@ -1,5 +1,5 @@
 .tablescroll {
-  overflow-x: auto;
+  overflow-inline: auto;
 }
 
 table {

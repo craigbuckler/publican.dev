@@ -1,7 +1,7 @@
 ---
 title: LiveLocalhost documentation for Large Language Models (AI)
 slug: livelocalhost/llms.txt
-index: true
+index: monthly
 priority: 0.01
 groups: llm
 ---

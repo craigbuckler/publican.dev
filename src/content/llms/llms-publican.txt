@@ -1,7 +1,7 @@
 ---
 title: Publican documentation for Large Language Models (AI)
 slug: llms.txt
-index: true
+index: monthly
 priority: 0.03
 groups: llm
 ---

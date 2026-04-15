@@ -27,7 +27,7 @@
     inset-inline-end: 1.5em;
     inline-size: auto;
     margin-block: 0;
-    overflow-y: auto;
+    overflow-block: auto;
     border-inline-start: 1px solid var(--color-back2);
 
     & > details {

@@ -24,14 +24,14 @@
   .menucontent {
     position: absolute;
     inline-size: 16em;
-    max-block-size: calc(100vh - var(--header-height) - var(--layout-margin));
+    max-block-size: calc(100vb - var(--header-height) - var(--layout-margin));
     inset-block-start: 99%;
     inset-inline-end: 0;
     padding-block: 1rem;
     background-color: var(--color-back2);
     border-block-end: 4px solid var(--color-back2);
     box-shadow: 0 3px 2px var(--color-shadow);
-    overflow-y: auto;
+    overflow-block: auto;
     overscroll-behavior: none;
 
     a, strong {

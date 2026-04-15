@@ -3,12 +3,12 @@ title: How StaticSearch works
 menu: How StaticSearch works
 description: An overview of how StaticSite indexes web pages and provides client-side only search engine functionality.
 date: 2025-06-13
-modified: 2026-01-06
+modified: 2026-04-15
 priority: 0.8
 tags: StaticSearch, JavaScript
 ---
 
-This page explains how StaticSite works. It's not essential to read or understand, but it may help you create more effective search indexes for your site.
+This page explains how StaticSite works. It's not essential to read or understand the process, but it may help you create more effective search indexes.
 
 
 ## Overview
@@ -25,7 +25,7 @@ SiteSearch requires:
 
 * Indexing a typical 1,000 page site takes less than six seconds and generates 800Kb of word index data.
 
-Index data is incrementally loaded on demand as you search for different words. The browser caches index data ([IndexedDB](https://www.npmjs.com/package/pixdb)) so results appear faster the more searches you do.
+Index data is incrementally loaded on demand as you search for different words. The browser caches index data (in [IndexedDB](https://www.npmjs.com/package/pixdb)) so results appear faster the more searches you do.
 
 
 ### StaticSearch vs other engines
@@ -40,24 +40,24 @@ JavaScript-only search options such as [Lunr](https://lunrjs.com/) require you t
 
 StaticSearch is easier to use, is fully compatible with Publican sites, but works with any other static site generator. It:
 
-1. quickly indexes built pages (like pagefind)
-1. requires no special HTML markers or content changes
+1. quickly indexes built HTML pages (like pagefind)
+1. requires no special HTML markers, content changes, or formatting
 1. is pure JavaScript and JSON without any CSP issues, and
-1. has a small payload.
+1. has a tiny payload.
 
 It doesn't offer advanced features such as phrase matching, but search results are generally good.
 
 
 ## Indexer processing
 
-This section explain how the indexer processes HTML files to find and index words.
+This section explains the default indexer processing. Note that [configuration options](--ROOT--tools/staticsearch/search-indexer/#indexer-configuration) can override most settings.
 
 
 ### 1. Find all indexable HTML pages
 
 The indexer locates every HTML file in every sub-directory of the `build/` directory and determines its URL slug. It checks `robots.txt` `Disallow` rules and removes files as necessary.
 
-All file content is then loaded, but it removes pages with a `noindex` meta tag.
+All file content is then loaded, but pages with `noindex` meta tags are removed.
 
 
 ### 2. Parse HTML content
@@ -109,7 +109,7 @@ Each word receives a score according to where it's found:
 | alt tags | 1 |
 | inbound link | 5 |
 
-Consider a page with the words "Star Wars" in the title, description, content, `<h2>`{language=html}, and an `<em>`{language=html}. The word *"star"* scores:
+Consider a page with the words "Star Wars" in the title, description, content, an `<h2>`{language=html}, and an `<em>`{language=html}. The word *"star"* scores:
 
 10 + 8 + 6 + 2 + 1 = 27
 
@@ -138,7 +138,7 @@ StaticSearch writes word index files to the `/search/data/` directory inside the
 
 A `pu.json` file would provide information about words such as "publican", "publicize", "publish", "puddle", "puffin", etc. The words *"star"* and *"wars"* appear in the data files `st.json` and `wa.json` respectively.
 
-Some files are not generated -- *few words begin "zz"* -- and files such as `co.json` and `de.json` will probably contain more data than `qq.json`.
+Files are only generated when necessary -- *few words begin "zz"* -- and files such as `co.json` and `de.json` will usually contain more data than `qq.json`.
 
 
 ### 6. Write an `index.json` file
@@ -147,7 +147,7 @@ StaticSearch creates a single `/search/index.json` file that contains:
 
 1. an array of all pages in numerical (ID) order with the slug, title, description, date, and word count
 1. an array of all generated word indexes such as *"st"* and *"wa"*
-1. an array of stop words when available.
+1. an array of stop words for the language.
 
 
 ### 7. Write JavaScript and CSS files
@@ -166,7 +166,7 @@ It embeds information in these files including:
 
 * the language/stem file
 * the word cropping value
-* a *version* hash generated from all word index data. This identifies whether something has changed since the last indexer run.
+* a *version* hash generated from all word index data. This identifies whether data has changed since the last indexer run.
 
 
 ## Client-side search functionality
@@ -176,16 +176,16 @@ This sections explains the client-side search processing.
 
 ### `staticsearch.js` search API
 
-After the DOM has loaded, `staticsearch.js` checks the current version hash. If it doesn't exist or has changed, it downloads `index.json` and initializes a client-side [IndexedDB](https://www.npmjs.com/package/pixdb) database with the following stores:
+After the DOM has loaded, `staticsearch.js` checks the data version hash. If it doesn't exist or has changed, it downloads `index.json` and initializes a client-side [IndexedDB](https://www.npmjs.com/package/pixdb) database with the following stores:
 
 | store | description |
 |-|-|
-| `cfg` | the current version hash and list of stop words |
+| `cfg` | the current data version hash and list of stop words |
 | `page` | a list of all indexed pages with their numeric ID, title, description, date, and word count |
 | `file` | the list of word `data` index files and whether they've been loaded |
-| `index` | each word, the page ID(s) where it appears, and the associated relevancy score |
+| `index` | each word, the page ID(s) where it appears, and the associated relevancy scores |
 
-Nothing else occurs until the asynchronous `.find()` method receives a search string such as *"Star Wars"*. The method:
+Nothing else occurs until the [asynchronous `.find()` method](--ROOT--tools/staticsearch/search-api/#staticsearchfind-method) receives a search string such as *"Star Wars"*. The method:
 
 1. Triggers a `staticsearch:find` event on the document to indicate search has started.
 
@@ -195,7 +195,7 @@ Nothing else occurs until the asynchronous `.find()` method receives a search st
 
    * checks the `file` store to see if the word index data was previously loaded (`data/st.json`). If necessary, it loads that file and puts every word (beginning with *"st"*) into the `index` store.
 
-   * attempts to locate the word in the `index` store. It adds associated page IDs and relevancy scores to a list of page and score metrics.
+   * attempts to locate one or more words in the `index` store that start with *"star"*. It adds associated page IDs and relevancy scores to a list of page and score metrics.
 
 1. It creates a result array containing a list of page objects with their URL, title, description, date, word count, total `relevancy` score, and the proportion of search words `found`. It sorts the array by:
 
@@ -248,7 +248,7 @@ Assuming the [index generated above](#a-5-write-word-index-files), a search for 
 
 ### `staticsearch-bind.js` bind module
 
-The bind module can automatically or programmatically attach StaticSearch functionality to HTML elements. It handles:
+The [bind module](--ROOT--tools/staticsearch/search-bind-module/) can automatically or programmatically attach StaticSearch functionality to HTML elements. It handles:
 
 * `<input>` debouncing and initiating calls to the [search API](#staticsearchjs-search-api)
 * displaying results according to `minFound`, `minScore`, `maxResults`, and `highlight` settings
@@ -260,7 +260,7 @@ The `staticSearchInput( field )` function checks the field is not already handle
 
 1. Fetches the `<input>` `name` attribute (`q` is used by default) and checks whether a value has been set on the URL querystring or previously stored in `sessionStorage`.
 
-1. The field is monitored for changes, but debounced to ensure no further changes occur for 500 milliseconds.
+1. The input field is monitored for changes, but debounced to ensure no further changes occur for 500 milliseconds.
 
 When either event arises, the input value is stored in `sessionStorage` and passed `staticsearch.find()` to start a search. Note that `staticSearchInput()` does not process the result of the search query.
 
@@ -271,19 +271,19 @@ The `staticSearchResult( element )` function checks the element is not already h
 
 1. Defines the result item template from a passed value, an element with the ID `staticsearch_item`, or a default DOM fragment.
 
-1. An event handler listens for `staticsearch:result` events, parses the incoming result, and updates the results element. The first time this happens after a page load, it checks whether a `#hash` is set on the URL and scrolls to that result.
+1. An event handler listens for `staticsearch:result` events. It parses incoming results and updates the results element. The first time this happens after a page load, it checks whether a `#hash` is set on the URL and scrolls to that result.
 
 1. Another event handler triggers when any result is clicked. It updates the URL querystring and hash so clicking back shows the search result.
 
 
 ### `staticsearch-component.js` web component
 
-This script provides functionality for the `<static-search>`{language=html} web component. It handles:
+This script provides functionality for the [`<static-search>`{language=html} web component](--ROOT--tools/staticsearch/search-web-component/). It handles:
 
 1. Creation of a shadow DOM and loading a stylesheet.
 
-1. Creating a `<dialog>`{language=html} element with a close button, input field, and results element. These are passed to the `staticSearchInput()` and `staticSearchResult()` functions in the [bind module](#staticsearch-bindjs-bind-module).
+1. Creating a `<dialog>`{language=html} element with a close button, input field, and results element. These are passed to the `staticSearchInput()` and `staticSearchResult()` functions in the [bind module](#staticsearchbindjs-bind-module).
 
-1. Copying the clickable element into the shadow DOM and attaching a click event handler to open the `<dialog>`. A similar handler also handles <kbd>Ctrl</kbd> | <kbd>Cmd</kbd> + <kbd>K</kbd> keyboard events on the `window` element.
+1. Copying the activation element into the shadow DOM and attaching event handlers to open the `<dialog>`.
 
-The component's design allows you to use it in any site with minimal configuration. It uses a shadow DOM to ensure you don't unintentionally style the generated HTML and break the layout. Safer CSS styling is available with custom properties and shadow `::parts`.
+The component's design allows you to use it in any site with minimal configuration. It uses a shadow DOM to ensure you don't unintentionally style the generated HTML and break the layout. Safer CSS styling is available with [custom properties](--ROOT--tools/staticsearch/search-web-component/#css-custom-property-styling) and [shadow `::part`](--ROOT--tools/staticsearch/search-web-component/#css-part-selector-styling).
