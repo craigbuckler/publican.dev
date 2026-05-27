@@ -13,7 +13,7 @@ heroAlt: search
 heroCaption: Image courtesy of <a href="https://unsplash.com/@elijahjmears">Elijah Mears</a>
 ---
 
-[StaticSearch v0.7.0](https://www.npmjs.com/package/staticsearch) was released on <time datetime="${{ tacs.fn.format.dateISO( '2026-04-14' ) }}">${{ tacs.fn.format.dateHuman( '2026-04-14' ) }}</time>. There should be no breaking changes but there are a few new features included *fuzzier* results generation.
+[StaticSearch v0.7.0](https://www.npmjs.com/package/staticsearch) was released on <time datetime="${{ tacs.lib.format.dateISO( '2026-04-14' ) }}">${{ tacs.lib.format.dateHuman( '2026-04-14' ) }}</time>. There should be no breaking changes but there are a few new features included *fuzzier* results generation.
 
 
 ## Fuzzy search results

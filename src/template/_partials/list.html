@@ -1,7 +1,7 @@
 ${ data?.pagination?.page?.length && `
   <nav class="pagelist">
-    ${ data?.pagination?.page.map(p => tacs.fn.format.articleLink(p, 'h2')).join('') }
+    ${ data?.pagination?.page.map(p => tacs.fn.articleLink(p, 'h2')).join('') }
   </nav>
 ` }
 
-${ tacs.fn.nav.pagination( data.pagination ) }
+${ tacs.lib.nav.pagination( data.pagination ) }

@@ -12,7 +12,7 @@ heroAlt: search
 heroCaption: Image courtesy of <a href="https://unsplash.com/@olloweb">Agence Olloweb</a>
 ---
 
-[StaticSearch v0.6.0](https://www.npmjs.com/package/staticsearch) was released on <time datetime="${{ tacs.fn.format.dateISO( '2026-01-06' ) }}">${{ tacs.fn.format.dateHuman( '2026-01-06' ) }}</time>. There should be no breaking changes but there are a few new features and results ordering may change.
+[StaticSearch v0.6.0](https://www.npmjs.com/package/staticsearch) was released on <time datetime="${{ tacs.lib.format.dateISO( '2026-01-06' ) }}">${{ tacs.lib.format.dateHuman( '2026-01-06' ) }}</time>. There should be no breaking changes but there are a few new features and results ordering may change.
 
 
 ## Improved results ordering

@@ -73,6 +73,6 @@ ${ tacs.fn.format.dateHuman( data.date, 'es-ES' ) }.</em></p>
 
 The result:
 
-*This post was written on ${{ tacs.fn.format.dateHuman( data.date ) }}.*
+*This post was written on ${{ tacs.lib.format.dateHuman( data.date ) }}.*
 
-*Esta publicación fue escrita el ${{ tacs.fn.format.dateHuman( data.date, 'es-ES' ) }}.*
+*Esta publicación fue escrita el ${{ tacs.lib.format.dateHuman( data.date, 'es-ES' ) }}.*

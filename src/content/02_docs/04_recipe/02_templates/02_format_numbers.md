@@ -64,6 +64,6 @@ A function named `tacs.fn.format.number()`{language=js} is now available to cont
 
 The result:
 
-*Value ${{ tacs.fn.format.number( 12345.678 ) }}*
+*Value ${{ tacs.lib.format.number( 12345.678 ) }}*
 
-*Valor ${{ tacs.fn.format.number( 12345.678, 'es-ES' ) }}*
+*Valor ${{ tacs.lib.format.number( 12345.678, 'es-ES' ) }}*

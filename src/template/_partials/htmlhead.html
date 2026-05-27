@@ -2,7 +2,7 @@
 <html lang="${ tacs.config.language }" dir="ltr">
 <head>
 <meta charset="UTF-8">
-<title>${ data.title || tacs.config.title }${ data?.pagination?.pageTotal > 1 ? ` (page ${ tacs.fn.format.number( data.pagination.pageCurrent1 ) } of ${ tacs.fn.format.number( data.pagination.pageTotal ) })` : ''}</title>
+<title>${ data.title || tacs.config.title }${ data?.pagination?.pageTotal > 1 ? ` (page ${ tacs.lib.format.number( data.pagination.pageCurrent1 ) } of ${ tacs.lib.format.number( data.pagination.pageTotal ) })` : ''}</title>
 <meta name="viewport" content="width=device-width,initial-scale=1,interactive-widget=overlays-content">
 
 <!-- Content Security Policy -->
@@ -72,8 +72,8 @@ ${ data.script.get('schema').code }
 <meta property="og:locale" content="${ tacs.config.language }">
 <meta property="og:image" content="${ tacs.config.domain }${ tacs.root }${ data.hero || 'favicon512.png' }">
 ${ data.isDirIndex || data.isTagIndex ? '' : `
-<meta property="article:published_time" content="${ tacs.fn.format.dateISO( data.date ) }">
-<meta property="article:modified_time" content="${ tacs.fn.format.dateISO( data.modified || data.date ) }">
+<meta property="article:published_time" content="${ tacs.lib.format.dateISO( data.date ) }">
+<meta property="article:modified_time" content="${ tacs.lib.format.dateISO( data.modified || data.date ) }">
 ` }
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@craigbuckler">

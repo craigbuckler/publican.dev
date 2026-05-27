@@ -7,7 +7,7 @@
 <atom:link href="${ tacs.config.domain }${ tacs.root }feed.xml" rel="self" type="application/rss+xml" />
 <language>${ tacs.config.language }</language>
 <description>${ tacs.config.description }</description>
-<lastBuildDate>${ tacs.fn.format.dateUTC( tacs.config.buildDate ) }</lastBuildDate>
+<lastBuildDate>${ tacs.lib.format.dateUTC( tacs.config.buildDate ) }</lastBuildDate>
 <sy:updatePeriod>daily</sy:updatePeriod>
 <sy:updateFrequency>1</sy:updateFrequency>
 ${ tacs.dir.get('news').filter(p => p.index !== false).slice(0,10).map(p => `
@@ -15,11 +15,11 @@ ${ tacs.dir.get('news').filter(p => p.index !== false).slice(0,10).map(p => `
 <title>${ p.title }</title>
 <link>${ tacs.config.domain }${ p.link }</link>
 <guid isPermaLink="true">${ tacs.config.domain }${ p.link }</guid>
-<pubDate>${ tacs.fn.format.dateUTC( p.date ) }</pubDate>
+<pubDate>${ tacs.lib.format.dateUTC( p.date ) }</pubDate>
 <dc:creator>${ p.author || tacs.config.author }</dc:creator>
 <description>${ p.description }</description>
 <content:encoded><![CDATA[
-${ tacs.fn.format.rss( p.contentRendered ) }
+${ tacs.lib.feed.rss( p.contentRendered, tacs.config.domain, tacs.root ) }
 ]]></content:encoded>
 </item>
 `)

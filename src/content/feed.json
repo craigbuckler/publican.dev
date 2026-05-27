@@ -4,7 +4,7 @@
   "home_page_url": "${ tacs.config.domain }${ tacs.root }",
   "feed_url": "${ tacs.config.domain }${ data.link }",
   "title": "${ tacs.config.title }",
-  "description": "${ tacs.fn.format.json( tacs.config.description ) }",
+  "description": "${ tacs.lib.feed.json( tacs.config.description, tacs.config.domain, tacs.root ) }",
   "icon": "${ tacs.config.domain }${ tacs.root }favicon512.png",
   "favicon": "${ tacs.config.domain }${ tacs.root }favicon.svg",
   "items": [
@@ -12,14 +12,14 @@
     {
       "id": "${ tacs.config.domain }${ p.link }",
       "url": "${ tacs.config.domain }${ p.link }",
-      "date_published": "${ tacs.fn.format.dateISOfull( p.date ) }",
-      "date_modified": "${ tacs.fn.format.dateISOfull( p.modified || p.date ) }",
-      "title": "${ tacs.fn.format.json( p.title ) }",
-      "summary": "${ tacs.fn.format.json( p.description ) }",
+      "date_published": "${ tacs.lib.format.dateISOfull( p.date ) }",
+      "date_modified": "${ tacs.lib.format.dateISOfull( p.modified || p.date ) }",
+      "title": "${ tacs.lib.feed.json( p.title, tacs.config.domain, tacs.root ) }",
+      "summary": "${ tacs.lib.feed.json( p.description, tacs.config.domain, tacs.root ) }",
       ${ p?.tags?.length ? `"tags": [${ p.tags.map(t => `"${ t.tag }"`).join(',') }],` : '' }
       ${ p.imageHero ? `"image": "${ p.imageHero }",` : '' }
       ${ p.imageSocial ? `"banner_image": "${ p.imageSocial }",` : '' }
-      "content_html": "${ tacs.fn.format.json( p.contentRendered ) }"
+      "content_html": "${ tacs.lib.feed.json( p.contentRendered, tacs.config.domain, tacs.root ) }"
     }${ i < all.length - 1 ? ',' : ''}
     `)}
   ]

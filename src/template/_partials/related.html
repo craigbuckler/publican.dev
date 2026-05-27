@@ -4,7 +4,7 @@ ${ data?.related?.length ? `
     <nav class="pagelist">
       ${ data.related
           .slice(0,3)
-          .map(p => tacs.fn.format.articleLink(p, 'h3'))
+          .map(p => tacs.fn.articleLink(p, 'h3'))
           .join('') }
     </nav>
   </aside>

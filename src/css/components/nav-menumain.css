@@ -42,7 +42,7 @@
       color: var(--color-hint1);
     }
 
-    & > ul:not(.iconlinks) > li:not(:has(ul))::before {
+    & > menu:not(.iconlinks) > li:not(:has(menu))::before {
       display: inline-block;
       font-size: 0.8em;
       text-align: center;

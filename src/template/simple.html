@@ -1,12 +1,12 @@
 ${ include('_partials/htmlhead.html') }
 ${ include('_partials/header.html') }
 
-${ data.directory === 'tools' ? `<nav class="menudir">${ tacs.fn.nav.menuDir( data.link, 'tools' ) }</nav>` : '' }
+${ data.directory === 'tools' ? `<nav class="menudir">${ tacs.lib.nav.menuDir( tacs, 'tools', data.link ) }</nav>` : '' }
 
 <main>
 
   <header>
-    ${ tacs.fn.nav.breadcrumb( data.link ) }
+    ${ tacs.lib.nav.breadcrumb( tacs, data.link ) }
     <h1>${ data.title }</h1>
   </header>
 

@@ -70,6 +70,6 @@ A function named `tacs.fn.format.dateYear()`{language=js} is now available to co
 
 The result:
 
-*Post written in ${ tacs.fn.format.dateYear( data.date ) }.*
+*Post written in ${ tacs.lib.format.dateYear( data.date ) }.*
 
-*&copy;${ tacs.fn.format.dateYear() }*
+*&copy;${ tacs.lib.format.dateYear() }*

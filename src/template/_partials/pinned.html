@@ -7,7 +7,7 @@
       tacs.dir.get('news')
         .filter(p => p.pinned)
         .sort((a, b) => b.pinned - a.pinned)
-        .map(p => tacs.fn.format.articleLink(p, 'h3') )
+        .map(p => tacs.fn.articleLink(p, 'h3') )
     }
   </nav>
 

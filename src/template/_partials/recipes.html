@@ -3,7 +3,7 @@ ${ data.menu === 'Recipes' ? `
     ${
       tacs.dir.get('docs')
         .filter(p => p.slug.includes('/recipe/') && p.menu !== 'Recipes')
-        .map(p => tacs.fn.format.articleLink(p, 'h2') )
+        .map(p => tacs.fn.articleLink(p, 'h2') )
         .join('')
     }
   </nav>

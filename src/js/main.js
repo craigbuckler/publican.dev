@@ -7,6 +7,9 @@ import './lib/nav-heading.js';
 // main menu
 import './lib/nav-menu.js';
 
+// records <details> state
+import './lib/details-open.js';
+
 // social sharing links
 import './lib/share.js';
 

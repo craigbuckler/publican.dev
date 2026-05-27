@@ -23,7 +23,7 @@ Like sitemaps, you must [define a domain as a global `tacs` property](--ROOT--do
 
 ## Create a `dateUTC()` function
 
-RSS dates must be output in UTC format such as <code>${{ tacs.fn.format.dateUTC() }}</code>
+RSS dates must be output in UTC format such as <code>${{ tacs.lib.format.dateUTC() }}</code>
 
 [Add the following functions to `lib/format.js`](--ROOT--docs/recipe/templates/function-library/) if not already defined:
 

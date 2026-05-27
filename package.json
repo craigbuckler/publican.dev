@@ -1,6 +1,6 @@
 {
   "name": "publican.dev",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Publican website and documentation",
   "keywords": [
     "publican",
@@ -28,9 +28,10 @@
   "dependencies": {
     "esbuild": "0.28.0",
     "publican": "0.12.1",
+    "publican.lib": "0.1.0",
     "staticsearch": "0.7.0"
   },
   "devDependencies": {
-    "livelocalhost": "1.2.5"
+    "livelocalhost": "1.2.6"
   }
 }

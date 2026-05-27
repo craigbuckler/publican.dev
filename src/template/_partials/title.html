@@ -1,15 +1,15 @@
 <header>
 
-  ${ tacs.fn.nav.breadcrumb( data.link ) }
+  ${ tacs.lib.nav.breadcrumb( tacs, data.link ) }
 
   <h1>${ data.title }</h1>
 
   ${ data.author && `<p class="author">By ${ data.author }</p>` }
 
-  ${ data.date && `<p class="pubdate"><time datetime="${ tacs.fn.format.dateISO( data.date ) }">${ tacs.fn.format.dateHuman( data.date ) }</time>${ data.modified > data.date ? ` (updated <time datetime="${ tacs.fn.format.dateISO( data.modified ) }">${ tacs.fn.format.dateHuman( data.modified ) }</time>)` : '' }</p>` }
+  ${ data.date && `<p class="pubdate"><time datetime="${ tacs.lib.format.dateISO( data.date ) }">${ tacs.lib.format.dateHuman( data.date ) }</time>${ data.modified > data.date ? ` (updated <time datetime="${ tacs.lib.format.dateISO( data.modified ) }">${ tacs.lib.format.dateHuman( data.modified ) }</time>)` : '' }</p>` }
 
   ${ data?.wordCount >= tacs.config.wordCountShow ?
-    `<p class="wordcount">${ tacs.fn.format.numberRound( data.wordCount ) } words, ${ tacs.fn.format.numberRound( Math.ceil( data.wordCount / 200 ) ) }-minute read</p>` :
+    `<p class="wordcount">${ tacs.lib.format.numberRound( data.wordCount ) } words, ${ tacs.lib.format.numberRound( Math.ceil( data.wordCount / 200 ) ) }-minute read</p>` :
     ''
   }
 

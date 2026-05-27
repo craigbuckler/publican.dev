@@ -1,13 +1,13 @@
 ${ include('_partials/htmlhead.html') }
 ${ include('_partials/header.html') }
 
-${ data.directory === 'docs' ? `<nav class="menudir">${ tacs.fn.nav.menuDir( data.link, 'docs' ) }</nav>` : '' }
-${ data.directory === 'tools' ? `<nav class="menudir">${ tacs.fn.nav.menuDir( data.link, 'tools' ) }</nav>` : '' }
+${ data.directory === 'docs' ? `<nav class="menudir">${ tacs.lib.nav.menuDir( tacs, 'docs', data.link ) }</nav>` : '' }
+${ data.directory === 'tools' ? `<nav class="menudir">${ tacs.lib.nav.menuDir( tacs, 'tools', data.link ) }</nav>` : '' }
 
 <main>
 
   ${ data?.pagination &&
-    `<h1>${ data.title }${ data.pagination.pageTotal > 1 ? `, page ${ tacs.fn.format.number( data.pagination.pageCurrent1 ) } of ${ tacs.fn.format.number( data.pagination.pageTotal ) }` : ''}</h1>`
+    `<h1>${ data.title }${ data.pagination.pageTotal > 1 ? `, page ${ tacs.lib.format.number( data.pagination.pageCurrent1 ) } of ${ tacs.lib.format.number( data.pagination.pageTotal ) }` : ''}</h1>`
   }
 
   ${ data.content }
