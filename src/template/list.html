@@ -7,7 +7,7 @@ ${ data.directory === 'tools' ? `<nav class="menudir">${ tacs.lib.nav.menuDir( t
 <main>
 
   ${ data?.pagination &&
-    `<h1>${ data.title }${ data.pagination.pageTotal > 1 ? `, page ${ tacs.lib.format.number( data.pagination.pageCurrent1 ) } of ${ tacs.lib.format.number( data.pagination.pageTotal ) }` : ''}</h1>`
+    `<h1>${ tacs.lib.feed.escape( data.title ) }${ data.pagination.pageTotal > 1 ? `, page ${ tacs.lib.format.number( data.pagination.pageCurrent1 ) } of ${ tacs.lib.format.number( data.pagination.pageTotal ) }` : ''}</h1>`
   }
 
   ${ data.content }

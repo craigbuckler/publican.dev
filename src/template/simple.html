@@ -7,7 +7,7 @@ ${ data.directory === 'tools' ? `<nav class="menudir">${ tacs.lib.nav.menuDir( t
 
   <header>
     ${ tacs.lib.nav.breadcrumb( tacs, data.link ) }
-    <h1>${ data.title }</h1>
+    <h1>${ tacs.lib.feed.escape( data.title ) }</h1>
   </header>
 
   ${ data.content }

@@ -3,7 +3,7 @@
   "language": "${ tacs.config.language }",
   "home_page_url": "${ tacs.config.domain }${ tacs.root }",
   "feed_url": "${ tacs.config.domain }${ data.link }",
-  "title": "${ tacs.config.title }",
+  "title": "${ tacs.lib.feed.json( tacs.config.title, tacs.config.domain, tacs.root ) }",
   "description": "${ tacs.lib.feed.json( tacs.config.description, tacs.config.domain, tacs.root ) }",
   "icon": "${ tacs.config.domain }${ tacs.root }favicon512.png",
   "favicon": "${ tacs.config.domain }${ tacs.root }favicon.svg",

@@ -2,7 +2,7 @@
 <html lang="${ tacs.config.language }" dir="ltr">
 <head>
 <meta charset="UTF-8">
-<title>${ data.title || tacs.config.title }${ data?.pagination?.pageTotal > 1 ? ` (page ${ tacs.lib.format.number( data.pagination.pageCurrent1 ) } of ${ tacs.lib.format.number( data.pagination.pageTotal ) })` : ''}</title>
+<title>${ tacs.lib.feed.escape( data.title || tacs.config.title ) }${ data?.pagination?.pageTotal > 1 ? ` (page ${ tacs.lib.format.number( data.pagination.pageCurrent1 ) } of ${ tacs.lib.format.number( data.pagination.pageTotal ) })` : ''}</title>
 <meta name="viewport" content="width=device-width,initial-scale=1,interactive-widget=overlays-content">
 
 <!-- Content Security Policy -->
@@ -27,8 +27,8 @@ manifest-src 'self';
 ${ tacs.script.get('theme').code }
 
 <!-- meta -->
-<meta name="description" content="${ data.description || tacs.config.description }">
-<meta name="author" content="${ data.author || tacs.config.author }">
+<meta name="description" content="${ tacs.lib.feed.escape( data.description || tacs.config.description ) }">
+<meta name="author" content="${ tacs.lib.feed.escape( data.author || tacs.config.author ) }">
 <link rel="canonical" href="${ tacs.config.domain }${ data.link }">
 
 <!-- search -->
@@ -40,12 +40,12 @@ ${ tacs.script.get('theme').code }
 <link rel="sitemap" type="text/plain" href="${ tacs.config.domain }${ tacs.root }sitemap.txt">
 
 <!-- feeds -->
-<link rel="alternate" type="application/rss+xml" title="${ tacs.config.title }" href="${ tacs.config.domain }${ tacs.root }feed.xml">
-<link rel="alternate" type="application/atom+xml" title="${ tacs.config.title }" href="${ tacs.config.domain }${ tacs.root }feed.xml">
-<link rel="alternate" type="application/feed+json" title="${ tacs.config.title }" href="${ tacs.config.domain }${ tacs.root }feed.json">
+<link rel="alternate" type="application/rss+xml" title="${ tacs.lib.feed.escape( tacs.config.title ) }" href="${ tacs.config.domain }${ tacs.root }feed.xml">
+<link rel="alternate" type="application/atom+xml" title="${ tacs.lib.feed.escape( tacs.config.title ) }" href="${ tacs.config.domain }${ tacs.root }feed.xml">
+<link rel="alternate" type="application/feed+json" title="${ tacs.lib.feed.escape( tacs.config.title ) }" href="${ tacs.config.domain }${ tacs.root }feed.json">
 
 <!-- application -->
-<meta name="application-name" content="${ tacs.config.title }">
+<meta name="application-name" content="${ tacs.lib.feed.escape( tacs.config.title ) }">
 <meta name="theme-color" content="${ tacs.config.themeColor }">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-touch-fullscreen" content="yes">
@@ -66,8 +66,8 @@ ${ data.script.get('schema').code }
 <!-- social media -->
 <meta property="og:site_name" content="Publican.dev">
 <meta property="og:url" content="${ tacs.config.domain }${ data.link }">
-<meta property="og:title" content="${ data.title || tacs.config.title }">
-<meta property="og:description" content="${ data.description || tacs.config.description }">
+<meta property="og:title" content="${ tacs.lib.feed.escape( data.title || tacs.config.title ) }">
+<meta property="og:description" content="${ tacs.lib.feed.escape( data.description || tacs.config.description ) }">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="${ tacs.config.language }">
 <meta property="og:image" content="${ tacs.config.domain }${ tacs.root }${ data.hero || 'favicon512.png' }">

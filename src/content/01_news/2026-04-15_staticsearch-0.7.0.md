@@ -5,7 +5,7 @@ description: StaticSearch v0.7.0 improves search functionality and provides usef
 author: Craig Buckler
 tags: update, tools, StaticSearch
 priority: 1.0
-pinned: 0.9
+pinned: 0.8
 hero: images/binoculars.avif
 heroWidth: 1200
 heroHeight: 600

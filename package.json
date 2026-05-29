@@ -28,7 +28,7 @@
   "dependencies": {
     "esbuild": "0.28.0",
     "publican": "0.12.1",
-    "publican.lib": "0.1.0",
+    "publican.lib": "0.1.2",
     "staticsearch": "0.7.0"
   },
   "devDependencies": {

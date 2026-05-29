@@ -2,9 +2,9 @@
 
   ${ tacs.lib.nav.breadcrumb( tacs, data.link ) }
 
-  <h1>${ data.title }</h1>
+  <h1>${ tacs.lib.feed.escape( data.title ) }</h1>
 
-  ${ data.author && `<p class="author">By ${ data.author }</p>` }
+  ${ data.author && `<p class="author">By ${ tacs.lib.feed.escape( data.author ) }</p>` }
 
   ${ data.date && `<p class="pubdate"><time datetime="${ tacs.lib.format.dateISO( data.date ) }">${ tacs.lib.format.dateHuman( data.date ) }</time>${ data.modified > data.date ? ` (updated <time datetime="${ tacs.lib.format.dateISO( data.modified ) }">${ tacs.lib.format.dateHuman( data.modified ) }</time>)` : '' }</p>` }
 

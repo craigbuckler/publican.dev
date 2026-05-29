@@ -5,7 +5,6 @@ description: How Publican.dev implements performance and security features you c
 author: Craig Buckler
 tags: SSG, performance, HTML, PHP, SEO
 priority: 1.0
-pinned: 0.8
 modified: 2025-02-11
 hero: images/fast.avif
 heroWidth: 1200
