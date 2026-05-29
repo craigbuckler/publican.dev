@@ -70,7 +70,7 @@ A [processContent hook](__/docs/reference/event-functions/#processcontent) that 
 
 ## `htmlBlocks()`
 
-A [processContent hook](__/docs/reference/event-functions/#processcontent) that replaces markdown lines starting `:::` with HTML tags. For example:
+A [processContent hook](__/docs/reference/event-functions/#processcontent) that replaces markdown lines starting with three colons into HTML tags. For example:
 
 {{ content markdown }}
 ```md
