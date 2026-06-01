@@ -110,38 +110,19 @@ npx staticsearch --dom '#main' --domx 'header,footer,nav,div.related'
 
 ## Add search functionality to your site
 
-The easiest way to add search facilities to your site is to use the `<static-search>` web component. Add the following snippet to any template, perhaps in the HTML `<header>`:
+The easiest way to add a search facility to your site is a single `<script>` tag. Add the following code to any template, perhaps in the HTML `<header>`:
 
 {{ template excerpt }}
 ```html
-<script type="module" src="/search/staticsearch-component.js"></script>
-
-<static-search title="press Ctrl+K to search">
-  <p>search</p>
-</static-search>
+<script type="module" src="/search/staticsearch-here.js"></script>
 ```
 
 :::aside
-
-The `<script>` tag can go anywhere in your page. It's non-blocking and runs when the DOM is ready -- near the top of the HTML `<head>` is best.
 
 The code above presumes search index code resides in `/search/`. Change the path if you generated it elsewhere.
 
 :::/aside
 
-Put any HTML element inside `<static-search>` to activate search when clicked. The following example uses an icon that links to a search engine when JavaScript fails or is not available:
-
-{{ template excerpt }}
-```html
-<static-search title="press Ctrl+K to search">
-
-  <a href="https://duckduckgo.com/?q=search%20site:mysite.com">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="30" height="30">
-      <path d="M10 4a6 6 0 1 0 0 12 6 6 0 0 0 0-12Zm-8 6a8 8 0 1 1 14.3 5l5.4 5.3a1 1 0 0 1-1.4 1.4l-5.4-5.4A8 8 0 0 1 2 10Z"></path>
-    </svg>
-  </a>
-
-</static-search>
-```
-
 You'll need to re-build your site after changing its template. You should then [re-run the indexer](#index-a-site) to ensure word indexes are up-to-date.
+
+Pages now show a search icon wherever that `<script>` tag appears in the DOM. Click it to open the search dialog and enter terms.

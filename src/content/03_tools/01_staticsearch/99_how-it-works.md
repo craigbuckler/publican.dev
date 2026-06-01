@@ -19,7 +19,7 @@ It processes unique words in HTML files -- *not the full content*. When you sear
 
 SiteSearch requires:
 
-* 11Kb of JavaScript and 4Kb of CSS for the [web component](#staticsearchcomponentjs-web-component). Sites using the [bind module](#staticsearchbindjs-bind-module) require 8Kb of JavaScript. Sites directly using the [search API](#staticsearchjs-search-api) require less than 6Kb of JavaScript.
+* 12Kb of JavaScript and 5Kb of CSS for the [single script](#staticsearch-herejs-single-script) and [web component](#staticsearchcomponentjs-web-component). Sites using the [bind module](#staticsearchbindjs-bind-module) require 8Kb of JavaScript. Sites directly using the [search API](#staticsearchjs-search-api) require less than 6Kb of JavaScript.
 
 * Indexing a typical 100 page site takes less than one second and generates 100Kb of word index data.
 
@@ -50,7 +50,7 @@ It doesn't offer advanced features such as phrase matching, but search results a
 
 ## Indexer processing
 
-This section explains the default indexer processing. Note that [configuration options](--ROOT--tools/staticsearch/search-indexer/#indexer-configuration) can override most settings.
+This section explains the default indexer processing. Note that [configuration options](__/tools/staticsearch/search-indexer/#indexer-configuration) can override most settings.
 
 
 ### 1. Find all indexable HTML pages
@@ -185,7 +185,7 @@ After the DOM has loaded, `staticsearch.js` checks the data version hash. If it 
 | `file` | the list of word `data` index files and whether they've been loaded |
 | `index` | each word, the page ID(s) where it appears, and the associated relevancy scores |
 
-Nothing else occurs until the [asynchronous `.find()` method](--ROOT--tools/staticsearch/search-api/#staticsearchfind-method) receives a search string such as *"Star Wars"*. The method:
+Nothing else occurs until the [asynchronous `.find()` method](__/tools/staticsearch/search-api/#staticsearchfind-method) receives a search string such as *"Star Wars"*. The method:
 
 1. Triggers a `staticsearch:find` event on the document to indicate search has started.
 
@@ -248,7 +248,7 @@ Assuming the [index generated above](#a-5-write-word-index-files), a search for 
 
 ### `staticsearch-bind.js` bind module
 
-The [bind module](--ROOT--tools/staticsearch/search-bind-module/) can automatically or programmatically attach StaticSearch functionality to HTML elements. It handles:
+The [bind module](__/tools/staticsearch/search-bind-module/) can automatically or programmatically attach StaticSearch functionality to HTML elements. It handles:
 
 * `<input>` debouncing and initiating calls to the [search API](#staticsearchjs-search-api)
 * displaying results according to `minFound`, `minScore`, `maxResults`, and `highlight` settings
@@ -278,7 +278,7 @@ The `staticSearchResult( element )` function checks the element is not already h
 
 ### `staticsearch-component.js` web component
 
-This script provides functionality for the [`<static-search>`{language=html} web component](--ROOT--tools/staticsearch/search-web-component/). It handles:
+This script provides functionality for the [`<static-search>`{language=html} web component](__/tools/staticsearch/search-web-component/). It handles:
 
 1. Creation of a shadow DOM and loading a stylesheet.
 
@@ -286,4 +286,13 @@ This script provides functionality for the [`<static-search>`{language=html} web
 
 1. Copying the activation element into the shadow DOM and attaching event handlers to open the `<dialog>`.
 
-The component's design allows you to use it in any site with minimal configuration. It uses a shadow DOM to ensure you don't unintentionally style the generated HTML and break the layout. Safer CSS styling is available with [custom properties](--ROOT--tools/staticsearch/search-web-component/#css-custom-property-styling) and [shadow `::part`](--ROOT--tools/staticsearch/search-web-component/#css-part-selector-styling).
+The component's design allows you to use it in any site with minimal configuration. It uses a shadow DOM to ensure you don't unintentionally style the generated HTML and break the layout. Safer CSS styling is available with [custom properties](__/tools/staticsearch/search-web-component/#css-custom-property-styling) and [shadow `::part`](__/tools/staticsearch/search-web-component/#css-part-selector-styling).
+
+
+### `staticsearch-here.js` single script
+
+This applies the [single `<script>`{language=html}](__/tools/staticsearch/staticsearch-here/) functionality. It:
+
+1. loads the [web component](#staticsearchcomponentjs-web-component) JavaScript, then
+
+1. locates itself in the page DOM and appends a `<static-search>`{language=html} element with an activation icon.

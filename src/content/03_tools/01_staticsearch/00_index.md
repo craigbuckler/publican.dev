@@ -12,13 +12,13 @@ tags: StaticSearch, tools
 
 StaticSearch is a simple search engine you can add to any static website. It uses client-side JavaScript and JSON data files so there is no need for back-end server technologies or a database.
 
-> Try StaticSearch: click the **search icon** in the header or press <kbd>Ctrl</kbd> | <kbd>Cmd</kbd> + <kbd>K</kbd>
+> Try StaticSearch: click the **search icon** in the header or press <kbd>Ctrl</kbd> + <kbd>K</kbd>
 
 StaticSearch works well with Publican sites but you can **use it on any static website** no matter how it's generated. It works best on English language sites, but most Latin-based (a, b, c ... z) languages will work.
 
 Using StaticSearch is a two-step process:
 
-1. **[Index a directory](--ROOT--tools/staticsearch/search-indexer/) containing your static website files**
+1. **[Index a directory](__/tools/staticsearch/search-indexer/) containing your static website files**
 
    You can index from the command line or in any Node.js project using configuration options on the command line, environment variable, or API properties, e.g.
 
@@ -29,18 +29,14 @@ Using StaticSearch is a two-step process:
 
 1. **Add a search facility to your website**
 
-   You can use a [web component](--ROOT--tools/staticsearch/search-web-component/), [bind module](--ROOT--tools/staticsearch/search-bind-module/), or the [search API](--ROOT--tools/staticsearch/search-api/), e.g.
+   You can use a [single script tag](__/tools/staticsearch/staticsearch-here/), [web component](__/tools/staticsearch/search-web-component/), [bind module](__/tools/staticsearch/search-bind-module/), or the [search API](__/tools/staticsearch/search-api/), e.g. place the following code where you want a search icon to appear:
 
    {{ HTML excerpt }}
    ```html
-   <script type="module" src="/search/staticsearch-component.js"></script>
-
-   <static-search>
-      <p>search</p>
-   </static-search>
+   <script type="module" src="/search/staticsearch-here.js"></script>
    ```
 
-The [following pages](--ROOT--tools/staticsearch/quickstart/) provide full documentation. See also:
+The [following pages](__/tools/staticsearch/quickstart/) provide full documentation. See also:
 
 * [StaticSearch on npm](https://www.npmjs.com/package/staticsearch)
 * [StaticSearch Github repository](https://github.com/craigbuckler/staticsearch)

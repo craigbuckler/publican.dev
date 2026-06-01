@@ -10,11 +10,11 @@ tags: StaticSearch, JavaScript, API
 
 ::: aside
 
-You must [run the StaticSearch indexer](--ROOT--tools/staticsearch/search-indexer/) to generate JavaScript code and JSON word indexes before adding search functionality to your site. This tutorial assumes you generated them to the static site's `/search/` directory.
+You must [run the StaticSearch indexer](__/tools/staticsearch/search-indexer/) to generate JavaScript code and JSON word indexes before adding search functionality to your site. This tutorial assumes you generated them to the static site's `/search/` directory.
 
 ::: /aside
 
-You can create whatever input and output functionality or styling you require by directly calling the StaticSearch JavaScript API. You can use it if the [web component](--ROOT--tools/staticsearch/search-web-component/) and [bind module](--ROOT--tools/staticsearch/search-bind-module/) do not provide features you require.
+You can create whatever input and output functionality or styling you require by directly calling the StaticSearch JavaScript API. You can use it if the [web component](__/tools/staticsearch/search-web-component/) and [bind module](__/tools/staticsearch/search-bind-module/) do not provide features you require.
 
 
 ## `staticsearch.find()` method
@@ -147,4 +147,4 @@ document.addEventListener('staticsearch:result', e => {
 
 ## Re-run the indexer
 
-Once you have added StaticSearch functionality to your static site's templates, you should [re-run the indexer](--ROOT--tools/staticsearch/search-indexer/) to ensure word indexes are up-to-date.
+Once you have added StaticSearch functionality to your static site's templates, you should [re-run the indexer](__/tools/staticsearch/search-indexer/) to ensure word indexes are up-to-date.

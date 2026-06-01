@@ -61,7 +61,7 @@
   /* static-search styles */
   --staticsearch-fontsize: var(--fsize-0);
 
-  --staticsearch-color-back: color-mix(in srgb, var(--color-back2), transparent 40%);
+  --staticsearch-color-back: var(--color-back2);
   --staticsearch-color-border: var(--color-back2);
 
   --staticsearch-color-fore0: var(--color-fore1);

@@ -55,10 +55,6 @@ static-search {
     block-size: auto;
   }
 
-  &::part(dialog) {
-    backdrop-filter: blur(5px);
-  }
-
 }
 
 .themeswitcher {

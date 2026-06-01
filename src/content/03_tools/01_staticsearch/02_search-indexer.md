@@ -60,7 +60,7 @@ Additional help options are available from the CLI:
 
 ## Using the StaticSearch Node.js API
 
-You can configure and run StaticSearch from any Node.js project. This is useful when you want to index a site as part of your build process, perhaps within a [Publican `publican.config.js` configuration file](--ROOT--docs/setup/configuration/).
+You can configure and run StaticSearch from any Node.js project. This is useful when you want to index a site as part of your build process, perhaps within a [Publican `publican.config.js` configuration file](__/docs/setup/configuration/).
 
 To use StaticSearch, install it as a dependency:
 
@@ -251,7 +251,7 @@ The following options control word indexing:
 |`--weightalt` | `WEIGHT_ALT` | `.wordWeight.alt` |word weight for alt tags (`1`)|
 |`--weightcontent` | `WEIGHT_CONTENT` | `.wordWeight.content` |word weight for content (`1`)|
 
-The default `--language` | `LANGUAGE` | `.language` is English (`en`) which provides [word stemming and stop word lists](--ROOT--tools/staticsearch/how-it-works/#a-3-process-words) to reduce the size of the index and provide *fuzzier* searching.
+The default `--language` | `LANGUAGE` | `.language` is English (`en`) which provides [word stemming and stop word lists](__/tools/staticsearch/how-it-works/#a-3-process-words) to reduce the size of the index and provide *fuzzier* searching.
 
 StaticSearch automatically removes common stop words considered insignificant to the meaning of text -- such as "and", "the", and "but" in English. It includes stop words courtesy of [Stopwords ISO](https://github.com/stopwords-iso):
 
@@ -342,8 +342,10 @@ Set:
 
 After indexing your site for the first time, you can add StaticSearch search functionality using any of these options:
 
-1. a [web component](--ROOT--tools/staticsearch/search-web-component/) -- add search using a single HTML `<static-search>`{language=html} tag
+1. a [single script tag](__/tools/staticsearch/staticsearch-here/) -- add search using a single HTML `<script>`{language=html} tag
 
-1. a [bind module](--ROOT--tools/staticsearch/search-bind-module/) -- add search by *binding* HTML elements to search functionality using HTML or JavaScript
+1. a [web component](__/tools/staticsearch/search-web-component/) -- add search using an HTML `<static-search>`{language=html} tag
 
-1. a [search API](--ROOT--tools/staticsearch/search-api/) -- create your own search UI using the JavaScript API.
+1. a [bind module](__/tools/staticsearch/search-bind-module/) -- add search by *binding* HTML elements to search functionality using HTML or JavaScript
+
+1. a [search API](__/tools/staticsearch/search-api/) -- create your own search UI using the JavaScript API.

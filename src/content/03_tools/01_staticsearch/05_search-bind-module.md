@@ -10,17 +10,17 @@ tags: StaticSearch, HTML, JavaScript
 
 ::: aside
 
-You must [run the StaticSearch indexer](--ROOT--tools/staticsearch/search-indexer/) to generate JavaScript code and JSON word indexes before adding search functionality to your site. This tutorial assumes you generated them to the static site's `/search/` directory.
+You must [run the StaticSearch indexer](__/tools/staticsearch/search-indexer/) to generate JavaScript code and JSON word indexes before adding search functionality to your site. This tutorial assumes you generated them to the static site's `/search/` directory.
 
 ::: /aside
 
 The JavaScript bind module can automatically or programmatically attach StaticSearch functionality to HTML `<input>` and result elements. Use it in situations where you want to create a custom search widget but use StaticSearch functionality such as:
 
-* `<input>` debouncing and initiating calls to the [search API](--ROOT--tools/staticsearch/search-api/)
+* `<input>` debouncing and initiating calls to the [search API](__/tools/staticsearch/search-api/)
 * displaying results
 * handling the URL querystring and hash when clicking a result link followed by the back button.
 
-The bind module used by the [web component](--ROOT--tools/staticsearch/search-web-component/) so the processes are similar.
+The bind module used by the [web component](__/tools/staticsearch/search-web-component/) so the processes are similar.
 
 The following example automatically binds `<input>` and results elements using HTML alone:
 
@@ -253,4 +253,4 @@ staticSearchResult(
 
 ## Re-run the indexer
 
-Once you have added StaticSearch functionality to your static site's templates, you should [re-run the indexer](--ROOT--tools/staticsearch/search-indexer/) to ensure word indexes are up-to-date.
+Once you have added StaticSearch functionality to your static site's templates, you should [re-run the indexer](__/tools/staticsearch/search-indexer/) to ensure word indexes are up-to-date.

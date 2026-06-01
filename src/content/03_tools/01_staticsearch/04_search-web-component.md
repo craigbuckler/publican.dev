@@ -10,7 +10,7 @@ tags: StaticSearch, HTML, CSS, web component
 
 ::: aside
 
-You must [run the StaticSearch indexer](--ROOT--tools/staticsearch/search-indexer/) to generate JavaScript code and JSON word indexes before adding search functionality to your site. This tutorial assumes you generated them to the static site's `/search/` directory.
+You must [run the StaticSearch indexer](__/tools/staticsearch/search-indexer/) to generate JavaScript code and JSON word indexes before adding search functionality to your site. This tutorial assumes you generated them to the static site's `/search/` directory.
 
 ::: /aside
 
@@ -83,7 +83,7 @@ Add any of the following `<static-search>` attributes to control functionality:
 | `label="<string>"` | the label on the search `<input>` |
 | `fuzzy="<num>"` | return up to this many words for partial string matches |
 | `minfound="<num>"` | only show pages containing at least this proportion of search words (`0.0` to `1.0`) |
-| `minscore="<num>"` | only show pages with [total relevancy scores](--ROOT--tools/staticsearch/search-indexer/#word-indexing-options) of this or above on results |
+| `minscore="<num>"` | only show pages with [total relevancy scores](__/tools/staticsearch/search-indexer/#word-indexing-options) of this or above on results |
 | `maxresults="<num>"` | show up to this number of pages on the results |
 | `highlight="<any>"` | scroll to and highlight the first matching search terms |
 
@@ -277,6 +277,8 @@ You can target `static-search` elements using `::part` selectors. StaticSearch g
 
     </div>
 
+    <a part="poweredby" href="https://staticsearch.com/">powered by StaticSearch</a>
+
   </dialog>
 
 <static-search>
@@ -321,4 +323,4 @@ static-search {
 
 ## Re-run the indexer
 
-Once you have added StaticSearch functionality to your static site's templates, you should [re-run the indexer](--ROOT--tools/staticsearch/search-indexer/) to ensure word indexes are up-to-date.
+Once you have added StaticSearch functionality to your static site's templates, you should [re-run the indexer](__/tools/staticsearch/search-indexer/) to ensure word indexes are up-to-date.
