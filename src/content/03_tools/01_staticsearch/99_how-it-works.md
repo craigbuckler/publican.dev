@@ -3,7 +3,7 @@ title: How StaticSearch works
 menu: How StaticSearch works
 description: An overview of how StaticSite indexes web pages and provides client-side only search engine functionality.
 date: 2025-06-13
-modified: 2026-04-15
+modified: 2026-06-02
 priority: 0.8
 tags: StaticSearch, JavaScript
 ---
@@ -19,7 +19,7 @@ It processes unique words in HTML files -- *not the full content*. When you sear
 
 SiteSearch requires:
 
-* 12Kb of JavaScript and 5Kb of CSS for the [single script](#staticsearch-herejs-single-script) and [web component](#staticsearchcomponentjs-web-component). Sites using the [bind module](#staticsearchbindjs-bind-module) require 8Kb of JavaScript. Sites directly using the [search API](#staticsearchjs-search-api) require less than 6Kb of JavaScript.
+* 12Kb of JavaScript and 5Kb of CSS for the [single script](#staticsearch-herejs-single-script) or [web component](#staticsearchcomponentjs-web-component). Sites using the [bind module](#staticsearchbindjs-bind-module) require 8Kb of JavaScript. Sites directly using the [search API](#staticsearchjs-search-api) require less than 6Kb of JavaScript.
 
 * Indexing a typical 100 page site takes less than one second and generates 100Kb of word index data.
 

@@ -3,7 +3,7 @@ title: StaticSearch
 menu: StaticSearch
 description: StaticSearch is a client-side search engine that doesn't require a backend server or database. You can add search facilities to any static site such as those created by Publican.
 date: 2025-06-17
-modified: 2026-04-15
+modified: 2026-06-02
 priority: 0.8
 tags: StaticSearch, tools
 ---
@@ -16,7 +16,7 @@ StaticSearch is a simple search engine you can add to any static website. It use
 
 StaticSearch works well with Publican sites but you can **use it on any static website** no matter how it's generated. It works best on English language sites, but most Latin-based (a, b, c ... z) languages will work.
 
-Using StaticSearch is a two-step process:
+After installing [Nodes.js](https://nodejs.org/) 22 or higher, using StaticSearch is a two-step process:
 
 1. **[Index a directory](__/tools/staticsearch/search-indexer/) containing your static website files**
 

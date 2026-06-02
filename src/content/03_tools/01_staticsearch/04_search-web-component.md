@@ -3,7 +3,7 @@ title: StaticSearch web component
 menu: Web component
 description: How to add search functionality to any page using the <static-search> web component.
 date: 2025-06-17
-modified: 2026-04-15
+modified: 2026-06-02
 priority: 0.8
 tags: StaticSearch, HTML, CSS, web component
 ---

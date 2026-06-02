@@ -71,12 +71,19 @@ ${ data.script.get('schema').code }
 <meta property="og:type" content="article">
 <meta property="og:locale" content="${ tacs.config.language }">
 <meta property="og:image" content="${ tacs.config.domain }${ tacs.root }${ data.hero || 'favicon512.png' }">
+${ data.hero ? `<meta property="og:image:width" content="${ data.heroWidth || 1200 }">\n<meta property="og:image:height" content="${ data.heroHeight || 600 }">` : '' }
 ${ data.isDirIndex || data.isTagIndex ? '' : `
 <meta property="article:published_time" content="${ tacs.lib.format.dateISO( data.date ) }">
 <meta property="article:modified_time" content="${ tacs.lib.format.dateISO( data.modified || data.date ) }">
 ` }
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@craigbuckler">
+
+<!-- prefetch -->
+${ data?.postback?.link ? `<link rel="prefetch" href="${ data.postback.link }" as="document">` : '' }
+${ data?.postnext?.link ? `<link rel="prefetch" href="${ data.postnext.link }" as="document">` : '' }
+${ data?.pagination?.hrefBack ? `<link rel="prefetch" href="${ data.pagination.hrefBack }" as="document">` : '' }
+${ data?.pagination?.hrefNext ? `<link rel="prefetch" href="${ data.pagination.hrefNext }" as="document">` : '' }
 
 </head>
 <body${ data.bodyClass ? ` class="${ data.bodyClass }"` : '' }>

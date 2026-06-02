@@ -147,6 +147,7 @@ pre, pre > code {
 
 /* code block */
 pre[class*="language-"] {
+	position: relative;
 	padding: 1em;
 	margin-block: 2rem;
 	overflow: auto;
@@ -255,4 +256,38 @@ pre[class*="language-"], .copycode {
 
 .token.italic {
 	font-style: italic;
+}
+
+/* copy text */
+pre[class*="language-"][tabIndex] {
+
+	outline-offset: 0;
+	background-position: calc(100% - 0.2em) 0.2em;
+	background-size: 1.6em;
+	background-repeat: no-repeat;
+
+	&.copied, &:hover, &:active, &:focus {
+
+		background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="%23888" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M16 4h2a2 2 0 0 1 2 2v4M21 14H11"/><path d="m15 10-4 4 4 4"/></svg>');
+
+	}
+
+	&.copied {
+		animation: copied 0.15s ease-in 0s 4 alternate;
+	}
+
+}
+
+@keyframes copied {
+
+	0% {
+		background-position: calc(100% - 0.2em) 0.2em;
+		background-size: 1.6em;
+	}
+
+	100% {
+		background-position: calc(100% - 0.2em) 1em;
+
+	}
+
 }

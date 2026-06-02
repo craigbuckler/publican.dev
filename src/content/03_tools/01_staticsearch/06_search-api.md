@@ -3,7 +3,7 @@ title: StaticSearch JavaScript search API
 menu: Search API
 description: How to use the StaticSearch JavaScript API to create your own custom search functionality.
 date: 2025-06-16
-modified: 2026-04-15
+modified: 2026-06-02
 priority: 0.8
 tags: StaticSearch, JavaScript, API
 ---

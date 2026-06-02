@@ -3,7 +3,7 @@ title: StaticSearch indexer
 menu: Indexer
 description: How to use and configure the StaticSearch indexer to index words in your static site.
 date: 2025-06-17
-modified: 2026-04-15
+modified: 2026-06-02
 priority: 0.8
 tags: StaticSearch, indexer
 ---

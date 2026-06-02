@@ -40,19 +40,17 @@ body > header {
 
 static-search {
 
+  inline-size: 1.5em;
+  block-size: auto;
   align-content: center;
 
-  &::part(startsearch) {
-    color: var(--color-fore2);
+  &::part(activate) {
+    color: var(--color-fore1);
+    outline: 0 none;
   }
 
-  &::part(startsearch):hover, &::part(startsearch):focus, &::part(startsearch):active {
+  &::part(activate):hover, &::part(activate):focus, &::part(activate):active {
     color: var(--color-hint1);
-  }
-
-  &::part(startsearchicon) {
-    inline-size: 1.5em;
-    block-size: auto;
   }
 
 }

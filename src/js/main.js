@@ -10,6 +10,9 @@ import './lib/nav-menu.js';
 // records <details> state
 import './lib/details-open.js';
 
+// copy code
+import './lib/copycode.js';
+
 // social sharing links
 import './lib/share.js';
 

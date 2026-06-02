@@ -3,7 +3,7 @@ title: StaticSearch single script tag
 menu: Single script tag
 description: How to add search functionality to any page using a single script tag.
 date: 2025-06-17
-modified: 2026-04-15
+modified: 2026-06-02
 priority: 0.8
 tags: StaticSearch, HTML
 ---
@@ -14,7 +14,7 @@ You must [run the StaticSearch indexer](__/tools/staticsearch/search-indexer/) t
 
 ::: /aside
 
-The easiest way to add a search facility to your site is a single `<script>` tag. Add the following code to any template, perhaps in the HTML `<header>` where you want a search icon to appear:
+The easiest way to add a search facility to your site is a single `<script>` tag. Add the following code to any template -- perhaps in the HTML `<header>` -- where you want a search icon to appear:
 
 {{ template excerpt }}
 ```html
@@ -35,7 +35,7 @@ The script automatically loads the [web component](__/tools/staticsearch/search-
 </static-search>
 ```
 
-Refer to the [web component documentation](__/tools/staticsearch/search-web-component/) for template and styling options. The main restriction is that you cannot set [custom attributes](__/tools/staticsearch/search-web-component/#web-component-attributes) that control search results.
+Refer to the [web component documentation](__/tools/staticsearch/search-web-component/) for template and styling options. The main restriction of the single script is that you cannot set [custom attributes](__/tools/staticsearch/search-web-component/#web-component-attributes) to control search results.
 
 
 ## Re-run the indexer

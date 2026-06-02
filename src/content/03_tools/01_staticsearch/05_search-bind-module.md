@@ -3,7 +3,7 @@ title: StaticSearch bind module
 menu: Bind module
 description: How to bind StaticSearch functionality to any page elements to provide a custom user experience.
 date: 2025-06-16
-modified: 2026-04-15
+modified: 2026-06-02
 priority: 0.8
 tags: StaticSearch, HTML, JavaScript
 ---
