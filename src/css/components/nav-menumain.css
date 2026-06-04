@@ -32,7 +32,7 @@
     border-block-end: 4px solid var(--color-back2);
     box-shadow: 0 3px 2px var(--color-shadow);
     overflow-block: auto;
-    overscroll-behavior: none;
+    overscroll-behavior: contain;
 
     a, strong {
       line-height: 1.6;
