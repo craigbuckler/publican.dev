@@ -6,6 +6,10 @@
   fill: var(--color-fore3);
 }
 
+.imgsmall {
+  max-inline-size: 18em;
+}
+
 .wn {
   font-weight: var(--font-weight-normal);
 }

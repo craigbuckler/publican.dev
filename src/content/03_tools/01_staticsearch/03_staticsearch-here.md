@@ -14,14 +14,14 @@ You must [run the StaticSearch indexer](__/tools/staticsearch/search-indexer/) t
 
 ::: /aside
 
-The easiest way to add a search facility to your site is a single `<script>` tag. Add the following code to any template -- perhaps in the HTML `<header>` -- where you want a search icon to appear:
+The easiest way to add a search facility to your site is a single `<script>` tag. Add the following code to any template where you want a search icon to appear (perhaps in the page `<header>`):
 
 {{ template excerpt }}
 ```html
 <script type="module" src="/search/staticsearch-here.js"></script>
 ```
 
-The script automatically loads the [web component](__/tools/staticsearch/search-web-component/) script and updates the DOM at the script's location. It's effectively the same as using this code:
+The script automatically loads the [web component](__/tools/staticsearch/search-web-component/) script and updates the DOM at the script's location. It's effectively the same as inserting this code:
 
 ```html
 <script type="module" src="/search/staticsearch-component.js"></script>

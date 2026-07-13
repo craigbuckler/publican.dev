@@ -5,7 +5,6 @@ description: StaticSearch v0.8.0 provides easier website integration, improved l
 author: Craig Buckler
 tags: update, tools, StaticSearch
 priority: 1.0
-pinned: 0.9
 hero: images/search.avif
 heroWidth: 1200
 heroHeight: 600

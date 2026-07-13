@@ -321,6 +321,26 @@ static-search {
 ```
 
 
+## Mobile virtual keyboards
+
+Mobile keyboards *float* above the StaticSearch `<dialog>`{language=html}:
+
+<img src="__/images/mobile-keyboard-overlay.webp" class="imgsmall" alt="floating mobile keyboard">
+
+You cannot scroll to the end of the results because they're obstructed by the virtual keyboard. You can minimize the keyboard but that requires an extra click and may not be obvious on all devices.
+
+Adding `interactive-widget=resizes-content` to your HTML `viewport` meta tag can improve the user experience, e.g.
+
+{{ HTML <head> }}
+```html
+<meta name="viewport" content="width=device-width,interactive-widget=resizes-content">
+```
+
+This resizes the viewport when the keyboard appears. The `<dialog>`{language=html} height changes accordingly and it becomes easier to scroll through results.
+
+<img src="__/images/mobile-keyboard-resize.webp" class="imgsmall" alt="mobile keyboard resizes viewport">
+
+
 ## Re-run the indexer
 
 Once you have added StaticSearch functionality to your static site's templates, you should [re-run the indexer](__/tools/staticsearch/search-indexer/) to ensure word indexes are up-to-date.

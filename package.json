@@ -26,12 +26,15 @@
     "start": "node --env-file=.env.dev ./publican.config.js"
   },
   "dependencies": {
-    "esbuild": "0.28.0",
-    "publican": "0.12.1",
+    "esbuild": "0.28.1",
+    "publican": "0.12.2",
     "publican.lib": "0.1.2",
-    "staticsearch": "0.8.0"
+    "staticsearch": "0.8.1"
   },
   "devDependencies": {
-    "livelocalhost": "1.2.6"
+    "livelocalhost": "1.2.7"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true
   }
 }
