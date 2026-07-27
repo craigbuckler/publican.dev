@@ -259,7 +259,7 @@ pre:has(code[class*="language-"]), .copycode {
 }
 
 /* copy text */
-pre[class*="language-"][tabIndex] {
+pre[tabIndex] {
 
 	outline-offset: 0;
 	background-position: calc(100% - 0.2em) 0.2em;
