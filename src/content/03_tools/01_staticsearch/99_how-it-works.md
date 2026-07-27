@@ -3,7 +3,7 @@ title: How StaticSearch works
 menu: How StaticSearch works
 description: An overview of how StaticSite indexes web pages and provides client-side only search engine functionality.
 date: 2025-06-13
-modified: 2026-06-02
+modified: 2026-07-27
 priority: 0.8
 tags: StaticSearch, JavaScript
 ---
@@ -25,27 +25,29 @@ SiteSearch requires:
 
 * Indexing a typical 1,000 page site takes less than six seconds and generates 800Kb of word index data.
 
-Index data is incrementally loaded on demand as you search for different words. The browser caches index data (in [IndexedDB](https://www.npmjs.com/package/pixdb)) so results appear faster the more searches you do.
+Index data is incrementally loaded when you search for different words. The browser caches the data (in [IndexedDB](https://www.npmjs.com/package/pixdb)) so results appear faster the more searches you do.
 
 
 ### StaticSearch vs other engines
 
 Static sites cannot easily provide search facilities because there's no back-end framework, language, or database.
 
-You can integrate a third-party search service such as [Alogia](https://www.algolia.com/), [AddSearch](https://www.addsearch.com/), or [Google's Programmable Search Engine](https://programmablesearchengine.google.com/). These index your site and provide a search API, but have an ongoing cost, and can take a while to update.
+You can integrate a third-party search service such as [Alogia](https://www.algolia.com/), [AddSearch](https://www.addsearch.com/), or [Google's Programmable Search Engine](https://programmablesearchengine.google.com/). These index your site and provide a search API, but have an ongoing cost, and can take a some time to update.
 
-JavaScript-only search options such as [Lunr](https://lunrjs.com/) require you to pass content in specific formats. Every page then has a full index of your site, so the payload can become large as your site grows.
+JavaScript-only search options such as [Lunr](https://lunrjs.com/) require you to pass content in specific formats. Every page then has a full index of your site, so the payload becomes large as your site grows.
 
-[pagefind](https://pagefind.app/) analyses your built site and creates WASM binary indexes. Unfortunately, it can require some HTML configuration, requires considerable JavaScript code, and has problems with [Content Security Policies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) (and Safari compatibility).
+[pagefind](https://pagefind.app/) analyses your built site and creates WASM binary indexes. Unfortunately, it requires HTML configuration, considerable JavaScript code, and has problems with [Content Security Policies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) (and Safari compatibility).
 
 StaticSearch is easier to use, is fully compatible with Publican sites, but works with any other static site generator. It:
 
-1. quickly indexes built HTML pages (like pagefind)
-1. requires no special HTML markers, content changes, or formatting
-1. is pure JavaScript and JSON without any CSP issues, and
-1. has a tiny payload.
+1. quickly indexes web pages (like pagefind)
+1. understands HTML so requires no special development, content markers, or code changes
+1. does not require a back-end server or database
+1. is pure front-end JavaScript and JSON without <abbr title="Content Security Policy">CSP</abbr> issues
+1. has no data sharing, privacy, tracking, or cookie implications, and
+1. has a tiny payload with fast performance.
 
-It doesn't offer advanced features such as phrase matching, but search results are generally good.
+It doesn't offer advanced features such as phrase matching, but search results remain good.
 
 
 ## Indexer processing
@@ -76,9 +78,9 @@ It identifies the main content by locating DOM node(s) to index and remove. With
 
 StaticSearch processes words found using the following rules:
 
-1. It removes punctuation, normalizes characters (**&eacute;** becomes **e**), and converts words to lowercase.
+1. It removes punctuation, normalizes characters (*&eacute;* becomes *e*), and converts words to lowercase. Hyphens, underscores, and apostrophes are removed so *"co-worker's"* is indexed as *"coworkers"*.
 
-1. A Porter *"stemming"* algorithm reduces English words to their root or base form. The words "process", "processes", "processing", "processed", etc. effectively become the same.
+1. A Porter *stemming* algorithm reduces English words to their root or base form. The words "process", "processes", "processing", "processed", etc. effectively become the same.
 
    Stemming for other languages may appear in future releases.
 
@@ -88,7 +90,7 @@ StaticSearch processes words found using the following rules:
 
 1. It crops words to a maximum of 7 letters.
 
-1. It removes duplicate words from each set.
+1. Duplicate words are removed.
 
 
 ### 4. Calculate word relevancy scores
@@ -99,6 +101,7 @@ Each word receives a score according to where it's found:
 |-|-|
 | title / h1 heading | 10 |
 | description | 8 |
+| keywords | 1 |
 | h2 heading | 6 |
 | h3 heading | 5 |
 | h4 heading | 4 |
@@ -152,13 +155,13 @@ StaticSearch creates a single `/search/index.json` file that contains:
 
 ### 7. Write JavaScript and CSS files
 
-StaticSearch adds the following (vanilla) JavaScript and CSS files to the `/search/` directory inside the static site:
+StaticSearch adds the following vanilla JavaScript and CSS files to the `/search/` directory inside the static site:
 
 | file | description |
 |-|-|
 | `staticsearch.js` | the core search API functionality |
 | `stem/stem_*.js` | language-specific word stemming functions used by the API |
-| `staticsearch-bind.js` | binds search functionality to an input and results elements (it uses the API) |
+| `staticsearch-bind.js` | binds search functionality to input and result elements (it uses the API) |
 | `staticsearch-component.js` | provides `<static-search>` web component (it uses the bind module and API) |
 | `css/component.css` | web component styling |
 

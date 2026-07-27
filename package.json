@@ -29,7 +29,7 @@
     "esbuild": "0.28.1",
     "publican": "0.12.2",
     "publican.lib": "0.1.2",
-    "staticsearch": "0.8.1"
+    "staticsearch": "0.9.0"
   },
   "devDependencies": {
     "livelocalhost": "1.2.7"

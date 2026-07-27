@@ -87,6 +87,7 @@ staticsearch.domain = tacs.config.domain;
 staticsearch.pageDOMSelectors = 'main';
 staticsearch.pageDOMExclude = 'header,nav,nav-heading,menu,footer';
 staticsearch.stopWordsDefault = false;
+staticsearch.stopWords = 'publican,a,all,an,and,any,are,as,at,be,but,by,can,do,from,go,has,have,he,her,hes,him,how,is,it,me,no,not,of,or,she,shes,that,the,this,was,with,yes,you,your';
 await staticsearch.index();
 
 

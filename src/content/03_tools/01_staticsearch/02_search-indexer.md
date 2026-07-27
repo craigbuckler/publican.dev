@@ -3,7 +3,7 @@ title: StaticSearch indexer
 menu: Indexer
 description: How to use and configure the StaticSearch indexer to index words in your static site.
 date: 2025-06-17
-modified: 2026-06-02
+modified: 2026-07-27
 priority: 0.8
 tags: StaticSearch, indexer
 ---
@@ -136,6 +136,7 @@ The following options control how StaticSearch parses and indexes HTML files:
 |`-s`, `--searchdir` | `SEARCH_DIR` | `.searchDir`|search index data directory (`./build/search/`)|
 |`-d`, `--domain` | `SITE_DOMAIN` | `.siteDomain`|site domain (`http://localhost`)|
 |`-r`, `--root` | `BUILD_ROOT` | `.buildRoot`|site root path (`/`)|
+|`-x`, `--indexext` | `SITE_INDEXEXT` | `.siteIndexExt` |indexed file extension contains (`.htm`)|
 |`-i`, `--indexfile` | `SITE_INDEXFILE` | `.siteIndexFile`|default index file (`index.html`)|
 |`-f`, `--ignorerobotfile` | `SITE_PARSEROBOTSFILE` | `.siteParseRobotsFile`|parse robot.txt Disallows (`true`)|
 |`-m`, `--ignorerobotmeta` | `SITE_PARSEROBOTSMETA` | `.siteParseRobotsMeta`|parse robot meta noindex (`true`)|
@@ -148,13 +149,15 @@ If your pages use links with fully qualified URLs such as `https://mysite.com/pa
 
 StaticSearch presumes the **web root path** is `/` -- so the file `./build/index.html` is your home page. You can set it to another path, such as `/blog/` (`--root` | `BUILD_ROOT` | `.buildRoot`). The file at `./build/index.html` is then presumed to have the URL path `/blog/index.html`.
 
-StaticSearch presumes the **HTML index file** used as the default for directory paths is `index.html`. You can change this to another filename (`--indexfile` | `SITE_INDEXFILE` | `.siteIndexFile`), e.g. `default.htm`.
+StaticSearch **indexes HTML files** with an extension containing `.htm` (so `.htm` and `.html` are valid). You can change the extension match (`--indexext` | `SITE_INDEXEXT` | `.siteIndexExt`), e.g. `.php` for PHP files or `.` for any file with an extension.
 
 :::aside
 
-You *may* be able to index `.php` and similar server-processed files if they contain HTML with chunks of code in [document sections](#document-indexing-options) that are not indexed.
+StaticSearch always attempts to parse HTML content irrespective of the file extension. You *may* be able to index `.php` or similar files if they contain HTML with chunks of server code in [document sections](#document-indexing-options) that are not indexed.
 
 :::/aside
+
+StaticSearch presumes the **HTML index file** used as the default for directory paths is `index.html`. You can change this to another filename (`--indexfile` | `SITE_INDEXFILE` | `.siteIndexFile`), e.g. `default.htm`.
 
 StaticSearch parses the **`robots.txt` file** in the root of the build directory, e.g. omit any file in the `/secret/` and `/personal/` directories:
 
@@ -242,6 +245,7 @@ The following options control word indexing:
 |`--weightlink` | `WEIGHT_LINK` | `.wordWeight.link` |word weight for inbound links (`5`)|
 |`--weighttitle` | `WEIGHT_TITLE` | `.wordWeight.title` |word weight for main title (`10`)|
 |`--weightdesc` | `WEIGHT_DESCRIPTION` | `.wordWeight.description` |word weight for description (`8`)|
+|`--weightkeywords` | `WEIGHT_KEYWORDS` | `.wordWeight.keywords` |word weight for `meta` keywords (`1`)|
 |`--weighth2` | `WEIGHT_H2` | `.wordWeight.h2` |word weight for H2 headings (`6`)|
 |`--weighth3` | `WEIGHT_H3` | `.wordWeight.h3` |word weight for H3 headings (`5`)|
 |`--weighth4` | `WEIGHT_H4` | `.wordWeight.h4` |word weight for H4 headings (`4`)|
@@ -295,6 +299,7 @@ The `--weight` | `WEIGHT_` | `.wordWeight` values define scores allocated to a w
 |-|-|
 | title / h1 heading | 10 |
 | description | 8 |
+| `<meta name="keywords" content="...">` | 1 |
 | h2 heading | 6 |
 | h3 heading | 5 |
 | h4 heading | 4 |
@@ -314,6 +319,13 @@ Any other page linking to it using the word *"static"* adds a further 5 points t
 Lots of inbound links can override scores allocated by titles and text. Menus link to many pages, so the indexer [excludes `<nav>` and `<menu>` elements by default](#document-indexing-options).
 
 ::: /aside
+
+**Example**: do not index words defined in `<meta name="keywords" content="...">`{language=html} and `<img alt="...">`{language=html}:
+
+{{ terminal }}
+```bash
+staticsearch --weightkeywords 0 --weightalt 0
+```
 
 **Example**: change the language to Spanish, crop words to 6 characters, and set the title score to 20:
 
