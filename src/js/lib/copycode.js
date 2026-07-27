@@ -1,7 +1,7 @@
 // copy functionality for code blocks
 if (navigator.clipboard) {
 
-  Array.from( document.querySelectorAll('pre[class^="language-"]') )
+  Array.from( document.querySelectorAll('pre:has([class^="language-"])') )
     .forEach(code => {
 
       // focusable code block

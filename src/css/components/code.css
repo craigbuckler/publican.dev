@@ -121,7 +121,7 @@ body, h2, h3 {
 
 }
 
-pre[class*="language-"],
+pre:has(code[class*="language-"]),
 code {
   font-family: var(--font-mono);
 	font-size: var(--fsize--1);
@@ -146,21 +146,21 @@ pre, pre > code {
 }
 
 /* code block */
-pre[class*="language-"] {
+pre:has(code[class*="language-"]) {
 	position: relative;
 	padding: 1em;
 	margin-block: 2rem;
 	overflow: auto;
 }
 
-.filename + pre[class*="language-"] {
+.filename + pre:has(code[class*="language-"]) {
 	padding-block-start: 0.5em;
 	margin-block-start: 0;
 	border-start-start-radius: 0;
 }
 
 :not(pre) > code[class*="language-"],
-pre[class*="language-"], .copycode {
+pre:has(code[class*="language-"]), .copycode {
 	background-color: var(--color-code-back);
 	border-radius: 0.4rem;
 }
