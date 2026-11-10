@@ -90,6 +90,14 @@ body, h2, h3 {
 		}
 	}
 
+	&.language-ini dfn {
+		border-color: #88b;
+
+		&::before {
+			background-image: url(../../media/icons/ini.svg);
+		}
+	}
+
 	&.language-txt dfn {
 		border-color: #777;
 

@@ -3,9 +3,9 @@ title: StaticSearch indexer
 menu: Indexer
 description: How to use and configure the StaticSearch indexer to index words in your static site.
 date: 2025-06-17
-modified: 2026-07-27
+modified: 2026-11-10
 priority: 0.8
-tags: StaticSearch, indexer
+tags: StaticSearch, indexer, robots
 ---
 
 You must run the StaticSearch indexing process whenever your site content changes. You would typically run the indexer following a build as part of your site's deployment process.
@@ -159,26 +159,74 @@ StaticSearch always attempts to parse HTML content irrespective of the file exte
 
 StaticSearch presumes the **HTML index file** used as the default for directory paths is `index.html`. You can change this to another filename (`--indexfile` | `SITE_INDEXFILE` | `.siteIndexFile`), e.g. `default.htm`.
 
-StaticSearch parses the **`robots.txt` file** in the root of the build directory, e.g. omit any file in the `/secret/` and `/personal/` directories:
+StaticSearch parses the **`robots.txt` file** in the root of the build directory using the [Google specification](https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec).
+
+**`robots.txt` example 1:** do not index pages in the `/secret/` and `/personal/` paths:
 
 {{ example `robots.txt` }}
-```txt
+```ini
+# do not index pages with paths starting
+# /secret/ and /personal/
+User-agent: *
+Disallow: /secret/
+Disallow: /personal/
+```
+
+**`robots.txt` example 2:** do not index pages in `/personal/`. StaticSearch indexes paths starting with `/secret/` because only the `User-agent: staticsearch` section applies (it is **not** merged with the `*` section):
+
+{{ example `robots.txt` }}
+```ini
+# non-staticsearch agents: ignored
 User-agent: *
 Disallow: /secret/
 
+# staticsearch agent
+# do not index /personal/
 User-agent: staticsearch
 Disallow: /personal/
 ```
 
+**`robots.txt` example 3:** do not index the root `/news/` page but permit any sub-pages such as `/news/post1/`. `$` indicates the explicit end of a path:
+
+{{ example `robots.txt` }}
+```ini
+# do not index /news/ page only
+# sub-pages of /news/ are indexed
+User-agent: *
+Disallow: /news/$
+```
+
+**`robots.txt` example 4:** do not index pages starting `/news/` except those where the path ends `2026*`. `*` is a wildcard character:
+
+{{ example `robots.txt` }}
+```ini
+# do not index /news/ pages
+# unless it's a sub-page ending /2026*/, e.g. /news/2026-01-01/
+User-agent: *
+Disallow: /news/
+Allow: /*/2026*/$
+```
+
 You can disable `robots.txt` parsing with `--ignorerobotfile` | `SITE_PARSEROBOTSFILE=false` | `.siteParseRobotsFile=false`{language=js}.
 
-StaticSearch parses **HTML `meta` tags**. A page is not indexed when it includes `noindex` in the `content` attribute of a `robots` or `staticsearch` meta tag:
+Assuming `robots.txt` permits indexing for a page, StaticSearch then parses its **HTML `meta` tags**. The page is indexed unless `content` contains `"noindex"` in the `robots` or `staticsearch` meta tags:
 
-{{ example `index.html` }}
+{{ example HTML }}
 ```html
-<meta name="robots" content="noindex">
-<!-- OR -->
+<meta name="robots" content="noindex,nofollow">
+<!-- AND/OR -->
 <meta name="staticsearch" content="noindex">
+```
+
+StaticSearch indexes a page when the more explicit `staticsearch` meta tag sets `"index"` irrespective of the `robots` meta tag:
+
+{{ example HTML }}
+```html
+<!-- not indexed by search engines -->
+<meta name="robots" content="noindex">
+
+<!-- but is indexed by staticsearch -->
+<meta name="staticsearch" content="index">
 ```
 
 You can disable meta tag parsing with `--ignorerobotmeta` | `SITE_PARSEROBOTSMETA=false` | `.siteParseRobotsMeta=false`{language=js}.

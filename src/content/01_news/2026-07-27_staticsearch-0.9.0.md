@@ -5,7 +5,6 @@ description: StaticSearch now handles alternative HTML file extensions, keywords
 author: Craig Buckler
 tags: update, tools, StaticSearch
 priority: 1.0
-pinned: 0.9
 hero: images/binoculars.avif
 heroWidth: 1200
 heroHeight: 600

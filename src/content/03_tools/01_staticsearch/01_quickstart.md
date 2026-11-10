@@ -3,9 +3,9 @@ title: StaticSearch quickstart
 menu: Quickstart
 description: How to add a search engine to your static site using StaticSearch.
 date: 2025-06-13
-modified: 2026-06-02
+modified: 2026-11-10
 priority: 0.8
-tags: StaticSearch, indexer
+tags: StaticSearch, indexer, robots
 ---
 
 To use StaticSearch, build your static site to a local directory, then:
@@ -53,13 +53,15 @@ This generates StaticSearch code and indexes in `./mysite/search/`.
 
 ### Omitting HTML pages: `robots.txt`
 
-StaticSearch removes pages from the index when they're disallowed by the `robots.txt` file in the site's root. For example, to disallow indexing on any page starting with the path `/video/` or `/docs/`:
+StaticSearch removes pages from the index when they're disallowed by the `robots.txt` file in the site's root. For example, to disallow indexing on any page starting with the path `/docs/`:
 
 {{ `robots.txt` example }}
-```txt
+```ini
+# unspecified bots block /video/
 User-agent: *
 Disallow: /video/
 
+# StaticSearch blocks /docs/
 User-agent: staticsearch
 Disallow: /docs/
 ```

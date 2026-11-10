@@ -3,7 +3,7 @@ title: Does Publican make your site fast?
 menu: false
 description: How Publican.dev implements performance and security features you can use on your website.
 author: Craig Buckler
-tags: SSG, performance, HTML, PHP, SEO
+tags: SSG, performance, HTML, PHP, SEO, robots
 priority: 1.0
 modified: 2025-02-11
 hero: images/fast.avif

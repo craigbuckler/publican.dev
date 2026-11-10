@@ -3,9 +3,9 @@ title: How StaticSearch works
 menu: How StaticSearch works
 description: An overview of how StaticSite indexes web pages and provides client-side only search engine functionality.
 date: 2025-06-13
-modified: 2026-07-27
+modified: 2026-10-11
 priority: 0.8
-tags: StaticSearch, JavaScript
+tags: StaticSearch, JavaScript, robots
 ---
 
 This page explains how StaticSite works. It's not essential to read or understand the process, but it may help you create more effective search indexes.

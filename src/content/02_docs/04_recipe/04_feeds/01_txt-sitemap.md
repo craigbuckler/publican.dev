@@ -5,7 +5,7 @@ description: How to create a txt file which outputs a list of all page links for
 date: 2025-01-23
 modified: 2025-01-23
 priority: 0.9
-tags: content, sitemap, SEO
+tags: content, sitemap, robots, SEO
 ---
 
 You can help search engines indexing your site by creating a sitemap. The simplest is a text file containing all page links:

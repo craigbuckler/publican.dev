@@ -5,7 +5,7 @@ description: How to create an XML file which outputs a list of all page links fo
 date: 2025-01-23
 modified: 2025-03-19
 priority: 0.9
-tags: content, sitemap, SEO
+tags: content, sitemap, robots, SEO
 ---
 
 You can help search engines indexing your site by creating a sitemap. An XML sitemap provides more information than a [text sitemap](--ROOT--docs/recipe/feeds/txt-sitemap/):
